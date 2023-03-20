@@ -1,8 +1,8 @@
-#LifeManager
+# LifeManager
 
-##Corso di Ingegneria del software##
+## Corso di Ingegneria del software
 
-###Luca Boschiero, Mauro Meneghello, Nicola Turniano###
+### Luca Boschiero, Mauro Meneghello, Nicola Turniano
 
 LifeManager è un applicazione per la gestione dei vari aspetti della vita di una persona.
 
@@ -11,9 +11,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 **Problemi da risolvere:** Semplificare la gestione di vari aspetti della vita di una persona, organizzando attività quotidiane, cose da fare, informazioni, denaro.
 
 
-
-
-###Obiettivi###
+### Obiettivi
 
   * **Gestione del budget personale**
     L'utente gestisce le entrate e le uscite, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri         pagamenti, e ricercando una spesa precisa.
@@ -34,7 +32,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
   * **Gestione di ricette**
     L'utente può scrivere una ricetta intera specificando ingredienti e quantità, e scrivendo il procedimento.
 
-###Attori###
+### Attori
 
   * **Utenti**
     Utenti registrati
@@ -45,7 +43,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
   * **Servizi esterni**
     Servizi di autenticazione, notifiche via mail, geolocalizzazione, mappe, calendario, traduttore di codici a barre, cloud
 
-###User stories###
+### User stories
 
  * **US1**
    Come utente, voglio potermi registrare o accedere con le mie credenziali personali oppure con Google. Inoltre, se mi dimentico la password voglio poterla recuperare facilmente.
