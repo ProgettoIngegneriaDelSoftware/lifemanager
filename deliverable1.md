@@ -80,4 +80,16 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
    * RF2: L'applicazione deve mostrare una mappa con dei segnalibri sui luoghi salvati.
    * RF3: L'applicazione deve permettere all'utente di ricercare un luogo.
    * RF4: L'applicazione deve permettere di poter salvare la propria posizione
+ * **US7**
+   Come utente, voglio poter salvare e amministrare le mie ricette.
+   * RF1: L'applicazione deve permettere di inserire, rimuovere e modificare una ricetta
+   * RF2: L'applicazione delle mostrare una lista di ricette salvate
+   * RF3: L'applicazione deve permettere all'utente di ricercare una ricetta
+   * RF4: L'applicazione deve permettere di aggiungere gli ingredienti di una ricetta alla lista della spesa
+ * **US8**
+   Come utente, voglio poter visualizzare, aggiugnere, modificare delle liste, come la lista della spesa e la todo list
+   * RF1: L'applicazione deve permettere di inserire, rimuovere, modificare una lista
+   * RF2: L'applicazione deve mostrare le liste salvate
+   * RF3: L'applicazione deve permettere all'utente di ricercare una lista
+   * RF4: L'applicazione deve permettere di aggiugnere, rimuovere le voci all'interno di una lista
 
