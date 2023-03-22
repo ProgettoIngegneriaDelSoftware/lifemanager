@@ -11,8 +11,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 **Problemi da risolvere:** Semplificare la gestione di vari aspetti della vita di una persona, organizzando attività quotidiane, cose da fare, informazioni, denaro.
 
 
-### Obiettivi
-
+### 1. Obiettivi
   * **Gestione del budget personale**
     L'utente gestisce le entrate e le uscite, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri         pagamenti, e ricercando una spesa precisa.
   * **Gestione degli eventi**
@@ -42,6 +41,41 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
     Database
   * **Servizi esterni**
     Servizi di autenticazione, notifiche via mail, geolocalizzazione, mappe, calendario, traduttore di codici a barre, cloud
+
+### User stories
+ * **US1**
+   Come utente non registrato, voglio potermi registrare inserendo: nome,cognome, username, email e password. Un altra modalità di registrazione accettata è quella tramite Google. A registrazione completa verrà inviata una mail con un messaggio di benvenuto e un link per confermare l'indirizzo email. ([RF1](#RF1), RNF1)
+   
+ * **US2**
+   Come utente registrato, voglio poter accedere inserendo le mie credenziali: username o email e password oppure tramite Google. Se dimentico la password voglio poterla recuperare facilmente tramite email. (RF2, RNF2, RNF3)
+   
+ * **US3** 
+   Come utente autenticato, voglio poter visualizzare tutte le funzionalità nella home page sotto forma di menù iniziale, e cliccando sull'icona di ogni funzionalità entrare nella scheda corrispondente. Inoltre voglio avere due pulsanti che mi permettono di entrare nella scheda impostazioni e in quella dove amministro il mio profilo. (RF3, RF4, RF5)
+ 
+ * **US4**
+   Come utente autenticato, voglio poter aggiungere o rimuovere entrate e uscite, categorizzarle, visualizzare il saldo e ricercare una o un insieme di spese. (RF6, RF7, RF8,RF9,RF10)
+   
+ * **US5**
+   Come utente autenticato, voglio poter visualizzare un calendario in cui posso aggiungere, rimuovere, modificare eventi. Voglio anche che, su richiesta, mi arrivi un avviso via mail in un tempo che posso definire. (RF11, RF12, RF13,RF14)
+   
+ * **US6**
+      Come utente autenticato, voglio poter salvare e amministrare le mie carte fedeltà e, in  negozio, mostrare il codice a barre alla cassiera. (RF15, RF16, RF17)
+      
+ * **US7**
+   Come utente autenticato, voglio poter salvare e amministrare i luoghi cui sono stato o che voglio visitare, anche con la propria posizione. (RF18, RF19, RF20, RF21)
+   
+ * **US8**
+   Come utente autenticato, voglio poter salvare e amministrare le mie ricette. (RF22, RF23, RF24, RF25)
+   
+ * **US9**
+   Come utente autenticato, voglio poter visualizzare, aggiugnere, modificare delle liste, come la lista della spesa e la todo list. (RF26, RF27, RF28, RF29)
+   
+### 2. Requisiti Funzionali
+<a name=RF1></a>
+ * **RF1**
+   L'applicazione deve permettere ad un utente non registrato di registrarsi inserendo in un form: nome, cognome, username, email, password, la quale viene richiesta due volte per evitare errori di inserimento. Una volta completata la registrazione viene inviata una email di benvenuto contenente un link per confermare l'indirizzo email.
+
+
 
 ### User stories
 
