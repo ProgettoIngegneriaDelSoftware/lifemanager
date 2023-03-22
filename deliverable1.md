@@ -44,7 +44,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 ### User stories
  * **US1**
-   Come utente non registrato, voglio potermi registrare inserendo: nome,cognome, username, email e password. Un altra modalità di registrazione accettata è quella tramite Google. A registrazione completa verrà inviata una mail con un messaggio di benvenuto e un link per confermare l'indirizzo email. ([RF1](#RF1), RNF1)
+   Come utente non registrato, voglio potermi registrare inserendo: nome,cognome, username, email e password. É inoltre accettata la registrazione tramite Google. ([RF1](#RF1), RNF1)
    
  * **US2**
    Come utente registrato, voglio poter accedere inserendo le mie credenziali: username o email e password oppure tramite Google. Se dimentico la password voglio poterla recuperare facilmente tramite email. (RF2, RNF2, RNF3)
