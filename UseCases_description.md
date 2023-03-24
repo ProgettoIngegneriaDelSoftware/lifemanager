@@ -148,27 +148,32 @@
    * **Sommario**
       Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare movimenti e aggiungere, rimuovere o modificare le categorie in cui i movimenti sono classificate.
    * **Descrizione**
-      1. L'utente autenticato aggiunge una categoria con il bottone "+" presente nel grafico delle categorie [nota1].
-      2. L'utente autenticato rimuove o modifica una categoria esistente tenendo premuta tale categoria e selezionando "Modifica" oppure "Rimuovi" [nota1].
-      3. L'utente autenticato aggiunge un nuovo movimento premendo il pulsante "+" presente nell'elenco dei movimenti, oppure presente nella categoria selezionata o nella sezione "Entrate"/"Uscite" [nota2] [nota3] [nota4].
-      4. L'utente autenticato rimuove o modifica un movimento esistente tenendo premuta tale categoria e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota3] [nota4].
+      1. L'utente autenticato aggiunge una categoria con il bottone "+" presente nel grafico delle categorie [nota1] [nota7].
+      2. L'utente autenticato rimuove o modifica una categoria esistente tenendo premuta tale categoria e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota7].
+      3. L'utente autenticato aggiunge un nuovo movimento premendo il pulsante "+" presente nell'elenco dei movimenti, oppure presente nella categoria selezionata o nella sezione "Entrate"/"Uscite" [nota3] [nota5] [nota6] [nota7].
+      4. L'utente autenticato rimuove o modifica un movimento esistente tenendo premuta tale categoria e selezionando "Modifica" oppure "Rimuovi" [nota4] [nota5] [nota6] [nota7].
    * **Note**
-      1. Nell'aggiunta o la modifica di una categoria, l'utente autenticato inserisce o modifica il nome di tale categoria.
-      2. Nell'aggiunta o la modifica di un movimento, l'utente autenticato inserisce o modifica titolo, importo, tipologia (entrata o uscita), categoria (tra le categorie presenti), eventuali note.
-      3. Se l'aggiunta o la modifica di un  movimento avvengono da una scheda relativa ad una categoria specifica, il campo categoria sarà pre-impostato secondo la tale categoria.
-      4. Se l'aggiunta o la modifica di un movimento avvengono dalla scheda "Entrate" o dalla scheda "Uscite", il campo tipologia sarà pre-impostato secondo la tale scheda.
+      1. Nell'aggiunta di una categoria, l'utente autenticato inserisce obbligatoriamente il nome di tale categoria.
+      2. Nella modifica di una categoria, l'utente autenticato modifica il nome di tale categoria.
+      3. Nell'aggiunta di un movimento, l'utente autenticato inserisce obbligatoriamente titolo, importo, tipologia (entrata o uscita), categoria (tra le categorie presenti) e opzionalmente eventuali note.
+      4. Nella modifica di un movimento, l'utente autenticato modifica uno o più campi relativi a tale movimento.
+      5. Se l'aggiunta o la modifica di un  movimento avvengono da una scheda relativa ad una categoria specifica, il campo categoria sarà pre-impostato secondo la tale categoria.
+      6. Se l'aggiunta o la modifica di un movimento avvengono dalla scheda "Entrate" o dalla scheda "Uscite", il campo tipologia sarà pre-impostato secondo la tale scheda.
+      7. I campi titolo, importo, tipologia e categoria non possono essere vuoti, se accade i bordi del campo diventano rossi.
 
 
 
 ### UseCase visualizzazione liste
    * **Sommario**
-      Questo use case descrive la visualizzazione da parte dell'utente autenticato delle proprie liste di interesse [nota1].
+      Questo use case descrive la visualizzazione da parte dell'utente autenticato delle proprie liste di interesse [nota1] e la visualizzazione degli elementi presenti in ogni lista se cliccate.
    * **Descrizione**
       1. L'utente autenticato visualizza l'elenco delle proprie liste.
-      2. L'utente autenticato può cercare una determinata lista con il pulsante "Cerca" [nota2]. 
+      2. L'utente autenticato può cercare una determinata lista con il pulsante "Cerca" [nota2].
+      3. Per ogni lista, l'utente autenticato visualizza l'elenco di elementi appartenenti a tale lista, compresi quelli a cui non è più interessato[nota3]. 
    * **Note**
       1. Le liste predefinite sono: lista della spesa, to_do_list e altro.
       2. La ricerca avviene secondo il nome della lista. 
+      3. Gli elementi a cui non è più interessato sono contrassegnati con un box e appaiono sbarrati e sbiaditi.
 
    
 
@@ -176,37 +181,45 @@
    * **Sommario**
       Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare liste, e per ogni lista può aggiungere, rimuovere o modificare gli elementi.
    * **Descrizione**
-      1. L'utente autenticato aggiunge una lista con il bottone "+" presente nella scheda Liste [nota1].
-      2. L'utente autenticato rimuove o modifica una lista esistente tenendo premuta tale lista e selezionando "Modifica" oppure "Rimuovi" [nota1].
-      3. Per ogni lista, l'utente autenticato aggiunge un elemento alla lista[nota2].
-      4. Per ogni lista, l'utente autenticato modifica o rimuove un elemento esestente nella lista e tenendo premuto tale elemento e selezionando "Modifica" oppure "Rimuovi" [nota2].
-      5. L'utente autenticato contrassegna gli elementi della lista una volta che non ne ha più bisogno; per farlo, clicca sul box in fianco all'elemento che vuole contrassegnare[nota3].
+      1. L'utente autenticato aggiunge una lista con il bottone "+" presente nella scheda Liste [nota1] [nota6].
+      2. L'utente autenticato rimuove o modifica una lista esistente tenendo premuta tale lista e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota6].
+      3. Per ogni lista, l'utente autenticato aggiunge un elemento alla lista[nota3] [nota6].
+      4. Per ogni lista, l'utente autenticato modifica o rimuove un elemento esestente nella lista e tenendo premuto tale elemento e selezionando "Modifica" oppure "Rimuovi" [nota4] [nota6].
+      5. L'utente autenticato contrassegna gli elementi della lista una volta che non ne ha più bisogno; per farlo, clicca sul box in fianco all'elemento che vuole contrassegnare[nota5].
       6. L'utente svuota la lista quando non è più interessato agli elementi in tale lista.
    * **Note**
-      1. Nell'aggiunta o la modifica di una lista, l'utente autenticato inserisce o modifica il nome di tale lista.
-      2. Nell'aggiunta o la modifica di un elemento di ogni lista, l'utente autenticato inserisce o modifica il nome di tale elemento.
-      3. Gli elementi contrassegnati verranno barrati e sbiaditi nell'elenco degli elementi.
+      1. Nell'aggiunta di una lista, l'utente autenticato inserisce obbligatoriamente il nome di tale lista.
+      2. Nella modifica di una lista, l'utente autenticato modifica il nome di tale lista.
+      3. Nell'aggiunta di un elemento di una lista, l'utente autenticato inserisce obbligatoriamente il nome di tale elemento.
+      4. Nella modifica di un elemento di una lista, l'utente autenticato modifica il nome di tale elemento.
+      5. Gli elementi contrassegnati verranno barrati e sbiaditi nell'elenco degli elementi.
+      6. I campi Nome di liste o elementi non possono essere vuoti, se accade i bordi del campo diventano rossi.
 
 
 
 ### UseCase visualizzazione eventi/calendario
    * **Sommario**
-      Questo use case descrive la visualizzazione da parte dell'utente autenticato dei propri eventi o impegni in un calendario [nota1].
+      Questo use case descrive la visualizzazione da parte dell'utente autenticato dei propri eventi o impegni in un calendario [nota1] e la visualizzazione dei dettagli di ogni evento se cliccato.
    * **Descrizione**
       1. L'utente autenticato visualizza il calendario con segnalati i propri eventi.
+      2. Per ogni evento, l'utente autenticato visualizza i dettagli relativi a tale evento [nota2]. 
    * **Note**
       1. Calendario fornito da ...
+      2. I dettagli comprendono titolo, note, giorno, orari di inizio e fine (o tutto il giono) in cui accade.
 
 
 ### UseCase gestione eventi
    * **Sommario**
       Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare eventi nel calendario. 
    * **Descrizione**
-      1. L'utente autenticato aggiunge un nuovo evento cliccando su un giorno del calendario[nota1] oppure con il bottone "Aggiungi evento" [nota2].
-      2. L'utente autenticato modifica o rimuove un evento esistente dal calendario tenendo premuto tale elemento e selezionando "Modifica" oppure "Rimuovi" [nota2].
+      1. L'utente autenticato aggiunge un nuovo evento cliccando su un giorno del calendario[nota1] oppure con il bottone "Aggiungi evento" [nota2] [nota4].
+      2. L'utente autenticato modifica o rimuove un evento esistente dal calendario tenendo premuto tale elemento e selezionando "Modifica" oppure "Rimuovi" [nota3] [nota4].
    * **Note**
       1. La data del giorno selezionato sarà pre-impostata nella scheda di aggiunta di un evento. 
-      2. Nell'aggiunta o la modifica di un evento, l'utente autenticato inserisce o modifica titolo, eventuali note, la data, giorno e ora di inizio e fine (o se tutto il giorno contrassegna il box "Tutto il giorno").
+      2. Nell'aggiunta di un evento, l'utente autenticato inserisce obbligatoriamente titolo, la data, giorno e ora di inizio e fine (o se tutto il giorno contrassegna il box "Tutto il giorno") e opzionalmente inserisce delle note relative a quell'evento.
+      3. Nella modifica di un evento, l'utente autenticato modifica uno o più campi relativi all'evento.
+      4. I campi relativi a titolo data e ora di inizio e fine (o tutto il giorno) non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
+
 
 
 ### UseCase notifica evento
@@ -218,43 +231,94 @@
       1. Se contrassegnato il box, l'utente autenticato potrà anche scegliere quanto prima vuole ricevere la notifica.
 
 
-### UseCase login/registrazione utente
+
+### UseCase visualizzazione ricette
    * **Sommario**
+      Questo use case descrive la visualizzazione da parte dell'utente autenticato della propria lista di ricette e la visualizzazione dettagliata di una singola ricetta se cliccata.
    * **Descrizione**
+      1. L'utente autenticato visualizza un elenco con le proprie ricette.
+      2. L'utente autenticato può cercare una determinata ricetta con il pulsante "Cerca" [nota1].
+      3. Per ogni ricetta, l'utente autenticato visualizza i dettagli di tale ricetta [nota2].
    * **Note**
+      1. La ricerca avviene secondo il titolo della ricetta.
+      2. I dettagli della ricetta comprendono titolo, ingredienti, procendimento. 
 
 
-### UseCase login/registrazione utente
+
+### UseCase gestione ricette
    * **Sommario**
+      Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare le proprie ricette.
    * **Descrizione**
+      1. L'utente autenticato aggiunge una ricetta con il bottone "+" presente nella scheda Ricette [nota1] [nota3].
+      2. L'utente autenticato rimuove o modifica una ricetta esistente tenendo premuta tale ricetta nella lista e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota3].
    * **Note**
+      1. Nell'aggiunta di una nuova ricetta, l'utente autenticato inserisce obbigatoriamente un titolo e uno o più ingredienti e opzionalmente la descrizione del procedimento.
+      2. Nella modifica di una ricetta, l'utente autenticato modifica uno o più campi riguardanti la ricetta.
+      3. I campi relativi a titolo e ingredienti non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
 
 
-### UseCase login/registrazione utente
+
+### UseCase visualizzazione mappa/luoghi
    * **Sommario**
+      Questo use case descrive la visualizzazione da parte dell'utente autenticato della mappa contenente dei riferimenti a luoghi di interesse e la lista di questi luoghi.
    * **Descrizione**
+      1. L'utente autenticato visualizza la mappa con segnalati i propri luoghi di interesse[nota1].
+      2. L'utente autenticato visualizza l'elenco dei propri luoghi di interesse[nota2].
+      3. L'utente autenticato può cercare un determinato luogo di interesse con il pulsante "Cerca" [nota3].
    * **Note**
+      1. La mappa è fornita da ...
+      2. L'elenco è ordinato cronologicamente in base a quando è stato inserito il luogo di interesse.
+      3. La ricerca avviene secondo il nome associato al luogo di interesse.
 
 
-### UseCase login/registrazione utente
+
+### UseCase gestione luoghi di interesse
    * **Sommario**
+      Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare i propri luoghi di interesse.
    * **Descrizione**
+      1. L'utente autenticato aggiunge un nuovo luogo di interesse con il bottone "+" presente nella scheda Ricette [nota1] [nota4] [nota5].
+      2. Opzionalmente, l'utente autenticato aggiunge un nuovo luogo di interesse cliccandolo direttamente sulla mappa [nota2].
+      3. L'utente autenticato rimuove o modifica un luogo di interesse esistente tenendo premuto tale luogo nell'elenco e selezionando "Modifica" oppure "Rimuovi" [nota3] [nota4] [nota5].
    * **Note**
+      1. Nell'aggiunta di un nuovo luogo di interesse, l'utente autenticato inserisce obbigatoriamente un nome e un indirizzo e opzionalmente la città e la categoria relativa al luogo.
+      2. I campi relativi al luogo selezionato verranno, se possibile, auto-compilati.
+      3. Nella modifica di un luogo di interesse, l'utente autenticato modifica uno o più campi riguardanti tale luogo.
+      4. I campi relativi a nome e indirizzo non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
+      5. Nel caso in cui l'indirizzo inserito non sia corretto o valido, il bordo del campo si colora di rosso.
 
 
-### UseCase login/registrazione utente
+
+### UseCase visualizzazione posizione
    * **Sommario**
+      Questo use case descrive la visualizzazione da parte dell'utente autenticato della propria posizione nella mappa.
    * **Descrizione**
+      1. L'utente autenticato visualizza la propia posizione sulla mappa tramite segnalibro[nota1] [nota2].
    * **Note**
+      1. La posizione è fornita dal GPS del dispositivo.
+      2. La mappa è fornita da ...
 
 
-### UseCase login/registrazione utente
+### UseCase visualizzazione carte fedeltà
    * **Sommario**
+      Questo use case descrive la visualizzazione da parte dell'utente autenticato della lista delle proprie carte fedeltà e dei dettagli di ogni carta.
    * **Descrizione**
+      1. L'utente autenticato visualizza una lista delle proprie carte fedeltà[nota1].
+      2. Per ogni carta fedeltà, l'utente autenticato visualizza il nome o l'organizzazione a cui la carta è associata e il codice a barre associato alla carta[nota2].
+      3. L'utente autenticato può cercare una determinata carta fedeltà con il pulsante "Cerca" [nota3].
    * **Note**
+      1. La lista è ordinata cronologicamente in base alla data di inserimento.
+      2. Il codice a barre è generato automaticamente in base al numero della carta.
+      3. La ricerca avviene secondo il nome associato alla carta.
 
 
-### UseCase login/registrazione utente
+### UseCase gestione carte fedeltà
    * **Sommario**
+       Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare le proprie carte fedeltà.
    * **Descrizione**
+      1. L'utente autenticato aggiunge una nuova carta fedeltà con il bottone "+" presente nella scheda Carte Fedeltà [nota1] [nota3] [nota4].
+      2. L'utente autenticato rimuove o modifica una carta fedeltà esistente tenendo premuto tale carta nell'elenco e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota3] [nota4].
    * **Note**
+      1. Nell'aggiunta di un nuova carta fedeltà, l'utente autenticato inserisce obbigatoriamente nome e numero della carta.
+      2. Nella modifica di una carta fedeltà, l'utente autenticato modifica uno o più campi riguardanti tale carta.
+      3. I campi relativi a nome e numero carta non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
+      4. Nel caso in cui il numero della carta inserito non sia corretto o valido, il bordo del campo si colora di rosso.
