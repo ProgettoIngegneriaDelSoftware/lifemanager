@@ -44,31 +44,31 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 ### User stories
  * **US1**
-   Come utente non registrato, voglio potermi registrare inserendo: nome,cognome, username, email e password, in modo da poter accedere all'applicazione. É inoltre accettata la registrazione tramite Google. ([RF1](#RF1), [RNF1](#RNF1))
+   Come utente non registrato (anonimo), voglio potermi registrare al sistema inserendo: nome, cognome, username, email e password, in modo da poter accedere all'applicazione. É inoltre accettata la registrazione tramite Google. ([RF1](#RF1), [RNF1](#RNF1))
    
  * **US2**
-   Come utente registrato, voglio poter accedere inserendo le mie credenziali: username o email e password oppure tramite Google, in modo da poter utilizzare le funzionalità dell'applicazione. Se dimentico la password voglio poterla recuperare facilmente tramite email. ([RF2](#RF2),[RNF1](#RNF1), [RNF2](#RNF2), [RNF3](#RNF3))
+   Come utente registrato, voglio poter accedere inserendo le mie credenziali: username o email e password oppure tramite Google, in modo da poter utilizzare le funzionalità dell'applicazione. Se dimentico la password voglio poterla recuperare facilmente ricevendo una mail e resettando la password. ([RF2](#RF2),[RNF1](#RNF1), [RNF2](#RNF2), [RNF3](#RNF3))
    
  * **US3** 
-   Come utente autenticato, voglio poter visualizzare tutte le funzionalità nella home page sotto forma di menù iniziale, e cliccando sull'icona di ogni funzionalità entrare nella scheda corrispondente, in modo da poter accedere alle funzionalità in modo semplice ed intuitivo. Inoltre voglio avere due pulsanti che mi permettono di entrare nella scheda impostazioni e in quella dove amministro il mio profilo. ([RF3](#RF3), [RF4](#RF4), [RNF3](#RF3), [RNF4](#RNF4))
+   Come utente autenticato, voglio poter visualizzare tutte le funzionalità nella home page sotto forma di menù iniziale, e cliccando sull'icona di ogni funzionalità accedere alla scheda corrispondente, in modo da poter accedere alle task in modo semplice ed intuitivo. Inoltre dalla home page voglio avere due icone che mi permettono di entrare nella scheda impostazioni e in quella dove amministro il mio profilo. ([RF3](#RF3), [RF4](#RF4), [RNF3](#RF3), [RNF4](#RNF4))
  
  * **US4**
-   Come utente autenticato, voglio poter aggiungere o rimuovere entrate e uscite, categorizzarle, visualizzare il saldo e ricercare una o un insieme di spese, in modo da tenere sotto controllo tutte le mie entrate e uscite e visualizzare il saldo. ([RF3](#RF6), [RF5](#RF5), [RF6](#RF6),[RF7](#RF7),[RF8](#RF8))
+   Come utente autenticato, voglio poter aggiungere o rimuovere le mie entrate e le uscite, visualizzare il saldo totale e ricercare una o un insieme di spese, in modo da tenere sotto controllo tutti i miei movimenti e visualizzare il saldo aggiornato. Inoltre voglio poter accedere in modo veloce all'insieme delle bollette e delle spese attraverso un bottone. Infine voglio poter creare delle categorie e assegnare a ciascun movimento una categoria specifica. ([RF3](#RF6), [RF5](#RF5), [RF6](#RF6),[RF7](#RF7),[RF8](#RF8))
    
  * **US5**
-   Come utente autenticato, voglio poter visualizzare un calendario in cui posso aggiungere, rimuovere, modificare eventi. Voglio anche che, su richiesta, mi arrivi un avviso via mail in un tempo che posso definire. ([RF9](#RF9), [RF10](#RF10), [RF11](#RF11),[RF12](#RF12))
+   Come utente autenticato, voglio poter visualizzare un calendario in cui posso aggiungere, rimuovere, modificare eventi. Voglio anche che, su richiesta, mi arrivi un avviso via mail in un tempo che posso definire. L'evento può avere un'inizio e una fine precisa o può essere giornaliero. Per ogni evento, inoltre, voglio poter aggiungere delle note. ([RF9](#RF9), [RF10](#RF10), [RF11](#RF11),[RF12](#RF12))
    
  * **US6**
-   Come utente autenticato, voglio poter salvare e amministrare le mie carte fedeltà e, in  negozio, mostrare il codice a barre alla cassiera. ([RF13](#RF13), [RF14](#RF14), [RF15](#RF15))
+   Come utente autenticato, voglio poter salvare e amministrare le mie carte fedeltà e, in negozio, mostrare il codice a barre alla cassiera cliccando sul nome della tessera. ([RF13](#RF13), [RF14](#RF14), [RF15](#RF15))
       
  * **US7**
-   Come utente autenticato, voglio poter salvare e amministrare i luoghi cui sono stato o che voglio visitare, anche con la propria posizione. ([RF16](#RF16), [RF17](#RF17), [RF18](#RF18), [RF19](#RF19))
+   Come utente autenticato, voglio poter salvare e gestire i luoghi cui sono stato o che voglio visitare, anche con la propria posizione. Voglio poter categorizzare tutti i luoghi in modo da, ad esempio, capire quali ho già visitiato e quali no. ([RF16](#RF16), [RF17](#RF17), [RF18](#RF18), [RF19](#RF19))
    
  * **US8**
-   Come utente autenticato, voglio poter salvare e amministrare le mie ricette. ([RF20](#RF20), [RF21](#RF21), [RF22](#RF22), [RF23](#RF23))
+   Come utente autenticato, voglio poter salvare e amministrare le mie ricette, inserendo i vari ingredienti e le rispettive quantità e descrivendo i passaggi. Voglio inoltre aggiungere tutti gli ingredienti di una specifica ricetta alla lista della spesa attraverso un bottone, senza dover trascriverli. ([RF20](#RF20), [RF21](#RF21), [RF22](#RF22), [RF23](#RF23))
    
  * **US9**
-   Come utente autenticato, voglio poter visualizzare, aggiugnere, modificare delle liste, come la lista della spesa e la todo list. ([RF24](#RF24), [RF25](#RF25), [RF26](#RF26), [RF27](#RF27))
+   Come utente autenticato, voglio poter visualizzare, aggiugnere, modificare delle liste, come la lista della spesa e la to-do list. In ogni lista, voglio poter segnare (validare) attraverso una checkbox ogni elemento. ([RF24](#RF24), [RF25](#RF25), [RF26](#RF26), [RF27](#RF27))
    
 ### 2. Requisiti Funzionali
 <a name=RF1></a>
