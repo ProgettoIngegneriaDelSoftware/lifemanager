@@ -215,4 +215,4 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
   <a name=RNF8></a>
   * **RNF8**
-    *Un utente deve essere in grado di registrarsi e di imparare ad usare le diverse funzionalità in modo autonomo.
+    Un utente deve essere in grado di registrarsi e di imparare ad usare le diverse funzionalità in modo autonomo.
