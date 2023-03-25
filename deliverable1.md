@@ -13,23 +13,21 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 ### 1. Obiettivi
   * **Gestione del budget personale**
-    L'utente gestisce le entrate e le uscite, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri         pagamenti, e ricercando una spesa precisa.
+    L'utente gestisce le entrate e le uscite, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri pagamenti, ricercando una spesa precisa in modo da monitorare i propri movimenti.
   * **Gestione degli eventi**
-    L'utente può aggiungere o rimuovere eventi, inserendo orario, luogo, note. É possibile inoltre impostare e ricevere degli avvisi in prossimità dei propri           appuntamenti.
+    L'utente visualizza un calendario in cui può aggiungere o rimuovere eventi, inserendo orario, luogo, note e categoria. É possibile inoltre impostare e quindi ricevere degli avvisi in prossimità dei propri appuntamenti.
   * **Gestione di liste**
     L'utente può creare varie liste a formate da voci che è possibile confermare attraverso delle caselle (to-do list).
   * **Lista della spesa**
-    L'utente ha la possibilità di organizzare la propria lista della spesa, aggiungendo voci, quantità e note e confermandole quando sono state comprate. 
+    L'utente ha la possibilità di organizzare la propria lista della spesa, aggiungendo voci, quantità e note e rimuovendole quando sono state comprate. 
   * **Promemoria**
     L'utente può inserire delle voci come promemoria, eventualmente selezionando una data e un'ora per ricevere un avviso.
-  * **Gestione di file personali**
-    L'utente può caricare file sul cloud e organizzarli secondo cartelle o tag.
   * **Mappa**
-    L'utente può cercare dei luoghi particolari visualizzandone le informazioni. L'utente, inoltre, può salvare i propri luoghi preferiti o visitati e cercare tra di essi.
+    L'utente può cercare dei luoghi particolari visualizzandone le informazioni attraverso una mappa. L'utente, inoltre, può salvare i propri luoghi preferiti, visitati o da visitare, aggiungendo anche note e categorie, e cercare tra di essi.
   * **Gestione delle carte fedeltà**
-    L'utente può inserire le carte fedeltà dei propri negozi preferiti. Verrà quindi visualizzato un codice a barre scannerizzabile.
+    L'utente può inserire le carte fedeltà dei negozi frequentati. Inoltre si rende possibile visualizzare un codice a barre scannerizzabile.
   * **Gestione di ricette**
-    L'utente può scrivere una ricetta intera specificando ingredienti e quantità, e scrivendo il procedimento.
+    L'utente può scrivere una ricetta intera specificando gli ingredienti e le rispettive quantità, scrivere il procedimento, e aggiungendo facilmente tutti gli ingredienti di una ricetta specifica alla propria lista della spesa.
 
 ### Attori
 
