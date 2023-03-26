@@ -4,10 +4,9 @@
    * **Sommario**
         Questo use case descrive come l'utente non autenticato effettua la registrazione nel sistema tramite form.
    * **Descrizione**
-       1. L'utente anonimo, se non registrato, inserisce nome [nota1], cognome[nota1], username, email[nota2], password[nota3], conferma password[nota3] e preme sul pulsante "Registrati"[nota4] [nota5].
+       1. L'utente non autenticato inserisce nome [nota1], cognome[nota1], username, email[nota2], password[nota3], conferma password[nota3] e preme sul pulsante "Registrati"[nota4] [nota5].
        2. Il sistema, tramite Gmail, manda una mail di verifica all'indirizzo specificato, premendo nel link presente nella mail viene effettuata la verifica dell'indirizzo email e visualizzato un messaggio di benvenuto.
        3. A registrazione effettuata, si può effettuare il login. 
-       4. A login completato, viene visualizzata la HomePage dell'applicazione.
    * **Note**
        1. Nome e/o cognome non valido (non soddisfano la regex "[a-zA-Z0-9]"), il bordo del campo diventa rosso.
        2. Email non valida (non soddisfa la regex ".+@.+\..+"), il bordo del campo diventa rosso.
@@ -21,7 +20,8 @@
    * **Sommario**
         Questo use case descrive come l'utente non autenticato effettua il login nel sistema tramite form.
    * **Descrizione**
-       1. L'utente anonimo, se registrato, inserisce username o email e la sua password e conferma premendo su "Accedi", oppure sceglie l'opzione "Accedi con Google" per accedere tramite il proprio accout Google[nota1] [nota2].
+       1. L'utente non autenticato, se registrato, inserisce username o email e la sua password e conferma premendo su "Accedi", oppure sceglie l'opzione "Accedi con Google" per accedere tramite il proprio accout Google[nota1] [nota2].
+       2. A login completato, viene visualizzata la HomePage dell'applicazione.
    * **Note**
        1. Ci sono campi non compilati, il bordo di tali campi diventa rosso.
        2. Dati inseriti non corretti, appare la scritta "Utente non presente nel sistema o password inserita errata".
@@ -38,13 +38,14 @@
 
 ### UseCase recupero password
    * **Sommario**
-        Questo use case descrive come avviene il recupero della password nel caso in cui l'utente se la sia dimenticata o voglia modificarla.
+        Questo use case descrive come avviene il recupero della password nel caso in cui l'utente autenticato se la sia dimenticata o voglia modificarla.
    * **Descrizione**
-       1. L'utente clicca sul pulsante "Recupera password".
-       2. L'utente inserisce la sua email[nota1] e preme su "Invia email di recupero".
-       3. L'email inviata tramite Gmail permetterà all'utente di impostare una nuova password.
+       1. L'utente autenticato clicca sul pulsante "Recupera password".
+       2. L'utente autenticato inserisce la sua email[nota1] [nota2] e preme su "Invia email di recupero".
+       3. L'email inviata tramite Gmail permetterà all'utente autenticato di impostare una nuova password.
    * **Note**
-       1. Email inserita non corretta o non associata a nessun accout, appare il messaggio "Email inserita non valida".
+       1. Campo Email non compilato, il bordo del campo diventa rosso. 
+       2. Email inserita non corretta o non associata a nessun accout, appare il messaggio "Email inserita non valida".
 
 
 
@@ -52,7 +53,7 @@
    * **Sommario**
         Questo use case descrive la visualizzazione della home page da parte di un utente autenticato.
    * **Descrizione**
-       1. L'utente visualizza la lista delle schede che corrispondono alle varie funzionalità.
+       1. L'utente autenticato visualizza la lista delle schede che corrispondono alle varie funzionalità.
        2. L'utente può cliccare su ognuna delle schede presenti nella home page.
     
 
@@ -63,7 +64,7 @@
    * **Descrizione**
        1. L'utente autenticato visualizza le informazioni relative al proprio profilo, come username, email, foto profilo.[nota1]
    * **Note**
-       1. L'utente non è tenuto a specificare una foto profilo, può lasciare l'icona generica.
+       1. L'utente non è tenuto a specificare una foto profilo, può lasciare l'icona generica (vuota).
 
 
 
@@ -71,9 +72,9 @@
    * **Sommario**
       Questo use case descrive come l'utente possa andare a modificare le informazioni associate al proprio profilo.
    * **Descrizione**
-      1. L'utente modifica la foto profilo premendo sull'icona della matita e scegliendo un'immagine a suo piacimento.
-      2. L'utente modifica nome e cognome premendo sull'icona della matita.
-      3. L'utente preme il pulsante "Modifica profilo" se ha necessità di cambiare username, email [nota1], password [nota2] [nota3] [nota4].
+      1. L'utente autenticato modifica la foto profilo premendo sull'icona della matita e scegliendo un'immagine a suo piacimento.
+      2. L'utente autenticato modifica nome e cognome premendo sull'icona della matita[nota3].
+      3. L'utente autenticato preme il pulsante "Modifica profilo" se ha necessità di cambiare username, email [nota1], password [nota2] [nota3] [nota4].
    * **Note**
       1. Email non valida (non soddisfa la regex ".+@.+\..+"), il bordo del campo diventa rosso.
       2. Password non valida oppure le due password non sono uguali, il bordo del campo diventa rosso.
@@ -148,7 +149,7 @@
    * **Sommario**
       Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare movimenti e aggiungere, rimuovere o modificare le categorie in cui i movimenti sono classificate.
    * **Descrizione**
-      1. L'utente autenticato aggiunge una categoria con il bottone "+" presente nel grafico delle categorie [nota1] [nota7].
+      1. L'utente autenticato aggiunge una categoria con il bottone "+" presente nel grafico delle categorie [nota1] [nota8].
       2. L'utente autenticato rimuove o modifica una categoria esistente tenendo premuta tale categoria e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota7].
       3. L'utente autenticato aggiunge un nuovo movimento premendo il pulsante "+" presente nell'elenco dei movimenti, oppure presente nella categoria selezionata o nella sezione "Entrate"/"Uscite" [nota3] [nota5] [nota6] [nota7].
       4. L'utente autenticato rimuove o modifica un movimento esistente tenendo premuta tale categoria e selezionando "Modifica" oppure "Rimuovi" [nota4] [nota5] [nota6] [nota7].
@@ -160,6 +161,7 @@
       5. Se l'aggiunta o la modifica di un  movimento avvengono da una scheda relativa ad una categoria specifica, il campo categoria sarà pre-impostato secondo la tale categoria.
       6. Se l'aggiunta o la modifica di un movimento avvengono dalla scheda "Entrate" o dalla scheda "Uscite", il campo tipologia sarà pre-impostato secondo la tale scheda.
       7. I campi titolo, importo, tipologia e categoria non possono essere vuoti, se accade i bordi del campo diventano rossi.
+      8. Il campo nome non può essere vuoto, se accade i bordi del campo diventano rossi.
 
 
 
@@ -183,7 +185,7 @@
    * **Descrizione**
       1. L'utente autenticato aggiunge una lista con il bottone "+" presente nella scheda Liste [nota1] [nota6].
       2. L'utente autenticato rimuove o modifica una lista esistente tenendo premuta tale lista e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota6].
-      3. Per ogni lista, l'utente autenticato aggiunge un elemento alla lista[nota3] [nota6].
+      3. Per ogni lista, l'utente autenticato aggiunge uno o più elementi alla lista[nota3] [nota6].
       4. Per ogni lista, l'utente autenticato modifica o rimuove un elemento esestente nella lista e tenendo premuto tale elemento e selezionando "Modifica" oppure "Rimuovi" [nota4] [nota6].
       5. L'utente autenticato contrassegna gli elementi della lista una volta che non ne ha più bisogno; per farlo, clicca sul box in fianco all'elemento che vuole contrassegnare[nota5].
       6. L'utente svuota la lista quando non è più interessato agli elementi in tale lista.
@@ -193,7 +195,7 @@
       3. Nell'aggiunta di un elemento di una lista, l'utente autenticato inserisce obbligatoriamente il nome di tale elemento.
       4. Nella modifica di un elemento di una lista, l'utente autenticato modifica il nome di tale elemento.
       5. Gli elementi contrassegnati verranno barrati e sbiaditi nell'elenco degli elementi.
-      6. I campi Nome di liste o elementi non possono essere vuoti, se accade i bordi del campo diventano rossi.
+      6. I campi nome di liste o elementi non possono essere vuoti, se accade i bordi del campo diventano rossi.
 
 
 
@@ -251,6 +253,8 @@
    * **Descrizione**
       1. L'utente autenticato aggiunge una ricetta con il bottone "+" presente nella scheda Ricette [nota1] [nota3].
       2. L'utente autenticato rimuove o modifica una ricetta esistente tenendo premuta tale ricetta nella lista e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota3].
+      3. L'utente autenticato può aggiungere tutti gli ingredienti di una ricetta alla lista della spesa con il pulsante "Aggiungi a lista della spesa".
+      5. Per ogni ricetta, l'utente autenticato può aggiungere gli ingredienti che desidera alla lista della spesa tenendo premuta tali ingredienti e selezionando "Aggiungi a lista della spesa".
    * **Note**
       1. Nell'aggiunta di una nuova ricetta, l'utente autenticato inserisce obbigatoriamente un titolo e uno o più ingredienti e opzionalmente la descrizione del procedimento.
       2. Nella modifica di una ricetta, l'utente autenticato modifica uno o più campi riguardanti la ricetta.
@@ -280,7 +284,7 @@
       2. Opzionalmente, l'utente autenticato aggiunge un nuovo luogo di interesse cliccandolo direttamente sulla mappa [nota2].
       3. L'utente autenticato rimuove o modifica un luogo di interesse esistente tenendo premuto tale luogo nell'elenco e selezionando "Modifica" oppure "Rimuovi" [nota3] [nota4] [nota5].
    * **Note**
-      1. Nell'aggiunta di un nuovo luogo di interesse, l'utente autenticato inserisce obbigatoriamente un nome e un indirizzo e opzionalmente la città e la categoria relativa al luogo.
+      1. Nell'aggiunta di un nuovo luogo di interesse, l'utente autenticato inserisce obbigatoriamente un nome, un indirizzo e la città, e opzionalmente la categoria relativa al luogo.
       2. I campi relativi al luogo selezionato verranno, se possibile, auto-compilati.
       3. Nella modifica di un luogo di interesse, l'utente autenticato modifica uno o più campi riguardanti tale luogo.
       4. I campi relativi a nome e indirizzo non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
