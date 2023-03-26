@@ -13,23 +13,21 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 ### 1. Obiettivi
   * **Gestione del budget personale**
-    L'utente gestisce le entrate e le uscite, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri         pagamenti, e ricercando una spesa precisa.
+    L'utente gestisce le entrate e le uscite, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri pagamenti, ricercando una spesa precisa in modo da monitorare i propri movimenti.
   * **Gestione degli eventi**
-    L'utente può aggiungere o rimuovere eventi, inserendo orario, luogo, note. É possibile inoltre impostare e ricevere degli avvisi in prossimità dei propri           appuntamenti.
+    L'utente visualizza un calendario in cui può aggiungere o rimuovere eventi, inserendo orario, luogo, note e categoria. É possibile inoltre impostare e quindi ricevere degli avvisi in prossimità dei propri appuntamenti.
   * **Gestione di liste**
     L'utente può creare varie liste a formate da voci che è possibile confermare attraverso delle caselle (to-do list).
   * **Lista della spesa**
-    L'utente ha la possibilità di organizzare la propria lista della spesa, aggiungendo voci, quantità e note e confermandole quando sono state comprate. 
+    L'utente ha la possibilità di organizzare la propria lista della spesa, aggiungendo voci, quantità e note e rimuovendole quando sono state comprate. 
   * **Promemoria**
     L'utente può inserire delle voci come promemoria, eventualmente selezionando una data e un'ora per ricevere un avviso.
-  * **Gestione di file personali**
-    L'utente può caricare file sul cloud e organizzarli secondo cartelle o tag.
   * **Mappa**
-    L'utente può cercare dei luoghi particolari visualizzandone le informazioni. L'utente, inoltre, può salvare i propri luoghi preferiti o visitati e cercare tra di essi.
+    L'utente può cercare dei luoghi particolari visualizzandone le informazioni attraverso una mappa. L'utente, inoltre, può salvare i propri luoghi preferiti, visitati o da visitare, aggiungendo anche note e categorie, e cercare tra di essi.
   * **Gestione delle carte fedeltà**
-    L'utente può inserire le carte fedeltà dei propri negozi preferiti. Verrà quindi visualizzato un codice a barre scannerizzabile.
+    L'utente può inserire le carte fedeltà dei negozi frequentati. Inoltre si rende possibile visualizzare un codice a barre scannerizzabile.
   * **Gestione di ricette**
-    L'utente può scrivere una ricetta intera specificando ingredienti e quantità, e scrivendo il procedimento.
+    L'utente può scrivere una ricetta intera specificando gli ingredienti e le rispettive quantità, scrivere il procedimento, e aggiungendo facilmente tutti gli ingredienti di una ricetta specifica alla propria lista della spesa.
 
 ### Attori
 
@@ -44,31 +42,31 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 ### User stories
  * **US1**
-   Come utente non registrato, voglio potermi registrare inserendo: nome,cognome, username, email e password, in modo da poter accedere all'applicazione. É inoltre accettata la registrazione tramite Google. ([RF1](#RF1), [RNF1](#RNF1))
+   Come utente non registrato (anonimo), voglio potermi registrare al sistema inserendo: nome, cognome, username, email e password, in modo da poter accedere all'applicazione. É inoltre accettata la registrazione tramite Google. ([RF1](#RF1), [RNF1](#RNF1))
    
  * **US2**
-   Come utente registrato, voglio poter accedere inserendo le mie credenziali: username o email e password oppure tramite Google, in modo da poter utilizzare le funzionalità dell'applicazione. Se dimentico la password voglio poterla recuperare facilmente tramite email. ([RF2](#RF2),[RNF1](#RNF1), [RNF2](#RNF2), [RNF3](#RNF3))
+   Come utente registrato, voglio poter accedere inserendo le mie credenziali: username o email e password oppure tramite Google, in modo da poter utilizzare le funzionalità dell'applicazione. Se dimentico la password voglio poterla recuperare facilmente ricevendo una mail e resettando la password. ([RF2](#RF2),[RNF1](#RNF1), [RNF2](#RNF2), [RNF3](#RNF3))
    
  * **US3** 
-   Come utente autenticato, voglio poter visualizzare tutte le funzionalità nella home page sotto forma di menù iniziale, e cliccando sull'icona di ogni funzionalità entrare nella scheda corrispondente, in modo da poter accedere alle funzionalità in modo semplice ed intuitivo. Inoltre voglio avere due pulsanti che mi permettono di entrare nella scheda impostazioni e in quella dove amministro il mio profilo. ([RF3](#RF3), [RF4](#RF4), [RNF3](#RF3), [RNF4](#RNF4))
+   Come utente autenticato, voglio poter visualizzare tutte le funzionalità nella home page sotto forma di menù iniziale, e cliccando sull'icona di ogni funzionalità accedere alla scheda corrispondente, in modo da poter accedere alle task in modo semplice ed intuitivo. Inoltre dalla home page voglio avere due icone che mi permettono di entrare nella scheda impostazioni e in quella dove amministro il mio profilo. ([RF3](#RF3), [RF4](#RF4), [RNF3](#RF3), [RNF4](#RNF4))
  
  * **US4**
-   Come utente autenticato, voglio poter aggiungere o rimuovere entrate e uscite, categorizzarle, visualizzare il saldo e ricercare una o un insieme di spese, in modo da tenere sotto controllo tutte le mie entrate e uscite e visualizzare il saldo. ([RF3](#RF6), [RF5](#RF5), [RF6](#RF6),[RF7](#RF7),[RF8](#RF8))
+   Come utente autenticato, voglio poter aggiungere o rimuovere le mie entrate e le uscite, visualizzare il saldo totale e ricercare una o un insieme di spese, in modo da tenere sotto controllo tutti i miei movimenti e visualizzare il saldo aggiornato. Inoltre voglio poter accedere in modo veloce all'insieme delle bollette e delle spese attraverso un bottone. Infine voglio poter creare delle categorie e assegnare a ciascun movimento una categoria specifica. ([RF3](#RF6), [RF5](#RF5), [RF6](#RF6),[RF7](#RF7),[RF8](#RF8))
    
  * **US5**
-   Come utente autenticato, voglio poter visualizzare un calendario in cui posso aggiungere, rimuovere, modificare eventi, in modo da poter controllare i miei eventi. Voglio anche che, su richiesta, mi arrivi un avviso via mail in un tempo che posso definire. ([RF9](#RF9), [RF10](#RF10), [RF11](#RF11),[RF12](#RF12))
+  Come utente autenticato, voglio poter visualizzare un calendario in cui posso aggiungere, rimuovere, modificare eventi. Voglio anche che, su richiesta, mi arrivi un avviso via mail in un tempo che posso definire. L'evento può avere un'inizio e una fine precisa o può essere giornaliero. Per ogni evento, inoltre, voglio poter aggiungere delle note. ([RF9](#RF9), [RF10](#RF10), [RF11](#RF11),[RF12](#RF12))
    
  * **US6**
-   Come utente autenticato, voglio poter salvare e amministrare le mie carte fedeltà e, in  negozio, mostrare il codice a barre alla cassiera. ([RF13](#RF13), [RF14](#RF14), [RF15](#RF15))
+   Come utente autenticato, voglio poter salvare e amministrare le mie carte fedeltà e, in negozio, mostrare il codice a barre alla cassiera cliccando sul nome della tessera. ([RF13](#RF13), [RF14](#RF14), [RF15](#RF15))
       
  * **US7**
-   Come utente autenticato, voglio poter salvare e amministrare i luoghi cui sono stato o che voglio visitare, anche con la propria posizione. ([RF16](#RF16), [RF17](#RF17), [RF18](#RF18), [RF19](#RF19))
+   Come utente autenticato, voglio poter salvare e gestire i luoghi cui sono stato o che voglio visitare, anche con la propria posizione. Voglio poter categorizzare tutti i luoghi in modo da, ad esempio, capire quali ho già visitiato e quali no. ([RF16](#RF16), [RF17](#RF17), [RF18](#RF18), [RF19](#RF19))
    
  * **US8**
-   Come utente autenticato, voglio poter salvare e amministrare le mie ricette. ([RF20](#RF20), [RF21](#RF21), [RF22](#RF22), [RF23](#RF23))
+   Come utente autenticato, voglio poter salvare e amministrare le mie ricette, inserendo i vari ingredienti e le rispettive quantità e descrivendo i passaggi. Voglio inoltre aggiungere tutti gli ingredienti di una specifica ricetta alla lista della spesa attraverso un bottone, senza dover trascriverli. ([RF20](#RF20), [RF21](#RF21), [RF22](#RF22), [RF23](#RF23))
    
  * **US9**
-   Come utente autenticato, voglio poter visualizzare, aggiugnere, modificare delle liste, come la lista della spesa e la todo list. ([RF24](#RF24), [RF25](#RF25), [RF26](#RF26), [RF27](#RF27))
+   Come utente autenticato, voglio poter visualizzare, aggiugnere, modificare delle liste, come la lista della spesa e la to-do list. In ogni lista, voglio poter segnare (validare) attraverso una checkbox ogni elemento. ([RF24](#RF24), [RF25](#RF25), [RF26](#RF26), [RF27](#RF27))
    
 ### 2. Requisiti Funzionali
 <a name=RF1></a>
