@@ -56,7 +56,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
    Come utente autenticato, voglio poter aggiungere o rimuovere entrate e uscite, categorizzarle, visualizzare il saldo e ricercare una o un insieme di spese, in modo da tenere sotto controllo tutte le mie entrate e uscite e visualizzare il saldo. ([RF3](#RF6), [RF5](#RF5), [RF6](#RF6),[RF7](#RF7),[RF8](#RF8))
    
  * **US5**
-   Come utente autenticato, voglio poter visualizzare un calendario in cui posso aggiungere, rimuovere, modificare eventi. Voglio anche che, su richiesta, mi arrivi un avviso via mail in un tempo che posso definire. ([RF9](#RF9), [RF10](#RF10), [RF11](#RF11),[RF12](#RF12))
+   Come utente autenticato, voglio poter visualizzare un calendario in cui posso aggiungere, rimuovere, modificare eventi, in modo da poter controllare i miei eventi. Voglio anche che, su richiesta, mi arrivi un avviso via mail in un tempo che posso definire. ([RF9](#RF9), [RF10](#RF10), [RF11](#RF11),[RF12](#RF12))
    
  * **US6**
    Come utente autenticato, voglio poter salvare e amministrare le mie carte fedeltà e, in  negozio, mostrare il codice a barre alla cassiera. ([RF13](#RF13), [RF14](#RF14), [RF15](#RF15))
@@ -88,96 +88,96 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
   L'applicazione deve permettere a un utente autenticato di entrare nella scheda relativa ad ogni funzione quando viene cliccata nel menù iniziale.
 
 <a name=RF5></a>
-* **RF6**
+* **RF5**
   L'applicazione deve permettere a un utente autenticato di visualizzare un elenco di movimenti in entrata e uscita, ordinati dal più recente al meno recente, e di scegliere se visualizzare tutti i movimenti o solamente quelli del mese corrente. L'applciazione deve permettere una visualizzazione grafica del saldo delle varie categorie([RF8](#RF8)) e un resoconto di entrare e uscite del mese corrente.
 
 
 <a name=RF6></a>
-* **RF7**
+* **RF6**
   L'applicazione deve permettere a un utente autenticato di aggiungere un movimento inserendo l'importo, la tipologia (se è un'entrata o un'uscita), la categoria ([RF8](#RF8)) e delle eventuali note associate. L'applicazione deve consentire di rimuovere o modificare un movimento.
 
 <a name=RF7></a>
-* **RF8**
+* **RF7**
   L'applicazione deve permettere a un utente autenticato di associare una categoria ad ogni movimento, di visualizzare tutti i movimenti associati ad ogni categoria, ordinati dal più recente al meno recente, e di scegliere se visualizzare tutti i movimenti o solo quelli del mese corrente.
 
 <a name=RF8></a>
-* **RF9**
+* **RF8**
   L'aplicazione deve permettere a un utente autenticato di cercare uno specifico movimento, tramite la barra di ricerca, inserendo il titolo del movimento o le note associate.
 
 <a name=RF9></a>
-* **RF11**
+* **RF9**
   L'applicazione deve mostrare a un utente autenticato un calendario, in cui sono mostrati gli eventi nei giorni associati.
 
 <a name=RF10></a>
-* **RF12**
+* **RF10**
   L'applicazione deve permettere a un utente autenticato di aggiungere un nuovo evento cliccando sul tasto "aggiungi evento" inserendo il titolo, le note, la data, l'ora di inizio e l'ora di fine e se si vuole ricevere una notifica via mail([RF13](#RF13)). L'applicazione deve consentire l'opzione "tutto il giorno", infatti spuntando la casella l'evento sarà assegnato a tutto il giorno corrispondente, e l'eliminazione o la modifica dell'evento.
 
 <a name=RF11></a>
-* **RF13**
+* **RF11**
   L'applicazione deve inviare una mail all'utente per ricordargli l'evento. La mail sarà mandata all'indirizzo email fornito dall'utente in fase di registrazione.
 
 <a name=RF12></a>
-* **RF14**
+* **RF12**
   L'applicazione deve permettere a un utente autenticato di ricercare uno specifico evento tramite la barra di ricerca inserendo il titolo dell'evento.
 
 <a name=RF13></a>
-* **RF15**
+* **RF13**
   L'applicazione deve mostrare a un utente autenticato un elenco di tutte le carte fedetlà inserite, in cui viene mostrato il nome della carta.
 
 <a name=RF14></a>
-* **RF16**
+* **RF14**
   L'aplicazione deve permettere a un utente autenticato di inserire una nuova carta fedeltà inserendo il nome e il numero della carte. L'applicazione deve creare poi il codice a barre corrispondente al numero fornito.
 
 <a name=RF15></a>
-* **RF17**
+* **RF15**
   L'applicazione deve permettere a un utente autenticato di ricercare una specifica carta tramite la barra di ricerca, inserendo il nome.
 
 <a name=RF16></a>
-* **RF18**
+* **RF16**
   L'applicazione deve mostrare a un utente autenticato una mappa con dei segnalibri sui luoghi salvati dall'utente e un elenco con tutti i luoghi salvati, ordinati dal più recente al meno recente.
 
 <a name=RF17></a>
-* **RF19**
+* **RF17**
   L'applicazione deve permettere a un utente autenticato di aggiungere un luogo inserendo l'indirizzo, la città e può essere assegnato una categoria. L'applicazione deve consentire l'eliminazione o la modifica di un luogo.
 
 <a name=RF18></a>
-* **RF20**
+* **RF18**
   L'applicazione deve permettere a un utente autenticato di ricercare uno specifico luogo tramite la barra di ricera, inserendo il nome.
 
 <a name=RF19></a>
-* **RF21**
+* **RF19**
   L'applicazione deve permettere la localizzazione di un utente autenticato e salvarne la posizione.
 
 <a name=RF20></a>
-* **RF22**
+* **RF20**
   L'applicazione deve mostrare a un utente autenticato una lista delle ricette inserite.
 
 <a name=RF21></a>
-* **RF23**
+* **RF21**
   L'applicazione deve permettere a un utente autenticato di aggiugnere una ricetta inserendo il titolo, gli ingredienti necessari e il procedimento. L'applicazione deve consentire l'eliminazione e la modifica di una ricetta.
 
 <a name=RF22></a>
-* **RF24**
+* **RF22**
   L'applicazione deve permettere a un utente autenticato di aggiugnere gli ingredienti necessari per una ricetta alla lista della spesa.
 
 <a name=RF23></a>
-* **RF25**
+* **RF23**
   L'applicazione deve permettere a un utente autenticato di ricercare una specifica ricetta tramite la barra di ricerca, inserendo il titolo.
 
 <a name=RF24></a>
-* **RF26**
+* **RF24**
   L'applicazione deve mostrare a un utente autenticato le liste salvate.
 
 <a name=RF25></a>
-* **RF27**
+* **RF25**
   L'applicazione deve permettere a un utente autenticato di aggiungere una lista, inserendo il nome, e di modificare o rimuovere una lista.
 
 <a name=RF26></a>
-* **RF28**
+* **RF26**
   L'applicazione deve permettere a un utente autenticato di aggiugnere, rimuovere le voci all'interno di una lista. Le voci sono affiancate da una checkbox che può essere spuntata.
 
 <a name=RF27></a>
-* **RF29**
+* **RF27**
   L'applicazione deve permettere a un utente autenticato di ricercare una specifica lista.
 
 
@@ -215,4 +215,4 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
   <a name=RNF8></a>
   * **RNF8**
-    *Un utente deve essere in grado di registrarsi e di imparare ad usare le diverse funzionalità in modo autonomo.
+    Un utente deve essere in grado di registrarsi e di imparare ad usare le diverse funzionalità in modo autonomo.
