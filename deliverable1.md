@@ -32,6 +32,33 @@ Più in dettaglio, il sistema deve essere in grado di:
     Database
   * **Servizi esterni**
     Servizi di autenticazione, notifiche via mail, geolocalizzazione, mappe, calendario, traduttore di codici a barre, cloud
+    
+### Analisi SWOT
+  1. **Punti di forza**
+      * Interesse da parte del pubblico a causa della mancanza di un'unica applicazione di questo tipo.
+      * Aumenta l'organizzazione e permette di risparmiare tempo. 
+      * User interface facile e intuitiva che facilita l'organizzazione.
+      * Avere tutto in un'unico posto.
+      * Migliorare le abitudini e la routine quotidiana grazie a promemoria e avvisi.
+    
+  2. **Punti di debolezza**
+      * Molte persone potrebbero preferire i metodi "classici".
+      * Template troppo rigidi (alle persone potrebbe non andare bene come vengoro organizzati i propri dati).
+      * Funzionalità già esistenti nel telefono (ma in posti diversi).
+      * Mancanza di esperienza del team.
+      * Alcune fascie di età (over 60) sono poco propense alla digitalizzazione e informatizzazione.
+
+  3. **Opportunità**
+      * Espansione da uno a più individui sincronizzati per gestire famiglie/gruppi.
+      * Aumento delle persone che potrebbe essere interessate (maggiore utilizzo delle tecnologie e Internet).
+      * Statistiche che permettono all'utente di rendersi conto delle proprie abitudini.
+
+  4. **Minacce**
+      * Possibile concorrenza
+      * Possibile assenza di internet (forse è una debolezza) 
+      * Possibile creazione di una sorta di dipendenza dall'app
+      * Errori o malfunzionamenti dell'app che potrebbero compromettere l'utilizzo e causare malcontento
+    
 
 ### User stories
  * **US1**
