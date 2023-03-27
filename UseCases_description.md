@@ -253,13 +253,19 @@
    * **Descrizione**
       1. L'utente autenticato aggiunge una ricetta con il bottone "+" presente nella scheda Ricette [nota1] [nota3].
       2. L'utente autenticato rimuove o modifica una ricetta esistente tenendo premuta tale ricetta nella lista e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota3].
-      3. L'utente autenticato può aggiungere tutti gli ingredienti di una ricetta alla lista della spesa con il pulsante "Aggiungi a lista della spesa".
-      5. Per ogni ricetta, l'utente autenticato può aggiungere gli ingredienti che desidera alla lista della spesa tenendo premuta tali ingredienti e selezionando "Aggiungi a lista della spesa".
    * **Note**
       1. Nell'aggiunta di una nuova ricetta, l'utente autenticato inserisce obbigatoriamente un titolo e uno o più ingredienti e opzionalmente la descrizione del procedimento.
       2. Nella modifica di una ricetta, l'utente autenticato modifica uno o più campi riguardanti la ricetta.
       3. I campi relativi a titolo e ingredienti non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
 
+
+
+### UseCase aggiungi a lista spesa
+   * **Sommario**
+      Questo use case descrive l'aggiunta da parte dell'utente autenticato di ingredienti della ricetta direttamente alla lista della spesa.
+   * **Descrizione**
+      1. L'utente autenticato può aggiungere tutti gli ingredienti di una ricetta alla lista della spesa con il pulsante "Aggiungi a lista della spesa".
+      2. Per ogni ricetta, l'utente autenticato può aggiungere gli ingredienti che desidera alla lista della spesa tenendo premuta tali ingredienti e selezionando "Aggiungi a lista della spesa". 
 
 
 ### UseCase visualizzazione mappa/luoghi
