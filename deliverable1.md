@@ -100,7 +100,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 <a name=RF8></a>
 * **RF8**
-  L'aplicazione deve permettere a un utente autenticato di cercare uno specifico movimento, tramite la barra di ricerca, inserendo il titolo del movimento o le note associate.
+  L'aplicazione deve permettere a un utente autenticato di cercare uno specifico movimento, secondo il titolo del movimento o le note associate.
 
 <a name=RF9></a>
 * **RF9**
@@ -116,7 +116,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 <a name=RF12></a>
 * **RF12**
-  L'applicazione deve permettere a un utente autenticato di ricercare uno specifico evento tramite la barra di ricerca inserendo il titolo dell'evento.
+  L'applicazione deve permettere a un utente autenticato di ricercare uno specifico evento secondo il titolo dell'evento.
 
 <a name=RF13></a>
 * **RF13**
@@ -128,7 +128,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 <a name=RF15></a>
 * **RF15**
-  L'applicazione deve permettere a un utente autenticato di ricercare una specifica carta tramite la barra di ricerca, inserendo il nome.
+  L'applicazione deve permettere a un utente autenticato di ricercare una specifica carta secondo il nome.
 
 <a name=RF16></a>
 * **RF16**
@@ -160,7 +160,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 <a name=RF23></a>
 * **RF23**
-  L'applicazione deve permettere a un utente autenticato di ricercare una specifica ricetta tramite la barra di ricerca, inserendo il titolo.
+  L'applicazione deve permettere a un utente autenticato di ricercare una specifica ricetta secondo il titolo.
 
 <a name=RF24></a>
 * **RF24**
@@ -176,7 +176,7 @@ LifeManager è un applicazione per la gestione dei vari aspetti della vita di un
 
 <a name=RF27></a>
 * **RF27**
-  L'applicazione deve permettere a un utente autenticato di ricercare una specifica lista.
+  L'applicazione deve permettere a un utente autenticato di ricercare una specifica lista secondo il nome.
 
 
 ### 3. Requisiti Non Funzionali
