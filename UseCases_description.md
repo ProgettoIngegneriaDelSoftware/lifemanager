@@ -1,5 +1,7 @@
 # Descrizione use cases
 
+![](UCDimages/UCDloginregistrazione.svg)
+
 ### UseCase registrazione utente
    * **Sommario**
         Questo use case descrive come l'utente non autenticato effettua la registrazione nel sistema tramite form.
