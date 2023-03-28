@@ -1,8 +1,14 @@
 # Descrizione use cases
 
+
+
+### 1. Use case diagram - login e registrazione
+
 ![](UCDimages/UCDloginregistrazione.svg)
 
-### UseCase registrazione utente
+
+
+### UseCase registrazione
    * **Sommario**
         Questo use case descrive come l'utente non autenticato effettua la registrazione nel sistema tramite form.
    * **Descrizione**
@@ -48,6 +54,12 @@
    * **Note**
        1. Campo Email non compilato, il bordo del campo diventa rosso. 
        2. Email inserita non corretta o non associata a nessun accout, appare il messaggio "Email inserita non valida".
+
+
+
+### 2. Use case diagram - home page, impostazioni e profilo
+
+![](UCDimages/UCDHomePage.svg)
 
 
 
@@ -109,6 +121,12 @@
 
 
 
+### 3. Use case diagram - budget
+
+![](UCDimages/UCDbudget.svg)
+
+
+
 ### UseCase visualizzazione budget
    * **Sommario**
      Questo use case descrive la visualizzazione da parte dell'utente autenticato del proprio budget e le informazioni relative ai propri movimenti.
@@ -167,6 +185,12 @@
 
 
 
+### 4. Use case diagram - liste di interesse
+
+![](UCDimages/UCDliste.svg)
+
+
+
 ### UseCase visualizzazione liste
    * **Sommario**
       Questo use case descrive la visualizzazione da parte dell'utente autenticato delle proprie liste di interesse [nota1] e la visualizzazione degli elementi presenti in ogni lista se cliccate.
@@ -198,6 +222,12 @@
       4. Nella modifica di un elemento di una lista, l'utente autenticato modifica il nome di tale elemento.
       5. Gli elementi contrassegnati verranno barrati e sbiaditi nell'elenco degli elementi.
       6. I campi nome di liste o elementi non possono essere vuoti, se accade i bordi del campo diventano rossi.
+
+
+
+### 5. Use case diagram - eventi 
+
+![](UCDimages/UCDeventi.svg)
 
 
 
@@ -236,6 +266,12 @@
 
 
 
+### 6. Use case diagram - ricette
+
+![](UCDimages/UCDricette.svg)
+
+
+
 ### UseCase visualizzazione ricette
    * **Sommario**
       Questo use case descrive la visualizzazione da parte dell'utente autenticato della propria lista di ricette e la visualizzazione dettagliata di una singola ricetta se cliccata.
@@ -268,6 +304,13 @@
    * **Descrizione**
       1. L'utente autenticato può aggiungere tutti gli ingredienti di una ricetta alla lista della spesa con il pulsante "Aggiungi a lista della spesa".
       2. Per ogni ricetta, l'utente autenticato può aggiungere gli ingredienti che desidera alla lista della spesa tenendo premuta tali ingredienti e selezionando "Aggiungi a lista della spesa". 
+
+
+
+### 7. Use case diagram - mappa e luoghi di interesse
+
+![](UCDimages/UCDluoghi.svg)
+
 
 
 ### UseCase visualizzazione mappa/luoghi
@@ -308,6 +351,13 @@
    * **Note**
       1. La posizione è fornita dal GPS del dispositivo.
       2. La mappa è fornita da ...
+
+
+
+### 8. Use case diagram - carte fedeltà
+
+![](UCDimages/UCDcartefedeltà.svg)
+
 
 
 ### UseCase visualizzazione carte fedeltà
