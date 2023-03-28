@@ -3,24 +3,24 @@
 ## Corso di Ingegneria del software - Luca Boschiero, Mauro Meneghello, Nicola Turniano
 
 ### Dominio e obiettivi del progetto
-Il progetto ha come obiettivo lo sviluppo di una WebApp per gestire i vari aspetti relativi alla vita quotidiana di una persona. L'applicazione, denominata LifeManager, infatti permetterà ad un individio di semplificare molte ..., organizzando e gestendo attività quotidiane, cose da fare, informazioni e denaro. Questa semplificazione si basa sull'esigenza di avere tutti questi aspetti racchiusi in un unico posto e facilmente accessibili in ogni momento della giornata, cosa che non è invece fattibile nei dispositivi attuali.
+Questo progetto ha come obiettivo lo sviluppo di una WebApp per gestire i vari aspetti relativi alla vita quotidiana di una persona. L'applicazione, denominata LifeManager, infatti permetterà ad un individuo di semplificare molti aspetti della propria routine, organizzando e gestendo attività quotidiane, cose da fare, informazioni e denaro. Questa semplificazione si basa sull'esigenza di avere tutto ciò racchiuso in un unico servizio e facilmente accessibile in ogni momento della giornata, differenziandosi dalle applicazioni presenti attualmente sul mercato.
 
 Più in dettaglio, il sistema deve essere in grado di:
   
   1. **Gestire registrazione e autenticazione di un individuo**
-     Il sistema permette ad un utente di registrarsi e, solo dopo aver effettuato l'accesso, di organizzare e gestire la propria vita.
+     Il sistema permette ad un utente di registrarsi e, dopo aver effettuato l'accesso, di procedere all'utilizzo dell'applicativo
   2. **Gestire del budget personale**
-    Il sistema permette di gestisce le entrate e le uscite di una persona, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri pagamenti, ricercando una spesa precisa in modo da monitorare i propri movimenti.
+    Il software permette all'utente di gestisce le proprie entrate e le uscite, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri pagamenti, ricercando una spesa precisa consentendo così di monitorare i propri movimenti.
   3. **Gestire gli eventi**
-    L'utente visualizza un calendario in cui può aggiunggiungere eventi o promemoria e gestirli in modo personalizzato, come per esempio impostare e quindi ricevere degli avvisi in prossimità dei propri appuntamenti.
+    L'utente visualizza un calendario in cui può aggiungere eventi o promemoria e gestirli in modo personalizzato, impostando avvisi che verranno ricevuti in prossimità degli appuntamenti.
   4. **Gestire le liste di interesse**
-    Il sistema permette all'utente di creare e organizzare a proprio piacimento varie liste formate da voci che è possibile contrassegnare attraverso delle checkbox (lista della spesa, to-do list ...).
+    Il sistema permette all'utente di creare e organizzare varie liste le cui voci si possono contrassegnare attraverso delle checkbox. Aclune liste sono già preimpostate: lista della spesa e la to-do list.
   5. **Gestire i luoghi di interesse**
-    Il sistema permette all'utente di cercare dei luoghi particolari visualizzandone le informazioni attraverso una mappa e salvare i propri luoghi preferiti, visitati o da visitare, aggiungendo anche note e categorie, e cercare tra di essi.
+    Il sistema permette all'utente di cercare dei luoghi particolari visualizzandone le informazioni attraverso una mappa e salvarli come preferiti, visitati o da visitare, aggiungendo anche note e categorie, e cercare tra di essi.
   6. **Gestire le carte fedeltà**
-    L'utente inseririsce le prorie carte fedeltà dei negozi frequentati, visualizzandone il codice a barre facilmente scannerizzabile quando necessario.
+    L'utente inseririsce le prorie carte fedeltà fornite dai negozi e, quando necessario, visualizza il codice a barre facilmente scannerizzabile.
   7. **Gestire le ricette**
-    Il sistema permette all'utente di scrivere e memorizzare ricette specificandone i dettagli, tra cui ingredienti e procedimento, e aggiungere facilmente tutti o alcuni degli ingredienti della ricetta alla propria lista della spesa.
+    Il sistema permette all'utente di scrivere e memorizzare ricette specificandone tutti i dettagli, ingredienti e procedimento, e aggiungere facilmente tutti o alcuni degli ingredienti della ricetta alla propria lista della spesa.
 
 ### Attori
 
@@ -38,26 +38,26 @@ Più in dettaglio, il sistema deve essere in grado di:
       * Interesse da parte del pubblico a causa della mancanza di un'unica applicazione di questo tipo.
       * Aumenta l'organizzazione e permette di risparmiare tempo. 
       * User interface facile e intuitiva che facilita l'organizzazione.
-      * Avere tutto in un'unico posto.
+      * Avere tutto insieme.
       * Migliorare le abitudini e la routine quotidiana grazie a promemoria e avvisi.
     
   2. **Punti di debolezza**
-      * Molte persone potrebbero preferire i metodi "classici".
+      * Molte persone potrebbero preferire i metodi "classici", non aprendosi al "nuovo".
       * Template troppo rigidi (alle persone potrebbe non andare bene come vengoro organizzati i propri dati).
-      * Funzionalità già esistenti nel telefono (ma in posti diversi).
+      * Funzionalità già esistenti nel telefono (ma non congiuntamente).
       * Mancanza di esperienza del team.
       * Alcune fascie di età (over 60) sono poco propense alla digitalizzazione e informatizzazione.
 
   3. **Opportunità**
-      * Espansione da uno a più individui sincronizzati per gestire famiglie/gruppi.
-      * Aumento delle persone che potrebbe essere interessate (maggiore utilizzo delle tecnologie e Internet).
-      * Statistiche che permettono all'utente di rendersi conto delle proprie abitudini.
+      * Espansione da uno a più individui sincronizzati per gestire famiglie e/o gruppi.
+      * Aumento delle persone che potrebbe essere interessate conseguentemente al maggiore utilizzo delle tecnologie e di Internet.
+      * Statistiche che permettono all'utente di prendere atto delle proprie abitudini.
 
   4. **Minacce**
-      * Possibile concorrenza
-      * Possibile assenza di internet (forse è una debolezza) 
-      * Possibile creazione di una sorta di dipendenza dall'app
-      * Errori o malfunzionamenti dell'app che potrebbero compromettere l'utilizzo e causare malcontento
+      * Possibile concorrenza.
+      * Possibile assenza di Internet.
+      * Possibile dipendenza dal sistema, che porta al dimenticarsi di come si faceva prima.
+      * Errori o malfunzionamenti dell'app che potrebbero compromettere l'utilizzo e causare malcontento.
     
 
 ### User stories
