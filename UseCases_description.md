@@ -2,7 +2,7 @@
 
 
 
-### 1. Use case diagram - login e registrazione
+## 1. Use case diagram - login e registrazione
 
 ![](UCDimages/UCDloginregistrazione.svg)
 
@@ -57,7 +57,7 @@
 
 
 
-### 2. Use case diagram - home page, impostazioni e profilo
+## 2. Use case diagram - home page, impostazioni e profilo
 
 ![](UCDimages/UCDHomePage.svg)
 
@@ -121,7 +121,7 @@
 
 
 
-### 3. Use case diagram - budget
+## 3. Use case diagram - budget
 
 ![](UCDimages/UCDbudget.svg)
 
@@ -185,7 +185,7 @@
 
 
 
-### 4. Use case diagram - liste di interesse
+## 4. Use case diagram - liste di interesse
 
 ![](UCDimages/UCDliste.svg)
 
@@ -225,7 +225,7 @@
 
 
 
-### 5. Use case diagram - eventi 
+## 5. Use case diagram - eventi 
 
 ![](UCDimages/UCDeventi.svg)
 
@@ -266,7 +266,7 @@
 
 
 
-### 6. Use case diagram - ricette
+## 6. Use case diagram - ricette
 
 ![](UCDimages/UCDricette.svg)
 
@@ -307,7 +307,7 @@
 
 
 
-### 7. Use case diagram - mappa e luoghi di interesse
+## 7. Use case diagram - mappa e luoghi di interesse
 
 ![](UCDimages/UCDluoghi.svg)
 
@@ -354,7 +354,7 @@
 
 
 
-### 8. Use case diagram - carte fedeltà
+## 8. Use case diagram - carte fedeltà
 
 ![](UCDimages/UCDcartefedeltà.svg)
 
