@@ -213,11 +213,11 @@ Più in dettaglio, il sistema deve essere in grado di:
   * **RNF3**
     L'applicazione deve richiedere all'utente se vuole salvare la propria password per ricordare i dati di autenticazione per fare in modo che non debba fare il login ad ogni accesso.
 
-  <a name=RF4></a>
+  <a name=RNF4></a>
   * **RF5**
   L'applicazione deve permettere a un utente autenticato di entrare nella scheda impostazioni dalla pagina iniziale, dove l'applicazione deve consentire la gestione delle notifiche, la consultazione dell'informativa sulla privacy, la modifca della lingua dell'applicazione, la visualizzazione delle informazioni sugli sviluppatori e sulla versione attuale e infine la disconnessione. Disconnettendosi l'applicazione reindirizza l'utente nella pagina di login.
 
-  <a name=RF5></a>
+  <a name=RNF5></a>
   * **RF5**
   L'applicazione deve permettere a un utente autenticato di entrare scheda profilo dalla pagina iniziale, dove l'applicazione deve consentire la visualizzazione della propria foto profilo, il nome e cognome, l'username e la mail e permette la modifica di queste informazioni oltre che della password.
 
@@ -239,11 +239,18 @@ Più in dettaglio, il sistema deve essere in grado di:
 ### Analisi di contesto
 Nell'analisi del contesto del sistema, descriveremo e modelleremo le interazioni tra software, attori e le varie entità esterne (classificate in paritarie, subordinate o superiori), definendone il flusso di informazioni. Tale analisi confluirà nel Context Diagram riportato sotto.
 
-  * **Utente non autenticato(anonimo)**
+  * **Utente non autenticato (anonimo)**
+    L'utente non autenticato è l'attore qualsiasi che accede al sistema. Egli visualizza la pagina di Login in cui può scegliere se registrarsi ([RF1](#RF1)) o, se è già in possesso di un account, di effettuare l'accesso ([RF2](#RF2)). Registrazione e Login avvengono con le proprie credenziali personali o tramite il servizio offerto da Google ([RNF1](#RNF1)). L'utente anonimo, inoltre, può recuperare la propria password ([RNF2](#RNF2)).
+    Dopo l'autenticazione, l'utente si specializza 'utente autenticato'.
   * **Utente autenticato**
+    L'utente autenticato è colui che a seguito dell'autenticazione ([RF2](#RF2)) può fare il Logout, visualizzare i dati dell'account e modificarli, così come le impostazioni dell'applicativo. Inoltre vengono mostrate tutte le funzionalità dell'applicazione (([RF3](#RF3))) che egli può andare a svolgere ([RF4](#RF4)). 
   * **GPS**
+    Il GPS è il sistema esterno che l'applicazione utilizza per ottenere le coordinate della posizione attuale ([RF19](#RF19)).
   * **Gmail**
+    LifeManager utilizza il sistema esterno Gmail per inviare messaggi all'utente sotto forma di mail. Tali messaggi includono la conferma dell'account, il reset della propria password e le notifiche ([RF11](#RF11), [RNF2](#RNF2)).
   * **Google**
+    Google è un'opzione che LifeManager utilizza per accedere e registrarsi evitando la compilazione del modulo di registrazione ([RNF1](#RNF1)).  
   * **Google calendar**
+    Nella sezione relativa agli eventi, l'utente visualizza un calendario fornito da Google ([RF9](#RF9)). 
   * **OpenStreetMap**
   * **LifeManager services**
