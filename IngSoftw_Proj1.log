@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.29)  29 MAR 2023 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.29)  29 MAR 2023 18:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -621,146 +621,439 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/
 nicola/Documents/GitHub/lifemanager/images/Latex//logounitn.jpg> </Users/nicola
-/Documents/GitHub/lifemanager/images/Latex//logolifemanager.png>] [2]
-[3] [4]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//lg.png, id=107, 623.3
+/Documents/GitHub/lifemanager/images/Latex//logolifemanager.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Registrazione.png, id
+=25, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Registrazione.pn
+g Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Registrazione.png
+>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Registrazione.png  used on input line 122.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+ [2]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Login.png, id=36, 362
+.35374pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Login.png Graphi
+c file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Login.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Login.png  used on input line 128.
+(pdftex.def)             Requested size: 85.35826pt x 189.15837pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Home Page.png, id=41,
+ 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Home Page.png Gr
+aphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Home Page.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Home Page.png  used on input line 134.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Impostazioni.png, id=
+42, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Impostazioni.png
+ Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Impostazioni.png>
+
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Impostazioni.png  used on input line 135.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Account.png, id=43, 3
+61.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Account.png Grap
+hic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Account.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Account.png  used on input line 136.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+
+[3 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//Registrazione.png>
+ </Users/nicola/Documents/GitHub/lifemanager/images/Latex//Login.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Gestione Budget.png, 
+id=64, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Gestione Budget.
+png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Gestione Budget.p
+ng>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Gestione Budget.png  used on input line 142.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Movimento.pn
+g, id=65, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Movimen
+to.png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Moviment
+o.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Movimento.png  used on input line 143.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Entrate.png, i
+d=66, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Entrate.p
+ng Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Entrate.pn
+g>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Elenco Entrate.png  used on input line 144.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Uscite.png, id
+=67, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Uscite.pn
+g Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Uscite.png
+>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Elenco Uscite.png  used on input line 145.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Bollette.png, 
+id=68, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Bollette.
+png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Elenco Bollette.p
+ng>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Elenco Bollette.png  used on input line 146.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//espese.png, id=69, 36
+1.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//espese.png Graph
+ic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//espese.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//espese.png  used on input line 147.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Bolletta.png
+, id=70, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Bollett
+a.png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Bolletta
+.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Bolletta.png  used on input line 148.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//aspesa.png, id=71, 36
+1.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//aspesa.png Graph
+ic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//aspesa.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//aspesa.png  used on input line 149.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Categoria.pn
+g, id=72, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Categor
+ia.png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Categori
+a.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Categoria.png  used on input line 150.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Eventi.png, id=77, 36
+1.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Eventi.png Graph
+ic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Eventi.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Eventi.png  used on input line 156.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Evento.png, 
+id=78, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Evento.
+png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Evento.p
+ng>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Evento.png  used on input line 157.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+ [4 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//Home Page.png> </
+Users/nicola/Documents/GitHub/lifemanager/images/Latex//Impostazioni.png> </Use
+rs/nicola/Documents/GitHub/lifemanager/images/Latex//Account.png> </Users/nicol
+a/Documents/GitHub/lifemanager/images/Latex//Gestione Budget.png> </Users/nicol
+a/Documents/GitHub/lifemanager/images/Latex//Aggiungi Movimento.png> </Users/ni
+cola/Documents/GitHub/lifemanager/images/Latex//Elenco Entrate.png> </Users/nic
+ola/Documents/GitHub/lifemanager/images/Latex//Elenco Uscite.png> </Users/nicol
+a/Documents/GitHub/lifemanager/images/Latex//Elenco Bollette.png> </Users/nicol
+a/Documents/GitHub/lifemanager/images/Latex//espese.png> </Users/nicola/Documen
+ts/GitHub/lifemanager/images/Latex//Aggiungi Bolletta.png> </Users/nicola/Docum
+ents/GitHub/lifemanager/images/Latex//aspesa.png> </Users/nicola/Documents/GitH
+ub/lifemanager/images/Latex//Aggiungi Categoria.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Carte Fedeltà.png, i
+d=102, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Carte Fedeltà.p
+ng Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Carte Fedeltà.pn
+g>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Carte Fedeltà.png  used on input line 163.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Carta Fedelt
+à.png, id=103, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Carta F
+edeltà.png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Carta Fe
+deltà.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Carta Fedeltà.png  used on input line 164.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Esempio Carta.png, id
+=104, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Esempio Carta.pn
+g Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Esempio Carta.png
+>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Esempio Carta.png  used on input line 165.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Mappa.png, id=109, 36
+1.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Mappa.png Graphi
+c file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Mappa.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Mappa.png  used on input line 171.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Luogo.png, i
+d=110, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Luogo.p
+ng Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Luogo.pn
+g>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Luogo.png  used on input line 172.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+ [5 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//Eventi.png> </Use
+rs/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Evento.png> </Use
+rs/nicola/Documents/GitHub/lifemanager/images/Latex//Carte Fedeltà.png> </User
+s/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Carta Fedeltà.png
+> </Users/nicola/Documents/GitHub/lifemanager/images/Latex//Esempio Carta.png> 
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Mappa.png> </Users/ni
+cola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Luogo.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Ricette.png, id=137, 
+361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Ricette.png Grap
+hic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Ricette.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Ricette.png  used on input line 178.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Nuova Ricetta.png, id
+=138, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Nuova Ricetta.pn
+g Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Nuova Ricetta.png
+>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Nuova Ricetta.png  used on input line 179.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Esempio Ricetta.png, 
+id=139, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Esempio Ricetta.
+png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Esempio Ricetta.p
+ng>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Esempio Ricetta.png  used on input line 180.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//ListeP.png, id=144, 3
+61.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//ListeP.png Graph
+ic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//ListeP.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//ListeP.png  used on input line 186.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Lista.png, i
+d=145, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Lista.p
+ng Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Lista.pn
+g>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Lista.png  used on input line 187.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Lista della spesa.png
+, id=146, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Lista della spes
+a.png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Lista della spesa
+.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Lista della spesa.png  used on input line 188.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Cose Da Fare.png, id=
+147, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Cose Da Fare.png
+ Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Cose Da Fare.png>
+
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Cose Da Fare.png  used on input line 189.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Articolo.png
+, id=148, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Articol
+o.png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Articolo
+.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Articolo.png  used on input line 190.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Attività.pn
+g, id=149, 361.35pt x 803.0pt>
+File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Attivit
+à.png Graphic file (type png)
+<use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//Aggiungi Attivit�
+�.png>
+Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
+x//Aggiungi Attività.png  used on input line 191.
+(pdftex.def)             Requested size: 85.35826pt x 189.68524pt.
+ [6 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//Ricette.png> </Us
+ers/nicola/Documents/GitHub/lifemanager/images/Latex//Nuova Ricetta.png> </User
+s/nicola/Documents/GitHub/lifemanager/images/Latex//Esempio Ricetta.png> </User
+s/nicola/Documents/GitHub/lifemanager/images/Latex//ListeP.png> </Users/nicola/
+Documents/GitHub/lifemanager/images/Latex//Aggiungi Lista.png> </Users/nicola/D
+ocuments/GitHub/lifemanager/images/Latex//Lista della spesa.png> </Users/nicola
+/Documents/GitHub/lifemanager/images/Latex//Cose Da Fare.png> </Users/nicola/Do
+cuments/GitHub/lifemanager/images/Latex//Aggiungi Articolo.png> </Users/nicola/
+Documents/GitHub/lifemanager/images/Latex//Aggiungi Attività.png>] [7]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//lg.png, id=180, 623.3
 2875pt x 411.5375pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//lg.png Graphic f
 ile (type png)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//lg.png>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//lg.png  used on input line 195.
+x//lg.png  used on input line 252.
 (pdftex.def)             Requested size: 284.52756pt x 187.85269pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 196.
+(caption)                particular \caption on input line 253.
 See the caption package documentation for explanation.
 
-[5] [6 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//lg.png>]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//hp.png, id=133, 722.7
+[8] [9 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//lg.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//hp.png, id=206, 722.7
 pt x 349.305pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//hp.png Graphic f
 ile (type png)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//hp.png>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//hp.png  used on input line 271.
+x//hp.png  used on input line 328.
 (pdftex.def)             Requested size: 284.52756pt x 137.52357pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 272.
+(caption)                particular \caption on input line 329.
 See the caption package documentation for explanation.
 
-[7 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//hp.png>] [8]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//bud.png, id=161, 722.
+[10 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//hp.png>] [11]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//bud.png, id=233, 722.
 7pt x 349.305pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//bud.png Graphic 
 file (type png)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//bud.png>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//bud.png  used on input line 354.
+x//bud.png  used on input line 411.
 (pdftex.def)             Requested size: 284.52756pt x 137.52357pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 355.
+(caption)                particular \caption on input line 412.
 See the caption package documentation for explanation.
 
-[9 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//bud.png>] [10]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//liste.png, id=189, 45
+[12 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//bud.png>]
+[13]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//liste.png, id=262, 45
 0.68375pt x 202.7575pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//liste.png Graphi
 c file (type png)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//liste.png>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//liste.png  used on input line 444.
+x//liste.png  used on input line 501.
 (pdftex.def)             Requested size: 284.52756pt x 128.01015pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 445.
+(caption)                particular \caption on input line 502.
 See the caption package documentation for explanation.
 
-[11 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//liste.png>]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//cal2.jpg, id=206, 425
+[14 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//liste.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//cal2.jpg, id=279, 425
 .33907pt x 249.18094pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//cal2.jpg Graphic
  file (type jpg)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//cal2.jpg>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//cal2.jpg  used on input line 493.
+x//cal2.jpg  used on input line 550.
 (pdftex.def)             Requested size: 284.52756pt x 166.6956pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 494.
+(caption)                particular \caption on input line 551.
 See the caption package documentation for explanation.
 
-[12 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//cal2.jpg>]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//r.png, id=222, 502.87
+[15 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//cal2.jpg>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//r.png, id=295, 502.87
 875pt x 222.8325pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//r.png Graphic fi
 le (type png)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//r.png>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//r.png  used on input line 551.
+x//r.png  used on input line 608.
 (pdftex.def)             Requested size: 284.52756pt x 126.0774pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 552.
+(caption)                particular \caption on input line 609.
 See the caption package documentation for explanation.
 
-[13 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//r.png>]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//map.png, id=239, 531.
+[16 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//r.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//map.png, id=312, 531.
 9875pt x 349.305pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//map.png Graphic 
 file (type png)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//map.png>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//map.png  used on input line 602.
+x//map.png  used on input line 659.
 (pdftex.def)             Requested size: 284.52756pt x 186.82568pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 603.
+(caption)                particular \caption on input line 660.
 See the caption package documentation for explanation.
 
-[14 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//map.png>]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//fid.png, id=255, 461.
+[17 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//map.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//fid.png, id=327, 461.
 725pt x 217.81375pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//fid.png Graphic 
 file (type png)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//fid.png>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//fid.png  used on input line 669.
+x//fid.png  used on input line 726.
 (pdftex.def)             Requested size: 284.52756pt x 134.2222pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 670.
+(caption)                particular \caption on input line 727.
 See the caption package documentation for explanation.
 
-[15] [16 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//fid.png>]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg, id=289, 851.1
+[18] [19 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//fid.png>]
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg, id=362, 851.1
 8pt x 755.82375pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg Graphic f
 ile (type jpg)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//cd.jpg  used on input line 718.
+x//cd.jpg  used on input line 775.
 (pdftex.def)             Requested size: 426.79134pt x 378.9835pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 719.
+(caption)                particular \caption on input line 776.
 See the caption package documentation for explanation.
 
-[17 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg>] [18]
+[20 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg>] [21]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     766.
+(LaTeX3)     823.
 
 
 (./IngSoftw_Proj1.aux)
@@ -768,10 +1061,10 @@ Package rerunfilecheck Info: File `IngSoftw_Proj1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13686 strings out of 478994
- 224237 string characters out of 5858184
+ 13869 strings out of 478994
+ 236400 string characters out of 5858184
  577776 words of memory out of 5000000
- 30788 multiletter control sequences out of 15000+600000
+ 30938 multiletter control sequences out of 15000+600000
  407105 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  112i,15n,116p,624b,541s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -782,10 +1075,10 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr
 /local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on IngSoftw_Proj1.pdf (18 pages, 725197 bytes).
+Output written on IngSoftw_Proj1.pdf (21 pages, 1135432 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
- 323 compressed objects within 4 object streams
- 172 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 446 PDF objects out of 1000 (max. 8388607)
+ 334 compressed objects within 4 object streams
+ 175 named destinations out of 1000 (max. 500000)
+ 218 words of extra memory for PDF output out of 10000 (max. 10000000)
 
