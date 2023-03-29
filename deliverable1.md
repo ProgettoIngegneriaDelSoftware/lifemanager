@@ -29,7 +29,7 @@ Più in dettaglio, il sistema deve essere in grado di:
   * **Amministratori**
     Ruoli: moderatore, supporto tecnico.
   * **Servizi interni**
-    Database
+    LifeManager services.
   * **Servizi esterni**
     Servizi di autenticazione, notifiche via mail, geolocalizzazione, mappe, calendario, traduttore di codici a barre, cloud
     
@@ -234,3 +234,16 @@ Più in dettaglio, il sistema deve essere in grado di:
   <a name=RNF8></a>
   * **RNF8**
     Un utente deve essere in grado di registrarsi e di imparare ad usare le diverse funzionalità in modo autonomo.
+
+
+### Analisi di contesto
+Nell'analisi del contesto del sistema, descriveremo e modelleremo le interazioni tra software, attori e le varie entità esterne (classificate in paritarie, subordinate o superiori), definendone il flusso di informazioni. Tale analisi confluirà nel Context Diagram riportato sotto.
+
+  * **Utente non autenticato(anonimo)**
+  * **Utente autenticato**
+  * **GPS**
+  * **Gmail**
+  * **Google**
+  * **Google calendar**
+  * **OpenStreetMap**
+  * **LifeManager services**
