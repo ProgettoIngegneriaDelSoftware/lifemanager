@@ -253,4 +253,6 @@ Nell'analisi del contesto del sistema, descriveremo e modelleremo le interazioni
   * **Google calendar**
     Nella sezione relativa agli eventi, l'utente visualizza un calendario fornito da Google ([RF9](#RF9)). 
   * **OpenStreetMap**
+    Il provider OpenStreetMap è il sistema esterno che viene usato per ottenere mappe da visualizzare in [RF16](#RF16)
   * **LifeManager services**
+    LifeManager services è il sistema esterno con cui LifeManager interagisce per ottenere, modificare, aggiungere dati al database. 
