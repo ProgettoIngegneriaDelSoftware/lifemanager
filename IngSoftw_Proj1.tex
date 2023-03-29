@@ -9,7 +9,7 @@
 \usepackage{hyperref}
 \geometry{a4paper, top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm, }
 \setlength{\parindent}{0pt} %\setlength{\parskip}{0,25cm plus1mm minus1mm}
-\graphicspath{ {/Users/nicola/Documents/LaTeX/} } 
+\graphicspath{ {/Users/nicola/Documents/GitHub/lifemanager/images/Latex/} } 
 \lhead{\includegraphics[width=5cm]{logounitn.jpg}}
 \rhead{\includegraphics[width=3cm]{logolifemanager.png}}
 \setlist[itemize]{leftmargin=5.5mm}
@@ -712,8 +712,44 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 
 \section*{Analisi del contesto}
+Nell'analisi del contesto del sistema, descriveremo e modelleremo le interazioni tra software, attori e le varie entità esterne (classificate in paritarie, subordinate o superiori), definendone il flusso di informazioni. Tale analisi confluirà nel Context Diagram riportato sotto.
 
+\begin{center}
+  \includegraphics[width=15cm]{cd.jpg}
+  \captionof{figure}{Context diagramma di LifeManager}
+\end{center}
 
+\begin{itemize} \setlength\itemsep{0.01em}
+  \item{\sffamily  Utente non autenticato (anonimo)}
+    \\L'utente non autenticato è l'attore qualsiasi che accede al sistema. Egli visualizza la pagina di Login in cui può scegliere se registrarsi (\hyperlink{RF1}{RF1}) o, se è già in possesso di un account, di effettuare l'accesso (\hyperlink{RF2}{RF2}). Registrazione e Login avvengono con le proprie credenziali personali o tramite il servizio offerto da Google (\hyperlink{RNF1}{RNF1}). L'utente anonimo, inoltre, può recuperare la propria password (\hyperlink{RNF2}{RNF2}).
+    Dopo l'autenticazione, l'utente si specializza ''utente autenticato''.
+    
+    
+ \item{\sffamily Utente autenticato}\\
+    L'utente autenticato è colui che a seguito dell'autenticazione (\hyperlink{RF2}{RF2}) può fare il Logout, visualizzare i dati dell'account e modificarli, così come le impostazioni dell'applicativo. Inoltre vengono mostrate tutte le funzionalità dell'applicazione (\hyperlink{RF3}{RF3}) che egli può andare a svolgere (\hyperlink{RF4}{RF4}). 
+   
+   
+  \item{\sffamily GPS}\\
+    Il GPS è il sistema esterno che l'applicazione utilizza per ottenere le coordinate della posizione attuale (\hyperlink{RF19}{RF19}).
+    
+    
+  \item{\sffamily Gmail}\\
+    LifeManager utilizza il sistema esterno Gmail per inviare messaggi all'utente sotto forma di mail. Tali messaggi includono la conferma dell'account, il reset della propria password e le notifiche (\hyperlink{RF11}{RF11}, \hyperlink{RNF2}{RNF2}).
+  
+  
+ \item {\sffamily Google}\\
+    Google è un'opzione che LifeManager utilizza per accedere e registrarsi evitando la compilazione del modulo di registrazione (\hyperlink{RNF1}{RNF1}).  
+ 
+ \item {\sffamily Google calendar}\\
+    Nella sezione relativa agli eventi, l'utente visualizza un calendario fornito da Google (\hyperlink{RF9}{RF9}). 
+ 
+ \item {\sffamily OpenStreetMap}\\
+    Il provider OpenStreetMap è il sistema esterno che viene usato per ottenere mappe da visualizzare in \hyperlink{RF16}{RF16}.
+
+\item {\sffamily LifeManager services}\\
+    LifeManager services è il sistema esterno con cui LifeManager interagisce per ottenere, modificare, aggiungere dati al database. 
+
+\end{itemize}
 
 \vspace{0.5cm}
 \hrule
