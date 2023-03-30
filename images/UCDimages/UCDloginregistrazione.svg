@@ -2,63 +2,63 @@
 <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='50 -19 708 445' xmlns:xlink='http://www.w3.org/1999/xlink' width='708.0px' font-size='13' font-family='Arial, LiberationSans' version='1.1' height='445.0px'>
   <defs>
-<style type='text/css'><![CDATA[svg text {text-rendering: geometricPrecision;}]]></style>    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='0e16a97f-6cee-476c-b18a-c51b45d03954' spreadMethod='pad'>
+<style type='text/css'><![CDATA[svg text {text-rendering: geometricPrecision;}]]></style>    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='3f840d7a-561e-48c2-8069-7fc40d887fcf' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='3851efc7-3884-4ce8-911f-5eebed63e9da' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='ccdb1a8f-58e6-4d80-bacc-0ec9c6d69ef7' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='875bd2d8-d113-48c2-8f4c-5c9a592d4161' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='3777ca76-5fb9-492f-99ad-a4429e899a6f' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='bd4b310c-5f1d-466d-898e-4070bdb40dc1' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='f0e43da2-9b0f-4d60-b8ac-dad3162074ce' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='d836122c-7cc0-4e40-8e6e-f4bc9c115ea0' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='8a6b1d5c-03a0-4fb7-9905-faf7cb711ac8' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='0f9533ae-d36c-4675-879b-30c74d747154' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='53cae0e6-d5f3-4cc8-8b43-ccfaa8561be1' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='89e71838-e492-437e-8fb5-56084fcccabf' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='7aedf9fe-fd06-4d3c-aa09-a86569236708' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='3e6bb571-0eb1-4094-9882-2faff0df7daf' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='05caddf3-8d09-4a0e-bc43-d46fe80264ee' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='4fc694c9-12fd-4f95-840e-f21643e4e06e' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='61abcca3-bc13-4a63-a72c-e3612eb94f13' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='6e65faa8-0a0a-41e4-ad4d-e8868866887e' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='60a7f067-27ff-4c8d-9843-377ec49083d6' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='a7b770f4-3625-4d05-ae83-ddc903eb5bfe' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='df73bd94-1bf7-4e35-8f03-f6948ff01b51' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='aaba405f-1235-4e45-9a09-456090dea215' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='112e77c5-9844-4811-9b56-016e57ce8196' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='c957821c-34f4-4d8c-b621-8f8bde39fc64' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='588d8304-b1d6-48e2-b5fb-218352641d28' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='05804b6a-2b29-4be1-975d-a81e21ca2673' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='ee4dcc24-a1f5-4469-9bd4-2bda4c536d56' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
-    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='f2d73ea1-89a3-4fd5-8dda-76cce8e63284' spreadMethod='pad'>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='fe2e8b76-d9a4-4be8-a489-44c631d6e517' spreadMethod='pad'>
       <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
       <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
     </linearGradient>
@@ -73,7 +73,7 @@
     <text text-anchor='middle' x='20.0' y='78.0' font-size='13' font-style='normal' fill='rgb(0, 0, 0)'>UtenteGenerico</text>
   </g>
   <g transform='translate(280.0,180.0)' id='_d1xs4KrkEDuaqcM2JxuTUQ'>
-    <ellipse cx='50.0' cy='27.5' rx='50.0' ry='27.5' stroke-width='1.0' fill='url(#0e16a97f-6cee-476c-b18a-c51b45d03954)' stroke='rgb(187, 187, 187)' look='allInOne'/>
+    <ellipse cx='50.0' cy='27.5' rx='50.0' ry='27.5' stroke-width='1.0' fill='url(#3f840d7a-561e-48c2-8069-7fc40d887fcf)' stroke='rgb(187, 187, 187)' look='allInOne'/>
     <g transform='translate(0.0,21.0)'>
       <g transform='translate(0.0,0.0)'>
         <text font-weight='bold' text-anchor='middle' x='50.0' y='13.0' font-size='13' fill='rgb(3, 54, 86)'>Login</text>
@@ -81,7 +81,7 @@
     </g>
   </g>
   <g transform='translate(250.0,28.0)' id='_maL98KrkEDuaqcM2JxuTUQ'>
-    <ellipse cx='50.0' cy='27.5' rx='50.0' ry='27.5' stroke-width='1.0' fill='url(#3851efc7-3884-4ce8-911f-5eebed63e9da)' stroke='rgb(187, 187, 187)' look='allInOne'/>
+    <ellipse cx='50.0' cy='27.5' rx='50.0' ry='27.5' stroke-width='1.0' fill='url(#ccdb1a8f-58e6-4d80-bacc-0ec9c6d69ef7)' stroke='rgb(187, 187, 187)' look='allInOne'/>
     <g transform='translate(0.0,21.0)'>
       <g transform='translate(0.0,0.0)'>
         <text font-weight='bold' text-anchor='middle' x='50.0' y='13.0' font-size='13' fill='rgb(3, 54, 86)'>Registrazione</text>
@@ -89,7 +89,7 @@
     </g>
   </g>
   <g transform='translate(441.0,11.0)' id='_xz8EcKrkEDuaqcM2JxuTUQ'>
-    <ellipse cx='50.0' cy='27.5' rx='50.0' ry='27.5' stroke-width='1.0' fill='url(#875bd2d8-d113-48c2-8f4c-5c9a592d4161)' stroke='rgb(187, 187, 187)' look='allInOne'/>
+    <ellipse cx='50.0' cy='27.5' rx='50.0' ry='27.5' stroke-width='1.0' fill='url(#3777ca76-5fb9-492f-99ad-a4429e899a6f)' stroke='rgb(187, 187, 187)' look='allInOne'/>
     <g transform='translate(0.0,21.0)'>
       <g transform='translate(0.0,0.0)'>
         <text font-weight='bold' text-anchor='middle' x='50.0' y='13.0' font-size='13' fill='rgb(3, 54, 86)'>Conferma email</text>
@@ -97,7 +97,7 @@
     </g>
   </g>
   <g transform='translate(464.0,205.0)' id='_PhQB4KrlEDuaqcM2JxuTUQ'>
-    <ellipse cx='50.0' cy='27.5' rx='50.0' ry='27.5' stroke-width='1.0' fill='url(#bd4b310c-5f1d-466d-898e-4070bdb40dc1)' stroke='rgb(187, 187, 187)' look='allInOne'/>
+    <ellipse cx='50.0' cy='27.5' rx='50.0' ry='27.5' stroke-width='1.0' fill='url(#f0e43da2-9b0f-4d60-b8ac-dad3162074ce)' stroke='rgb(187, 187, 187)' look='allInOne'/>
     <g transform='translate(0.0,14.5)'>
       <g transform='translate(0.0,0.0)'>
         <text font-weight='bold' text-anchor='middle' x='50.0' y='13.0' font-size='13' fill='rgb(3, 54, 86)'>Recupero</text>
@@ -183,9 +183,5 @@
   </g>
   <g id='_BG7xUKt9EDuSC69tJHxx4w'>
     <line y1='205.0' x1='546.0' y2='147.0' x2='614.0' id='_BG-Nkqt9EDuSC69tJHxx4w' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
-  </g>
-  <g id='_EuWj8Kt9EDuSC69tJHxx4w'>
-    <line y1='347.0' x1='280.0' y2='277.0' x2='120.0' id='_EuZnQat9EDuSC69tJHxx4w' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
-    <polygon transform='translate(120.0,277.0) rotate(-66.37062226934319)' stroke-width='1.0' fill='rgb(255, 255, 255)' stroke='rgb(0, 0, 0)' points='-6.0,10.0 0.0,0.0 6.0,10.0'/>
   </g>
 </svg>

@@ -128,6 +128,7 @@ Più in dettaglio, il sistema deve essere in grado di:
   \fbox{\includegraphics[width=3cm]{Login.png}}
 \end{center}
 
+
 \item \textbf {US3} Come utente autenticato, voglio poter visualizzare tutte le funzionalità nella home page sotto forma di menù iniziale, e cliccando sull'icona di ogni funzionalità accedere alla scheda corrispondente, in modo da poter accedere alle task in modo semplice ed intuitivo. Inoltre dalla home page voglio avere due icone che mi permettono di entrare nella scheda impostazioni e in quella profilo in modo da poterle visualizzare e gestire facilmente. (\hyperlink{RF3}{RF3}, \hyperlink{RF4}{RF4}, \hyperlink{RNF3}{RNF3}, \hyperlink{RNF4}{RNF4})
 
 \begin{center}
@@ -149,6 +150,8 @@ Più in dettaglio, il sistema deve essere in grado di:
   \fbox{\includegraphics[width=3cm]{aspesa.png}}
   \fbox{\includegraphics[width=3cm]{Aggiungi Categoria.png} }
 \end{center}
+
+\newpage
 
 \item \textbf {US5}  Come utente autenticato, voglio poter visualizzare un calendario in cui posso aggiungere, rimuovere, modificare eventi. Voglio anche che, su richiesta, mi arrivi un avviso via mail in un tempo che posso definire in modo da ricordarmi della ricorrenza desiderata. L'evento può avere un'inizio e una fine precisa o può essere giornaliero. Per ogni evento, inoltre, voglio poter aggiungere delle note. (\hyperlink{RF9}{RF9}, \hyperlink{RF10}{RF10}, \hyperlink{RF11}{RF11},\hyperlink{RF12}{RF12})
 
@@ -221,8 +224,9 @@ Più in dettaglio, il sistema deve essere in grado di:
 \item \textbf {\hypertarget{RF23}{RF23}} L'applicazione deve permettere a un utente autenticato di ricercare una specifica ricetta secondo il titolo.
 \item \textbf {\hypertarget{RF24}{RF24}} L'applicazione deve mostrare a un utente autenticato le liste salvate.
 \item \textbf {\hypertarget{RF25}{RF25}} L'applicazione deve permettere a un utente autenticato di aggiungere una lista, inserendo il nome, e di modificare o rimuovere una lista.
-\item \textbf {\hypertarget{RF26}{RF26}} L'applicazione deve permettere a un utente autenticato di aggiungere, rimuovere le voci all'interno di una lista. Le voci sono affiancate da una checkbox che può essere spuntata.
-\item \textbf {\hypertarget{RF27}{RF27}} L'applicazione deve permettere a un utente autenticato di ricercare una specifica lista secondo il nome.
+\item \textbf {\hypertarget{RF26}{RF26}} L'applicazione deve permettere a un utente autenticato di aggiungere e modificare le voci all'interno di una lista. Le voci sono affiancate da una checkbox che può essere spuntata quando non si è più interessati a tale elemento della lista. 
+\item \textbf {\hypertarget{RF27}{RF27}} L'applicazione deve permettere di eliminare/svuotare gli elementi della lista contrassegnati.
+\item \textbf {\hypertarget{RF28}{RF28}} L'applicazione deve permettere a un utente autenticato di ricercare una specifica lista secondo il nome.
 \end{itemize}
 
 \section*{Requisiti non funzionali}
@@ -249,7 +253,7 @@ Le password non sono salvate in chiaro.
 \subsection*{1 - Login e registrazione}
 
 \begin{center}
-  \includegraphics[width=10cm]{lg.png}
+  \includegraphics[width=10cm]{UCDloginregistrazione.jpeg}
   \captionof{figure}{Use case login e registrazione}
 \end{center}
 
@@ -325,7 +329,7 @@ Questo use case descrive come avviene il recupero della password nel caso in cui
 
 \subsection*{2 - Home page, impostazioni, profilo}
 \begin{center}
-  \includegraphics[width=10cm]{hp.png}
+  \includegraphics[width=10cm]{UCDHomePage.jpeg}
   \captionof{figure}{Use case Home page, impostazioni, profilo}
 \end{center}
 
@@ -390,12 +394,46 @@ Questo use case descrive la visualizzazione delle impostazioni del sistema da pa
 
 Questo use case descrive come l'utente autenticato effettua modifiche alle impostazioni del sistema premendo sul bottone relativo alla funzionalità/impostazione che vuole modificare.
 
+
+\subsubsection*{Use case cambia lingua}
+
+Questo use case descrive come l'utente autenticato modifica la lingua del sistema, scegliendo tra una lista di lingue predefinite.
+
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato attiva/disattiva le notifiche.
-\item L'utente autenticato cambia la lingua scegliendo tra una lista di lingue predefinita.
-\item L'utente autenticato può modificare le sue preferenze per la gestione dei cookies.
-\item L'utente autenticato può disconnettersi in modo sicuro [nota1].
+\item L'utente autenticato cambia la lingua cliccando sull' apposito bottone e scegliendo tra una serie di lingue da un menù a tendina.
+\end{itemize}
+
+\subsubsection*{Use case attiva/disattiva notifiche}
+
+Questo use case descrive come l'utente attiva o disattiva le notifiche del sistema.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica le preferenze riguardo alle notifiche del sistema, scegliendo se mantenerle attive [nota 1] oppure disattivarle.
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item L'opzione di default prevede che le notifiche siano inizialmente attive.
+\end{enumerate}
+
+\subsubsection*{Use case gestione cookies}
+
+Questo use case descrive come l'utente autenticato modifica le propie preferenze riguardanti i cookies.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato cambia le impostazioni dei cookies cliccando sull'apposito bottone, scegliendo se accettarli, accettare solo quelli essenziali o rifiutarli.
+\end{itemize}
+
+\subsubsection*{Use case logout}
+
+Questo use case descrive come l'utente autenticato effettua il logout.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato si disconnette in modo sicuro attraverso l'apposito bottone [nota1].
 \end{itemize}
 
 \textbf{Note}
@@ -404,11 +442,10 @@ Questo use case descrive come l'utente autenticato effettua modifiche alle impos
 \end{enumerate}
 
 
-
 \subsection*{3 - Budget}
 
 \begin{center}
-  \includegraphics[width=10cm]{bud.png}
+  \includegraphics[width=10cm]{UCDbudget.jpeg}
   \captionof{figure}{Use case Budget}
 \end{center}
 
@@ -471,83 +508,286 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare movimenti e aggiungere, rimuovere o modificare le categorie in cui i movimenti sono classificate.
 
+
+\subsubsection*{Use case aggiungi categoria}
+
+Questo use case descrive come l'utente autenticato inserisce una nuova categoria di movimenti.
+
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato aggiunge una categoria con il bottone "+" presente nel grafico delle categorie [nota1] [nota8].
-\item L'utente autenticato rimuove o modifica una categoria esistente tenendo premuta tale categoria e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota7].
-\item L'utente autenticato aggiunge un nuovo movimento premendo il pulsante "+" presente nell'elenco dei movimenti, oppure presente nella categoria selezionata o nella sezione "Entrate"/"Uscite" [nota3] [nota5] [nota6] [nota7].
-\item L'utente autenticato rimuove o modifica un movimento esistente tenendo premuta tale categoria e selezionando "Modifica" oppure "Rimuovi" [nota4] [nota5] [nota6] [nota7].
+\item L'utente autenticato aggiunge una categoria con il bottone "+" presente nel grafico delle categorie [nota1] [nota2].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item Nell'aggiunta di una categoria, l'utente autenticato inserisce obbligatoriamente il nome di tale categoria.
-\item Nella modifica di una categoria, l'utente autenticato modifica il nome di tale categoria.
-\item Nell'aggiunta di un movimento, l'utente autenticato inserisce obbligatoriamente titolo, importo, tipologia (entrata o uscita), categoria (tra le categorie presenti) e opzionalmente eventuali note.
-\item Nella modifica di un movimento, l'utente autenticato modifica uno o più campi relativi a tale movimento.
-\item Se l'aggiunta o la modifica di un movimento avvengono da una scheda relativa ad una categoria specifica, il campo categoria sarà pre-impostato secondo la tale categoria.
-\item Se l'aggiunta o la modifica di un movimento avvengono dalla scheda "Entrate" o dalla scheda "Uscite", il campo tipologia sarà pre-impostato secondo la tale scheda.
-\item I campi titolo, importo, tipologia e categoria non possono essere vuoti, se accade i bordi del campo diventano rossi.
 \item Il campo nome non può essere vuoto, se accade i bordi del campo diventano rossi.
 \end{enumerate}
 
 
 
 
+\subsubsection*{Use case modifica categoria}
+
+Questo use case descrive come l'utente autenticato modifica una categoria esistente di movimenti.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica una categoria tenendo premuta tale categoria nel grafico delle categorie e scegliendo l'opzione "Modifica" nel menu che appare [nota1] [nota2].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nella modifica di una categoria, l'utente autenticato modifica il nome di tale categoria.
+\item Il campo nome non può essere vuoto, se accade i bordi del campo diventano rossi.
+\end{enumerate}
+
+
+
+\subsubsection*{Use case elimina categoria}
+
+Questo use case descrive come l'utente autenticato elimina una categoria esistente di movimenti.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato elimina una categoria tenendo premuta tale categoria nel grafico delle categorie e scegliendo l'opzione "Elimina" nel menu che appare [nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il sistema visualizzerà un banner chiedendo all'utente di confermare l'eliminazione  (vedi use case Conferma eliminazione).
+\end{enumerate}
+
+
+
+\subsubsection*{Use case aggiungi movimento}
+
+Questo use case descrive come l'utente autenticato aggiunge un nuovo movimento .
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato aggiunge un nuovo movimento premendo il pulsante "+" presente nell'elenco dei movimenti, oppure presente nella categoria selezionata o nella sezione "Entrate"/"Uscite" selezionata [nota1] [nota2] [nota3] [nota4].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nell'aggiunta di un movimento, l'utente autenticato inserisce obbligatoriamente titolo, importo, tipologia (entrata o uscita), categoria (tra le categorie presenti) e opzionalmente eventuali note.
+\item Se l'aggiunta di un movimento avviene da una scheda relativa ad una categoria specifica, il campo categoria sarà pre-impostato secondo la tale categoria.
+\item Se l'aggiunta di un movimento avviene dalla scheda "Entrate" o dalla scheda "Uscite", il campo tipologia sarà pre-impostato secondo la tale scheda.
+\item I campi titolo, importo, tipologia e categoria non possono essere vuoti, se accade i bordi del campo diventano rossi.
+\end{enumerate}
+
+
+\subsubsection*{Use case modifica movimento}
+
+Questo use case descrive come l'utente autenticato modifica un movimento esistente.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica un movimento esistente tenendo premuto tale movimento e selezionando l'opzione "Modifica" nel menù che appare [nota1] [nota2].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nella modifica di un movimento, l'utente autenticato modifica uno o più campi relativi a tale movimento (titolo, importo, tipologia, categoria,note) .
+\item I campi titolo, importo, tipologia e categoria non possono essere vuoti, se accade i bordi del campo diventano rossi.
+\end{enumerate}
+
+
+
+\subsubsection*{Use case elimina movimento}
+
+Questo use case descrive come l'utente autenticato elimina un movimento esistente.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato elimina un movimento tenendo premuto tale movimento e scegliendo l'opzione "Elimina" nel menu che appare [nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il sistema visualizzerà un banner chiedendo all'utente di confermare l'eliminazione  (vedi use case Conferma eliminazione).
+\end{enumerate}
+
+
 
 \subsection*{4 - Liste di interesse}
 
 \begin{center}
-  \includegraphics[width=10cm]{liste.png}
+  \includegraphics[width=10cm]{UCDliste.jpeg}
   \captionof{figure}{Use case liste di interesse}
 \end{center}
 \subsubsection*{Use case visualizzazione liste}
 
-Questo use case descrive la visualizzazione da parte dell'utente autenticato delle proprie liste di interesse [nota1] e la visualizzazione degli elementi presenti in ogni lista se cliccate.
+Questo use case descrive la visualizzazione da parte dell'utente autenticato dell'elenco delle proprie liste di interesse [nota1].
 
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza l'elenco delle proprie liste.
 \item L'utente autenticato può cercare una determinata lista con il pulsante "Cerca" [nota2].
-\item Per ogni lista, l'utente autenticato visualizza l'elenco di elementi appartenenti a tale lista, compresi quelli a cui non è più interessato[nota3].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item Le liste predefinite sono: lista della spesa, to-do List e altro.
 \item La ricerca avviene secondo il nome della lista.
+\end{enumerate}
+
+
+
+
+\subsubsection*{Use case visualizzazione elementi lista}
+
+Questo use case descrive la visualizzazione da parte dell'utente autenticato degli elementi appartenenti ad una specifica lista.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato visualizza l'elenco di elementi appartenenti a tale lista, compresi quelli a cui non è più interessato[nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
 \item Gli elementi a cui non è più interessato sono contrassegnati con un box e appaiono sbarrati e sbiaditi.
 \end{enumerate}
 
 
+
 \subsubsection*{Use case gestione liste}
 
-Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare liste, e per ogni lista può aggiungere, rimuovere o modificare gli elementi.
+Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare l'elenco delle proprie liste di interesse.
+
+
+\subsubsection*{Use case aggiungi lista}
+
+Questo use case descrive l'aggiunta da parte dell'utente autenticato di una nuova lista di interesse.
 
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato aggiunge una lista con il bottone "+" presente nella scheda Liste [nota1] [nota6].
-\item L'utente autenticato rimuove o modifica una lista esistente tenendo premuta tale lista e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota6].
-\item Per ogni lista, l'utente autenticato aggiunge uno o più elementi alla lista[nota3] [nota6].
-\item Per ogni lista, l'utente autenticato modifica o rimuove un elemento esistente nella lista e tenendo premuto tale elemento e selezionando "Modifica" oppure "Rimuovi" [nota4] [nota6].
-\item L'utente autenticato contrassegna gli elementi della lista una volta che non ne ha più bisogno; per farlo, clicca sul box in fianco all'elemento che vuole contrassegnare[nota5].
-\item L'utente svuota la lista quando non è più interessato agli elementi in tale lista.
+\item L'utente autenticato aggiunge una lista con il bottone "+" presente nella scheda Liste [nota1] [nota2].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item Nell'aggiunta di una lista, l'utente autenticato inserisce obbligatoriamente il nome di tale lista.
-\item Nella modifica di una lista, l'utente autenticato modifica il nome di tale lista.
-\item Nell'aggiunta di un elemento di una lista, l'utente autenticato inserisce obbligatoriamente il nome di tale elemento.
-\item Nella modifica di un elemento di una lista, l'utente autenticato modifica il nome di tale elemento.
-\item Gli elementi contrassegnati verranno barrati e sbiaditi nell'elenco degli elementi.
-\item I campi nome di liste o elementi non possono essere vuoti, se accade i bordi del campo diventano rossi.
+\item Il campo nome non può essere vuoto, se accade i bordi del campo diventano rossi.
 \end{enumerate}
+
+
+\subsubsection*{Use case modifica lista}
+
+Questo use case descrive la modifica da parte dell'utente autenticato di una lista di interesse esistente.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica una lista tenendo premuta tale lista e scegliendo l'opzione "Modifica" nel menu che appare [nota1][nota2].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nella modifica di una lista, l'utente autenticato modifica il nome di tale lista.
+\item Il campo nome non può essere vuoto, se accade i bordi del campo diventano rossi.
+\end{enumerate}
+
+
+
+\subsubsection*{Use case elimina lista}
+
+Questo use case descrive come l'utente autenticato elimina una lista di interesse esistente.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato elimina una lista tenendo premuta tale lista e scegliendo l'opzione "Elimina" nel menu che appare [nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il sistema visualizzerà un banner chiedendo all'utente di confermare l'eliminazione (vedi use case Conferma eliminazione).
+\end{enumerate}
+
+
+
+
+
+\subsubsection*{Use case gestione elementi nella lista}
+
+Questo use case descrive come l'utente autenticato gestisce gli elementi di una specifica lista, in particolare per ogni lista può aggiungere, rimuovere o modificare gli elementi.
+
+
+\subsubsection*{Use case aggiungi elemento nella lista}
+
+Questo use case descrive l'aggiunta da parte dell'utente autenticato di elementi in una lista di interesse specifica.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item Per ogni lista, l'utente autenticato aggiunge uno o più elementi alla lista con il bottone "Aggiungi" [nota1] [nota2].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nell'aggiunta di un elemento alla lista, l'utente autenticato inserisce obbligatoriamente il nome di tale elemento.
+\item Il campo nome non può essere vuoto, se accade i bordi del campo diventano rossi.
+\end{enumerate}
+
+
+
+\subsubsection*{Use case modifica singolo elemento}
+
+Questo use case descrive la modifica da parte dell'utente autenticato di un elemento esistente nella lista di interesse.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica un elemento nella lista tenendo premuto tale elemento e scegliendo l'opzione "Modifica" nel menu che appare [nota1][nota2].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nella modifica di un elemento nella lista, l'utente autenticato modifica il nome di tale elemento (nome elemento).
+\item Il campo nome non può essere vuoto, se accade i bordi del campo diventano rossi.
+\end{enumerate}
+
+
+
+
+\subsubsection*{Use case contrassegna elemento}
+
+Questo use case descrive come l'utente contrassegna un elemento di una lista di interesse.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato contrassegna gli elementi della lista una volta che non ne ha più bisogno; per farlo, clicca sul box in fianco all'elemento che vuole contrassegnare[nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Gli elementi contrassegnati verranno barrati e sbiaditi nell'elenco degli elementi.
+\end{enumerate}
+
+
+
+\subsubsection*{Use case svuota lista}
+
+Questo use case descrive come l'utente svuota una lista degli elementi di cui non è più interessato.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato svuota la lista quando non è più interessato agli elementi in tale lista, in particolare elimina dalla lista gli elementi contrassegnati.
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il sistema visualizzerà un banner chiedendo all'utente di confermare lo svuotamento della lista.
+\end{enumerate}
+
+
+
+
+
+
 
 \subsection*{4 - Eventi }
 
 \begin{center}
-  \includegraphics[width=10cm]{cal2.jpg}
+  \includegraphics[width=10cm]{UCDeventi.jpeg}
   \captionof{figure}{Use case eventi}
 \end{center}
 \subsubsection*{Use case visualizzazione eventi e calendario}
@@ -571,19 +811,62 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato dei
 Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare eventi nel calendario.
 
 
+
+
+\subsubsection*{Use case aggiungi evento}
+
+Questo use case descrive come l'utente autenticato può aggiungere un nuovo evento nel calendario.
+
+
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato aggiunge un nuovo evento cliccando su un giorno del calendario[nota1] oppure con il bottone "Aggiungi evento" [nota2] [nota4].
-\item L'utente autenticato modifica o rimuove un evento esistente dal calendario tenendo premuto tale elemento e selezionando "Modifica" oppure "Rimuovi" [nota3] [nota4].
+\item L'utente autenticato aggiunge un nuovo evento cliccando su un giorno del calendario[nota1] oppure con il bottone "Aggiungi evento" [nota2] [nota3].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item La data del giorno selezionato sarà pre-impostata nella scheda di aggiunta di un evento.
-\item Nell'aggiunta di un evento, l'utente autenticato inserisce obbligatoriamente titolo, la data, giorno e ora di inizio e fine (o se tutto il giorno contrassegna il box "Tutto il giorno") e opzionalmente inserisce delle note relative a quell'evento.
-\item Nella modifica di un evento, l'utente autenticato modifica uno o più campi relativi all'evento.
+\item Nell'aggiunta di un evento, l'utente autenticato inserisce obbligatoriamente titolo, la data, ora di inizio e fine (o se tutto il giorno contrassegna il box "Tutto il giorno") e opzionalmente inserisce delle note relative a quell'evento.
 \item I campi relativi a titolo data e ora di inizio e fine (o tutto il giorno) non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
 \end{enumerate}
+
+
+
+\subsubsection*{Use case modifica evento}
+
+Questo use case descrive come l'utente autenticato può modificare eventi nel calendario.
+
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica un evento esistente tenendo premuto tale evento nella lista e selezionando "Modifica"  [nota1] [nota2].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nella modifica di un evento, l'utente autenticato modifica uno o più campi relativi all'evento (titolo, data, ora di inizio/fine o tutto il giorno) .
+\item I campi relativi a titolo data e ora di inizio e fine (o tutto il giorno) non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
+\end{enumerate}
+
+
+
+
+\subsubsection*{Use case elimina evento}
+
+Questo use case descrive come l'utente autenticato può eliminare eventi nel calendario.
+
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato elimina un evento esistente tenendo premuto tale evento nella lista e selezionando "Elimina"  [nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il sistema visualizzerà un banner chiedendo all'utente di confermare l'eliminazione dell'evento  (vedi use case Conferma eliminazione).
+\end{enumerate}
+
+
 
 
 \subsubsection*{Use case notifica evento}
@@ -602,46 +885,111 @@ Questo use case descrive come l'utente autenticato attiva la notifica di un even
 
 
 
+
+
+
+
 \subsection*{5 - Ricette }
 
 \begin{center}
-  \includegraphics[width=10cm]{r.png}
+  \includegraphics[width=10cm]{UCDricette.jpeg}
   \captionof{figure}{Use case ricette}
 \end{center}
 
-\subsubsection*{Use case visualizzazione ricette}
+\subsubsection*{Use case visualizzazione elenco ricette}
 
-Questo use case descrive la visualizzazione da parte dell'utente autenticato della propria lista di ricette e la visualizzazione dettagliata di una singola ricetta se cliccata.
+Questo use case descrive la visualizzazione da parte dell'utente autenticato della propria lista di ricette.
 
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza un elenco con le proprie ricette.
 \item L'utente autenticato può cercare una determinata ricetta con il pulsante "Cerca" [nota1].
-\item Per ogni ricetta, l'utente autenticato visualizza i dettagli di tale ricetta [nota2].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item La ricerca avviene secondo il titolo della ricetta.
+\end{enumerate}
+
+
+
+\subsubsection*{Use case visualizzazione singola ricetta}
+
+Questo use case descrive  la visualizzazione dettagliata da parte dell'utente autenticato di una singola ricetta se cliccata.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato visualizza i dettagli di tale ricetta [nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
 \item I dettagli della ricetta comprendono titolo, ingredienti, procedimento.
 \end{enumerate}
+
+
+
+
+
+
 
 \subsubsection*{Use case gestione ricette}
 
 Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare le proprie ricette.
 
+
+
+
+\subsubsection*{Use case aggiungi ricetta}
+
+Questo use case descrive come l'utente autenticato può aggiungere una nuova ricetta.
+
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato aggiunge una ricetta con il bottone "+" presente nella scheda Ricette [nota1] [nota3].
-\item L'utente autenticato rimuove o modifica una ricetta esistente tenendo premuta tale ricetta nella lista e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota3].
+\item L'utente autenticato aggiunge una ricetta con il bottone "+" presente nella scheda Ricette [nota1] [nota2].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item Nell'aggiunta di una nuova ricetta, l'utente autenticato inserisce obbligatoriamente un titolo e uno o più ingredienti e opzionalmente la descrizione del procedimento.
-\item Nella modifica di una ricetta, l'utente autenticato modifica uno o più campi riguardanti la ricetta.
 \item I campi relativi a titolo e ingredienti non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
 \end{enumerate}
+
+
+
+\subsubsection*{Use case modifica ricetta}
+
+Questo use case descrive come l'utente autenticato può modificare una ricetta esistente.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica una ricetta esistente tenendo premuta tale ricetta nella lista e selezionando "Modifica" [nota1] [nota2].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nella modifica di una ricetta, l'utente autenticato modifica uno o più campi riguardanti la ricetta (titolo, ingredienti, procedimento).
+\item I campi relativi a titolo e ingredienti non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
+\end{enumerate}
+
+
+
+\subsubsection*{Use case elimina ricetta}
+
+Questo use case descrive come l'utente autenticato può rimuovere le proprie ricette.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato rimuove una ricetta esistente tenendo premuta tale ricetta nella lista e selezionando "Rimuovi" tra le opzioni che appaiono [nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il sistema visualizzerà un banner chiedendo all'utente di confermare l'eliminazione della ricetta  (vedi use case Conferma eliminazione).
+\end{enumerate}
+
+
+
 
 \subsubsection*{Use case aggiunta alla lista della spesa}
 
@@ -650,19 +998,25 @@ Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o 
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato può aggiungere tutti gli ingredienti di una ricetta alla lista della spesa con il pulsante "Aggiungi a lista della spesa".
-\item Per ogni ricetta, l'utente autenticato può aggiungere gli ingredienti che desidera alla lista della spesa tenendo premuta tali ingredienti e selezionando "Aggiungi a lista della spesa".
+\item Per ogni ricetta, l'utente autenticato può aggiungere gli ingredienti che desidera alla lista della spesa tenendo premuti tali ingredienti e selezionando "Aggiungi a lista della spesa".
 \end{itemize}
+
+
+
+
+
+
 
 \subsection*{6 - Mappa e luoghi di interesse }
 
 \begin{center}
-  \includegraphics[width=10cm]{map.png}
+  \includegraphics[width=10cm]{UCDluoghi.jpeg}
   \captionof{figure}{Use case Mappa e luoghi di interesse}
 \end{center}
 
 
 
-\subsubsection*{Use case visualizzazione mappa}
+\subsubsection*{Use case visualizzazione mappa/luoghi}
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato della mappa contenente dei riferimenti a luoghi di interesse e la lista di questi luoghi.
 
@@ -687,21 +1041,61 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare i propri luoghi di interesse.
 
+
+
+\subsubsection*{Use case aggiungi luogo}
+
+Questo use case descrive come l'utente autenticato può aggiungere un nuovo luogo di interesse.
+
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato aggiunge un nuovo luogo di interesse con il bottone "+" presente nella scheda Ricette [nota1] [nota4] [nota5].
+\item L'utente autenticato aggiunge un nuovo luogo di interesse con il bottone "+" presente nella scheda Ricette [nota1] [nota3] [nota4].
 \item Opzionalmente, l'utente autenticato aggiunge un nuovo luogo di interesse cliccandolo direttamente sulla mappa [nota2].
-\item L'utente autenticato rimuove o modifica un luogo di interesse esistente tenendo premuto tale luogo nell'elenco e selezionando "Modifica" oppure "Rimuovi" [nota3] [nota4] [nota5].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item Nell'aggiunta di un nuovo luogo di interesse, l'utente autenticato inserisce obbligatoriamente un nome, un indirizzo e la città, e opzionalmente la categoria relativa al luogo.
 \item I campi relativi al luogo selezionato verranno, se possibile, auto-compilati.
-\item Nella modifica di un luogo di interesse, l'utente autenticato modifica uno o più campi riguardanti tale luogo.
 \item I campi relativi a nome e indirizzo non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
 \item Nel caso in cui l'indirizzo inserito non sia corretto o valido, il bordo del campo si colora di rosso.
 \end{enumerate}
+
+
+
+\subsubsection*{Use case modifica luogo}
+
+Questo use case descrive come l'utente autenticato può modificare i propri luoghi di interesse esistenti.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica un luogo di interesse esistente tenendo premuto tale luogo nell'elenco e selezionando "Modifica" tra le opzioni che appaiono [nota1] [nota2] [nota3].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nella modifica di un luogo di interesse, l'utente autenticato modifica uno o più campi riguardanti tale luogo (nome,indirizzo, città, categoria).
+\item I campi relativi a nome e indirizzo non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
+\item Nel caso in cui l'indirizzo inserito non sia corretto o valido, il bordo del campo si colora di rosso.
+\end{enumerate}
+
+
+
+
+\subsubsection*{Use case elimina luogo}
+
+Questo use case descrive come l'utente autenticato può  rimuovere  i propri luoghi di interesse esistenti.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato rimuove un luogo di interesse esistente tenendo premuto tale luogo nell'elenco e selezionando "Rimuovi" tra le opzioni che appaiono [nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il sistema visualizzerà un banner chiedendo all'utente di confermare l'eliminazione del luogo di interesse  (vedi use case Conferma eliminazione).
+\end{enumerate}
+
 
 
 \subsubsection*{Use case visualizzazione posizione}
@@ -720,28 +1114,47 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 \end{enumerate}
 
 
+
+
+
 \subsection*{7 - Carte fedeltà}
 
 \begin{center}
-  \includegraphics[width=10cm]{fid.png}
+  \includegraphics[width=10cm]{UCDcartefedeltà.jpeg}
   \captionof{figure}{Use case carte fedeltà}
 \end{center}
+
 \subsubsection*{Use case visualizzazione carte fedeltà}
 
-Questo use case descrive la visualizzazione da parte dell'utente autenticato della lista delle proprie carte fedeltà e dei dettagli di ogni carta.
+Questo use case descrive la visualizzazione da parte dell'utente autenticato della lista delle proprie carte fedeltà.
 
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza una lista delle proprie carte fedeltà[nota1].
-\item Per ogni carta fedeltà, l'utente autenticato visualizza il nome o l'organizzazione a cui la carta è associata e il codice a barre associato alla carta[nota2].
-\item L'utente autenticato può cercare una determinata carta fedeltà con il pulsante "Cerca" [nota3].
+\item L'utente autenticato può cercare una determinata carta fedeltà con il pulsante "Cerca" [nota2].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item La lista è ordinata cronologicamente in base alla data di inserimento.
-\item Il codice a barre è generato automaticamente in base al numero della carta.
 \item La ricerca avviene secondo il nome associato alla carta.
+\end{enumerate}
+
+
+
+
+\subsubsection*{Use case visualizzazione singola carta}
+
+Questo use case descrive la visualizzazione da parte dell'utente autenticato dei dettagli di ogni carta.
+
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item Per ogni carta fedeltà, l'utente autenticato visualizza il nome o l'organizzazione a cui la carta è associata e il codice a barre associato alla carta[nota1].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il codice a barre è generato automaticamente in base al numero della carta.
 \end{enumerate}
 
 
@@ -749,20 +1162,87 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
  Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o modificare le proprie carte fedeltà.
  
+
+
+
+
+\subsubsection*{Use case aggiungi carta fedeltà}
+
+ Questo use case descrive come l'utente autenticato può aggiungere una nuova carta fedeltà.
+ 
 \textbf{Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato aggiunge una nuova carta fedeltà con il bottone "+" presente nella scheda Carte Fedeltà [nota1] [nota3] [nota4].
-\item L'utente autenticato rimuove o modifica una carta fedeltà esistente tenendo premuto tale carta nell'elenco e selezionando "Modifica" oppure "Rimuovi" [nota2] [nota3] [nota4].
+\item L'utente autenticato aggiunge una nuova carta fedeltà con il bottone "+" presente nella scheda Carte Fedeltà [nota1] [nota2] [nota3].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item Nell'aggiunta di un nuova carta fedeltà, l'utente autenticato inserisce obbligatoriamente nome e numero della carta.
-\item Nella modifica di una carta fedeltà, l'utente autenticato modifica uno o più campi riguardanti tale carta.
 \item I campi relativi a nome e numero carta non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
 \item Nel caso in cui il numero della carta inserito non sia corretto o valido, il bordo del campo si colora di rosso.
 \end{enumerate}
 
+
+
+
+\subsubsection*{Use case modifica carta fedeltà}
+
+ Questo use case descrive come l'utente autenticato può modificare le proprie carte fedeltà esistenti.
+ 
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato modifica una carta fedeltà esistente tenendo premuto tale carta nell'elenco e selezionando "Modifica" tra le opzioni che appaiono [nota1] [nota2] [nota3].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Nella modifica di una carta fedeltà, l'utente autenticato modifica uno o più campi riguardanti tale carta  (nome e numero carta).
+\item I campi relativi a nome e numero carta non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
+\item Nel caso in cui il numero della carta inserito non sia corretto o valido, il bordo del campo si colora di rosso.
+\end{enumerate}
+
+
+
+\subsubsection*{Use case elimina carta fedeltà}
+
+ Questo use case descrive come l'utente autenticato può rimuovere le proprie carte fedeltà esistenti.
+ 
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato rimuove una carta fedeltà esistente tenendo premuto tale carta nell'elenco e selezionando "Rimuovi" tra le opzioni che appaiono [nota2].
+\end{itemize}
+
+\textbf{Note}
+\begin{enumerate} \setlength\itemsep{0.01em}
+\item Il sistema visualizzerà un banner chiedendo all'utente di confermare l'eliminazione della carta fedeltà  (vedi use case Conferma eliminazione).
+\end{enumerate}
+
+
+
+
+
+\subsubsection*{Use case salva}
+
+ Questo use case descrive come l'utente autenticato conferma l'aggiunta o la modifica degli item gestiti delle funzionalità descritte finora.
+ Questo use case è riportato una volta sola invece che in ogni descrizione di ogni use case diagram per non ripeterlo ogni volta uguale. 
+ 
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato conferma l'aggiunta o le modifiche grazie ad un banner visualizzato dal sistema.
+\end{itemize}
+
+
+
+
+\subsubsection*{Use case conferma eliminazione}
+
+ Questo use case descrive come l'utente autenticato conferma l'eliminazione degli item gestiti delle funzionalità descritte finora.
+ Questo use case è riportato una volta sola invece che in ogni descrizione di ogni use case diagram per non ripeterlo ogni volta uguale. 
+ 
+\textbf{Descrizione}
+\begin{itemize} \setlength\itemsep{0.01em}
+\item L'utente autenticato conferma l'eliminazione grazie ad un banner visualizzato dal sistema.
+\end{itemize}
 
 
 
