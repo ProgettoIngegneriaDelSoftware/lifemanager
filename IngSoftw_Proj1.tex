@@ -39,7 +39,7 @@
 \section*{Dominio e obiettivi del progetto}
 Questo progetto ha come obiettivo lo sviluppo di una WebApp per gestire i vari aspetti relativi alla vita quotidiana di una persona. 
 
-L'applicazione, denominata {\scshape LifeManager}, infatti permetterà ad un individuo di semplificare molti aspetti della propria routine, organizzando e gestendo attività quotidiane, cose da fare, informazioni e denaro. 
+L'applicazione, denominata {\scshape LifeManager}, infatti permetterà ad un individuo di semplificare molti aspetti della propria routine, organizzando e gestendo attività quotidiane, impegni, informazioni e denaro. 
 
 Questa semplificazione si basa sull'esigenza di avere tutto ciò racchiuso in un unico servizio e facilmente accessibile in ogni momento della giornata, differenziandosi dalle applicazioni presenti attualmente sul mercato.
 
@@ -51,18 +51,18 @@ Più in dettaglio, il sistema deve essere in grado di:
 
 \item {\sffamily  Gestire registrazione e autenticazione di un individuo } 
 \\Il sistema permette ad un utente di registrarsi e, dopo aver effettuato l'accesso, di procedere all'utilizzo dell'applicativo
-\item {\sffamily Gestire del budget personale } 
+\item {\sffamily Gestire il budget personale } 
 \\Il software permette all'utente di gestisce le proprie entrate e le uscite, aggiungendo o rimuovendo movimenti di denaro, organizzandoli secondo categorie, visualizzando statistiche sui propri pagamenti, ricercando una spesa precisa consentendo così di monitorare i propri movimenti.
 \item {\sffamily Gestire gli eventi } 
 \\L'utente visualizza un calendario in cui può aggiungere eventi o promemoria e gestirli in modo personalizzato, impostando avvisi che verranno ricevuti in prossimità degli appuntamenti.
 \item {\sffamily  Gestire le liste di interesse} 
-\\ Il sistema permette all'utente di creare e organizzare varie liste le cui voci si possono contrassegnare attraverso delle checkbox. Alcune liste sono già pre impostate: lista della spesa e la to-do List.
+\\ Il sistema permette all'utente di creare e organizzare varie liste le cui voci si possono contrassegnare attraverso delle checkbox. Le liste già pre impostate e non modificabili sono la lista della spesa e la to-do List.
 \item {\sffamily Gestire i luoghi di interesse } 
 \\Il sistema permette all'utente di cercare dei luoghi particolari visualizzandone le informazioni attraverso una mappa e salvarli come preferiti, visitati o da visitare, aggiungendo anche note e categorie, e cercare tra di essi.
 \item {\sffamily Gestire le carte fedeltà } 
 \\L'utente inserisce le proprie carte fedeltà fornite dai negozi e, quando necessario, visualizza il codice a barre facilmente scannerizzabile.
 \item {\sffamily Gestire le ricette} 
-\\ Il sistema permette all'utente di scrivere e memorizzare ricette specificandone tutti i dettagli, ingredienti e procedimento, e aggiungere facilmente tutti o alcuni degli ingredienti della ricetta alla propria lista della spesa.
+\\ Il sistema permette all'utente di scrivere e memorizzare ricette specificandone tutti i dettagli e aggiungere facilmente tutti o alcuni degli ingredienti della ricetta alla propria lista della spesa.
 
 \end{itemize}
 
@@ -75,22 +75,25 @@ Più in dettaglio, il sistema deve essere in grado di:
 \\ LifeManager services
 \item {\sffamily  Servizi esterni}
 \\ Servizi di autenticazione, notifiche via mail, geolocalizzazione, mappe, calendario, traduttore di codici a barre
+\end{itemize}
+
+
+Per una descrizione più dettagliata degli attori, fare riferimento alla Mind Map e alla descrizione riportata nella sezione dell'Analisi di contesto.
+
 
 \begin{center}
-  \includegraphics[width=13cm]{mind_map.jpg}
+  \includegraphics[width=15cm]{mind_map.jpg}
   \captionof{figure}{Mind map attori}
 \end{center}
 
-\end{itemize}
-Per una descrizione più dettagliata degli attori, fare riferimento alla Mind Map e alla descrizione riportata nella sezione dell'Analisi di contesto.
-
+\
 \section*{Analisi SWOT}
 {\sffamily  Punti di forza}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item Interesse da parte del pubblico a causa della mancanza di un'unica applicazione di questo tipo.
-\item Aumenta l'organizzazione e permette di risparmiare tempo.
-\item User interface facile e intuitiva che facilita l'organizzazione.
-\item Avere tutto insieme.
+\item Aumentare l'organizzazione e permette di risparmiare tempo.
+\item User interface facile e intuitiva che faciliti l'organizzazione.
+\item Poter gestire tutti gli aspetti della quotidianità in un unica applicazione.
 \item Migliorare le abitudini e la routine quotidiana grazie a promemoria e avvisi.
 \end{itemize}
 
@@ -100,7 +103,7 @@ Per una descrizione più dettagliata degli attori, fare riferimento alla Mind Ma
 \item Template troppo rigidi (alle persone potrebbe non andare bene come vengono organizzati i propri dati).
 \item Funzionalità già esistenti nel telefono (ma non congiuntamente).
 \item Mancanza di esperienza del team.
-\item Alcune fasce di età (over 60) sono poco propense alla digitalizzazione e informatizzazione.
+\item Alcune fasce di età (over 60) possono essere poco propense alla digitalizzazione e informatizzazione.
 \end{itemize}
 
 {\sffamily  Opportunità}
@@ -202,7 +205,7 @@ Per una descrizione più dettagliata degli attori, fare riferimento alla Mind Ma
 \end{center}
 
 \end{itemize}
-
+\newpage
 \section*{Requisiti funzionali}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item \textbf {\hypertarget{RF1}{RF1}} L'applicazione deve permettere a un utente non registrato di registrarsi inserendo in un form: nome, cognome, username, email, password, la quale viene richiesta due volte per evitare errori di inserimento. Una volta completata la registrazione viene inviata una email di benvenuto contenente un link per confermare l'indirizzo email (se l'indirizzo email non viene confermato, l'autenticazione non è ammessa).
@@ -215,8 +218,8 @@ Per una descrizione più dettagliata degli attori, fare riferimento alla Mind Ma
 \item \textbf {\hypertarget{RF8}{RF8}} L'applicazione deve permettere a un utente autenticato di associare una tipologia ad ogni movimento (entrata o uscita), di visualizzare tutti i movimenti associati alla tipologia Entrate e alla tipologia Uscite, ordinati dal più recente al meno recente, e di scegliere se visualizzare tutti i movimenti o solo quelli del mese corrente.
 \item \textbf {\hypertarget{RF9}{RF9}} L'applicazione deve permettere a un utente autenticato di cercare uno specifico movimento, secondo il titolo del movimento o le note associate.
 \item \textbf {\hypertarget{RF10}{RF10}} L'applicazione deve mostrare a un utente autenticato un calendario, in cui sono mostrati gli eventi nei giorni associati.
-\item \textbf {\hypertarget{RF11}{RF11}} L'applicazione deve permettere a un utente autenticato di aggiungere un nuovo evento cliccando sul tasto "aggiungi evento" oppure direttamente sul giorno del calendario in cui desidera aggiungere l'evento, inserendo il titolo, le note, la data, l'ora di inizio e l'ora di fine e se si vuole ricevere una notifica via mail(\hyperlink{RF12}{RF12}). L'applicazione deve consentire l'opzione "tutto il giorno", infatti spuntando la casella l'evento sarà assegnato a tutto il giorno corrispondente, e l'eliminazione o la modifica dell'evento.
-\item \textbf {\hypertarget{RF12}{RF12}} L'applicazione, nel caso in cui l'utente autenticato lo desideri, deve inviare una mail all'utente per ricordargli l'evento (l'utente autenticato può scegliere quanto prima riceverla). La mail sarà mandata all'indirizzo email fornito dall'utente in fase di registrazione.
+\item \textbf {\hypertarget{RF11}{RF11}} L'applicazione deve permettere a un utente autenticato di aggiungere un nuovo evento cliccando sul tasto "aggiungi evento" oppure direttamente sul giorno del calendario, inserendo il titolo, le note, la data, l'ora di inizio e di fine e se si vuole ricevere una notifica via mail(\hyperlink{RF12}{RF12}). L'applicazione deve consentire l'opzione "tutto il giorno", l'eliminazione e la modifica di tale evento.
+\item \textbf {\hypertarget{RF12}{RF12}} L'applicazione, nel caso in cui l'utente autenticato lo desideri, deve inviare una mail all'utente per ricordargli l'evento (l'utente autenticato può scegliere quando riceverla). La mail sarà mandata all'indirizzo email fornito dall'utente in fase di registrazione.
 \item \textbf {\hypertarget{RF13}{RF13}} L'applicazione deve mostrare a un utente autenticato un elenco di tutte le carte fedeltà inserite, in cui viene mostrato il nome della carta.
 \item \textbf {\hypertarget{RF14}{RF14}} L'applicazione deve mostrare a un utente autenticato, per ogni carta fedeltà, il nome della carta e il codice a barre corrispondente al numero della carta.
 \item \textbf {\hypertarget{RF15}{RF15}} L'applicazione deve permettere a un utente autenticato di inserire una nuova carta fedeltà inserendo il nome e il numero della carte. L'applicazione deve creare poi il codice a barre corrispondente al numero fornito.
@@ -234,17 +237,17 @@ Per una descrizione più dettagliata degli attori, fare riferimento alla Mind Ma
 \item \textbf {\hypertarget{RF27}{RF27}} L'applicazione deve permettere a un utente autenticato di aggiungere e modificare le voci all'interno di una lista. Le voci sono affiancate da una checkbox che può essere spuntata quando non si è più interessati a tale elemento della lista. 
 \item \textbf {\hypertarget{RF28}{RF28}} L'applicazione deve permettere di eliminare/svuotare gli elementi della lista contrassegnati.
 \item \textbf {\hypertarget{RF29}{RF29}} L'applicazione deve permettere a un utente autenticato di ricercare una specifica lista secondo il nome.
-\item \textbf {\hypertarget{RNF30}{RNF30}}  L'applicazione deve permettere a un utente autenticato di entrare nella scheda impostazioni dalla pagina iniziale, dove l'applicazione deve consentire la consultazione dell'informativa sulla privacy, la modifica della lingua dell'applicazione, la visualizzazione delle informazioni sugli sviluppatori e sulla versione attuale e infine la disconnessione. Disconnettendosi l'applicazione reindirizza l'utente nella pagina di login.
-\item \textbf {\hypertarget{RNF31}{RNF31}}  L'applicazione deve permettere a un utente autenticato di entrare scheda profilo dalla pagina iniziale, dove l'applicazione deve consentire la visualizzazione della propria foto profilo, il nome e cognome, l'username e la mail e permette la modifica di queste informazioni oltre che della password.
+\item \textbf {\hypertarget{RF30}{RF30}}  L'applicazione deve permettere a un utente autenticato di entrare nella scheda impostazioni dalla pagina iniziale, dove l'applicazione deve consentire la consultazione dell'informativa sulla privacy, la modifica della lingua dell'applicazione, la visualizzazione delle informazioni sugli sviluppatori e sulla versione attuale e infine la disconnessione. Disconnettendosi l'applicazione reindirizza l'utente nella pagina di login.
+\item \textbf {\hypertarget{RF31}{RF31}}  L'applicazione deve permettere a un utente autenticato di entrare scheda profilo dalla pagina iniziale, dove l'applicazione deve consentire la visualizzazione della propria foto profilo, il nome e cognome, l'username e la mail e permette la modifica di queste informazioni oltre che della password.
 \end{itemize}
-
+\newpage
 \section*{Requisiti non funzionali}
 \begin{itemize} \setlength\itemsep{0.01em}
 
 \item \textbf {\hypertarget{RNF1}{RNF1}}  L'applicazione deve supportare l'accesso o la registrazione con Google.
 \item \textbf {\hypertarget{RNF2}{RNF2}}  L'applicazione deve permette di recuperare la password se l'utente lo richiede, tramite l'invio di una mail in cui c'è un link per impostare una nuova password.
 \item \textbf {\hypertarget{RNF3}{RNF3}}  L'applicazione deve richiedere all'utente se vuole salvare la propria password per ricordare i dati di autenticazione per fare in modo che non debba fare il login ad ogni accesso.
-\item \textbf {\hypertarget{RNF4}{RNF4} } L'applicazione deve rispettare il regolamento europeo 2016/679 conosciuto come GDPR, il regolamento generale sulla protezione dei dati.
+\item \textbf {\hypertarget{RNF4}{RNF4}} L'applicazione deve rispettare il regolamento europeo 2016/679 conosciuto come GDPR, il regolamento generale sulla protezione dei dati.
 \item \textbf {\hypertarget{RNF5}{RNF5}} 
 La trasmissione dei dati deve avvenire in modo sicuro.
 L'applicazione non accetta password troppo deboli.
@@ -269,7 +272,9 @@ Le password non sono salvate in chiaro.
 
 Questo use case descrive come l'utente non autenticato effettua la registrazione nel sistema tramite form.
 
-\textbf{Descrizione}
+
+
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente non autenticato inserisce nome [nota1], cognome[nota1], username, email[nota2], password[nota3], conferma password[nota3] e preme sul pulsante "Registrati"[nota4] [nota5].
 \item Il sistema, tramite Gmail, manda una mail di verifica all'indirizzo specificato, premendo nel link presente nella mail viene effettuata la verifica dell'indirizzo email e visualizzato un messaggio di benvenuto.
@@ -278,7 +283,7 @@ Questo use case descrive come l'utente non autenticato effettua la registrazione
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
-\item Nome e/o cognome non valido (non soddisfano la regex "[a-zA-Z0-9]"), il bordo del campo diventa rosso.
+\item Nome e/o cognome non valido (non soddisfano la regex ``[a-zA-Z0-9]"), il bordo del campo diventa rosso.
 \item Email non valida (non soddisfa la regex ".+@.+..+"), il bordo del campo diventa rosso.
 \item Password non valida oppure le due password non sono uguali, il bordo del campo diventa rosso.
 \item Ci sono campi non compilati oppure non validi, il bordo di tali campi diventa rosso.
@@ -289,12 +294,12 @@ Questo use case descrive come l'utente non autenticato effettua la registrazione
 
 
 
-
+\newpage
 \subsubsection*{Use case Login}
 
 Questo use case descrive come l'utente non autenticato effettua il login nel sistema tramite form.
 
-\textbf {Descrizione}
+\textbf {\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente non autenticato, se registrato, inserisce username o email e la sua password e conferma premendo su "Accedi", oppure sceglie l'opzione "Accedi con Google" per accedere tramite il proprio account Google[nota1] [nota2].
 \item A login completato, viene visualizzata la HomePage dell'applicazione.
@@ -310,7 +315,7 @@ Questo use case descrive come l'utente non autenticato effettua il login nel sis
 
 Questo use case descrive come avviene la verifica dell'indirizzo email.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item Il sistema, tramite Gmail, manda una mail di verifica all'indirizzo specificato durante la registrazione, premendo sul link presente nella mail viene effettuata la verifica dell'indirizzo email e visualizzato un messaggio di benvenuto[nota1].
 \end{itemize}
@@ -325,7 +330,7 @@ Questo use case descrive come avviene la verifica dell'indirizzo email.
 
 Questo use case descrive come avviene il recupero della password nel caso in cui l'utente autenticato se la sia dimenticata o voglia modificarla.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato clicca sul pulsante "Recupera password".
 \item L'utente autenticato inserisce la sua email[nota1] [nota2] e preme su "Invia email di recupero".
@@ -350,10 +355,10 @@ Questo use case descrive come avviene il recupero della password nel caso in cui
 
 Questo use case descrive la visualizzazione della home page da parte di un utente autenticato.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza la lista delle schede che corrispondono alle varie funzionalità.
-\item L'utente può cliccare su ognuna delle schede presenti nella home page.
+\item L'utente autenticato può cliccare su ognuna delle schede presenti nella home page.
 \end{itemize}
 
 
@@ -361,21 +366,21 @@ Questo use case descrive la visualizzazione della home page da parte di un utent
 
 Questo use case descrive la visualizzazione dei dati associati al proprio profilo da parte di un utente autenticato.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza le informazioni relative al proprio profilo, come username, email, foto profilo.[nota1]
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
-\item L'utente non è tenuto a specificare una foto profilo, può lasciare l'icona generica (vuota).
+\item L'utente autenticato non è tenuto a specificare una foto profilo, può lasciare l'icona generica (vuota).
 \end{enumerate}
 
 \subsubsection*{Use case modifica profilo}
 
 Questo use case descrive come l'utente possa andare a modificare le informazioni associate al proprio profilo.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica la foto profilo premendo sull'icona della matita e scegliendo un'immagine a suo piacimento.
 \item L'utente autenticato modifica nome e cognome premendo sull'icona della matita[nota3].
@@ -394,9 +399,8 @@ Questo use case descrive come l'utente possa andare a modificare le informazioni
 
 Questo use case descrive la visualizzazione delle impostazioni del sistema da parte di un utente autenticato.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato visualizza se le notifiche sono attivate o meno premendo sul pulsante "Notifiche".
 \item L'utente autenticato visualizza le informazioni relative a privacy e sicurezza, in particolare l'informativa sul trattamento dei dati personali e la gestione dei cookies, premendo su "Privacy e sicurezza" .
 \item L'utente autenticato visualizza la lingua impostata per il sistema premendo il pulsante "Lingua".
 \item L'utente autenticato visualizza le informazioni generali del sistema, come la versione attuale dell'applicazione e i contatti degli sviluppatori.
@@ -411,7 +415,7 @@ Questo use case descrive come l'utente autenticato effettua modifiche alle impos
 
 Questo use case descrive come l'utente autenticato modifica la lingua del sistema, scegliendo tra una lista di lingue predefinite.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato cambia la lingua cliccando sull' apposito bottone e scegliendo tra una serie di lingue da un menù a tendina.
 \end{itemize}
@@ -420,7 +424,7 @@ Questo use case descrive come l'utente autenticato modifica la lingua del sistem
 
 Questo use case descrive come l'utente autenticato modifica le proprie preferenze riguardanti i cookies.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato cambia le impostazioni dei cookies cliccando sull'apposito bottone, scegliendo se accettarli, accettare solo quelli essenziali o rifiutarli.
 \end{itemize}
@@ -429,7 +433,7 @@ Questo use case descrive come l'utente autenticato modifica le proprie preferenz
 
 Questo use case descrive come l'utente autenticato effettua il logout.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato si disconnette in modo sicuro attraverso l'apposito bottone [nota1].
 \end{itemize}
@@ -451,7 +455,7 @@ Questo use case descrive come l'utente autenticato effettua il logout.
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato del proprio budget e le informazioni relative ai propri movimenti.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza una presentazione grafica delle categorie in cui ogni movimento è classificato, relativa al mese corrente.
 \item L'utente autenticato visualizza il riepilogo delle entrate e delle uscite del mese corrente.
@@ -471,7 +475,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato del proprio budget relativo a una determinata categoria e le informazioni sui movimenti associati a tale categoria.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato, cliccando sulla categoria che desidera ispezionare, visualizza l'elenco dei movimenti associati a tale categoria [nota1] e con la possibilità di essere filtrati [nota2].
 \item L'utente autenticato può cercare un determinato movimento nella lista di movimenti della categoria desiderata con il pulsante "Cerca" [nota3].
@@ -490,7 +494,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato delle proprie entrate o delle proprie uscite.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato, cliccando su "Entrate" o su "Uscite", visualizza rispettivamente l'elenco dei movimenti in entrata o l'elenco dei movimenti in uscita [nota1] e con la possibilità di essere filtrati [nota2].
 \item L'utente autenticato può cercare un determinato movimento nella lista di movimenti in entrata/uscita con il pulsante "Cerca" [nota3].
@@ -515,7 +519,7 @@ Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o 
 
 Questo use case descrive come l'utente autenticato inserisce una nuova categoria di movimenti.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato aggiunge una categoria con il bottone "+" presente nel grafico delle categorie [nota1] [nota2].
 \end{itemize}
@@ -533,7 +537,7 @@ Questo use case descrive come l'utente autenticato inserisce una nuova categoria
 
 Questo use case descrive come l'utente autenticato modifica una categoria esistente di movimenti.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica una categoria tenendo premuta tale categoria nel grafico delle categorie e scegliendo l'opzione "Modifica" nel menu che appare [nota1] [nota2].
 \end{itemize}
@@ -550,7 +554,7 @@ Questo use case descrive come l'utente autenticato modifica una categoria esiste
 
 Questo use case descrive come l'utente autenticato elimina una categoria esistente di movimenti.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato elimina una categoria tenendo premuta tale categoria nel grafico delle categorie e scegliendo l'opzione "Elimina" nel menu che appare [nota1].
 \end{itemize}
@@ -566,7 +570,7 @@ Questo use case descrive come l'utente autenticato elimina una categoria esisten
 
 Questo use case descrive come l'utente autenticato aggiunge un nuovo movimento .
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato aggiunge un nuovo movimento premendo il pulsante "+" presente nell'elenco dei movimenti, oppure presente nella categoria selezionata o nella sezione "Entrate"/"Uscite" selezionata [nota1] [nota2] [nota3] [nota4].
 \end{itemize}
@@ -584,7 +588,7 @@ Questo use case descrive come l'utente autenticato aggiunge un nuovo movimento .
 
 Questo use case descrive come l'utente autenticato modifica un movimento esistente.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica un movimento esistente tenendo premuto tale movimento e selezionando l'opzione "Modifica" nel menù che appare [nota1] [nota2].
 \end{itemize}
@@ -601,7 +605,7 @@ Questo use case descrive come l'utente autenticato modifica un movimento esisten
 
 Questo use case descrive come l'utente autenticato elimina un movimento esistente.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato elimina un movimento tenendo premuto tale movimento e scegliendo l'opzione "Elimina" nel menu che appare [nota1].
 \end{itemize}
@@ -623,7 +627,7 @@ Questo use case descrive come l'utente autenticato elimina un movimento esistent
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato dell'elenco delle proprie liste di interesse [nota1].
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza l'elenco delle proprie liste.
 \item L'utente autenticato può cercare una determinata lista con il pulsante "Cerca" [nota2].
@@ -642,7 +646,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato degli elementi appartenenti ad una specifica lista.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza l'elenco di elementi appartenenti a tale lista, compresi quelli a cui non è più interessato[nota1].
 \end{itemize}
@@ -663,7 +667,7 @@ Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o 
 
 Questo use case descrive l'aggiunta da parte dell'utente autenticato di una nuova lista di interesse.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato aggiunge una lista con il bottone "+" presente nella scheda Liste [nota1] [nota2].
 \end{itemize}
@@ -679,7 +683,7 @@ Questo use case descrive l'aggiunta da parte dell'utente autenticato di una nuov
 
 Questo use case descrive la modifica da parte dell'utente autenticato di una lista di interesse esistente.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica una lista tenendo premuta tale lista e scegliendo l'opzione "Modifica" nel menu che appare [nota1][nota2].
 \end{itemize}
@@ -696,7 +700,7 @@ Questo use case descrive la modifica da parte dell'utente autenticato di una lis
 
 Questo use case descrive come l'utente autenticato elimina una lista di interesse esistente.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato elimina una lista tenendo premuta tale lista e scegliendo l'opzione "Elimina" nel menu che appare [nota1].
 \end{itemize}
@@ -719,7 +723,7 @@ Questo use case descrive come l'utente autenticato gestisce gli elementi di una 
 
 Questo use case descrive l'aggiunta da parte dell'utente autenticato di elementi in una lista di interesse specifica.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item Per ogni lista, l'utente autenticato aggiunge uno o più elementi alla lista con il bottone "Aggiungi" [nota1] [nota2].
 \end{itemize}
@@ -736,7 +740,7 @@ Questo use case descrive l'aggiunta da parte dell'utente autenticato di elementi
 
 Questo use case descrive la modifica da parte dell'utente autenticato di un elemento esistente nella lista di interesse.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica un elemento nella lista tenendo premuto tale elemento e scegliendo l'opzione "Modifica" nel menu che appare [nota1][nota2].
 \end{itemize}
@@ -754,7 +758,7 @@ Questo use case descrive la modifica da parte dell'utente autenticato di un elem
 
 Questo use case descrive come l'utente contrassegna un elemento di una lista di interesse.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato contrassegna gli elementi della lista una volta che non ne ha più bisogno; per farlo, clicca sul box in fianco all'elemento che vuole contrassegnare[nota1].
 \end{itemize}
@@ -770,7 +774,7 @@ Questo use case descrive come l'utente contrassegna un elemento di una lista di 
 
 Questo use case descrive come l'utente svuota una lista degli elementi di cui non è più interessato.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato svuota la lista quando non è più interessato agli elementi in tale lista, in particolare elimina dalla lista gli elementi contrassegnati.
 \end{itemize}
@@ -796,7 +800,7 @@ Questo use case descrive come l'utente svuota una lista degli elementi di cui no
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato dei propri eventi o impegni in un calendario [nota1] e la visualizzazione dei dettagli di ogni evento se cliccato.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza il calendario con segnalati i propri eventi.
 \item Per ogni evento, l'utente autenticato visualizza i dettagli relativi a tale evento [nota2].
@@ -820,7 +824,7 @@ Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o 
 Questo use case descrive come l'utente autenticato può aggiungere un nuovo evento nel calendario.
 
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato aggiunge un nuovo evento cliccando su un giorno del calendario[nota1] oppure con il bottone "Aggiungi evento" [nota2] [nota3].
 \end{itemize}
@@ -839,7 +843,7 @@ Questo use case descrive come l'utente autenticato può aggiungere un nuovo even
 Questo use case descrive come l'utente autenticato può modificare eventi nel calendario.
 
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica un evento esistente tenendo premuto tale evento nella lista e selezionando "Modifica"  [nota1] [nota2].
 \end{itemize}
@@ -858,7 +862,7 @@ Questo use case descrive come l'utente autenticato può modificare eventi nel ca
 Questo use case descrive come l'utente autenticato può eliminare eventi nel calendario.
 
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato elimina un evento esistente tenendo premuto tale evento nella lista e selezionando "Elimina"  [nota1].
 \end{itemize}
@@ -875,14 +879,14 @@ Questo use case descrive come l'utente autenticato può eliminare eventi nel cal
 
 Questo use case descrive come l'utente autenticato attiva la notifica di un evento.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato, se desidera ricevere una notifica per ricordargli di un determinato evento, contrassegna il box "Notifica"[nota1].
+\item L'utente autenticato, se desidera ricevere una email per ricordargli di un determinato evento, contrassegna il box "Notifica"[nota1].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
-\item Se contrassegnato il box, l'utente autenticato potrà anche scegliere quanto prima vuole ricevere la notifica.
+\item Se contrassegnato il box, l'utente autenticato potrà anche scegliere quanto prima vuole ricevere la mail.
 \end{enumerate}
 
 
@@ -902,7 +906,7 @@ Questo use case descrive come l'utente autenticato attiva la notifica di un even
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato della propria lista di ricette.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza un elenco con le proprie ricette.
 \item L'utente autenticato può cercare una determinata ricetta con il pulsante "Cerca" [nota1].
@@ -919,7 +923,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 Questo use case descrive  la visualizzazione dettagliata da parte dell'utente autenticato di una singola ricetta se cliccata.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza i dettagli di tale ricetta [nota1].
 \end{itemize}
@@ -946,7 +950,7 @@ Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o 
 
 Questo use case descrive come l'utente autenticato può aggiungere una nuova ricetta.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato aggiunge una ricetta con il bottone "+" presente nella scheda Ricette [nota1] [nota2].
 \end{itemize}
@@ -963,7 +967,7 @@ Questo use case descrive come l'utente autenticato può aggiungere una nuova ric
 
 Questo use case descrive come l'utente autenticato può modificare una ricetta esistente.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica una ricetta esistente tenendo premuta tale ricetta nella lista e selezionando "Modifica" [nota1] [nota2].
 \end{itemize}
@@ -980,7 +984,7 @@ Questo use case descrive come l'utente autenticato può modificare una ricetta e
 
 Questo use case descrive come l'utente autenticato può rimuovere le proprie ricette.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato rimuove una ricetta esistente tenendo premuta tale ricetta nella lista e selezionando "Rimuovi" tra le opzioni che appaiono [nota1].
 \end{itemize}
@@ -997,7 +1001,7 @@ Questo use case descrive come l'utente autenticato può rimuovere le proprie ric
 
  Questo use case descrive l'aggiunta da parte dell'utente autenticato di ingredienti della ricetta direttamente alla lista della spesa.
  
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato può aggiungere tutti gli ingredienti di una ricetta alla lista della spesa con il pulsante "Aggiungi a lista della spesa".
 \item Per ogni ricetta, l'utente autenticato può aggiungere gli ingredienti che desidera alla lista della spesa tenendo premuti tali ingredienti e selezionando "Aggiungi a lista della spesa".
@@ -1022,7 +1026,7 @@ Questo use case descrive come l'utente autenticato può rimuovere le proprie ric
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato della mappa contenente dei riferimenti a luoghi di interesse e la lista di questi luoghi.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza la mappa con segnalati i propri luoghi di interesse[nota1].
 \item L'utente autenticato visualizza l'elenco dei propri luoghi di interesse[nota2].
@@ -1049,7 +1053,7 @@ Questo use case descrive come l'utente autenticato può aggiungere, rimuovere o 
 
 Questo use case descrive come l'utente autenticato può aggiungere un nuovo luogo di interesse.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato aggiunge un nuovo luogo di interesse con il bottone "+" presente nella scheda Ricette [nota1] [nota3] [nota4].
 \item Opzionalmente, l'utente autenticato aggiunge un nuovo luogo di interesse cliccandolo direttamente sulla mappa [nota2].
@@ -1069,7 +1073,7 @@ Questo use case descrive come l'utente autenticato può aggiungere un nuovo luog
 
 Questo use case descrive come l'utente autenticato può modificare i propri luoghi di interesse esistenti.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica un luogo di interesse esistente tenendo premuto tale luogo nell'elenco e selezionando "Modifica" tra le opzioni che appaiono [nota1] [nota2] [nota3].
 \end{itemize}
@@ -1088,7 +1092,7 @@ Questo use case descrive come l'utente autenticato può modificare i propri luog
 
 Questo use case descrive come l'utente autenticato può  rimuovere  i propri luoghi di interesse esistenti.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato rimuove un luogo di interesse esistente tenendo premuto tale luogo nell'elenco e selezionando "Rimuovi" tra le opzioni che appaiono [nota1].
 \end{itemize}
@@ -1104,7 +1108,7 @@ Questo use case descrive come l'utente autenticato può  rimuovere  i propri luo
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato della propria posizione nella mappa.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza la propria posizione sulla mappa tramite segnalibro[nota1] [nota2].
 \end{itemize}
@@ -1130,7 +1134,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato della lista delle proprie carte fedeltà.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato visualizza una lista delle proprie carte fedeltà[nota1].
 \item L'utente autenticato può cercare una determinata carta fedeltà con il pulsante "Cerca" [nota2].
@@ -1149,7 +1153,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 Questo use case descrive la visualizzazione da parte dell'utente autenticato dei dettagli di ogni carta.
 
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item Per ogni carta fedeltà, l'utente autenticato visualizza il nome o l'organizzazione a cui la carta è associata e il codice a barre associato alla carta[nota1].
 \end{itemize}
@@ -1172,7 +1176,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato dei
 
  Questo use case descrive come l'utente autenticato può aggiungere una nuova carta fedeltà.
  
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato aggiunge una nuova carta fedeltà con il bottone "+" presente nella scheda Carte Fedeltà [nota1] [nota2] [nota3].
 \end{itemize}
@@ -1191,7 +1195,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato dei
 
  Questo use case descrive come l'utente autenticato può modificare le proprie carte fedeltà esistenti.
  
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato modifica una carta fedeltà esistente tenendo premuto tale carta nell'elenco e selezionando "Modifica" tra le opzioni che appaiono [nota1] [nota2] [nota3].
 \end{itemize}
@@ -1209,7 +1213,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato dei
 
  Questo use case descrive come l'utente autenticato può rimuovere le proprie carte fedeltà esistenti.
  
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato rimuove una carta fedeltà esistente tenendo premuto tale carta nell'elenco e selezionando "Rimuovi" tra le opzioni che appaiono [nota2].
 \end{itemize}
@@ -1233,7 +1237,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato dei
  Questo use case descrive come l'utente autenticato conferma l'aggiunta o la modifica degli item gestiti delle funzionalità descritte finora.
  Questo use case è riportato una volta sola invece che in ogni descrizione di ogni use case diagram per non ripeterlo ogni volta uguale. 
  
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato conferma l'aggiunta o le modifiche grazie ad un banner visualizzato dal sistema.
 \end{itemize}
@@ -1246,7 +1250,7 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato dei
  Questo use case descrive come l'utente autenticato conferma l'eliminazione degli item gestiti delle funzionalità descritte finora.
  Questo use case è riportato una volta sola invece che in ogni descrizione di ogni use case diagram per non ripeterlo ogni volta uguale. 
  
-\textbf{Descrizione}
+\textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
 \item L'utente autenticato conferma l'eliminazione grazie ad un banner visualizzato dal sistema.
 \end{itemize}
