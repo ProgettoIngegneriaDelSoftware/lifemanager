@@ -235,7 +235,7 @@ Per una descrizione più dettagliata degli attori, fare riferimento alla Mind Ma
 \item \textbf {\hypertarget{RF25}{RF25}} L'applicazione deve mostrare a un utente autenticato le liste salvate e, per ogni lista, visualizzare l'elenco di elementi in tale lista.
 \item \textbf {\hypertarget{RF26}{RF26}} L'applicazione deve permettere a un utente autenticato di aggiungere una lista, inserendo il nome, e di modificare o rimuovere una lista.
 \item \textbf {\hypertarget{RF27}{RF27}} L'applicazione deve permettere a un utente autenticato di aggiungere e modificare le voci all'interno di una lista. Le voci sono affiancate da una checkbox che può essere spuntata quando non si è più interessati a tale elemento della lista. 
-\item \textbf {\hypertarget{RF28}{RF28}} L'applicazione deve permettere di eliminare/svuotare gli elementi della lista contrassegnati.
+\item \textbf {\hypertarget{RF28}{RF28}} L'applicazione deve permettere di eliminare/svuotare gli elementi della lista la cui checkbox è spuntata.
 \item \textbf {\hypertarget{RF29}{RF29}} L'applicazione deve permettere a un utente autenticato di ricercare una specifica lista secondo il nome.
 \item \textbf {\hypertarget{RF30}{RF30}}  L'applicazione deve permettere a un utente autenticato di entrare nella scheda impostazioni dalla pagina iniziale, dove l'applicazione deve consentire la consultazione dell'informativa sulla privacy, la modifica della lingua dell'applicazione, la visualizzazione delle informazioni sugli sviluppatori e sulla versione attuale e infine la disconnessione. Disconnettendosi l'applicazione reindirizza l'utente nella pagina di login.
 \item \textbf {\hypertarget{RF31}{RF31}}  L'applicazione deve permettere a un utente autenticato di entrare scheda profilo dalla pagina iniziale, dove l'applicazione deve consentire la visualizzazione della propria foto profilo, il nome e cognome, l'username e la mail e permette la modifica di queste informazioni oltre che della password.
@@ -283,8 +283,8 @@ Questo use case descrive come l'utente non autenticato effettua la registrazione
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
-\item Nome e/o cognome non valido (non soddisfano la regex ``[a-zA-Z0-9]''), il bordo del campo diventa rosso.
-\item Email non valida (non soddisfa la regex ''.+@.+..+''), il bordo del campo diventa rosso.
+\item Nome e/o cognome non valido, il bordo del campo diventa rosso.
+\item Email non valida, il bordo del campo diventa rosso.
 \item Password non valida oppure le due password non sono uguali, il bordo del campo diventa rosso.
 \item Ci sono campi non compilati oppure non validi, il bordo di tali campi diventa rosso.
 \item L'email inserita è già associata ad un altro account, appare la scritta ''Email inserita associata ad un altro account, inserire un'altra email''.
@@ -790,7 +790,7 @@ Questo use case descrive come l'utente svuota una lista degli elementi di cui no
 
 
 
-\subsection*{4 - Eventi }
+\subsection*{5 - Eventi }
 
 \begin{center}
   \includegraphics[width=13cm]{UCDeventi.jpeg}
@@ -895,7 +895,7 @@ Questo use case descrive come l'utente autenticato attiva la notifica di un even
 
 
 
-\subsection*{5 - Ricette }
+\subsection*{6 - Ricette }
 
 \begin{center}
   \includegraphics[width=13cm]{UCDricette.jpeg}
@@ -1013,7 +1013,7 @@ Questo use case descrive come l'utente autenticato può rimuovere le proprie ric
 
 
 
-\subsection*{6 - Mappa e luoghi di interesse }
+\subsection*{7 - Mappa e luoghi di interesse }
 
 \begin{center}
   \includegraphics[width=13cm]{UCDluoghi.jpeg}
@@ -1055,16 +1055,16 @@ Questo use case descrive come l'utente autenticato può aggiungere un nuovo luog
 
 \textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato aggiunge un nuovo luogo di interesse con il bottone ''+'' presente nella scheda Ricette [nota1] [nota3] [nota4].
-\item Opzionalmente, l'utente autenticato aggiunge un nuovo luogo di interesse cliccandolo direttamente sulla mappa [nota2].
+\item L'utente autenticato aggiunge un nuovo luogo di interesse con il bottone ''+'' presente nella scheda Mappa [nota1] [nota2] [nota3].
+\item Opzionalmente, l'utente autenticato aggiunge un nuovo luogo di interesse cliccandolo direttamente sulla mappa [nota4].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item Nell'aggiunta di un nuovo luogo di interesse, l'utente autenticato inserisce obbligatoriamente un nome, un indirizzo e la città, e opzionalmente la categoria relativa al luogo.
-\item I campi relativi al luogo selezionato verranno, se possibile, auto-compilati.
 \item I campi relativi a nome e indirizzo non possono essere vuoti, se accade il bordo di tali campi diventa rosso.
 \item Nel caso in cui l'indirizzo inserito non sia corretto o valido, il bordo del campo si colora di rosso.
+\item Apparirà la stessa schermata di quando si aggiunge un luogo con il bottone "+", ma campi relativi al luogo selezionato verranno, se possibile, auto-compilati (se uno o più campi non sono disponibili non compariranno automaticamente, ma l'utente potrà inserirli a suo piacimento, sempre rispettando [nota1]).
 \end{enumerate}
 
 
@@ -1110,20 +1110,21 @@ Questo use case descrive la visualizzazione da parte dell'utente autenticato del
 
 \textbf{\\Descrizione}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item L'utente autenticato visualizza la propria posizione sulla mappa tramite segnalibro[nota1] [nota2].
+\item L'utente autenticato, se lo desidera, visualizza la propria posizione sulla mappa tramite segnalibro[nota1] [nota2] [nota3].
 \end{itemize}
 
 \textbf{Note}
 \begin{enumerate} \setlength\itemsep{0.01em}
 \item La posizione è fornita dal GPS del dispositivo.
 \item La mappa è fornita da OpenStreetMap.
+\item Comparirà un banner chiedendo l'accesso alla posizione del dispositivo dell'utente autenticato.
 \end{enumerate}
 
 
 
 
 
-\subsection*{7 - Carte fedeltà}
+\subsection*{8 - Carte fedeltà}
 
 \begin{center}
   \includegraphics[width=13cm]{UCDcartefedeltà.jpeg}
