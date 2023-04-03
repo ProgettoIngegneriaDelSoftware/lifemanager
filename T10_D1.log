@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.29)  31 MAR 2023 14:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.29)  1 APR 2023 21:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1051,34 +1051,34 @@ File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//UCDcartefedeltà
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//UCDcartefedeltà.
 jpeg>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//UCDcartefedeltà.jpeg  used on input line 1129.
+x//UCDcartefedeltà.jpeg  used on input line 1130.
 (pdftex.def)             Requested size: 369.88582pt x 356.7732pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1130.
+(caption)                particular \caption on input line 1131.
 See the caption package documentation for explanation.
 
 [27] [28 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//UCDcartefede
 ltà.jpeg>] [29] [30]
-</Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg, id=465, 851.1
+</Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg, id=466, 851.1
 8pt x 755.82375pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg Graphic f
 ile (type jpg)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//cd.jpg  used on input line 1266.
+x//cd.jpg  used on input line 1267.
 (pdftex.def)             Requested size: 426.79134pt x 378.9835pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1267.
+(caption)                particular \caption on input line 1268.
 See the caption package documentation for explanation.
 
 [31 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//cd.jpg>] [32]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1314.
+(LaTeX3)     1315.
 
 
 (./T10_D1.aux)
@@ -1086,8 +1086,8 @@ Package rerunfilecheck Info: File `T10_D1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13949 strings out of 478994
- 237756 string characters out of 5858184
+ 13950 strings out of 478994
+ 237763 string characters out of 5858184
  577760 words of memory out of 5000000
  30943 multiletter control sequences out of 15000+600000
  407105 words of font info for 39 fonts, out of 8000000 for 9000
@@ -1100,10 +1100,10 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr
 /local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on T10_D1.pdf (32 pages, 943837 bytes).
+Output written on T10_D1.pdf (32 pages, 943811 bytes).
 PDF statistics:
- 567 PDF objects out of 1000 (max. 8388607)
- 449 compressed objects within 5 object streams
- 247 named destinations out of 1000 (max. 500000)
+ 568 PDF objects out of 1000 (max. 8388607)
+ 450 compressed objects within 5 object streams
+ 248 named destinations out of 1000 (max. 500000)
  223 words of extra memory for PDF output out of 10000 (max. 10000000)
 
