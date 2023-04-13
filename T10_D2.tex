@@ -66,21 +66,21 @@ Questo componente permette di interfacciarsi direttamente con l’utente che des
 
 \subsubsection*{Interfacce richieste}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item {\sffamily Credenziali}: qualcosa.
-\item {\sffamily Richiesta check}: qualcosa.
-\item {\sffamily Richiesta ripristino password}: qualcosa.
-\item {\sffamily Richiesta login Google}: qualcosa.
-\item {\sffamily Richiesta registrazione}: qualcosa.
-\item {\sffamily Richiesta login}: qualcosa.
+\item {\sffamily Credenziali}: il componente riceve dall'utente username (o email) e password per accedere all'account.
+\item {\sffamily Richiesta check}: il componente riceve dal componente 'Gestione autenticazione' l'esito del controllo della correttezza delle credenziali inserite dall'utente.
+\item {\sffamily Richiesta ripristino password}: il componente riceve dall'utente la richiesta di ripristino della password.
+\item {\sffamily Richiesta login Google}: il componente riceve dall'utente la richiesta di effettuare l'autenticazione con Google.
+\item {\sffamily Richiesta registrazione}: il componente riceve dall'utente la richiesta di registrarsi e creare un nuovo account perchè non dispone ancora delle credenziali per effettuare il login.
+\item {\sffamily Inoltro richiesta login}: il componente riceve la richiesta di effettuare il login dal componente 'Gestione registrazione'.
 \end{itemize}
 
 \subsubsection*{Interfacce fornite}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item {\sffamily Risposta login}: qualcosa.
-\item {\sffamily Inoltro richiesta registrazione}: qualcosa.
-\item {\sffamily Inoltro credenziali}: qualcosa.
-\item {\sffamily Inoltro richiesta ripristino password}: qualcosa.
-\item {\sffamily Inoltro richiesta login Google}: qualcosa.
+\item {\sffamily Risposta login}: il componente restituisce l'esito dell'operazione di autenticazione, se positivo permetterà la visualizzazione della home page tramite il componente 'Home Page' .
+\item {\sffamily Inoltro richiesta registrazione}: il componente fornisce al componente 'Gestione registrazione' la richiesta di effettuare una nuova registrazione .
+\item {\sffamily Inoltro credenziali}: il componente fornisce al componente 'Gestione autenticazione' le credenziali ricevute dall'utente per effettuarne i controlli.
+\item {\sffamily Richiesta ripristino password}: il componente fornisce al componente 'Gestione autenticazione' la richiesta dell'utente di ripristinare la password.
+\item {\sffamily Inoltro richiesta login Google}: il componente dornisce al componente 'Gestione autenticazione' la richiesta dell'utente di effettuare il login con Google.
 \end{itemize}
 
 
@@ -93,54 +93,58 @@ Questo componente permette di interfacciarsi con l’utente per permettere la re
 
 \subsubsection*{Interfacce richieste}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item {\sffamily Dati utente}: qualcosa.
-\item {\sffamily Richiesta registrazione}: qualcosa.
-\item {\sffamily Richiesta check}: qualcosa.
-\item {\sffamily Richiesta mail}: qualcosa.
+\item {\sffamily Dati utente}: il componente, per permettere all'utente di registrarsi, richiede l'inserimento di nome, cognome, username, email e la password (ripetuta due volte).
+\item {\sffamily Richiesta registrazione}: il componente riceve dal componente 'Gestione login' la richiesta dell'utente di effettuare la registrazione.
+\item {\sffamily Richiesta check}: il componente riceve dal componente 'Gestione autenticazione' l'esito del controllo sui dati inseriti dall'utente.
+\item {\sffamily Richiesta login}: il componente riceve dall'utente la richiesta di effettuare il login.
 \end{itemize}
 
 \subsubsection*{Interfacce fornite}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item {\sffamily Richiesta mail conferma registrazione}: qualcosa.
-\item {\sffamily Richiesta login}: qualcosa.
-\item {\sffamily Inoltro dati utente}: qualcosa.
-\item {\sffamily Scrittura database}: qualcosa.
+\item {\sffamily Richiesta mail conferma registrazione}: il componente fornisce al componente 'Gestione mail' la richiesta di inviare una mail all'utente per confermare l'avvenuta registrazione.
+\item {\sffamily Inoltro richiesta login}: il componente fornisce al componente 'Gestione login' la richiesta dell'utente di effettuare il login.
+\item {\sffamily Inoltro dati utente}: il componente fornisce al componente 'Gestione autenticazione' i dati inseriti dall'utente affinche essi vengano verificati.
 \end{itemize}
+
+
 
 \subsection*{3 - Gestione autenticazione}
 \subsubsection*{Descrizione}
-Questo componente è il responsabile della verifica dei dati inviati (dati di login o registrazione) e quindi dell’autenticazione degli utenti al sistema.
+Questo componente è il responsabile della verifica dei dati inviati (dati di login o registrazione) e quindi dell’autenticazione degli utenti al sistema, oltre che dell'aggiornamento del database in caso di nuove registrazioni.
 \subsubsection*{Interfacce richieste}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item {\sffamily Inoltro dati utente}: qualcosa.
-\item {\sffamily Inoltro credenziali}: qualcosa.
-\item {\sffamily Richiesta ripristino password}: qualcosa.
-\item {\sffamily Richiesta login Google}: qualcosa.
-\item {\sffamily Check credenziali}: qualcosa.
-\item {\sffamily Check autenticazione Google}: qualcosa.
+\item {\sffamily Inoltro dati utente}: il componente riceve dal componente 'Gestione registrazione' i dati inseriti dall'utente in fase di registrazione.
+\item {\sffamily Inoltro credenziali}: il componente riceve dal componente 'Gestione login' i dati inseriti dall'utente in fase di login (le credenziali).
+\item {\sffamily Richiesta ripristino password}: il componente riceve dal componente 'Gestione login' la richiesta dell'utente di recuperare la password.
+\item {\sffamily Richiesta login Google}: il componente riceve dal componente 'Gestione login' la richiesta dell'utente di effettuare il login con google invece che con le credenziali.
+\item {\sffamily Check credenziali}: il componente riceve dal componente 'Database' le informazioni per effettuare il controllo sulle credenziali inserite, in modo da permettere o negare l'autenticazione.
+\item {\sffamily Check autenticazione Google}: il componente riceve dal componente 'Autenticazione Google' l'esito dell'autenticazione con Google.
 \end{itemize}
 
 \subsubsection*{Interfacce fornite}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item {\sffamily Risposta check}: qualcosa.
-\item {\sffamily Richiesta check}: qualcosa.
-\item {\sffamily Inoltro richiesta ripristino password}: qualcosa.
-\item {\sffamily Inoltro richiesta autenticazione Google}: qualcosa.
+\item {\sffamily Risposta check}: il componente fornisce al componente 'Gestione registrazione' l'esito del check sui dati inseriti dall'utente.
+\item {\sffamily Richiesta check}:  il componente fornisce al componente 'Gestione login' l'esito del check sulle credenziali inserite dall'utente..
+\item {\sffamily Inoltro richiesta ripristino password}: il componente fornisce al componente 'Gestione mail' la richiesta di inviare una mail all'utente per permettergli di recuperare la password.
+\item {\sffamily Inoltro richiesta autenticazione Google}: il componente fornisce al componente 'Autenticazione Google' la richiesta di effettuare il login con Google.
 \item {\sffamily Inoltro credenziali}: qualcosa.
 
 \end{itemize}
 
-\subsection*{4 -  Autenticazione con Google}
+\subsection*{4 -  Autenticazione  Google}
 \subsubsection*{Descrizione}
-Qualcosa
+Questo componente interfaccia il nostro sistema con il sistema di auteticazione di Google e permette all'utente di accedere con Google invece che con le credenziali. In particolare, gestisce le richieste di autenticazione con Google e gli esiti di tali richieste. 
 \subsubsection*{Interfacce richieste}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item {\sffamily titolo}: qualcosa.
+\item {\sffamily Inoltro richiesta autenticazione Google}: il componente riceve dal componente 'Gestione autenticazione' la richiesta di autenticare l'utente tramite Google.
+\item {\sffamily Check autenticazione}: il componente richiede l'esito dell'autenticazione ai servizi di Google.
+
 \end{itemize}
 
 \subsubsection*{Interfacce fornite}
 \begin{itemize} \setlength\itemsep{0.01em}
-\item {\sffamily titolo}: qualcosa.
+\item {\sffamily Richiesta autenticazione}: il componente invia la richiesta di autenticazione ai servizi di Google, che si occuperanno di autenticare l'utente.
+\item {\sffamily Check autenticazione Google}: il componente fornisce l'esito dell'autententicazione arrivatogli da Google al componente 'Gestione autenticazione'.
 \end{itemize}
 
 
