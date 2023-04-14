@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.29)  13 APR 2023 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.29)  14 APR 2023 18:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -356,8 +356,12 @@ File: pgfsysprotocol.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 ))
 \c@svgx@runs=\count275
 \c@svgx@out@count=\count276
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
+
 (/usr/local/texlive/2021/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
@@ -598,18 +602,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 35.
 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//LoginRegistrazioneAut
-enticazione.jpg, id=7, 1313.90875pt x 1196.47pt>
+enticazione.jpg, id=7, 1411.2725pt x 1114.1625pt>
 File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//LoginRegistrazio
 neAutenticazione.jpg Graphic file (type jpg)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//LoginRegistrazion
 eAutenticazione.jpg>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//LoginRegistrazioneAutenticazione.jpg  used on input line 59.
-(pdftex.def)             Requested size: 426.79134pt x 388.64732pt.
+x//LoginRegistrazioneAutenticazione.jpg  used on input line 62.
+(pdftex.def)             Requested size: 426.79134pt x 336.93744pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 60.
+(caption)                particular \caption on input line 63.
 See the caption package documentation for explanation.
 
 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//logounitn.jpg, id=8, 
@@ -618,7 +622,7 @@ File: /Users/nicola/Documents/GitHub/lifemanager/images/Latex//logounitn.jpg Gr
 aphic file (type jpg)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//logounitn.jpg>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//logounitn.jpg  used on input line 60.
+x//logounitn.jpg  used on input line 63.
 (pdftex.def)             Requested size: 142.26378pt x 60.79483pt.
 </Users/nicola/Documents/GitHub/lifemanager/images/Latex//logolifemanager.png, 
 id=9, 207.77625pt x 183.68625pt>
@@ -627,7 +631,7 @@ png Graphic file (type png)
 <use /Users/nicola/Documents/GitHub/lifemanager/images/Latex//logolifemanager.p
 ng>
 Package pdftex.def Info: /Users/nicola/Documents/GitHub/lifemanager/images/Late
-x//logolifemanager.png  used on input line 60.
+x//logolifemanager.png  used on input line 63.
 (pdftex.def)             Requested size: 85.35826pt x 75.46039pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -643,20 +647,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 nicola/Documents/GitHub/lifemanager/images/Latex//logounitn.jpg> </Users/nicola
 /Documents/GitHub/lifemanager/images/Latex//logolifemanager.png>] [2 </Users/ni
 cola/Documents/GitHub/lifemanager/images/Latex//LoginRegistrazioneAutenticazion
-e.jpg>] [3] [4]
+e.jpg>] [3] [4] [5]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     167.
+(LaTeX3)     174.
 
  (./T10_D2.aux)
 Package rerunfilecheck Info: File `T10_D2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13506 strings out of 478994
- 220680 string characters out of 5858184
- 573758 words of memory out of 5000000
- 30756 multiletter control sequences out of 15000+600000
+ 13519 strings out of 478994
+ 220936 string characters out of 5858184
+ 574855 words of memory out of 5000000
+ 30765 multiletter control sequences out of 15000+600000
  409890 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  112i,16n,116p,332b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -668,10 +672,10 @@ usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr
 /local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
 local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on T10_D2.pdf (4 pages, 218386 bytes).
+Output written on T10_D2.pdf (5 pages, 219627 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 24 named destinations out of 1000 (max. 500000)
+ 90 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
+ 25 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
