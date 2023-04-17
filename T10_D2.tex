@@ -5,14 +5,21 @@
 \usepackage{geometry}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
-\usepackage{svg-extract}
 \usepackage{hyperref}
+\usepackage[nottoc]{tocbibind}
+
+
+
 \geometry{a4paper, top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm, }
 \setlength{\parindent}{0pt} %\setlength{\parskip}{0,25cm plus1mm minus1mm}
 \graphicspath{ {/Users/nicola/Documents/GitHub/lifemanager/images/Latex/} } 
+\graphicspath{ {C:/Users/Mauro/Desktop/Universita/IngegneriaSW/lifemanager/images/Latex} }
 \lhead{\includegraphics[width=5cm]{logounitn.jpg}}
 \rhead{\includegraphics[width=3cm]{logolifemanager.png}}
 \setlist[itemize]{leftmargin=5.5mm}
+
+
+
 
 
 
@@ -30,6 +37,7 @@
  \maketitle
  \thispagestyle{fancy}
  %-----------------------------------------INFORMAZIONI STUD
+ \vspace{15cm}
 \hrule
 \begin{table}[!h] 
 \begin{tabular}{l l l}
@@ -42,12 +50,16 @@ Nicola Turniano  & 271457 & nicola.turniano@studenti.unitn.it \\
 \end{tabular}
 \end{table}
 \hrule
-\vspace{1cm}
 
+
+
+  
+
+\newpage
  %-----------------------------------------SVOLGIMENTO
 
 
-\section*{Analisi dei componenti}
+\part*{Analisi dei componenti}
 Nel seguente capitolo analizzeremo i componenti interni che costituiranno il nostro sistema, andando a definire una prima architettura al software {\scshape LifeManager}, e le relazioni tra questi componenti. 
 
 In particolare, un componente rappresenta un’entità autonoma all’interno di un sistema o sottosistema; esso ha una o più interfacce (fornite o richieste), e gli elementi al suo interno sono nascosti ed inaccessibili eccetto che attraverso i mezzi forniti dalle sue interfacce.
@@ -60,7 +72,7 @@ Il risultato di questa analisi costituirà i vari \textit{Component Diagrams }ri
   \captionof{figure}{Component diagram Login, Registrazione, Autenticazione }
 \end{center}
 
-\subsection*{1 - Gestione Login}
+\section*{1 - Gestione Login}
 \subsubsection*{Descrizione}
 Questo componente permette di interfacciarsi direttamente con l’utente che desidera effettuare il login con le proprie credenziali. In particolare, verranno raccolti i dati dell’utente (credenziali) o eventuali richieste (recupero password) e inoltrati ad altri componenti interni per elaborarli.
 
@@ -87,7 +99,7 @@ Questo componente permette di interfacciarsi direttamente con l’utente che des
 
 
 
-\subsection*{2 - Gestione registrazione}
+\section*{2 - Gestione registrazione}
 \subsubsection*{Descrizione}
 Questo componente permette di interfacciarsi con l’utente per permettere la registrazione al sistema e la creazione di un nuovo account. I dati raccolti verranno smistati agli altri componenti che li elaboreranno.
 
@@ -108,7 +120,7 @@ Questo componente permette di interfacciarsi con l’utente per permettere la re
 
 
 
-\subsection*{3 - Gestione autenticazione}
+\section*{3 - Gestione autenticazione}
 \subsubsection*{Descrizione}
 Questo componente è il responsabile della verifica dei dati inviati (dati di login o registrazione) e quindi dell’autenticazione degli utenti al sistema, oltre che dell'aggiornamento del database in caso di nuove registrazioni.
 \subsubsection*{Interfacce richieste}
@@ -131,7 +143,7 @@ Questo componente è il responsabile della verifica dei dati inviati (dati di lo
 
 \end{itemize}
 
-\subsection*{4 -  Autenticazione  Google}
+\section*{4 -  Autenticazione  Google}
 \subsubsection*{Descrizione}
 Questo componente interfaccia il nostro sistema con il sistema di auteticazione di Google e permette all'utente di accedere con Google invece che con le credenziali. In particolare, gestisce le richieste di autenticazione con Google e gli esiti di tali richieste. 
 \subsubsection*{Interfacce richieste}
@@ -149,7 +161,7 @@ Questo componente interfaccia il nostro sistema con il sistema di auteticazione 
 
 
 
-\subsection*{5 -  Gestione mail}
+\section*{5 -  Gestione mail}
 \subsubsection*{Descrizione}
 Questo componente interfaccia il nostro sistema con Gmail e permette di inviare delle notifiche (email) all'utente per permettergli di recuperare la password, confermare la registrazione e notificare l'approssimarsi di un evento. 
 \subsubsection*{Interfacce richieste}
@@ -166,7 +178,7 @@ Questo componente interfaccia il nostro sistema con Gmail e permette di inviare 
 \end{itemize}
 
 
-\subsection*{6 -  Home page}
+\section*{6 -  Home page}
 \subsubsection*{Descrizione}
 Questo componente interfaccia il nostro sistema con l'utente permettendogli, una volta effettuato il login, di visualizzare e accedere alle varie funzionalità dell'applicazione. 
 \subsubsection*{Interfacce richieste}
@@ -193,14 +205,13 @@ Questo componente interfaccia il nostro sistema con l'utente permettendogli, una
 
 
 
-\subsection*{7 -  Gestione budget}
+\section*{7 -  Gestione budget}
 \subsubsection*{Descrizione}
 Questo componente è responsabile di tutti gli aspetti relativi alla funzionalità budget e in base alle richieste dell'utente permette la visualizzazione, gestione, aggiunta e rimozione del proprio budget e dei propri movimenti.
 \subsubsection*{Interfacce richieste}
-\begin{itemize} \setlength\itemsep{0.01em}.
+\begin{itemize} \setlength\itemsep{0.01em}
 \item {\sffamily Richiesta visualizzazione budget}: il componente riceve dal componente 'Home page'  la richiesta di accedere alla funzionalità budget e di visualizzarne (o eventualmente poi andare a modificarne) le informazioni.
 \item {\sffamily Richiesta input utente}: il componente riceve dell'utente la richiesta di visualizzare il proprio budget e i propri movimenti (sia complessivamente che classificati per categoria, oppure visualizzare solo le entrate o le uscite). Inoltre l'utente può richiedere di aggiungere, rimuovere o modificare movimenti.
-
 \end{itemize}
 
 \subsubsection*{Interfacce fornite}
@@ -218,11 +229,11 @@ Questo componente è responsabile di tutti gli aspetti relativi alla funzionalit
 \end{itemize}
 
 
-\subsection*{8 -  Gestione liste}
+\section*{8 -  Gestione liste}
 \subsubsection*{Descrizione}
 Questo componente è responsabile di tutti gli aspetti relativi alla funzionalità liste e in base alle richieste dell'utente permette la visualizzazione, gestione, aggiunta e rimozione delle proprie liste di interesse.
 \subsubsection*{Interfacce richieste}
-\begin{itemize} \setlength\itemsep{0.01em}.
+\begin{itemize} \setlength\itemsep{0.01em}
 \item {\sffamily Richiesta visualizzazione liste}: il componente riceve dal componente 'Home page'  la richiesta di accedere alla funzionalità liste e di visualizzarne (o eventualmente poi andare a modificarne) le informazioni.
 \item {\sffamily Richiesta input utente}: il componente riceve dell'utente la richiesta di visualizzare le proprie liste. Inoltre l'utente può richiedere di aggiungere, rimuovere o modificare le liste.
 
@@ -243,11 +254,11 @@ Questo componente è responsabile di tutti gli aspetti relativi alla funzionalit
 
 
 
-\subsection*{9 -  Gestione ricette}
+\section*{9 -  Gestione ricette}
 \subsubsection*{Descrizione}
 Questo componente è responsabile di tutti gli aspetti relativi alla funzionalità ricette e in base alle richieste dell'utente permette la visualizzazione, gestione, aggiunta e rimozione delle proprie ricette.
 \subsubsection*{Interfacce richieste}
-\begin{itemize} \setlength\itemsep{0.01em}.
+\begin{itemize} \setlength\itemsep{0.01em}
 \item {\sffamily Richiesta visualizzazione ricette}: il componente riceve dal componente 'Home page'  la richiesta di accedere alla funzionalità ricette e di visualizzarne (o eventualmente poi andare a modificarne) le informazioni.
 \item {\sffamily Richiesta input utente}: il componente riceve dell'utente la richiesta di visualizzare le proprie ricette. Inoltre l'utente può richiedere di aggiungere, rimuovere o modificare le proprie ricette.
 
@@ -265,11 +276,11 @@ Questo componente è responsabile di tutti gli aspetti relativi alla funzionalit
 
 
 
-\subsection*{10 -  Gestione eventi}
+\section*{10 -  Gestione eventi}
 \subsubsection*{Descrizione}
 Questo componente è responsabile di tutti gli aspetti relativi alla funzionalità eventi e in base alle richieste dell'utente permette la visualizzazione, gestione, aggiunta e rimozione dei propri eventi/attività.
 \subsubsection*{Interfacce richieste}
-\begin{itemize} \setlength\itemsep{0.01em}.
+\begin{itemize} \setlength\itemsep{0.01em}
 \item {\sffamily Richiesta visualizzazione eventi}: il componente riceve dal componente 'Home page'  la richiesta di accedere alla funzionalità eventi e di visualizzarne (o eventualmente poi andare a modificarne) le informazioni.
 \item {\sffamily Richiesta input utente}: il componente riceve dell'utente la richiesta di visualizzare i propri eventi. Inoltre l'utente può richiedere di aggiungere, rimuovere o modificare tali eventi.
 
@@ -287,11 +298,11 @@ Questo componente è responsabile di tutti gli aspetti relativi alla funzionalit
 
 
 
-\subsection*{11 -  Gestione mappe/luoghi di interesse}
+\section*{11 -  Gestione mappe/luoghi di interesse}
 \subsubsection*{Descrizione}
 Questo componente è responsabile di tutti gli aspetti relativi alla funzionalità mappe/luoghi di interesse e in base alle richieste dell'utente permette la visualizzazione, gestione, aggiunta e rimozione dei propri luoghi di interesse.
 \subsubsection*{Interfacce richieste}
-\begin{itemize} \setlength\itemsep{0.01em}.
+\begin{itemize} \setlength\itemsep{0.01em}
 \item {\sffamily Richiesta visualizzazione mappa e luoghi}: il componente riceve dal componente 'Home page'  la richiesta di accedere alla funzionalità mappa e di visualizzare (o eventualmente poi andare a modificare) le informazioni relative ai luoghi di interesse.
 \item {\sffamily Richiesta input utente}: il componente riceve dell'utente la richiesta di visualizzare i propri luoghi di interesse. Inoltre l'utente può richiedere di aggiungere, rimuovere o modificare tali luoghi.
 
@@ -308,11 +319,11 @@ Questo componente è responsabile di tutti gli aspetti relativi alla funzionalit
 
 
 
-\subsection*{12 -  Gestione carte fedeltà}
+\section*{12 -  Gestione carte fedeltà}
 \subsubsection*{Descrizione}
 Questo componente è responsabile di tutti gli aspetti relativi alla funzionalità carte fedeltà e in base alle richieste dell'utente permette la visualizzazione, gestione, aggiunta e rimozione delle proprie carte fedeltà.
 \subsubsection*{Interfacce richieste}
-\begin{itemize} \setlength\itemsep{0.01em}.
+\begin{itemize} \setlength\itemsep{0.01em}
 \item {\sffamily Richiesta visualizzazione carta}: il componente riceve dal componente 'Home page'  la richiesta di accedere alla funzionalità carte fedeltà e di visualizzare (o eventualmente poi andare a modificare) le informazioni relative alle carte.
 \item {\sffamily Richiesta input utente}: il componente riceve dell'utente la richiesta di visualizzare le proprie carte fedeltà. Inoltre l'utente può richiedere di aggiungere, rimuovere o modificare tali carte.
 
