@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 require('dotenv').config
+const cors = require('cors')
 
 const authentication = require('./authentication/authentication.js');
 const tokenChecker = require('./authentication/tokenChecker.js');
@@ -11,6 +12,8 @@ const liste = require('./liste.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors())
 
 
 app.use('/', express.static('static')); // expose also this folder
@@ -24,7 +27,7 @@ app.use((req, res, next) => {
 
 app.use('/api/v1/authentications', authentication);
 
-app.use('/api/v1/users', tokenChecker);
+//app.use('/api/v1/users', tokenChecker);
 app.use('/api/v1/movimenti', tokenChecker);
 app.use('/api/v1/liste', tokenChecker);
 // app.use('/api/v1/students/me', tokenChecker);
