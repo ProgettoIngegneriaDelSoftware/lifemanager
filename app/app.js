@@ -9,7 +9,6 @@ const users = require('./users.js');
 const movimenti = require('./movimenti.js');
 const liste = require('./liste.js');
 
-const categoria_movimenti = require('./categoria_movimenti.js');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -28,7 +27,6 @@ app.use('/api/v1/authentications', authentication);
 app.use('/api/v1/users', tokenChecker);
 app.use('/api/v1/movimenti', tokenChecker);
 app.use('/api/v1/liste', tokenChecker);
-app.use('/api/v1/movimenti/categorie', tokenChecker);
 // app.use('/api/v1/students/me', tokenChecker);
 
 
@@ -40,7 +38,7 @@ app.use('/api/v1/movimenti/categorie', tokenChecker);
 app.use('/api/v1/users', users);
 app.use('/api/v1/movimenti', movimenti);
 app.use('/api/v1/liste', liste);
-app.use('/api/v1/movimenti/categorie', categoria_movimenti);
+
 // app.use('/api/v1/booklendings', booklendings);
 
 
