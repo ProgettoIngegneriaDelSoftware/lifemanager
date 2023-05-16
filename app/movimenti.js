@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Movimento = require('./models/movimento'); // get our mongoose model
-//const CategoriaMovimento = require('./models/categoria_movimento'); // get our mongoose model
+const CategoriaMovimento = require('./models/categoria_movimento'); // get our mongoose model
 
 router.get('', async (req, res) => {
    
     let mov = await Movimento.find({ user: req.loggedUser.id });
-    if (!mov) {
+    if (!mov || mov.length === 0) {
         res.status(404).send()
         console.log(' movimento not found')
         return;
@@ -23,7 +23,7 @@ router.get('', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     // https://mongoosejs.com/docs/api.html#model_Model.findById
-    let mov = await Movimento.findById(req.params.id);
+    let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id});
     if (!mov) {
         res.status(404).send()
         console.log(' movimento not found')
@@ -85,7 +85,7 @@ router.post('', async (req, res) => {
 
 
 router.delete('/:id', async (req, res) => {
-    let mov = await Movimento.findById(req.params.id).exec();
+    let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id}).exec();
     if (!mov) {
         res.status(404).send()
         console.log('movimento not found')
@@ -105,7 +105,7 @@ router.put('/:id', async (req, res) => {
             { upsert: true, new: true }
         );
 
-        let mov = await Movimento.findById(req.params.id);
+        let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id});
 
         if (!mov) {
             return res.status(404).send();
@@ -127,5 +127,110 @@ router.put('/:id', async (req, res) => {
 });
 
 
+
+
+router.get('/categorie', async (req, res) => {
+    let cat = await CategoriaMovimento.find({user: req.loggedUser.id});
+    if (!cat || cat.length === 0) {
+        res.status(404).send()
+        console.log('categoria di movimento not found')
+        return;
+    }
+    cat = cat.map((categ) => {
+        return {
+            self: '/api/v1/movimenti/categorie/' + categ.id,
+            nome: categ.nome
+        };
+    });
+    res.status(200).json(cat);
+});
+
+
+router.get('categorie/:id', async (req, res) => {
+    // https://mongoosejs.com/docs/api.html#model_Model.findById
+    let cat = await CategoriaMovimento.findOne({_id: req.params.id, user: req.loggedUser.id});
+    if (!cat) {
+        res.status(404).send()
+        console.log('categoria di movimento not found')
+        return;
+    }
+    res.status(200).json({
+        self: '/api/v1/movimenti/categorie/' + cat.id,
+        nome: cat.nome
+    });
+});
+
+
+router.get('categorie/:nome', async (req, res) => {
+    // https://mongoosejs.com/docs/api.html#model_Model.findById
+    let catID= await CategoriaMovimento.findOne({nome: req.params.nome, user: req.loggedUser.id})
+    if (!catID) {
+        res.status(404).send()
+        console.log(' categoria not found')
+        return;
+    }
+    let mov = await Movimento.find({categoria: catID, user: req.loggedUser.id});
+    if (!mov) {
+        res.status(404).send()
+        console.log(' movimento not found')
+        return;
+    }
+    mov = mov.map( (movi) => {
+        return {
+            self: '/api/v1/movimenti/' + movi.id,
+            titolo: movi.titolo
+        };
+    });
+    res.status(200).json(mov);
+});
+
+
+router.post('/categorie', async (req, res) => {
+    
+	let cat = new CategoriaMovimento({
+        user: req.loggedUser.id,
+        nome: req.body.nome
+    });
+
+    
+	cat = await cat.save();
+    
+    let catId = cat.id;
+
+    res.location("/api/v1/movimenti/categorie/" + catId).status(201).send();
+});
+
+
+router.delete('categorie/:id', async (req, res) => {
+    let cat = await CategoriaMovimento.findOne({_id: req.params.id, user: req.loggedUser.id}).exec();
+    if (!cat) {
+        res.status(404).send()
+        console.log('categoria di movimento not found')
+        return;
+    }
+    await cat.deleteOne()
+    console.log('categoria removed')
+    res.status(204).send()
+});
+
+
+router.put('categorie/:id', async (req, res) => {
+    try {
+        let cat = await CategoriaMovimento.findOne({_id: req.params.id, user: req.loggedUser.id});
+
+        if (!cat) {
+            return res.status(404).send();
+        }
+
+        cat.nome = req.body.nome;
+
+        cat = await cat.save();
+
+        res.location("/api/v1/movimenti/categorie/" + cat.id).status(201).send();
+    } catch (err) {
+        console.error(err);
+        res.status(500).send();
+    }
+});
 
 module.exports = router;
