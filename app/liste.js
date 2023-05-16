@@ -7,7 +7,7 @@ router.get('', async (req, res) => {
     let list = await lista.find({user: req.loggedUser.id});
     list = list.map( (listi) => {
         return {
-            self: '/api/v1/movimenti/' + listi.nome,
+            self: '/api/v1/liste/' + listi.nome,
             nome: listi.nome
         };
     });
