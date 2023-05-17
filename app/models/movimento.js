@@ -21,7 +21,7 @@ module.exports = mongoose.model('movimenti', new Schema({
         required: true
     },
     categoria: {
-        type: Schema.Types.String,
+        type: Schema.Types.ObjectId,
         ref: 'Categoria',
         //type: String,
         required: true

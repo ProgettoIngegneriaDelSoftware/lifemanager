@@ -8,7 +8,7 @@ router.get('', async (req, res) => {
     let mov = await Movimento.find({ user: req.loggedUser.id });
     if (!mov || mov.length === 0) {
         res.status(404).send()
-        console.log(' movimento not found')
+        console.log(' movimenti not found')
         return;
     }
     mov = mov.map( (movi) => {
@@ -20,24 +20,6 @@ router.get('', async (req, res) => {
     res.status(200).json(mov);
 });
 
-
-router.get('/:id', async (req, res) => {
-    // https://mongoosejs.com/docs/api.html#model_Model.findById
-    let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id});
-    if (!mov) {
-        res.status(404).send()
-        console.log(' movimento not found')
-        return;
-    }
-    res.status(200).json({
-        self: '/api/v1/movimenti/' + mov.id,
-        titolo: mov.titolo,
-        importo: mov.importo,
-        tipologia: mov.tipologia,
-        categoria: mov.categoria,
-        note: mov.note
-    });
-});
 
 
 router.get('/tipologia/:tipologia', async (req, res) => {
@@ -57,6 +39,30 @@ router.get('/tipologia/:tipologia', async (req, res) => {
     res.status(200).json(mov);
 });
 
+router.get('/categorie/:nome', async (req, res) => {
+    // https://mongoosejs.com/docs/api.html#model_Model.findById
+    let catID= await CategoriaMovimento.findOne({nome: req.params.nome, user: req.loggedUser.id})
+    if (!catID) {
+        res.status(404).send()
+        console.log(' categoria not found')
+        
+        return;
+    }
+    console.log(catID._id)
+    let mov = await Movimento.find({categoria: catID._id, user: req.loggedUser.id});
+    if (!mov) {
+        res.status(404).send()
+        console.log(' movimento not found')
+        return;
+    }
+    mov = mov.map( (movi) => {
+        return {
+            self: '/api/v1/movimenti/' + movi.id,
+            titolo: movi.titolo
+        };
+    });
+    res.status(200).json(mov);
+});
 
 router.post('', async (req, res) => {
 
@@ -71,7 +77,7 @@ router.post('', async (req, res) => {
         titolo: req.body.titolo,
         importo: req.body.importo,
         tipologia: req.body.tipologia,
-        categoria: categoria.nome,
+        categoria: categoria._id,
         note: req.body.note
     });
 
@@ -114,7 +120,7 @@ router.put('/:id', async (req, res) => {
         mov.titolo = req.body.titolo;
         mov.importo = req.body.importo;
         mov.tipologia = req.body.tipologia;
-        mov.categoria = categoria.nome;
+        mov.categoria = categoria._id;
         mov.note = req.body.note;
 
         mov = await mov.save();
@@ -146,44 +152,6 @@ router.get('/categorie', async (req, res) => {
 });
 
 
-router.get('categorie/:id', async (req, res) => {
-    // https://mongoosejs.com/docs/api.html#model_Model.findById
-    let cat = await CategoriaMovimento.findOne({_id: req.params.id, user: req.loggedUser.id});
-    if (!cat) {
-        res.status(404).send()
-        console.log('categoria di movimento not found')
-        return;
-    }
-    res.status(200).json({
-        self: '/api/v1/movimenti/categorie/' + cat.id,
-        nome: cat.nome
-    });
-});
-
-
-router.get('categorie/:nome', async (req, res) => {
-    // https://mongoosejs.com/docs/api.html#model_Model.findById
-    let catID= await CategoriaMovimento.findOne({nome: req.params.nome, user: req.loggedUser.id})
-    if (!catID) {
-        res.status(404).send()
-        console.log(' categoria not found')
-        return;
-    }
-    let mov = await Movimento.find({categoria: catID, user: req.loggedUser.id});
-    if (!mov) {
-        res.status(404).send()
-        console.log(' movimento not found')
-        return;
-    }
-    mov = mov.map( (movi) => {
-        return {
-            self: '/api/v1/movimenti/' + movi.id,
-            titolo: movi.titolo
-        };
-    });
-    res.status(200).json(mov);
-});
-
 
 router.post('/categorie', async (req, res) => {
     
@@ -201,7 +169,7 @@ router.post('/categorie', async (req, res) => {
 });
 
 
-router.delete('categorie/:id', async (req, res) => {
+router.delete('/categorie/:id', async (req, res) => {
     let cat = await CategoriaMovimento.findOne({_id: req.params.id, user: req.loggedUser.id}).exec();
     if (!cat) {
         res.status(404).send()
@@ -214,23 +182,25 @@ router.delete('categorie/:id', async (req, res) => {
 });
 
 
-router.put('categorie/:id', async (req, res) => {
-    try {
-        let cat = await CategoriaMovimento.findOne({_id: req.params.id, user: req.loggedUser.id});
 
-        if (!cat) {
-            return res.status(404).send();
-        }
-
-        cat.nome = req.body.nome;
-
-        cat = await cat.save();
-
-        res.location("/api/v1/movimenti/categorie/" + cat.id).status(201).send();
-    } catch (err) {
-        console.error(err);
-        res.status(500).send();
+router.get('/:id', async (req, res) => {
+    // https://mongoosejs.com/docs/api.html#model_Model.findById
+    let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id});
+    
+    if (!mov) {
+        res.status(404).send()
+        console.log(' movimento not found')
+        return;
     }
+    res.status(200).json({
+        self: '/api/v1/movimenti/' + mov.id,
+        titolo: mov.titolo,
+        importo: mov.importo,
+        tipologia: mov.tipologia,
+        categoria: mov.categoria,
+        note: mov.note
+    });
 });
+
 
 module.exports = router;
