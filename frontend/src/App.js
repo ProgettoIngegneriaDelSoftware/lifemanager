@@ -34,7 +34,6 @@ function App() {
 
   return (
     <div>
-      <Context.Provider value={userInfo}>
         <Router>
           <Routes>
             <Route exact path="/" element={<Layout />}>
