@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 //import axios from 'axios';
 
 function Registrati() {
   const [formData, setFormData] = useState({
-    nome: '',
-    cognome: '',
-    username: '',
-    email: '',
-    password: '',
+    nome: "",
+    cognome: "",
+    username: "",
+    email: "",
+    password: "",
   });
-
 
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -17,29 +16,29 @@ function Registrati() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
-    const url = '/api/v1/users/';
-  
+
+    const url = "/api/v1/users/";
+
     const requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         nome: formData.nome,
         cognome: formData.cognome,
         username: formData.username,
         email: formData.email,
-        password: formData.password
-      })
+        password: formData.password,
+      }),
     };
-  
+
     fetch(url, requestOptions)
       .then((response) => {
         if (response.ok) {
           return response.json();
         } else {
-          throw new Error('Error: ' + response.status);
+          throw new Error("Error: " + response.status);
         }
       })
       .then((data) => {
@@ -52,20 +51,59 @@ function Registrati() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label> Nome:
-        <input type="text" name="nome" value={formData.nome} onChange={handleInputChange}/>
+      <label>
+        {" "}
+        Nome:
+        <input
+          type="text"
+          name="nome"
+          value={formData.nome}
+          onChange={handleInputChange}
+        />
       </label>
-      <label> Cognome:
-        <input id="cognome" type="text" name="cognome" value={formData.cognome} onChange={handleInputChange}/>
+      <label>
+        {" "}
+        Cognome:
+        <input
+          id="cognome"
+          type="text"
+          name="cognome"
+          value={formData.cognome}
+          onChange={handleInputChange}
+        />
       </label>
-      <label> Username:
-        <input id="username" type="text" name="username" value={formData.username} onChange={handleInputChange}/>
+      <label>
+        {" "}
+        Username:
+        <input
+          id="username"
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleInputChange}
+        />
       </label>
-      <label> Email:
-        <input id="email" type="email" name="email" value={formData.email} onChange={handleInputChange}/>
+      <label>
+        {" "}
+        Email:
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+        />
       </label>
-      <label> Password:
-        <input id="password" type="password" name="password" value={formData.password} onChange={handleInputChange}/>
+      <label>
+        {" "}
+        Password:
+        <input
+          id="password"
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+        />
       </label>
       <button type="submit">Registrati</button>
     </form>

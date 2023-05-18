@@ -50,7 +50,11 @@ function Login() {
             token: data.token,
             message: data.message
           };
-          localStorage.setItem('token', loggedUser.token);
+          localStorage.setItem('token', userData.token);
+          if(data.success){
+            window.location.href = `/homepage`;
+          }
+         
         })
         .catch((error) => {
           console.error(error); // Gestisci gli errori
@@ -72,7 +76,7 @@ function Login() {
             <input id="password" type="password" name="password" value={formData.password} onChange={handleInputChange}/>
           </label>
           <br></br>
-          <button type="submit">Login</button>
+          <a href={`/homepage/${userData.email}`}><button type="submit">Login</button></a>
 
         </form>
         <a href="/registrati"><button>Registrazione</button></a>
