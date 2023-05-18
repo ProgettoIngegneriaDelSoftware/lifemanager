@@ -19,7 +19,7 @@ function App() {
     id: '',
     email: '',
     token: '',
-    message: 'hjjh'
+    message: ''
   }
 
   const Layout = () =>{
@@ -39,7 +39,7 @@ function App() {
             <Route exact path="/" element={<Layout />}>
               <Route exact path="/registrati" element={<Registrati />} />
               <Route exact path="/" element={<Login />} />
-              <Route exact path="/homepage/:username" element={<Homepage />} />
+              <Route exact path="/homepage" element={<Homepage />} />
             <Route exact path="/liste" element={<Liste />} />
             <Route exact path="/nuovalista" element={<NuovaLista />} />
             <Route exact path="/liste/:nomelista" element={<Lista />} />
