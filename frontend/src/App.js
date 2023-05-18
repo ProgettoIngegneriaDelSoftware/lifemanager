@@ -9,8 +9,16 @@ import Liste from './liste/liste';
 
 import { BrowserRouter as Router, Routes, Route , Outlet} from 'react-router-dom';
 import Homepage from './components/Homepage';
+import Context from './components/Context';
 
 function App() {
+
+  let userInfo={
+    id: '',
+    email: '',
+    token: '',
+    message: 'hjjh'
+  }
 
   const Layout = () =>{
     return(
@@ -24,16 +32,18 @@ function App() {
 
   return (
     <div>
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Layout />}>
-            <Route exact path="/registrati" element={<Registrati />} />
-            <Route exact path="/" element={<Login />} />
-            <Route exact path="/homepage/:username" element={<Homepage />} />
+      <Context.Provider value={userInfo}>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Layout />}>
+              <Route exact path="/registrati" element={<Registrati />} />
+              <Route exact path="/" element={<Login />} />
+              <Route exact path="/homepage/:username" element={<Homepage />} />
             <Route exact path="/liste" element={<Liste />} />
-          </Route>
-        </Routes>
-      </Router>
+            </Route>
+          </Routes>
+        </Router>
+      </Context.Provider>
     </div>
   );
 }

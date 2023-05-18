@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 
+
 function Login() {
+    let userData={}
+
     const [formData, setFormData] = useState({
       usernameORemail: '',
       password: '',
     });
+
+    const [result, setResult] = useState('')
   
   
     const handleInputChange = (event) => {
@@ -37,13 +42,15 @@ function Login() {
         })
         .then((data) => {
           console.log(data); // Stampa la risposta del backend nella console
-          var loggedUser = {
+          
+          setResult(<p>{data.message}</p>) 
+          userData = {
             id: data.id,
             email: data.email,
-            token: data.token
+            token: data.token,
+            message: data.message
           };
           localStorage.setItem('token', loggedUser.token);
-          console.log(loggedUser.token)
         })
         .catch((error) => {
           console.error(error); // Gestisci gli errori
@@ -69,6 +76,7 @@ function Login() {
 
         </form>
         <a href="/registrati"><button>Registrazione</button></a>
+        {result}
       </div>
       </>
     );
