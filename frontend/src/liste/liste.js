@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
 
-function Login() {
-  useEffect(() => {
+function Liste() {
+
     const url = '/api/v1/liste/';
     const token = localStorage.getItem('token');
   
@@ -28,7 +27,7 @@ function Login() {
         var lista = {
             nome: item.nome
         };
-        resultList += 'Nome: ' + lista.nome + '<br><hr>';
+        resultList += '<a href="/liste/' + lista.nome + '">Nome: ' + lista.nome + '</a><br /><hr />';
     });
 
   var resultDiv = document.getElementById('result');
@@ -37,7 +36,6 @@ function Login() {
       .catch((error) => {
         console.error(error); // Gestisci gli errori
       });
-  }, []);
 
   return (
     <>
@@ -48,4 +46,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Liste;
