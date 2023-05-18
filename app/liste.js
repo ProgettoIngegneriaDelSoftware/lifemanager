@@ -3,7 +3,6 @@ const router = express.Router();
 const lista = require('./models/lista'); // get our mongoose model
 
 router.get('', async (req, res) => {
-   
     let list = await lista.find({user: req.loggedUser.id});
     list = list.map( (listi) => {
         return {

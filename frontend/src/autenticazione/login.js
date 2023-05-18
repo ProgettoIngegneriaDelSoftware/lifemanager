@@ -42,6 +42,7 @@ function Login() {
             email: data.email,
             token: data.token
           };
+          localStorage.setItem('token', loggedUser.token);
           console.log(loggedUser.token)
         })
         .catch((error) => {
