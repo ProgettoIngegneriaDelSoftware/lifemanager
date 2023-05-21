@@ -152,7 +152,6 @@ router.put('/:nome', async (req, res) => {
 });
 
 router.put('/:nome/elementi/:idElemento', async (req, res) => {
-
     let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id});
 
     if (!list) {
@@ -170,7 +169,7 @@ router.put('/:nome/elementi/:idElemento', async (req, res) => {
     }
     
     if(req.body.nome) elemento.nome = req.body.nome;
-    if (req.body.contrassegno)elemento.contrassegno = req.body.contrassegno;
+    elemento.contrassegno = req.body.contrassegno;
   
     await list.save();
 

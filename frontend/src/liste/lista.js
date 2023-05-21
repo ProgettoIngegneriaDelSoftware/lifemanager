@@ -99,9 +99,7 @@ function Lista() {
     <>
       <h2>{nomelista}</h2>
       <div id="result">{renderedItems}</div>
-      <a href="/nuovalista">
-        <button>Aggiungi elemento</button>
-      </a>
+      <a href={`/${nomelista}/nuovoelemento`}><button>Nuovo Elemento</button></a>
     </>
   );
 }
