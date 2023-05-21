@@ -40,6 +40,11 @@ function App() {
             <Route exact path="/liste" element={<Liste />} />
             <Route exact path="/nuovalista" element={<NuovaLista />} />
             <Route exact path="/liste/:nomelista" element={<Lista />} />
+            <Route
+              exact
+              path="/:nomelista/nuovoelemento"
+              element={<NuovoElemento />}
+            />
           </Route>
         </Routes>
       </Router>
