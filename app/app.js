@@ -17,6 +17,8 @@ app.use(cors());
 
 app.use("/", express.static("static")); // expose also this folder
 
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
 app.use((req, res, next) => {
   console.log(req.method + " " + req.url);
   next();
