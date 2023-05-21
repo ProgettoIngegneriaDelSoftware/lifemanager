@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Movimento = require('./models/movimento'); // get our mongoose model
 const CategoriaMovimento = require('./models/categoria_movimento'); // get our mongoose model
+const mongoose = require('mongoose')
 
 router.get('', async (req, res) => {
    
     let mov = await Movimento.find({ user: req.loggedUser.id });
     if (!mov || mov.length === 0) {
-        res.status(404).send()
-        console.log(' movimenti not found')
+        res.status(404).json({error: 'movimenti not found'})
         return;
     }
     mov = mov.map( (movi) => {
@@ -23,11 +23,15 @@ router.get('', async (req, res) => {
 
 
 router.get('/tipologia/:tipologia', async (req, res) => {
-    // https://mongoosejs.com/docs/api.html#model_Model.findById
+
+    if (req.params.tipologia !== 'entrata' && req.params.tipologia !== 'uscita') {
+        return res
+            .status(400)
+            .json({ error: "Invalid value for 'tipologia'" });
+    }
     let mov = await Movimento.find({tipologia: req.params.tipologia, user: req.loggedUser.id});
-    if (!mov) {
-        res.status(404).send()
-        console.log(' movimento not found')
+    if (!mov || mov.length==0) {
+        res.status(404).json({error: 'movimenti not found'})
         return;
     }
     mov = mov.map( (movi) => {
@@ -40,19 +44,18 @@ router.get('/tipologia/:tipologia', async (req, res) => {
 });
 
 router.get('/categorie/:nome', async (req, res) => {
+
     // https://mongoosejs.com/docs/api.html#model_Model.findById
     let catID= await CategoriaMovimento.findOne({nome: req.params.nome, user: req.loggedUser.id})
     if (!catID) {
-        res.status(404).send()
-        console.log(' categoria not found')
+        res.status(404).json({error : "categoria not found"})
         
         return;
     }
     console.log(catID._id)
     let mov = await Movimento.find({categoria: catID._id, user: req.loggedUser.id});
     if (!mov) {
-        res.status(404).send()
-        console.log(' movimento not found')
+        res.status(404).json({error: 'movimento not found'})
         return;
     }
     mov = mov.map( (movi) => {
@@ -65,6 +68,23 @@ router.get('/categorie/:nome', async (req, res) => {
 });
 
 router.post('', async (req, res) => {
+
+    if ( 
+        !req.body.categoria || 
+        !req.body.titolo || 
+        !req.body.importo || 
+        !req.body.tipologia
+      ){ 
+        return res 
+          .status(400) 
+          .json({ error: "The fields must be non-empty" }); 
+      }
+
+      if (req.body.tipologia !== 'entrata' && req.body.tipologia !== 'uscita') {
+        return res
+            .status(400)
+            .json({ error: "Invalid value for 'tipologia'" });
+    }
 
     let categoria = await CategoriaMovimento.findOneAndUpdate(                   //se nell'inserire un movimento l'utente specifica una categoria non presente nel db, viene aggiunta anche tale categoria
         { nome: req.body.categoria, user: req.loggedUser.id },
@@ -91,19 +111,26 @@ router.post('', async (req, res) => {
 
 
 router.delete('/:id', async (req, res) => {
-    let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id}).exec();
+
+    if (!mongoose.isValidObjectId(req.params.id)) {
+        return res.status(400).json({ error: 'Invalid ID' });
+    }
+
+    let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id});
     if (!mov) {
-        res.status(404).send()
-        console.log('movimento not found')
-        return;
+        return res.status(404).json({ error: "movimento not found" });
     }
     await mov.deleteOne()
-    console.log('movimento removed')
-    res.status(204).send()
+    res.status(204).json('movimento removed')
 });
 
 
 router.put('/:id', async (req, res) => {
+
+    if (!mongoose.isValidObjectId(req.params.id)) {
+        return res.status(400).json({ error: 'Invalid ID' });
+    }
+
     try {
         let categoria = await CategoriaMovimento.findOneAndUpdate(                   //se nel modificare un movimento l'utente specifica una categoria non presente nel db, viene aggiunta anche tale categoria
             { nome: req.body.categoria, user: req.loggedUser.id },
@@ -114,14 +141,19 @@ router.put('/:id', async (req, res) => {
         let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id});
 
         if (!mov) {
-            return res.status(404).send();
+            return res.status(404).json({error: 'movimento not found'});
+        }
+        if (req.body.tipologia && req.body.tipologia !== 'entrata' && req.body.tipologia !== 'uscita') {
+            return res
+                .status(400)
+                .json({ error: "Invalid value for 'tipologia'" });
         }
 
-        mov.titolo = req.body.titolo;
-        mov.importo = req.body.importo;
-        mov.tipologia = req.body.tipologia;
-        mov.categoria = categoria._id;
-        mov.note = req.body.note;
+        mov.titolo = req.body.titolo || mov.titolo;
+        mov.importo = req.body.importo || mov.importo;
+        mov.tipologia = req.body.tipologia || mov.tipologia;
+        mov.categoria = categoria._id || mov.categoria;
+        mov.note = req.body.note || mov.note;
 
         mov = await mov.save();
 
@@ -138,8 +170,7 @@ router.put('/:id', async (req, res) => {
 router.get('/categorie', async (req, res) => {
     let cat = await CategoriaMovimento.find({user: req.loggedUser.id});
     if (!cat || cat.length === 0) {
-        res.status(404).send()
-        console.log('categoria di movimento not found')
+        res.status(404).json({error: 'categoria di movimento not found'})
         return;
     }
     cat = cat.map((categ) => {
@@ -155,6 +186,14 @@ router.get('/categorie', async (req, res) => {
 
 router.post('/categorie', async (req, res) => {
     
+    if ( 
+        !req.body.nome  || req.body.nome===""
+      ) { 
+        return res 
+          .status(400) 
+          .json({ error: "The fields must be non-empty" }); 
+      }
+
 	let cat = new CategoriaMovimento({
         user: req.loggedUser.id,
         nome: req.body.nome
@@ -170,10 +209,14 @@ router.post('/categorie', async (req, res) => {
 
 
 router.delete('/categorie/:id', async (req, res) => {
+
+    if (!mongoose.isValidObjectId(req.params.id)) {
+        return res.status(400).json({ error: 'Invalid ID' });
+    }
+
     let cat = await CategoriaMovimento.findOne({_id: req.params.id, user: req.loggedUser.id}).exec();
     if (!cat) {
-        res.status(404).send()
-        console.log('categoria di movimento not found')
+        res.status(404).json({error: 'categoria di movimento not found'})
         return;
     }
     await cat.deleteOne()
@@ -184,12 +227,14 @@ router.delete('/categorie/:id', async (req, res) => {
 
 
 router.get('/:id', async (req, res) => {
-    // https://mongoosejs.com/docs/api.html#model_Model.findById
+
+    if (!mongoose.isValidObjectId(req.params.id)) {
+        return res.status(400).json({ error: 'Invalid ID' });
+    }
     let mov = await Movimento.findOne({_id: req.params.id, user: req.loggedUser.id});
     
     if (!mov) {
-        res.status(404).send()
-        console.log(' movimento not found')
+        res.status(404).json({error: 'movimento not found'})
         return;
     }
     res.status(200).json({

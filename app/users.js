@@ -92,10 +92,9 @@ router.get("", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  let utente = await user.findById(req.params.id);
+  let utente = await user.findOne({ _id: req.params.id, _id: req.loggedUser.id });
   if (!utente) {
-    res.status(404).send();
-    console.log(" utente not found");
+    res.status(404).json(" user not found");
     return;
   }
   res.status(200).json({
@@ -106,7 +105,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  let utente = await user.findOne({ id: req.params.id, id: req.loggedUser.id });
+  let utente = await user.findOne({ _id: req.params.id, id: req.loggedUser.id });
 
   if (!utente) {
     res.status(404).send();
