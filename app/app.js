@@ -14,7 +14,9 @@ const liste = require("./liste.js");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors());
+app.use(cors({
+origin: ['https://lifemanager-frontend.onrender.com/']
+}));
 
 app.use("/", express.static("static")); // expose also this folder
 
