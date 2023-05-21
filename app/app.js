@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config;
 const cors = require("cors");
+const path = require('path');
 
 const authentication = require("./authentication/authentication.js");
 const tokenChecker = require("./authentication/tokenChecker.js");
