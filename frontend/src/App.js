@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Liste from './liste/liste';
 import NuovaLista from './liste/nuovalista';
 import Lista from './liste/lista';
+import NuovoElemento from './liste/nuovoelemento';
 
 import { BrowserRouter as Router, Routes, Route , Outlet} from 'react-router-dom';
 import Homepage from './components/Homepage';
@@ -43,6 +44,7 @@ function App() {
             <Route exact path="/liste" element={<Liste />} />
             <Route exact path="/nuovalista" element={<NuovaLista />} />
             <Route exact path="/liste/:nomelista" element={<Lista />} />
+            <Route exact path="/:nomelista/nuovoelemento" element={<NuovoElemento />} />
           </Route>
         </Routes>
       </Router>
