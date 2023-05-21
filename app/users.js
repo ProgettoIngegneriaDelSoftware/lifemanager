@@ -5,6 +5,16 @@ const bcrypt = require("bcrypt");
 const tokenChecker = require("./authentication/tokenChecker.js");
 
 router.post("", async (req, res) => {
+  if (
+    !req.body.nome ||
+    !req.body.congome ||
+    !req.body.username ||
+    !req.body.email ||
+    !req.body.password
+  ) {
+    return res.status(400).json({ error: "The fields must be not empty." });
+  }
+
   const { username, email } = req.body;
 
   // Controlla se l'username è già utilizzato
@@ -63,7 +73,7 @@ router.get("/me", async (req, res) => {
 
   let utente = await user.findOne({ email: req.loggedUser.email });
   if (!utente) {
-    res.status(404).send();
+    res.status(404).json({ error: " utente not found" });
     console.log(" utente not found");
     return;
   }
@@ -81,6 +91,11 @@ router.get("", async (req, res) => {
     users = await user.find({ email: req.query.email }).exec();
   } else users = await user.find().exec();
 
+  if (!users) {
+    res.status(404).json({ error: " utente not found" });
+    console.log(" utente not found");
+    return;
+  }
   users = users.map((entry) => {
     return {
       self: "/api/v1/users/" + entry.id,
@@ -92,9 +107,14 @@ router.get("", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
+  if (req.loggedUser.id !== req.params.id) {
+    res.status(401).json({ error: "Non hai accesso a questo utente." });
+    return;
+  }
+
   let utente = await user.findById(req.params.id);
   if (!utente) {
-    res.status(404).send();
+    res.status(404).json({ error: " utente not found" });
     console.log(" utente not found");
     return;
   }
@@ -106,16 +126,21 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  let utente = await user.findOne({ id: req.params.id, id: req.loggedUser.id });
+  let utente = await user.findOne({
+    _id: req.params.id,
+    _id: req.loggedUser.id,
+  });
 
   if (!utente) {
-    res.status(404).send();
+    res.status(404).json({ error: " utente not found" });
     console.log("user not found");
     return;
   }
 
-  utente.nome = req.body.nome;
-  utente.cognome = req.body.cognome;
+  utente.nome = req.body.nome || utente.nome;
+  utente.cognome = req.body.cognome || utente.cognome;
+  utente.email = req.body.cognome || utente.email;
+  utente.username = req.body.cognome || utente.username;
 
   await utente.save();
 

@@ -50,63 +50,70 @@ function Registrati() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        {" "}
-        Nome:
-        <input
-          type="text"
-          name="nome"
-          value={formData.nome}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        {" "}
-        Cognome:
-        <input
-          id="cognome"
-          type="text"
-          name="cognome"
-          value={formData.cognome}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        {" "}
-        Username:
-        <input
-          id="username"
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        {" "}
-        Email:
-        <input
-          id="email"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        {" "}
-        Password:
-        <input
-          id="password"
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-        />
-      </label>
-      <button type="submit">Registrati</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <label>
+          {" "}
+          Nome:
+          <input
+            type="text"
+            name="nome"
+            value={formData.nome}
+            required
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          {" "}
+          Cognome:
+          <input
+            id="cognome"
+            type="text"
+            name="cognome"
+            value={formData.cognome}
+            required
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          {" "}
+          Username:
+          <input
+            id="username"
+            type="text"
+            name="username"
+            value={formData.username}
+            required
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          {" "}
+          Email:
+          <input
+            id="email"
+            type="email"
+            name="email"
+            value={formData.email}
+            required
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          {" "}
+          Password:
+          <input
+            id="password"
+            type="password"
+            name="password"
+            value={formData.password}
+            required
+            onChange={handleInputChange}
+          />
+        </label>
+        <button type="submit">Registrati</button>
+      </form>
+    </>
   );
 }
 
