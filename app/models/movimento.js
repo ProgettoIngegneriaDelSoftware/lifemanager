@@ -1,36 +1,42 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // set up a mongoose model
-module.exports = mongoose.model('movimenti', new Schema({  
-    user: {
+module.exports = mongoose.model(
+  "movimenti",
+  new Schema(
+    {
+      user: {
         type: Schema.Types.ObjectId,
-        ref: 'Users'
-    },
-    titolo: {
+        ref: "Users",
+      },
+      titolo: {
         type: String,
-        required: true
-    },
-    importo: {
+        required: true,
+      },
+      importo: {
         type: Number,
-        required: true
-    },
-    tipologia: {
+        required: true,
+      },
+      tipologia: {
         type: String,
-        enum: ['entrata', 'uscita'],
-        required: true
-    },
-    categoria: {
-        type: Schema.Types.String,
-        ref: 'Categoria',
+        enum: ["entrata", "uscita"],
+        required: true,
+      },
+      categoria: {
+        type: Schema.Types.ObjectId,
+        ref: "Categoria",
         //type: String,
-        required: true
-    },
-    note: {
+        required: true,
+      },
+      note: {
         type: String,
-    },
-    createdAt: {
+      },
+      createdAt: {
         type: Date,
-        default: Date.now
-    }
-},{ collection: 'movimenti' }));
+        default: Date.now,
+      },
+    },
+    { collection: "movimenti" }
+  )
+);
