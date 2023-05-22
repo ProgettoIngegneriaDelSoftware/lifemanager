@@ -4,234 +4,70 @@ const ricetta = require("./models/ricetta"); // get our mongoose model
 const mongoose = require("mongoose");
 
 router.get("", async (req, res) => {
-  let list = await lista.find({ user: req.loggedUser.id });
-  if (!list) {
-    console.log("lista not found");
-    res.status(404).json({ error: "lista not found" });
+  let ric = await ricetta.find({ user: req.loggedUser.id });
+  if (!ric) {
+    console.log("Recipe not found");
+    res.status(404).json({ error: "Recipe not found" });
     return;
   }
-  list = list.map((listi) => {
+  ric = ric.map((rici) => {
     return {
-      self: "/api/v1/liste/" + listi.nome,
-      nome: listi.nome,
+      self: "/api/v1/ricette/" + rici.nome,
+      nome: rici.nome,
     };
   });
-  res.status(200).json(list);
+  res.status(200).json(ric);
 });
 
 router.get("/:nome", async (req, res) => {
   // https://mongoosejs.com/docs/api.html#model_Model.findById
-  let list = await lista.findOne({
+  let ric = await ricetta.findOne({
     nome: req.params.nome,
     user: req.loggedUser.id,
   });
-  if (!list) {
-    console.log("lista not found");
-    res.status(404).json({ error: "lista not found" });
+  if (!ric) {
+    console.log("Recipe not found");
+    res.status(404).json({ error: "Recipe not found" });
     return;
   }
   res.status(200).json({
-    self: "/api/v1/liste/" + list.nome,
-    nome: list.nome,
-    items: list.items.length,
-  });
-});
-
-router.get("/:nome/elementi", async (req, res) => {
-  // https://mongoosejs.com/docs/api.html#model_Model.findById
-  let list = await lista.findOne({
-    nome: req.params.nome,
-    user: req.loggedUser.id,
-  });
-  if (!list) {
-    res.status(404).json({ error: "lista not found" });
-    console.log("lista not found");
-    return;
-  }
-  res.status(200).json({
-    self: "/api/v1/liste/" + list.nome + "/elementi",
-    nome: list.nome,
-    items: list.items,
-  });
-});
-
-router.get("/:nome/elementi/:idElemento", async (req, res) => {
-  // https://mongoosejs.com/docs/api.html#model_Model.findById
-  if (!mongoose.isValidObjectId(req.params.idElemento)) {
-    return res.status(400).json({ error: "Invalid ID" });
-  }
-
-  let list = await lista.findOne({
-    nome: req.params.nome,
-    user: req.loggedUser.id,
-  });
-
-  if (!list) {
-    res.status(404).json({ error: "lista not found" });
-    console.log("lista not found");
-    return;
-  }
-
-  let elemento = list.items.id(req.params.idElemento);
-
-  if (!elemento) {
-    res.status(404).json({ error: "elemento not found" });
-    console.log("Elemento non trovato");
-    return;
-  }
-  res.status(200).json({
-    self: "/api/v1/liste/" + list.nome + "/elementi/" + elemento.id,
-    id: elemento.id,
-    nome: elemento.nome,
-    contrassegno: elemento.contrassegno,
+    self: "/api/v1/ricette/" + ric.nome,
+    nome: ric.nome,
+    ingredienti: ric.ingredienti.length
   });
 });
 
 router.post("", async (req, res) => {
-  if (!req.body.nome) {
+  if (!req.body.nome || !req.body.ingredienti || !req.body.procedimento) {
     return res
       .status(400)
-      .json({ error: "Name of the list must be inserted." });
+      .json({ error: "Fields must be non-empty" });
   }
 
-  let list = new lista({
+  nomeRicetta=req.body.nome
+  const existingRicetta = await ricetta.findOne({ nomeRicetta });
+  if (existingRicetta) {
+    res.status(400).json({ error: "Recipe already exists" });
+    return;
+  }
+
+  let ric = new ricetta({
     user: req.loggedUser.id,
-    nome: req.body.nome,
+    nome: nomeRicetta,
+    procedimento: req.body.procedimento
   });
 
-  list = await list.save();
-  let listId = list.id;
+  for (var i = 0; i < req.body.ingredienti.length; i++) {
+    ric.ingredienti.push(req.body.ingredienti[i]);
+  }
+
+  ric = await ric.save();
+  let ricId = ric.id;
   res
-    .location("/api/v1/liste/" + listId)
+    .location("/api/v1/ricette/" + ricId)
     .status(201)
     .send();
 });
 
-router.post("/:nome/elementi", async (req, res) => {
-  if (!req.body.items) {
-    return res
-      .status(400)
-      .json({ error: "Name of the element must be inserted." });
-  }
-  let list = await lista.findOne({
-    nome: req.params.nome,
-    user: req.loggedUser.id,
-  });
-  if (!list) {
-    res.status(404).json({ error: "lista not found" });
-    console.log("lista not found");
-    return;
-  }
-  for (var i = 0; i < req.body.items.length; i++) {
-    list.items.push({ nome: req.body.items[i], constrassegno: false });
-
-    await list.save();
-  }
-
-  res
-    .location("/api/v1/liste/" + req.params.nome)
-    .status(201)
-    .send();
-});
-
-router.delete("/:nome", async (req, res) => {
-  let list = await lista
-    .findOne({ nome: req.params.nome, user: req.loggedUser.id })
-    .exec();
-  if (!list) {
-    res.status(404).json({ error: "lista not found" });
-    console.log("lista not found");
-    return;
-  }
-  await list.deleteOne();
-  console.log("lista deleted");
-  res.status(204).send();
-});
-
-router.delete("/:nome/elementi/:idElemento", async (req, res) => {
-  if (!mongoose.isValidObjectId(req.params.idElemento)) {
-    return res.status(400).json({ error: "Invalid ID" });
-  }
-
-  let list = await lista
-    .findOne({ nome: req.params.nome, user: req.loggedUser.id })
-    .exec();
-  if (!list) {
-    res.status(404).json({ error: "lista not found" });
-    console.log("lista not found");
-    return;
-  }
-
-  let elemento = list.items.id(req.params.idElemento);
-
-  if (!elemento) {
-    res.status(404).json({ error: "element not found" });
-    console.log("Elemento non trovato");
-    return;
-  }
-
-  list.items.pull(req.params.idElemento);
-  await list.save();
-
-  console.log("elemento removed");
-  res.status(204).send();
-});
-
-router.put("/:nome", async (req, res) => {
-  let list = await lista.findOne({
-    nome: req.params.nome,
-    user: req.loggedUser.id,
-  });
-
-  if (!list) {
-    console.log("lista not found");
-    res.status(404).json({ error: "lista not found" });
-    return;
-  }
-
-  list.nome = req.body.nome;
-
-  list = await list.save();
-
-  res
-    .location("/api/v1/liste/" + list.nome)
-    .status(201)
-    .send();
-});
-
-router.put("/:nome/elementi/:idElemento", async (req, res) => {
-  if (!mongoose.isValidObjectId(req.params.idElemento)) {
-    return res.status(400).json({ error: "Invalid ID" });
-  }
-
-  let list = await lista.findOne({
-    nome: req.params.nome,
-    user: req.loggedUser.id,
-  });
-
-  if (!list) {
-    res.status(404).json({ error: "lista not found" });
-    console.log("lista not found");
-    return;
-  }
-
-  let elemento = list.items.id(req.params.idElemento);
-
-  if (!elemento) {
-    res.status(404).json({ error: "element not found" });
-    console.log("Elemento non trovato");
-    return;
-  }
-
-  if (req.body.nome) elemento.nome = req.body.nome;
-  if (req.body.contrassegno) elemento.contrassegno = req.body.contrassegno;
-
-  await list.save();
-
-  res
-    .location("/api/v1/liste/" + list.nome + "/elementi/" + elemento.id)
-    .status(201)
-    .send();
-});
 
 module.exports = router;
