@@ -1,12 +1,13 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
+require('dotenv'.config())
 
 function Lista() {
   const { nomelista } = useParams();
   const [items, setItems] = useState([]);
 
   const handleCheckboxChange = useCallback((itemId, checked) => {
-    const url = '/api/v1/liste/' + nomelista + '/elementi/' + itemId;
+    const url = process.env.BackendURL+'/api/v1/liste/' + nomelista + '/elementi/' + itemId;
     const token = localStorage.getItem('token');
 
     let contrassegnoValue;

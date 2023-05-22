@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+require('dotenv'.config())
 
 function NuovaLista() {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ function NuovaLista() {
     event.preventDefault();
     const token = localStorage.getItem('token');
 
-    const url = '/api/v1/liste/';
+    const url = process.env.BackendURL+'/api/v1/liste/';
     const requestOptions = {
       method: 'POST',
       headers: {
