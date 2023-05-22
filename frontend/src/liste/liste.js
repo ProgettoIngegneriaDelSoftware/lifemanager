@@ -1,4 +1,4 @@
-require('dotenv'.config())
+require('dotenv').config()
 function Liste() {
 
     const url = process.env.BackendURL+'/api/v1/liste/';

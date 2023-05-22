@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams} from 'react-router-dom';
-require('dotenv'.config())
+require('dotenv').config()
 
 function NuovoElemento() {
   const { nomelista } = useParams();

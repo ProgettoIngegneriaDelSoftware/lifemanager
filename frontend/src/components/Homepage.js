@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+require('dotenv').config()
 
 function Homepage() {
   let [usernameOrEmail, setResult] = useState("");

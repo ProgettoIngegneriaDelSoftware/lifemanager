@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
-require('dotenv'.config())
+require('dotenv').config()
 
 function Lista() {
   const { nomelista } = useParams();

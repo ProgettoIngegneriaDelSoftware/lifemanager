@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-require('dotenv'.config())
+require('dotenv').config()
 
 function Login() {
   let userData = {};
