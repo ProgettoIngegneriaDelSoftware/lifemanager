@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-require('dotenv').config()
 
 function Login() {
   let userData = {};
@@ -18,7 +17,7 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const url = process.env.BackendURL+"/api/v1/authentications/";
+    const url = "https://lifemanager-backend.onrender.com/api/v1/authentications/";
 
     const requestOptions = {
       method: "POST",

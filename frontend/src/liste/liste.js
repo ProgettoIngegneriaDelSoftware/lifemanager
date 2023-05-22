@@ -1,7 +1,7 @@
-require('dotenv').config()
+
 function Liste() {
 
-    const url = process.env.BackendURL+'/api/v1/liste/';
+    const url ='https://lifemanager-backend.onrender.com/api/v1/liste/';
     const token = localStorage.getItem('token');
   
     const requestOptions = {

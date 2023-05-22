@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-require('dotenv').config()
 //import axios from 'axios';
 
 function Registrati() {
@@ -18,7 +17,7 @@ function Registrati() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const url = process.env.BackendURL+"/api/v1/users/";
+    const url = "https://lifemanager-backend.onrender.com/api/v1/users/";
 
     const requestOptions = {
       method: "POST",

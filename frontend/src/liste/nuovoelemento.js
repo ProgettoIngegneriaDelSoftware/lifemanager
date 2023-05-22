@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams} from 'react-router-dom';
-require('dotenv').config()
 
 function NuovoElemento() {
   const { nomelista } = useParams();
@@ -18,7 +17,7 @@ function NuovoElemento() {
     event.preventDefault();
     const token = localStorage.getItem('token');
 
-    const url = process.env.BackendURL+'/api/v1/liste/' + nomelista + '/elementi';
+    const url = 'https://lifemanager-backend.onrender.com/api/v1/liste/' + nomelista + '/elementi';
     const requestOptions = {
       method: 'POST',
       headers: {

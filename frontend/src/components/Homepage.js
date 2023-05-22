@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
-require('dotenv').config()
 
 function Homepage() {
   let [usernameOrEmail, setResult] = useState("");
 
   useEffect(() => {
-    const url = process.env.BackendURL+"/api/v1/users/me";
+    const url = "https://lifemanager-backend.onrender.com/api/v1/users/me";
     const token = localStorage.getItem("token");
 
     const requestOptions = {
