@@ -5,7 +5,7 @@ function Homepage() {
   let [usernameOrEmail, setResult] = useState("");
 
   useEffect(() => {
-    const url = BackendURL+"/api/v1/users/me";
+    const url = process.env.BackendURL+"/api/v1/users/me";
     const token = localStorage.getItem("token");
 
     const requestOptions = {
