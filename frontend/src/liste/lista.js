@@ -41,7 +41,7 @@ function Lista() {
   }, [nomelista]);
 
   useEffect(() => {
-    const url = '/api/v1/liste/' + nomelista + '/elementi';
+    const url = 'https://lifemanager-backend.onrender.com/api/v1/liste/' + nomelista + '/elementi';
     const token = localStorage.getItem('token');
 
     const requestOptions = {
