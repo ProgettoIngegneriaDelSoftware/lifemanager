@@ -10,6 +10,9 @@ import NuovaLista from "./liste/nuovalista";
 import Lista from "./liste/lista";
 import NuovoElemento from "./liste/nuovoelemento";
 
+import Ricette from "./ricette/ricette";
+import NuovaRicetta from "./ricette/nuovaricetta";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -45,6 +48,8 @@ function App() {
               path="/:nomelista/nuovoelemento"
               element={<NuovoElemento />}
             />
+            <Route exact path="/ricette" element={<Ricette />} />
+            <Route exact path="/nuovaricetta" element={<NuovaRicetta />} />
           </Route>
         </Routes>
       </Router>
