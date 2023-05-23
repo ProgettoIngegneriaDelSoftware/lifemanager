@@ -20,7 +20,6 @@ router.get("", async (req, res) => {
 });
 
 router.get("/:nome", async (req, res) => {
-  // https://mongoosejs.com/docs/api.html#model_Model.findById
   let ric = await ricetta.findOne({
     nome: req.params.nome,
     user: req.loggedUser.id,
@@ -30,22 +29,53 @@ router.get("/:nome", async (req, res) => {
     res.status(404).json({ error: "Recipe not found" });
     return;
   }
+
+
   res.status(200).json({
     self: "/api/v1/ricette/" + ric.nome,
     nome: ric.nome,
-    ingredienti: ric.ingredienti.length
+    ingredienti: ric.ingredienti.length,
+    procedimento: ric.procedimento
   });
 });
 
+router.get("/:nome/ingredienti", async (req, res) => {
+  let ric = await ricetta.findOne({
+    nome: req.params.nome,
+    user: req.loggedUser.id,
+  });
+  if (!ric) {
+    console.log("Recipe not found");
+    res.status(404).json({ error: "Recipe not found" });
+    return;
+  }
+
+  const ingr = ric.ingredienti.map(ingrediente => {
+    return {
+      nome: ingrediente.nome,
+      quantita: ingrediente.quantita
+    };
+  });
+
+  res.status(200).json({
+    self: "/api/v1/ricette/" + ric.nome +"/ingredienti",
+    nome: ric.nome,
+    ingredienti: ingr
+  });
+});
+
+
 router.post("", async (req, res) => {
-  if (!req.body.nome || !req.body.ingredienti || !req.body.procedimento) {
+  if (!req.body.nome || !req.body.ingredienti || !req.body.procedimento || req.body.ingredienti.some(ingrediente => !ingrediente.nome || !ingrediente.quantita)) {
     return res
       .status(400)
       .json({ error: "Fields must be non-empty" });
   }
 
-  nomeRicetta=req.body.nome
-  const existingRicetta = await ricetta.findOne({ nomeRicetta });
+  const existingRicetta = await ricetta.findOne({
+    nome: req.body.nome,
+    user: req.loggedUser.id,
+  });
   if (existingRicetta) {
     res.status(400).json({ error: "Recipe already exists" });
     return;
@@ -53,21 +83,185 @@ router.post("", async (req, res) => {
 
   let ric = new ricetta({
     user: req.loggedUser.id,
-    nome: nomeRicetta,
+    nome: req.body.nome,
     procedimento: req.body.procedimento
   });
 
-  for (var i = 0; i < req.body.ingredienti.length; i++) {
-    ric.ingredienti.push(req.body.ingredienti[i]);
+  for (let i = 0; i < req.body.ingredienti.length; i++) {
+    const ingrediente = {
+      nome: req.body.ingredienti[i].nome,
+      quantita: req.body.ingredienti[i].quantita
+    };
+    ric.ingredienti.push(ingrediente);
   }
 
   ric = await ric.save();
-  let ricId = ric.id;
+  let ricNome = ric.nome;
   res
-    .location("/api/v1/ricette/" + ricId)
+    .location("/api/v1/ricette/" + ricNome)
     .status(201)
     .send();
 });
+
+router.post("/:nome/ingredienti", async (req, res) => {
+
+  if (!req.body.ingredienti || req.body.ingredienti.some(ingrediente => !ingrediente.nome || !ingrediente.quantita)) {
+    return res
+      .status(400)
+      .json({ error: "Fields must be non-empty" });
+  }
+
+  let ric = await ricetta.findOne({
+    nome: req.params.nome,
+    user: req.loggedUser.id,
+  });
+  if (!ric) {
+    console.log("Recipe not found");
+    res.status(404).json({ error: "Recipe not found" });
+    return;
+  }
+
+  for (let i = 0; i < req.body.ingredienti.length; i++) {
+    const ingrediente = {
+      nome: req.body.ingredienti[i].nome,
+      quantita: req.body.ingredienti[i].quantita
+    };
+
+    const existingIngrediente =ric.ingredienti.some(existing => existing.nome === ingrediente.nome);
+    if (existingIngrediente) {
+      console.log("Ingredient already exists:", ingrediente.nome);
+      res.status(400).json({ error: "Ingredient already exists: " + ingrediente.nome });
+      return;
+    }
+
+    ric.ingredienti.push(ingrediente);
+  }
+
+  ric = await ric.save();
+
+  res
+    .location("/api/v1/ricette/" + ric.nome +"/ingredienti")
+    .status(201)
+    .send();
+});
+
+router.put("/:nome", async (req, res) => {
+  let ric = await ricetta.findOne({
+    nome: req.params.nome,
+    user: req.loggedUser.id,
+  });
+  if (!ric) {
+    console.log("Recipe not found");
+    res.status(404).json({ error: "Recipe not found" });
+    return;
+  }
+
+  ric.nome = req.body.nome || ric.nome;
+
+  await ric.save();
+
+  res
+    .location("/api/v1/ricette/" + ric.nome +"ingredienti")
+    .status(201)
+    .send();
+});
+
+router.put("/:nome/procedimento", async (req, res) => {
+  let ric = await ricetta.findOne({
+    nome: req.params.nome,
+    user: req.loggedUser.id,
+  });
+  if (!ric) {
+    console.log("Recipe not found");
+    res.status(404).json({ error: "Recipe not found" });
+    return;
+  }
+
+  ric.procedimento = req.body.procedimento || ric.procedimento;
+
+  await ric.save();
+
+  res
+    .location("/api/v1/ricette/" + ric.nome)
+    .status(201)
+    .send();
+});
+
+
+router.put("/:nome/ingredienti/:nomeIngrediente", async (req, res) => {
+  let ric = await ricetta.findOne({
+    nome: req.params.nome,
+    user: req.loggedUser.id,
+  });
+  if (!ric) {
+    console.log("Recipe not found");
+    res.status(404).json({ error: "Recipe not found" });
+    return;
+  }
+
+  const ingr = ric.ingredienti.find(ing => ing.nome === req.params.nomeIngrediente);
+
+  if (!ingr) {
+    console.log("Ingredient not found");
+    res.status(404).json({ error: "Ingredient not found" });
+    return;
+  }
+
+  ingr.nome = req.body.nome || ingr.nome;
+  ingr.quantita = req.body.quantita || ingr.quantita;
+
+  await ric.save();
+
+  res
+    .location("/api/v1/ricette/" + ric.nome +"ingredienti")
+    .status(201)
+    .send();
+});
+
+
+router.delete("/:nome/ingredienti/:nomeIngrediente", async (req, res) => {
+  
+  let ric = await ricetta
+    .findOne({ nome: req.params.nome, user: req.loggedUser.id })
+    .exec();
+  if (!ric) {
+    res.status(404).json({ error: "Recipe not found" });
+    console.log("Recipe not found");
+    return;
+  }
+
+  const ingr = ric.ingredienti.find(ing => ing.nome === req.params.nomeIngrediente);
+
+  if (!ingr) {
+    console.log("Ingredient not found");
+    res.status(404).json({ error: "Ingredient not found" });
+    return;
+  }
+
+  ric.ingredienti.pull(ingr);
+  await ric.save();
+
+  console.log("Ingredient removed");
+  res.status(204).send();
+});
+
+router.delete("/:nome", async (req, res) => {
+  let ric = await ricetta
+    .findOne({ nome: req.params.nome, user: req.loggedUser.id })
+    .exec();
+  if (!ric) {
+    res.status(404).json({ error: "Recipe not found" });
+    console.log("Recipe not found");
+    return;
+  }
+  await ric.deleteOne();
+  console.log("Recipe deleted");
+  res.status(204).send();
+});
+
+
+
+
 
 
 module.exports = router;

@@ -189,7 +189,7 @@ router.put("/:nome", async (req, res) => {
     return;
   }
 
-  list.nome = req.body.nome;
+  list.nome = req.body.nome || list.nome;
 
   list = await list.save();
 

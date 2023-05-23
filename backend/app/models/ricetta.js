@@ -8,8 +8,15 @@ module.exports= mongoose.model('ricette',  new Schema({
     required: true
   },
   ingredienti: [{
-    type: String,
-    required: true
+    nome:{
+      type: String,
+      required: true
+    },
+    quantita:{
+      type: String,
+      required:true
+    }
+    
   }],
   procedimento: {
     type: String,
