@@ -50,6 +50,21 @@ function Homepage() {
         <>
           <h2>Benvenuto {usernameOrEmail.value}</h2>
           <p>Organizza la tua vita, inizia qui!</p>
+
+          <div>
+            <a href="/movimenti">
+              <button>Budget</button>
+            </a>
+            <a href="/liste">
+              <button>Liste</button>
+            </a>
+            <a href="/ricette">
+              <button>Ricette</button>
+            </a>
+            <a href="/carte">
+              <button>Carte fedeltà</button>
+            </a>
+          </div>
         </>
       )}
       {!usernameOrEmail.access && (
