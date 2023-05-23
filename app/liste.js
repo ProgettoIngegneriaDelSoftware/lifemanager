@@ -3,8 +3,8 @@ const router = express.Router();
 const lista = require('./models/lista'); // get our mongoose model
 
 router.get('', async (req, res) => {
-    let list = await lista.find({user: req.loggedUser.id});
-    list = list.map( (listi) => {
+    let list = await lista.find({ user: req.loggedUser.id });
+    list = list.map((listi) => {
         return {
             self: '/api/v1/liste/' + listi.nome,
             nome: listi.nome
@@ -15,8 +15,8 @@ router.get('', async (req, res) => {
 
 router.get('/:nome', async (req, res) => {
     // https://mongoosejs.com/docs/api.html#model_Model.findById
-    let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id})
-    if(!list){
+    let list = await lista.findOne({ nome: req.params.nome, user: req.loggedUser.id })
+    if (!list) {
         res.status(404).send()
         console.log('lista not found')
         return;
@@ -30,8 +30,8 @@ router.get('/:nome', async (req, res) => {
 
 router.get('/:nome/elementi', async (req, res) => {
     // https://mongoosejs.com/docs/api.html#model_Model.findById
-    let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id})
-    if(!list){
+    let list = await lista.findOne({ nome: req.params.nome, user: req.loggedUser.id })
+    if (!list) {
         res.status(404).send()
         console.log('lista not found')
         return;
@@ -45,7 +45,7 @@ router.get('/:nome/elementi', async (req, res) => {
 
 router.get('/:nome/elementi/:idElemento', async (req, res) => {
     // https://mongoosejs.com/docs/api.html#model_Model.findById
-    let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id});
+    let list = await lista.findOne({ nome: req.params.nome, user: req.loggedUser.id });
 
     if (!list) {
         res.status(404).send()
@@ -70,26 +70,26 @@ router.get('/:nome/elementi/:idElemento', async (req, res) => {
 
 
 router.post('', async (req, res) => {
-	let list = new lista({
+    let list = new lista({
         user: req.loggedUser.id,
         nome: req.body.nome,
     });
 
-	list = await list.save(); 
+    list = await list.save();
     let listId = list.id;
     res.location("/api/v1/liste/" + listId).status(201).send();
 });
 
 
 router.post('/:nome/elementi', async (req, res) => {
-	let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id})
-    if(!list){
+    let list = await lista.findOne({ nome: req.params.nome, user: req.loggedUser.id })
+    if (!list) {
         res.status(404).send()
         console.log('lista not found')
         return;
     }
-    for(var i=0; i<req.body.items.length; i++){
-        list.items.push({nome: req.body.items[i], constrassegno: false})
+    for (var i = 0; i < req.body.items.length; i++) {
+        list.items.push({ nome: req.body.items[i], constrassegno: false })
 
         await list.save()
     }
@@ -99,7 +99,7 @@ router.post('/:nome/elementi', async (req, res) => {
 
 
 router.delete('/:nome', async (req, res) => {
-    let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id}).exec();
+    let list = await lista.findOne({ nome: req.params.nome, user: req.loggedUser.id }).exec();
     if (!list) {
         res.status(404).send()
         console.log('lista not found')
@@ -111,7 +111,7 @@ router.delete('/:nome', async (req, res) => {
 });
 
 router.delete('/:nome/elementi/:idElemento', async (req, res) => {
-    let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id}).exec();
+    let list = await lista.findOne({ nome: req.params.nome, user: req.loggedUser.id }).exec();
     if (!list) {
         res.status(404).send()
         console.log('lista not found')
@@ -128,7 +128,7 @@ router.delete('/:nome/elementi/:idElemento', async (req, res) => {
 
     list.items.pull(req.params.idElemento);
     await list.save();
-    
+
     console.log('elemento removed')
     res.status(204).send()
 });
@@ -136,24 +136,24 @@ router.delete('/:nome/elementi/:idElemento', async (req, res) => {
 
 router.put('/:nome', async (req, res) => {
 
-        let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id});
+    let list = await lista.findOne({ nome: req.params.nome, user: req.loggedUser.id });
 
-        if (!list) {
-            res.status(404).send()
-            console.log('lista not found')
-            return;
-        }
+    if (!list) {
+        res.status(404).send()
+        console.log('lista not found')
+        return;
+    }
 
-        list.nome = req.body.nome;
+    list.nome = req.body.nome;
 
-        list = await list.save();
+    list = await list.save();
 
-        res.location("/api/v1/liste/" + list.nome).status(201).send();
+    res.location("/api/v1/liste/" + list.nome).status(201).send();
 });
 
 router.put('/:nome/elementi/:idElemento', async (req, res) => {
 
-    let list = await lista.findOne({nome: req.params.nome, user: req.loggedUser.id});
+    let list = await lista.findOne({ nome: req.params.nome, user: req.loggedUser.id });
 
     if (!list) {
         res.status(404).send()
@@ -168,13 +168,13 @@ router.put('/:nome/elementi/:idElemento', async (req, res) => {
         console.log('Elemento non trovato');
         return;
     }
-    
-    if(req.body.nome) elemento.nome = req.body.nome;
-    if (req.body.contrassegno)elemento.contrassegno = req.body.contrassegno;
-  
+
+    if (req.body.nome) elemento.nome = req.body.nome;
+    if (req.body.contrassegno) elemento.contrassegno = req.body.contrassegno;
+
     await list.save();
 
-    res.location("/api/v1/liste/" + list.nome + "/elementi/"+ elemento.id).status(201).send();
+    res.location("/api/v1/liste/" + list.nome + "/elementi/" + elemento.id).status(201).send();
 });
 
 
