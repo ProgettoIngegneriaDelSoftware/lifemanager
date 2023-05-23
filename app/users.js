@@ -7,7 +7,7 @@ const tokenChecker = require("./authentication/tokenChecker.js");
 router.post("", async (req, res) => {
   if (
     !req.body.nome ||
-    !req.body.congome ||
+    !req.body.cognome ||
     !req.body.username ||
     !req.body.email ||
     !req.body.password
