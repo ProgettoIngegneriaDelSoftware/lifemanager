@@ -10,6 +10,7 @@ const users = require("./users.js");
 const movimenti = require("./movimenti.js");
 const liste = require("./liste.js");
 const ricette = require("./ricette.js");
+const cartefedelta = require("./cartefedelta.js");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -39,7 +40,7 @@ app.use("/api/v1/users", (req, res, next) => {
 app.use("/api/v1/movimenti", tokenChecker);
 app.use("/api/v1/liste", tokenChecker);
 app.use("/api/v1/ricette", tokenChecker);
-
+app.use("/api/v1/carte", tokenChecker);
 
 /**
  * Resource routing
@@ -49,8 +50,7 @@ app.use("/api/v1/users", users);
 app.use("/api/v1/movimenti", movimenti);
 app.use("/api/v1/liste", liste);
 app.use("/api/v1/ricette", ricette);
-
-// app.use('/api/v1/booklendings', booklendings);
+app.use("/api/v1/carte", cartefedelta);
 
 /* Default 404 handler */
 app.use((req, res) => {
