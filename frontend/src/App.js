@@ -20,6 +20,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import Homepage from "./components/Homepage";
+import SingolaRicetta from "./ricette/singolaricetta";
 
 function App() {
   const Layout = () => {
@@ -50,6 +51,11 @@ function App() {
             />
             <Route exact path="/ricette" element={<Ricette />} />
             <Route exact path="/nuovaricetta" element={<NuovaRicetta />} />
+            <Route
+              exact
+              path="/ricette/:nomericetta"
+              element={<SingolaRicetta />}
+            />
           </Route>
         </Routes>
       </Router>

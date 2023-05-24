@@ -1,49 +1,78 @@
+import React, { useEffect, useState } from "react";
+
 function Ricette() {
   const url = "/api/v1/ricette/";
   const token = localStorage.getItem("token");
+  const [ricette, setRicette] = useState([]);
 
-  const requestOptions = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "x-access-token": `${token}`,
-    },
+  const handleElimina = (event) => {
+    console.log(url + event.target.value);
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
+      },
+    };
+    fetch(url + event.target.value, requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          console.log("Ricetta eliminata");
+          setRicette((prevRicette) =>
+            prevRicette.filter((ricetta) => ricetta.nome !== event.target.value)
+          );
+          return;
+        } else {
+          throw new Error("Error: " + response.status);
+        }
+      })
+      .then(() => {})
+      .catch((error) => {
+        console.error(error); // Gestisci gli errori
+      });
   };
 
-  fetch(url, requestOptions)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Error: " + response.status);
-      }
-    })
-    .then((data) => {
-      var resultList = "";
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
+      },
+    };
 
-      data.forEach((item) => {
-        var ricetta = {
-          nome: item.nome,
-        };
-        resultList +=
-          '<a href="/ricette/' +
-          ricetta.nome +
-          '">Nome: ' +
-          ricetta.nome +
-          "</a><br /><hr />";
+    fetch(url, requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Error: " + response.status);
+        }
+      })
+      .then((data) => {
+        setRicette(data);
+      })
+      .catch((error) => {
+        console.error(error);
       });
-
-      var resultDiv = document.getElementById("result");
-      resultDiv.innerHTML = resultList;
-    })
-    .catch((error) => {
-      console.error(error); // Gestisci gli errori
-    });
+  }, [url, token]);
 
   return (
     <>
       <h2>Ricette</h2>
-      <div id="result"></div>
+      <div>
+        {ricette.map((element, index) => (
+          <p>
+            <a href={`/ricette/${element.nome}`} key={index}>
+              {element.nome}
+            </a>
+            <button>Modifica</button>
+            <button value={element.nome} onClick={handleElimina}>
+              Elimina
+            </button>
+          </p>
+        ))}
+      </div>
       <a href="/nuovaricetta">
         <button>Nuova Ricetta</button>
       </a>
@@ -52,3 +81,29 @@ function Ricette() {
 }
 
 export default Ricette;
+
+/*
+  const handleElimina = (event) => {
+    console.log("ciao");
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
+      },
+    };
+    fetch(url + event.target.value, requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Error: " + response.status);
+        }
+      })
+      .then(() => {
+        console.log("Ricetta eliminata");
+      })
+      .catch((error) => {
+        console.error(error); // Gestisci gli errori
+      });
+  };*/
