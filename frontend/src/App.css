@@ -78,3 +78,34 @@
   width: 30%;
   text-align: center;
 }
+
+.intestazioneHomePage {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.buttonContainer {
+  margin-top: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  align-items: center;
+}
+
+.bottoniHomePage {
+  border-radius: 7%;
+  width: 200px;
+  height: 150px;
+  margin: 50px;
+  margin-bottom: 10px;
+  background-color: #81abea;
+  transition: background-color 0.3s ease;
+}
+
+.bottoniHomePage:hover {
+  background-color: #7e94b5;
+}

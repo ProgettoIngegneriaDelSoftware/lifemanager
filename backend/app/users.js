@@ -87,7 +87,7 @@ router.post("", async (req, res) => {
       !checkIfEmailInString(utente.email)
     ) {
       res.status(400).json({
-        error: 'The field "email" must be a non-empty string, in email format',
+        error: 'The field "email" must be in email format',
       });
       return;
     }
@@ -108,13 +108,14 @@ router.get("/me", async (req, res) => {
 
   let utente = await user.findOne({ email: req.loggedUser.email });
   if (!utente) {
-    res.status(404).json({ error: " utente not found" });
-    console.log(" utente not found");
+    res.status(404).json({ error: "User not found" });
+    console.log("User not found");
     return;
   }
   res.status(200).json({
     self: "/api/v1/users/" + utente.id,
     email: utente.email,
+    nome: utente.nome
   });
 });
 
@@ -127,8 +128,8 @@ router.get("", async (req, res) => {
   } else users = await user.find().exec();
 
   if (!users) {
-    res.status(404).json({ error: " utente not found" });
-    console.log(" utente not found");
+    res.status(404).json({ error: "User not found" });
+    console.log("User not found");
     return;
   }
   users = users.map((entry) => {
@@ -143,14 +144,14 @@ router.get("", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   if (req.loggedUser.id !== req.params.id) {
-    res.status(401).json({ error: "Non hai accesso a questo utente." });
+    res.status(401).json({ error: "You do not have access to this user." });
     return;
   }
 
   let utente = await user.findById(req.params.id);
   if (!utente) {
-    res.status(404).json({ error: " utente not found" });
-    console.log(" utente not found");
+    res.status(404).json({ error: "User not found" });
+    console.log("User not found");
     return;
   }
   res.status(200).json({
@@ -167,8 +168,8 @@ router.put("/:id", async (req, res) => {
   });
 
   if (!utente) {
-    res.status(404).json({ error: " utente not found" });
-    console.log("user not found");
+    res.status(404).json({ error: "User not found" });
+    console.log("User not found");
     return;
   }
 
