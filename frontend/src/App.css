@@ -32,7 +32,38 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.formlogin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  text-align: center;
+}
+
+.formlogin * {
+  padding: 10px;
+  /* Aggiunge un padding di 10px a tutti gli elementi all'interno del div */
+}
+
+.divheader {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.frecciaIndietro {
+  background: transparent;
+  border: 0;
+}
+
+.titoloHeader {
+  flex: 1;
+  text-align: center;
 }

@@ -20,7 +20,6 @@ router.get("", async (req, res) => {
 });
 
 router.get("/:nome", async (req, res) => {
-  // https://mongoosejs.com/docs/api.html#model_Model.findById
   let list = await lista.findOne({
     nome: req.params.nome,
     user: req.loggedUser.id,
@@ -38,7 +37,6 @@ router.get("/:nome", async (req, res) => {
 });
 
 router.get("/:nome/elementi", async (req, res) => {
-  // https://mongoosejs.com/docs/api.html#model_Model.findById
   let list = await lista.findOne({
     nome: req.params.nome,
     user: req.loggedUser.id,
@@ -56,7 +54,6 @@ router.get("/:nome/elementi", async (req, res) => {
 });
 
 router.get("/:nome/elementi/:idElemento", async (req, res) => {
-  // https://mongoosejs.com/docs/api.html#model_Model.findById
   if (!mongoose.isValidObjectId(req.params.idElemento)) {
     return res.status(400).json({ error: "Invalid ID" });
   }
@@ -92,6 +89,15 @@ router.post("", async (req, res) => {
     return res
       .status(400)
       .json({ error: "Name of the list must be inserted." });
+  }
+
+  const existingLista = await lista.findOne({
+    nome: req.body.nome,
+    user: req.loggedUser.id,
+  });
+  if (existingLista) {
+    res.status(400).json({ error: "List already exists" });
+    return;
   }
 
   let list = new lista({

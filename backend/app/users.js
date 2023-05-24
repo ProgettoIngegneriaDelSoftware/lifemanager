@@ -2,12 +2,34 @@ const express = require("express");
 const router = express.Router();
 const user = require("./models/user"); // get our mongoose model
 const bcrypt = require("bcrypt");
-const tokenChecker = require("./authentication/tokenChecker.js");
+const nodemailer = require("nodemailer");
 
+// Configurazione del transporter di nodemailer per l'invio delle email
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'piertech10@gmail.com',
+    pass: 'sidmldrctmhrhlcq'
+  }
+});
+
+
+async function send(email, nome) {
+  const result = await transporter.sendMail({
+      from: 'LifeManagerStaff',
+      to: email,
+      subject: 'Benvenuto in LifeManager',
+      text: 'Ciao '+ nome+' ti diamo il benvenuto in LifeManager'
+  });
+
+  console.log(JSON.stringify(result, null, 4));
+}
+
+//Gestione richiesta POST a users
 router.post("", async (req, res) => {
   if (
     !req.body.nome ||
-    !req.body.congome ||
+    !req.body.cognome ||
     !req.body.username ||
     !req.body.email ||
     !req.body.password
@@ -62,6 +84,9 @@ router.post("", async (req, res) => {
       .status(201)
       .send();
   });
+
+  send(req.body.email, req.body.nome)
+
 });
 
 //router.use("/api/v1/users", tokenChecker);
