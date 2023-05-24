@@ -16,10 +16,10 @@ const transporter = nodemailer.createTransport({
 
 async function send(email, nome) {
   const result = await transporter.sendMail({
-      from: 'LifeManagerStaff',
-      to: email,
-      subject: 'Benvenuto in LifeManager',
-      text: 'Ciao '+ nome+' ti diamo il benvenuto in LifeManager'
+    from: 'LifeManagerStaff',
+    to: email,
+    subject: 'Benvenuto in LifeManager',
+    text: 'Ciao ' + nome + ' ti diamo il benvenuto in LifeManager'
   });
 
   console.log(JSON.stringify(result, null, 4));
@@ -32,7 +32,8 @@ router.post("", async (req, res) => {
     !req.body.cognome ||
     !req.body.username ||
     !req.body.email ||
-    !req.body.password
+    !req.body.password ||
+    !req.body.confermaPassword
   ) {
     return res.status(400).json({ error: "The fields must be not empty." });
   }
@@ -53,6 +54,20 @@ router.post("", async (req, res) => {
     return;
   }
 
+  // Controlla se le password corrispondono
+  if (req.body.password !== req.body.confermaPassword) {
+    return res.status(400).json({ error: "Passwords do not match" });
+  }
+
+  // Verifica la validità della password utilizzando una regex
+  if (!checkPassword(req.body.password)) {
+    return res.status(400).json({
+      error:
+        "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+    });
+  }
+
+  // Cripta la password, salva l'utente nel db e invia la mail
   bcrypt.hash(req.body.password, 10, async (err, hash) => {
     if (err) {
       console.error(err);
@@ -79,17 +94,12 @@ router.post("", async (req, res) => {
 
     utente = await utente.save();
     let userId = utente.id;
-    res
-      .location("/api/v1/users/" + userId)
-      .status(201)
-      .send();
+    res.status(201).json("Registration success");
   });
 
   send(req.body.email, req.body.nome)
 
 });
-
-//router.use("/api/v1/users", tokenChecker);
 
 router.get("/me", async (req, res) => {
   if (!req.loggedUser) {
@@ -177,6 +187,11 @@ router.put("/:id", async (req, res) => {
 
 function checkIfEmailInString(text) {
   var re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  return re.test(text);
+}
+
+function checkPassword(text) {
+  var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   return re.test(text);
 }
 

@@ -69,3 +69,12 @@
   background: transparent;
   border: 0
 }
+
+.formregistrazione {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 30%;
+  text-align: center;
+}

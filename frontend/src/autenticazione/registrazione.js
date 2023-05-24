@@ -8,7 +8,10 @@ function Registrati() {
     username: "",
     email: "",
     password: "",
+    confPassword: ""
   });
+
+  const [result, setResult] = useState("");
 
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -30,94 +33,33 @@ function Registrati() {
         username: formData.username,
         email: formData.email,
         password: formData.password,
+        confermaPassword: formData.confPassword
       }),
     };
-
     fetch(url, requestOptions)
       .then((response) => {
         if (response.ok) {
+          window.location.href = `/`;
           return response.json();
         } else {
-          throw new Error("Error: " + response.status);
+          return response.text().then((errorMessage) => {
+            throw new Error(errorMessage);
+          });
         }
       })
       .then((data) => {
         console.log(data); // Stampa la risposta del backend nella console
+        setResult("");
       })
       .catch((error) => {
         console.error(error); // Gestisci gli errori
+        setResult(error.message.includes('error') ? JSON.parse(error.message).error : error.message);
       });
   };
 
   return (
     <>
-      {/*<form onSubmit={handleSubmit}>
-        <label>
-          {" "}
-          Nome:
-          <input
-            type="text"
-            name="nome"
-            value={formData.nome}
-            required
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          {" "}
-          Cognome:
-          <input
-            id="cognome"
-            type="text"
-            name="cognome"
-            value={formData.cognome}
-            required
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          {" "}
-          Username:
-          <input
-            id="username"
-            type="text"
-            name="username"
-            value={formData.username}
-            required
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          {" "}
-          Email:
-          <input
-            id="email"
-            type="email"
-            name="email"
-            value={formData.email}
-            required
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          {" "}
-          Password:
-          <input
-            id="password"
-            type="password"
-            name="password"
-            value={formData.password}
-            required
-            onChange={handleInputChange}
-          />
-        </label>
-        <button type="submit">Registrati</button>
-  </form>*/}
-
-
-
-
-      <div class='formlogin'>
+      <div class='formregistrazione'>
         <h2>Registrati</h2><br /><br />
 
         <form onSubmit={handleSubmit}>
@@ -207,12 +149,28 @@ function Registrati() {
             </div>
           </div>
 
-          <a href={`/`}>
-            <button className="btn btn-outline-success" type="submit">
-              Registrati
-            </button>
-          </a>
+          <div className="mb-3">
+            <div className="input-group" style={{ display: 'flex' }}>
+              <span
+                className="input-group-text"
+              >
+                <img src={process.env.PUBLIC_URL + '/lucchetto.png'} alt="" class="iconeform" />
+              </span>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Conferma Password"
+                name="confPassword"
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+
+          <button className="btn btn-outline-success" type="submit">
+            Registrati
+          </button>
           <br /><br />
+          <p style={{ color: 'red' }}>{result}</p>
         </form >
 
         <br />
