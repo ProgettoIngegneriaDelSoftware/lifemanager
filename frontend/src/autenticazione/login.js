@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 
 function Login() {
   let userData = {};
@@ -64,62 +62,48 @@ function Login() {
 
   return (
     <>
-      {/* 
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label for="usernameORemail">{" "}Username or Email:</label>
-          <input id="usernameORemail" type="text" name="usernameORemail" value={formData.usernameORemail} onChange={handleInputChange}/>
-
-          <br></br>
-          <label for="password">{" "}Password:</label>
-          <input id="password" type="password" name="password" value={formData.password} onChange={handleInputChange}/>
-          <br></br>
-          <a href={`/homepage/${userData.email}`}>
-            <button type="submit">Login</button>
-          </a>
-        </form>
-        <a href="/registrati">
-          <button>Registrazione</button>
-        </a>
-        {result}
-  </div> */}
-
-
       <div class='formlogin'>
         <h2>Login</h2><br /><br />
+
         <form onSubmit={handleSubmit}>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">@</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-          </div>
-
           <div className="mb-3" >
-            <div style={{ display: 'flex' }}>
-              <span style={{ marginRight: '5px' }} id="basic-addon1">@</span>
+            <div className="input-group" style={{ display: 'flex' }}>
+              <span
+                className="input-group-text"
+              >
+                <img src={process.env.PUBLIC_URL + '/utente.png'} alt="" class="iconeform" />
+              </span>
               <input
                 type="text"
                 className="form-control"
                 id="usernameORemail"
-                placeholder="Enter email or username"
+                placeholder="Email or Username"
                 name="usernameORemail"
                 onChange={handleInputChange}
-                aria-describedby="basic-addon1"
+              />
+            </div>
+
+          </div>
+          <div className="mb-3">
+            <div className="input-group" style={{ display: 'flex' }}>
+              <span
+                className="input-group-text"
+              >
+                <img src={process.env.PUBLIC_URL + '/lucchetto.png'} alt="" class="iconeform" />
+              </span>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Password"
+                name="password"
+                onChange={handleInputChange}
               />
             </div>
           </div>
-          <div className="mb-3">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              placeholder="Password"
-              name="password"
-              onChange={handleInputChange}
-            />
-          </div>
+
+
           <a href={`/homepage/${userData.email}`}>
             <button className="btn btn-outline-success" type="submit">
               Login
@@ -127,7 +111,7 @@ function Login() {
           </a>
           <br /><br />
           <p style={{ color: 'red' }}>{result}</p>
-        </form>
+        </form >
 
         <br />
         <a href="/registrati">
@@ -135,7 +119,7 @@ function Login() {
             Registrati
           </button>
         </a>
-      </div>
+      </div >
 
     </>
   );
