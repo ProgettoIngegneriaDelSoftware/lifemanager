@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 function Homepage() {
-  let [usernameOrEmail, setResult] = useState("");
+  let [nome, setResult] = useState("");
 
   useEffect(() => {
     const url = "/api/v1/users/me";
@@ -27,15 +27,15 @@ function Homepage() {
       .then((data) => {
         console.log(data);
         setResult(
-          (usernameOrEmail = {
-            value: data.email,
+          (nome = {
+            value: data.nome,
             access: true,
           })
         );
       })
       .catch((error) => {
         setResult(
-          (usernameOrEmail = {
+          (nome = {
             value: "",
             access: false,
           })
@@ -46,33 +46,62 @@ function Homepage() {
 
   return (
     <>
-      {usernameOrEmail.access && (
+      {nome.access && (
         <>
-          <h2>Benvenuto {usernameOrEmail.value}</h2>
-          <p>Organizza la tua vita, inizia qui!</p>
+          <div class="intestazioneHomePage">
+            <h5>Benvenuto {nome.value}</h5>
+            <p>Organizza la tua vita, inizia qui!</p>
+          </div>
 
-          <div>
+          <div class="buttonContainer">
             <a href="/movimenti">
-              <button>Budget</button>
+              <button className="bottoniHomePage">
+                Budget<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/budget.png'} alt="" class="iconeHomePage" />
+              </button>
             </a>
             <a href="/liste">
-              <button>Liste</button>
-            </a>
+              <button className="bottoniHomePage">
+                Liste<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/liste.png'} alt="" class="iconeHomePage" />
+              </button>
+            </a> <br />
             <a href="/ricette">
-              <button>Ricette</button>
+              <button className="bottoniHomePage">
+                Ricette<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/ricetta.png'} alt="" class="iconeHomePage" />
+              </button>
             </a>
             <a href="/carte">
-              <button>Carte fedeltà</button>
+              <button className="bottoniHomePage">
+                Carte fedeltà<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/cartaFedelta.png'} alt="" class="iconeHomePage" />
+              </button>
+            </a>
+            <br />
+            <a href="/mappa">
+              <button className="bottoniHomePage">
+                Mappa<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/mappa.png'} alt="" class="iconeHomePage" />
+              </button>
+            </a>
+            <a href="/eventi">
+              <button className="bottoniHomePage">
+                Eventi<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/calendario.png'} alt="" class="iconeHomePage" />
+              </button>
             </a>
           </div>
         </>
       )}
-      {!usernameOrEmail.access && (
+      {!nome.access && (
         <>
-          <p>Accesso negato, autenticati!</p>
-          <a href="/">
-            <button>Autenticati</button>
-          </a>
+          <div class="intestazioneHomePage">
+            <p style={{ color: 'red' }}>Accesso negato, autenticati!</p>
+            <a href="/">
+              <button>Autenticati</button>
+            </a>
+          </div>
         </>
       )}
     </>

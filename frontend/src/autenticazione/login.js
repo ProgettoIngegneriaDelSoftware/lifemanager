@@ -11,7 +11,8 @@ function Login() {
   const [result, setResult] = useState("");
 
   const handleInputChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (event) => {
@@ -42,7 +43,7 @@ function Login() {
       .then((data) => {
         console.log(data); // Stampa la risposta del backend nella console
 
-        setResult(<p>{data.message}</p>);
+        setResult(<>{data.message}</>);
         userData = {
           id: data.id,
           email: data.email,
@@ -61,43 +62,67 @@ function Login() {
 
   return (
     <>
-      <h2>Login</h2>
+      <div class='formlogin'>
+        <h2>Login</h2><br /><br />
 
-      <div>
         <form onSubmit={handleSubmit}>
-          <label>
-            {" "}
-            Username or Email:
-            <input
-              id="usernameORemail"
-              type="text"
-              name="usernameORemail"
-              value={formData.usernameORemail}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br></br>
-          <label>
-            {" "}
-            Password:
-            <input
-              id="password"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br></br>
+
+          <div className="mb-3" >
+            <div className="input-group" style={{ display: 'flex' }}>
+              <span
+                className="input-group-text"
+              >
+                <img src={process.env.PUBLIC_URL + '/utente.png'} alt="" class="iconeform" />
+              </span>
+              <input
+                type="text"
+                className="form-control"
+                id="usernameORemail"
+                placeholder="Email or Username"
+                name="usernameORemail"
+                onChange={handleInputChange}
+                value={formData.usernameORemail}
+              />
+            </div>
+
+          </div>
+          <div className="mb-3">
+            <div className="input-group" style={{ display: 'flex' }}>
+              <span
+                className="input-group-text"
+              >
+                <img src={process.env.PUBLIC_URL + '/lucchetto.png'} alt="" class="iconeform" />
+              </span>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Password"
+                name="password"
+                onChange={handleInputChange}
+                value={formData.password}
+              />
+            </div>
+          </div>
+
+
           <a href={`/homepage/${userData.email}`}>
-            <button type="submit">Login</button>
+            <button className="btn btn-outline-success" type="submit">
+              Login
+            </button>
           </a>
-        </form>
+          <br /><br />
+          <p style={{ color: 'red' }}>{result}</p>
+        </form >
+
+        <br />
         <a href="/registrati">
-          <button>Registrazione</button>
+          <button className="btn btn-outline-success" type="button">
+            Registrati
+          </button>
         </a>
-        {result}
-      </div>
+      </div >
+
     </>
   );
 }
