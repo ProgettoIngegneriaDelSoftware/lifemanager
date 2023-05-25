@@ -10,6 +10,9 @@ import NuovaLista from "./liste/nuovalista";
 import Lista from "./liste/lista";
 import NuovoElemento from "./liste/nuovoelemento";
 
+import Ricette from "./ricette/ricette";
+import NuovaRicetta from "./ricette/nuovaricetta";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +20,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import Homepage from "./components/Homepage";
+import SingolaRicetta from "./ricette/singolaricetta";
 
 function App() {
   const Layout = () => {
@@ -44,6 +48,13 @@ function App() {
               exact
               path="/:nomelista/nuovoelemento"
               element={<NuovoElemento />}
+            />
+            <Route exact path="/ricette" element={<Ricette />} />
+            <Route exact path="/nuovaricetta" element={<NuovaRicetta />} />
+            <Route
+              exact
+              path="/ricette/:nomericetta"
+              element={<SingolaRicetta />}
             />
           </Route>
         </Routes>

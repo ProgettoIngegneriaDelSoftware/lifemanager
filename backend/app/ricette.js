@@ -30,12 +30,11 @@ router.get("/:nome", async (req, res) => {
     return;
   }
 
-
   res.status(200).json({
     self: "/api/v1/ricette/" + ric.nome,
     nome: ric.nome,
-    ingredienti: ric.ingredienti.length,
-    procedimento: ric.procedimento
+    ingredienti: ric.ingredienti,
+    procedimento: ric.procedimento,
   });
 });
 
@@ -50,26 +49,30 @@ router.get("/:nome/ingredienti", async (req, res) => {
     return;
   }
 
-  const ingr = ric.ingredienti.map(ingrediente => {
+  const ingr = ric.ingredienti.map((ingrediente) => {
     return {
       nome: ingrediente.nome,
-      quantita: ingrediente.quantita
+      quantita: ingrediente.quantita,
     };
   });
 
   res.status(200).json({
-    self: "/api/v1/ricette/" + ric.nome +"/ingredienti",
+    self: "/api/v1/ricette/" + ric.nome + "/ingredienti",
     nome: ric.nome,
-    ingredienti: ingr
+    ingredienti: ingr,
   });
 });
 
-
 router.post("", async (req, res) => {
-  if (!req.body.nome || !req.body.ingredienti || !req.body.procedimento || req.body.ingredienti.some(ingrediente => !ingrediente.nome || !ingrediente.quantita)) {
-    return res
-      .status(400)
-      .json({ error: "Fields must be non-empty" });
+  if (
+    !req.body.nome ||
+    !req.body.ingredienti ||
+    !req.body.procedimento ||
+    req.body.ingredienti.some(
+      (ingrediente) => !ingrediente.nome || !ingrediente.quantita
+    )
+  ) {
+    return res.status(400).json({ error: "Fields must be non-empty" });
   }
 
   const existingRicetta = await ricetta.findOne({
@@ -84,13 +87,13 @@ router.post("", async (req, res) => {
   let ric = new ricetta({
     user: req.loggedUser.id,
     nome: req.body.nome,
-    procedimento: req.body.procedimento
+    procedimento: req.body.procedimento,
   });
 
   for (let i = 0; i < req.body.ingredienti.length; i++) {
     const ingrediente = {
       nome: req.body.ingredienti[i].nome,
-      quantita: req.body.ingredienti[i].quantita
+      quantita: req.body.ingredienti[i].quantita,
     };
     ric.ingredienti.push(ingrediente);
   }
@@ -104,11 +107,13 @@ router.post("", async (req, res) => {
 });
 
 router.post("/:nome/ingredienti", async (req, res) => {
-
-  if (!req.body.ingredienti || req.body.ingredienti.some(ingrediente => !ingrediente.nome || !ingrediente.quantita)) {
-    return res
-      .status(400)
-      .json({ error: "Fields must be non-empty" });
+  if (
+    !req.body.ingredienti ||
+    req.body.ingredienti.some(
+      (ingrediente) => !ingrediente.nome || !ingrediente.quantita
+    )
+  ) {
+    return res.status(400).json({ error: "Fields must be non-empty" });
   }
 
   let ric = await ricetta.findOne({
@@ -124,13 +129,17 @@ router.post("/:nome/ingredienti", async (req, res) => {
   for (let i = 0; i < req.body.ingredienti.length; i++) {
     const ingrediente = {
       nome: req.body.ingredienti[i].nome,
-      quantita: req.body.ingredienti[i].quantita
+      quantita: req.body.ingredienti[i].quantita,
     };
 
-    const existingIngrediente =ric.ingredienti.some(existing => existing.nome === ingrediente.nome);
+    const existingIngrediente = ric.ingredienti.some(
+      (existing) => existing.nome === ingrediente.nome
+    );
     if (existingIngrediente) {
       console.log("Ingredient already exists:", ingrediente.nome);
-      res.status(400).json({ error: "Ingredient already exists: " + ingrediente.nome });
+      res
+        .status(400)
+        .json({ error: "Ingredient already exists: " + ingrediente.nome });
       return;
     }
 
@@ -140,7 +149,7 @@ router.post("/:nome/ingredienti", async (req, res) => {
   ric = await ric.save();
 
   res
-    .location("/api/v1/ricette/" + ric.nome +"/ingredienti")
+    .location("/api/v1/ricette/" + ric.nome + "/ingredienti")
     .status(201)
     .send();
 });
@@ -157,11 +166,13 @@ router.put("/:nome", async (req, res) => {
   }
 
   ric.nome = req.body.nome || ric.nome;
-
+  ric.procedimento = req.body.procedimento || ric.procedimento;
+  ric.ingredienti = req.body.ingredienti || ric.ingredienti;
+  
   await ric.save();
 
   res
-    .location("/api/v1/ricette/" + ric.nome +"ingredienti")
+    .location("/api/v1/ricette/" + ric.nome + "ingredienti")
     .status(201)
     .send();
 });
@@ -187,7 +198,6 @@ router.put("/:nome/procedimento", async (req, res) => {
     .send();
 });
 
-
 router.put("/:nome/ingredienti/:nomeIngrediente", async (req, res) => {
   let ric = await ricetta.findOne({
     nome: req.params.nome,
@@ -199,7 +209,9 @@ router.put("/:nome/ingredienti/:nomeIngrediente", async (req, res) => {
     return;
   }
 
-  const ingr = ric.ingredienti.find(ing => ing.nome === req.params.nomeIngrediente);
+  const ingr = ric.ingredienti.find(
+    (ing) => ing.nome === req.params.nomeIngrediente
+  );
 
   if (!ingr) {
     console.log("Ingredient not found");
@@ -213,14 +225,12 @@ router.put("/:nome/ingredienti/:nomeIngrediente", async (req, res) => {
   await ric.save();
 
   res
-    .location("/api/v1/ricette/" + ric.nome +"ingredienti")
+    .location("/api/v1/ricette/" + ric.nome + "ingredienti")
     .status(201)
     .send();
 });
 
-
 router.delete("/:nome/ingredienti/:nomeIngrediente", async (req, res) => {
-  
   let ric = await ricetta
     .findOne({ nome: req.params.nome, user: req.loggedUser.id })
     .exec();
@@ -230,7 +240,9 @@ router.delete("/:nome/ingredienti/:nomeIngrediente", async (req, res) => {
     return;
   }
 
-  const ingr = ric.ingredienti.find(ing => ing.nome === req.params.nomeIngrediente);
+  const ingr = ric.ingredienti.find(
+    (ing) => ing.nome === req.params.nomeIngrediente
+  );
 
   if (!ingr) {
     console.log("Ingredient not found");
@@ -258,10 +270,5 @@ router.delete("/:nome", async (req, res) => {
   console.log("Recipe deleted");
   res.status(204).send();
 });
-
-
-
-
-
 
 module.exports = router;
