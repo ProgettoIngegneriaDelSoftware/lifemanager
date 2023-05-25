@@ -94,6 +94,7 @@
   left: 50%;
   transform: translate(-50%);
   align-items: center;
+  border: 2px solid black;
 }
 
 .bottoniHomePage {
@@ -102,10 +103,41 @@
   height: 150px;
   margin: 50px;
   margin-bottom: 10px;
-  background-color: #81abea;
   transition: background-color 0.3s ease;
 }
 
 .bottoniHomePage:hover {
-  background-color: #7e94b5;
+  background-color: #9bbbea;
+}
+
+.iconeHomePage {
+  width: 70px;
+  height: 70px;
+}
+
+.listeContainer {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+}
+
+
+.trePunti {
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+
+.popup {
+  display: none;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f1f1f1;
+  padding: 10px;
 }

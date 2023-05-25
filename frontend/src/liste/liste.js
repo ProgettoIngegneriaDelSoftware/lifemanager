@@ -1,17 +1,21 @@
+import React, { useEffect, useState } from "react";
+import { OverlayTrigger, Popover, Button } from 'react-bootstrap';
 
 function Liste() {
+  const url = '/api/v1/liste/';
+  const token = localStorage.getItem('token');
+  const [liste, setListe] = useState([]);
 
-    const url = '/api/v1/liste/';
-    const token = localStorage.getItem('token');
-  
+
+  useEffect(() => {
     const requestOptions = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'x-access-token' : `${token}`
+        'x-access-token': `${token}`
       }
     };
-    
+
     fetch(url, requestOptions)
       .then((response) => {
         if (response.ok) {
@@ -21,27 +25,50 @@ function Liste() {
         }
       })
       .then((data) => {
-        var resultList = '';
-
-        data.forEach((item) => {
-        var lista = {
-            nome: item.nome
-        };
-        resultList += '<a href="/liste/' + lista.nome + '">Nome: ' + lista.nome + '</a><br /><hr />';
-    });
-
-  var resultDiv = document.getElementById('result');
-  resultDiv.innerHTML = resultList;
+        setListe(data);
       })
       .catch((error) => {
         console.error(error); // Gestisci gli errori
       });
+  }, [url, token]);
 
   return (
     <>
-      <h2>Liste</h2>
-      <div id="result"></div>
-      <a href="/nuovalista"><button>Nuova Lista</button></a>
+      <div class='listeContainer'>
+        <h2>Liste</h2> <br />
+
+        {liste.map((element, index) => (
+          <p key={index}>
+            <div className="input-group" style={{ display: 'flex' }}>
+              <a href={`/liste/${element.nome}`} style={{ textDecoration: 'none' }}>
+                <button className=" form-control " style={{ width: '500px' }}>{element.nome}</button> </a>
+              <OverlayTrigger
+                trigger="click"
+                placement="top"
+                overlay={
+                  <Popover id="popover-menu">
+                    <Popover.Body>
+                      <Button variant="danger">Elimina</Button>{' '}
+                      <Button variant="primary">Modifica</Button>
+                    </Popover.Body>
+                  </Popover>
+                }
+              >
+                <span className="input-group-text">
+                  <img src={process.env.PUBLIC_URL + '/trepunti.png'} alt="" className="trePunti" />
+                </span>
+              </OverlayTrigger>
+
+              <div id="menu" className="menu">
+                <button>Modifica</button>
+                <button>Elimina</button>
+              </div>
+            </div>
+          </p>
+        ))}
+        <br />
+        <a href="/nuovalista"><button>Nuova Lista</button></a>
+      </div >
     </>
   );
 }

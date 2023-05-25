@@ -55,16 +55,41 @@ function Homepage() {
 
           <div class="buttonContainer">
             <a href="/movimenti">
-              <button className="bottoniHomePage">Budget</button>
+              <button className="bottoniHomePage">
+                Budget<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/budget.png'} alt="" class="iconeHomePage" />
+              </button>
             </a>
             <a href="/liste">
-              <button className="bottoniHomePage">Liste</button>
+              <button className="bottoniHomePage">
+                Liste<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/liste.png'} alt="" class="iconeHomePage" />
+              </button>
             </a> <br />
             <a href="/ricette">
-              <button className="bottoniHomePage">Ricette</button>
+              <button className="bottoniHomePage">
+                Ricette<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/ricetta.png'} alt="" class="iconeHomePage" />
+              </button>
             </a>
             <a href="/carte">
-              <button className="bottoniHomePage">Carte fedeltà</button>
+              <button className="bottoniHomePage">
+                Carte fedeltà<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/cartaFedelta.png'} alt="" class="iconeHomePage" />
+              </button>
+            </a>
+            <br />
+            <a href="/mappa">
+              <button className="bottoniHomePage">
+                Mappa<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/mappa.png'} alt="" class="iconeHomePage" />
+              </button>
+            </a>
+            <a href="/eventi">
+              <button className="bottoniHomePage">
+                Eventi<br /> <br />
+                <img src={process.env.PUBLIC_URL + '/calendario.png'} alt="" class="iconeHomePage" />
+              </button>
             </a>
           </div>
         </>

@@ -81,6 +81,7 @@ function Login() {
                 placeholder="Email or Username"
                 name="usernameORemail"
                 onChange={handleInputChange}
+                value={formData.usernameORemail}
               />
             </div>
 
@@ -99,6 +100,7 @@ function Login() {
                 placeholder="Password"
                 name="password"
                 onChange={handleInputChange}
+                value={formData.password}
               />
             </div>
           </div>
