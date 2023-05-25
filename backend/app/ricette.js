@@ -167,7 +167,8 @@ router.put("/:nome", async (req, res) => {
 
   ric.nome = req.body.nome || ric.nome;
   ric.procedimento = req.body.procedimento || ric.procedimento;
-
+  ric.ingredienti = req.body.ingredienti || ric.ingredienti;
+  
   await ric.save();
 
   res

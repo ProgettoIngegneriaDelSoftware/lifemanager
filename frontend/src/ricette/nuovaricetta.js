@@ -19,7 +19,7 @@ function NuovaRicetta() {
     const { name, value } = event.target;
     const updatedIngredienti = [...ingredienti];
     updatedIngredienti[index][name] = value;
-    console.log(updatedIngredienti);
+    //console.log(updatedIngredienti);
     setIngredienti(updatedIngredienti);
   };
 
@@ -84,9 +84,11 @@ function NuovaRicetta() {
 
         <div>
           <label htmlFor="procedimento">Procedimento:</label>
+          <br></br>
           <textarea
             id="procedimento"
-            rows="5"
+            rows="11"
+            cols="50"
             value={procedimento}
             onChange={handleProcedimentoChange}
             required

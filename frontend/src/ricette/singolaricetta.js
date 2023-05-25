@@ -41,6 +41,7 @@ function SingolaRicetta() {
             procedimento: data.procedimento,
             ingredienti: data.ingredienti,
           });
+          setIngredienti(data.ingredienti);
         })
         .catch((error) => {
           console.error(error);
@@ -62,6 +63,45 @@ function SingolaRicetta() {
     setIngredienti(updatedIngredienti);
   };
 
+  const handleAggiungiaSpesa = (index, event) => {
+    const url = "/api/v1/liste/Lista della spesa/elementi";
+    const token = localStorage.getItem("token");
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
+      },
+      body: JSON.stringify({
+        items: ingredienti.map((element) => element.nome),
+      }),
+    };
+
+    fetch(url, requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          console.log("Ingredienti aggiunti correttamente");
+          // Puoi eseguire un'azione aggiuntiva dopo la modifica, come il reindirizzamento a un'altra pagina
+        } else {
+          throw new Error("Error: " + response.status);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleAggiungiIngrediente = () => {
+    setIngredienti([...ingredienti, { nome: "", quantita: "" }]);
+  };
+
+  const handleRimuoviIngrediente = (index) => {
+    const updatedIngredienti = [...ingredienti];
+    updatedIngredienti.splice(index, 1);
+    setIngredienti(updatedIngredienti);
+  };
+
   const handleModifica = () => {
     const url = "/api/v1/ricette/" + nomericetta;
     const token = localStorage.getItem("token");
@@ -72,7 +112,11 @@ function SingolaRicetta() {
         "Content-Type": "application/json",
         "x-access-token": `${token}`,
       },
-      body: JSON.stringify(formValues),
+      body: JSON.stringify({
+        nome: formValues.nome,
+        procedimento: formValues.procedimento,
+        ingredienti: ingredienti,
+      }),
     };
 
     fetch(url, requestOptions)
@@ -102,24 +146,41 @@ function SingolaRicetta() {
           onChange={handleInputChange}
         ></textarea>
         <h4>Ingredienti:</h4>
-        {formValues.ingredienti.map((element, index) => (
+        {ingredienti.map((element, index) => (
           <div key={index}>
             <input
-              name={`ingredienti[${index}].nome`}
+              name="nome"
               value={element.nome}
               onChange={(event) => handleIngredienteChange(index, event)}
             />
             <input
-              name={`ingredienti[${index}].quantita`}
+              name="quantita"
               value={element.quantita}
               onChange={(event) => handleIngredienteChange(index, event)}
             />
+            {index > 0 && (
+              <button
+                type="button"
+                onClick={() => handleRimuoviIngrediente(index)}
+              >
+                Rimuovi
+              </button>
+            )}
           </div>
         ))}
+        <button type="button" onClick={handleAggiungiIngrediente}>
+          Aggiungi Ingrediente
+        </button>
+        <br />
+        <button type="button" onClick={handleAggiungiaSpesa}>
+          Aggiungi ingredienti a lista della spesa
+        </button>
         <hr></hr>
         <h4>Procedimento:</h4>
         <textarea
           name="procedimento"
+          rows="11"
+          cols="50"
           value={formValues.procedimento}
           onChange={handleInputChange}
         ></textarea>
