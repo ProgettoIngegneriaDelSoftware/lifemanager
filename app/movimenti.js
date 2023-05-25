@@ -15,7 +15,8 @@ router.get('', async (req, res) => {
         return {
             self: '/api/v1/movimenti/' + movi.id,
             id: movi.id,
-            titolo: movi.titolo
+            titolo: movi.titolo,
+            categoria: movi.categoria
         };
     });
     res.status(200).json(mov);
@@ -145,6 +146,7 @@ router.get('/categorie', async (req, res) => {
     cat = cat.map((categ) => {
         return {
             self: '/api/v1/movimenti/categorie/' + categ.id,
+            id: categ.id,
             nome: categ.nome
         };
     });

@@ -15,6 +15,10 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom
 import Homepage from './components/Homepage';
 import Context from './components/Context';
 import ModificaMovimento from './movimenti/modificamovimento';
+import VisualizzaPerCategorie from './movimenti/visualizzapercategorie';
+import Entrate from './movimenti/Entrate';
+import Uscite from './movimenti/Uscite';
+
 
 function App() {
 
@@ -50,6 +54,9 @@ function App() {
               <Route path="/eliminamovimento/:id" element={<EliminaMovimento />} />
               <Route path="/visualizzamovimento/:id" element={<VisualizzaMovimento />} />
               <Route path="/modificamovimento/:id" element={<ModificaMovimento />} />
+              <Route path="/visualizzapercategorie/:nome" element={<VisualizzaPerCategorie />} />
+              <Route path="/Entrate" element={<Entrate />} />
+              <Route path="/Uscite" element={<Uscite />} />
 
             </Route>
           </Routes>
