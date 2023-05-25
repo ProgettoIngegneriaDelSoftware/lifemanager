@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
 
 function Login() {
-  let userData = {}
+  let userData = {};
 
   const [formData, setFormData] = useState({
-    usernameORemail: '',
-    password: '',
+    usernameORemail: "",
+    password: "",
   });
 
-  const [result, setResult] = useState('')
-
+  const [result, setResult] = useState("");
 
   const handleInputChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const url = '/api/v1/authentications/';
+    const url = "/api/v1/authentications/";
 
     const requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email: formData.usernameORemail,
-        password: formData.password
-      })
+        username: formData.usernameORemail,
+        password: formData.password,
+      }),
     };
 
     fetch(url, requestOptions)
@@ -37,20 +37,23 @@ function Login() {
         if (response.ok) {
           return response.json();
         } else {
-          throw new Error('Error: ' + response.status);
+          throw new Error("Error: " + response.status);
         }
       })
       .then((data) => {
         console.log(data); // Stampa la risposta del backend nella console
 
-        setResult(<p>{data.message}</p>)
+        setResult(<>{data.message}</>);
         userData = {
           id: data.id,
           email: data.email,
           token: data.token,
-          message: data.message
+          message: data.message,
         };
-        localStorage.setItem('token', userData.token);
+        localStorage.setItem("token", userData.token);
+        if (data.success) {
+          window.location.href = `/homepage`;
+        }
       })
       .catch((error) => {
         console.error(error); // Gestisci gli errori
@@ -59,25 +62,67 @@ function Login() {
 
   return (
     <>
-      <h2>Login</h2>
+      <div class='formlogin'>
+        <h2>Login</h2><br /><br />
 
-      <div>
         <form onSubmit={handleSubmit}>
 
-          <label> Username or Email:
-            <input id="usernameORemail" type="email" name="usernameORemail" value={formData.usernameORemail} onChange={handleInputChange} />
-          </label>
-          <br></br>
-          <label> Password:
-            <input id="password" type="password" name="password" value={formData.password} onChange={handleInputChange} />
-          </label>
-          <br></br>
-          <button type="submit">Login</button>
+          <div className="mb-3" >
+            <div className="input-group" style={{ display: 'flex' }}>
+              <span
+                className="input-group-text"
+              >
+                <img src={process.env.PUBLIC_URL + '/utente.png'} alt="" class="iconeform" />
+              </span>
+              <input
+                type="text"
+                className="form-control"
+                id="usernameORemail"
+                placeholder="Email or Username"
+                name="usernameORemail"
+                onChange={handleInputChange}
+                value={formData.usernameORemail}
+              />
+            </div>
 
-        </form>
-        <a href="/registrati"><button>Registrazione</button></a>
-        {result}
-      </div>
+          </div>
+          <div className="mb-3">
+            <div className="input-group" style={{ display: 'flex' }}>
+              <span
+                className="input-group-text"
+              >
+                <img src={process.env.PUBLIC_URL + '/lucchetto.png'} alt="" class="iconeform" />
+              </span>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Password"
+                name="password"
+                onChange={handleInputChange}
+                value={formData.password}
+              />
+            </div>
+          </div>
+
+
+          <a href={`/homepage/${userData.email}`}>
+            <button className="btn btn-outline-success" type="submit">
+              Login
+            </button>
+          </a>
+          <br /><br />
+          <p style={{ color: 'red' }}>{result}</p>
+        </form >
+
+        <br />
+        <a href="/registrati">
+          <button className="btn btn-outline-success" type="button">
+            Registrati
+          </button>
+        </a>
+      </div >
+
     </>
   );
 }

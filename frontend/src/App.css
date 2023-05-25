@@ -32,7 +32,112 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.formlogin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  text-align: center;
+}
+
+.divheader {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.frecciaIndietro {
+  background: transparent;
+  border: 0;
+}
+
+.titoloHeader {
+  flex: 1;
+  text-align: center;
+}
+
+.iconeform {
+  width: 15px;
+  height: 15px;
+  background: transparent;
+  border: 0
+}
+
+.formregistrazione {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 30%;
+  text-align: center;
+}
+
+.intestazioneHomePage {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.buttonContainer {
+  margin-top: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  align-items: center;
+  border: 2px solid black;
+}
+
+.bottoniHomePage {
+  border-radius: 7%;
+  width: 200px;
+  height: 150px;
+  margin: 50px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.bottoniHomePage:hover {
+  background-color: #9bbbea;
+}
+
+.iconeHomePage {
+  width: 70px;
+  height: 70px;
+}
+
+.listeContainer {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+}
+
+
+.trePunti {
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+
+.popup {
+  display: none;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f1f1f1;
+  padding: 10px;
 }
