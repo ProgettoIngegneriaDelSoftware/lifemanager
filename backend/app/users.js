@@ -5,6 +5,8 @@ const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 const config = require('./../config')
+const lista = require("./models/lista"); // get our mongoose model
+
 
 // Configurazione del transporter di nodemailer per l'invio delle email
 const transporter = nodemailer.createTransport({
@@ -33,7 +35,7 @@ async function send(email, nome, token) {
 // richiesta per confermare email
 router.post("/email", async (req, res) => {
   const { token } = req.body;
-  var email;
+  var email, id;
 
   // if there is no token
   if (!token) {
@@ -52,13 +54,37 @@ router.post("/email", async (req, res) => {
       });
     } else {
       email = decoded.email;
+      id = decoded._id;
       res.status(200).json({ message: "Email address confirmed" });
     }
   });
 
-  let utente = await user.findOne({ email: email });
-  utente.verifiedEmail = true
-  await utente.save();
+  try {
+    let utente = await user.findOne({ email: email });
+
+    if (utente) {
+      utente.verifiedEmail = true;
+      await utente.save();
+      console.log("User verified:", utente);
+    } else {
+      console.log("User not found:", email);
+    }
+
+    let list = new lista({
+      user: utente._id,
+      nome: "Lista della Spesa",
+    });
+    list = await list.save();
+
+    list = new lista({
+      user: utente._id,
+      nome: "To-Do-List",
+    });
+    list = await list.save();
+  } catch (error) {
+    console.error("Error updating user:", error);
+  }
+
 });
 
 
@@ -103,18 +129,7 @@ router.post("", async (req, res) => {
         "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
     });
   }
-
-  // if user is found and password is right create a token
-  var payload = {
-    email: email,
-    username: username
-    // other data encrypted in the token	
-  }
-  var options = {
-    expiresIn: 86400 // expires in 24 hours
-  }
-  var token = jwt.sign(payload, process.env.SUPER_SECRET, options);
-
+  var token
   // Cripta la password, salva l'utente nel db e invia la mail
   bcrypt.hash(req.body.password, 10, async (err, hash) => {
     if (err) {
@@ -141,11 +156,20 @@ router.post("", async (req, res) => {
     }
 
     utente = await utente.save();
-    let userId = utente.id;
+    // if user is found and password is right create a token
+    var payload = {
+      email: email,
+      username: username
+      // other data encrypted in the token	
+    }
+    var options = {
+      expiresIn: 86400 // expires in 24 hours
+    }
+    token = jwt.sign(payload, process.env.SUPER_SECRET, options);
+    send(req.body.email, req.body.nome, token)
+
     res.status(201).json("Registration success");
   });
-
-  send(req.body.email, req.body.nome, token)
 
 });
 
