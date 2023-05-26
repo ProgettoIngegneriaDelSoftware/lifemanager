@@ -12,7 +12,7 @@ router.get("", async (req, res) => {
   }
   carta = carta.map((card) => {
     return {
-      self: "/api/v1/ricette/" + card.nome,
+      self: "/api/v1/carte" + card.nome,
       nome: card.nome,
     };
   });

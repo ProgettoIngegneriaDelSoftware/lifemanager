@@ -2,7 +2,7 @@ const app = require('./app/app.js');
 const mongoose = require('mongoose');
 require('dotenv').config()
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
