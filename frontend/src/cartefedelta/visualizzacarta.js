@@ -5,7 +5,7 @@ import Barcode from 'react-barcode';
 
 function VisualizzaCarta() {
     const { nome } = useParams();
-    console.log(nomoe);
+    console.log(nome);
     const [carta, setCarta] = useState(null);
 
     useEffect(() => {
@@ -46,7 +46,6 @@ function VisualizzaCarta() {
                 <div>
                     <p>{carta.nome}</p>
                     <Barcode value={carta.numerocarta} />
-                    <p>{carta.numerocarta}</p>
                 </div>
             ) : (
                 <p>Nessuna carta selezionata</p>

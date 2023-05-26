@@ -35,7 +35,7 @@ function EliminaCarta() {
     };
 
     useEffect(() => {
-        if (id) {
+        if (nome) {
             const url = `/api/v1/carte/${nome}`;
             console.log(url);
             const token = localStorage.getItem('token');
@@ -63,7 +63,7 @@ function EliminaCarta() {
                     console.error(error); // Handle errors
                 });
         }
-    }, [id]);
+    }, [nome]);
 
     return (
         <>
@@ -74,7 +74,6 @@ function EliminaCarta() {
 
                     <Barcode value={carta.numerocarta} />
 
-                    <p>{carta.numerocarta}</p>
                 </div>
             ) : (
                 <p>Nessuna carta selezionata</p>

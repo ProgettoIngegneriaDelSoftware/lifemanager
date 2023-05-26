@@ -61,7 +61,7 @@ function Homepage() {
             <a href="/ricette">
               <button>Ricette</button>
             </a>
-            <a href="/carte">
+            <a href="/listacarte">
               <button>Carte fedeltà</button>
             </a>
           </div>

@@ -18,7 +18,7 @@ function ListaCarte() {
     const [carte, setCarte] = useState([]);
 
     useEffect(() => {
-        const url = '/api/v1/carta';
+        const url = '/api/v1/carte';
         const token = localStorage.getItem('token');
 
         const requestOptions = {
@@ -66,7 +66,7 @@ function ListaCarte() {
             <div>
                 {carte.map((carta) => (
                     <div key={carta.nome}>
-                        <CartaLink id={carta.nome} />
+                        <CartaLink nome={carta.nome} />
                         <br />
                     </div>
                 ))}
