@@ -72,7 +72,7 @@ function Homepage() {
                 <img src={process.env.PUBLIC_URL + '/ricetta.png'} alt="" class="iconeHomePage" />
               </button>
             </a>
-            <a href="/carte">
+            <a href="/listacarte">
               <button className="bottoniHomePage">
                 Carte fedeltà<br /> <br />
                 <img src={process.env.PUBLIC_URL + '/cartaFedelta.png'} alt="" class="iconeHomePage" />
@@ -90,6 +90,9 @@ function Homepage() {
                 Eventi<br /> <br />
                 <img src={process.env.PUBLIC_URL + '/calendario.png'} alt="" class="iconeHomePage" />
               </button>
+            </a>
+            <a href="/listacarte">
+              <button>Carte fedeltà</button>
             </a>
           </div>
         </>

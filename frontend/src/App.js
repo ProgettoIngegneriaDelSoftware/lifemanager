@@ -21,6 +21,11 @@ import {
 } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import SingolaRicetta from "./ricette/singolaricetta";
+import ListaCarte from "./cartefedelta/listacarte";
+import NuovaCarta from "./cartefedelta/nuovacarta";
+import VisualizzaCarta from "./cartefedelta/visualizzacarta";
+import ModificaCarta from "./cartefedelta/modificacarta";
+import EliminaCarta from "./cartefedelta/eliminacarta";
 
 function App() {
   const Layout = () => {
@@ -56,6 +61,34 @@ function App() {
               path="/ricette/:nomericetta"
               element={<SingolaRicetta />}
             />
+
+            <Route
+              exact
+              path="/listacarte"
+              element={<ListaCarte />}
+            />
+            <Route
+              exact
+              path="/nuovacarta"
+              element={<NuovaCarta />}
+            />
+
+            <Route
+              exact
+              path="/visualizzacarta/:nome"
+              element={<VisualizzaCarta />}
+            />
+            <Route
+              exact
+              path="/modificacarta/:nome"
+              element={<ModificaCarta />}
+            />
+            <Route
+              exact
+              path="/eliminacarta/:nome"
+              element={<EliminaCarta />}
+            />
+
           </Route>
         </Routes>
       </Router>
