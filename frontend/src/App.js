@@ -4,6 +4,7 @@ import Registrati from "./autenticazione/registrazione";
 import Login from "./autenticazione/login";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ConfermaEmail from "./autenticazione/confermaEmail";
 
 import Liste from "./liste/liste";
 import NuovaLista from "./liste/nuovalista";
@@ -44,18 +45,11 @@ function App() {
             <Route exact path="/liste" element={<Liste />} />
             <Route exact path="/nuovalista" element={<NuovaLista />} />
             <Route exact path="/liste/:nomelista" element={<Lista />} />
-            <Route
-              exact
-              path="/:nomelista/nuovoelemento"
-              element={<NuovoElemento />}
-            />
+            <Route exact path="/:nomelista/nuovoelemento" element={<NuovoElemento />} />
             <Route exact path="/ricette" element={<Ricette />} />
             <Route exact path="/nuovaricetta" element={<NuovaRicetta />} />
-            <Route
-              exact
-              path="/ricette/:nomericetta"
-              element={<SingolaRicetta />}
-            />
+            <Route exact path="/ricette/:nomericetta" element={<SingolaRicetta />} />
+            <Route exact path="/conferma-email" element={<ConfermaEmail />} />
           </Route>
         </Routes>
       </Router>

@@ -3,27 +3,64 @@ const router = express.Router();
 const user = require("./models/user"); // get our mongoose model
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
+const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
+const config = require('./../config')
 
 // Configurazione del transporter di nodemailer per l'invio delle email
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'piertech10@gmail.com',
-    pass: 'sidmldrctmhrhlcq'
+    user: config.email,
+    pass: config.password,
   }
 });
 
-
-async function send(email, nome) {
+async function send(email, nome, token) {
+  const confirmationLink = config.frontendUrl + `/conferma-email?data=${token}`;
   const result = await transporter.sendMail({
     from: 'LifeManagerStaff',
     to: email,
     subject: 'Benvenuto in LifeManager',
-    text: 'Ciao ' + nome + ' ti diamo il benvenuto in LifeManager'
+    html: `
+      <p>Ciao ${nome},</p>
+      <p>Ti diamo il benvenuto in LifeManager. Per confermare il tuo indirizzo email, fai clic sul seguente link:</p>
+      <a href="${confirmationLink}">Conferma Email</a>`
   });
 
   console.log(JSON.stringify(result, null, 4));
 }
+
+// richiesta per confermare email
+router.post("/email", async (req, res) => {
+  const { token } = req.body;
+  var email;
+
+  // if there is no token
+  if (!token) {
+    return res.status(401).send({
+      success: false,
+      message: 'No token provided.'
+    });
+  }
+
+  // decode token, verifies secret and checks exp
+  jwt.verify(token, process.env.SUPER_SECRET, function (err, decoded) {
+    if (err) {
+      return res.status(403).send({
+        success: false,
+        message: 'Failed to confirm email.'
+      });
+    } else {
+      email = decoded.email;
+      res.status(200).json({ message: "Email address confirmed" });
+    }
+  });
+
+  let utente = await user.findOne({ email: email });
+  utente.verifiedEmail = true
+  await utente.save();
+});
+
 
 //Gestione richiesta POST a users
 router.post("", async (req, res) => {
@@ -67,6 +104,17 @@ router.post("", async (req, res) => {
     });
   }
 
+  // if user is found and password is right create a token
+  var payload = {
+    email: email,
+    username: username
+    // other data encrypted in the token	
+  }
+  var options = {
+    expiresIn: 86400 // expires in 24 hours
+  }
+  var token = jwt.sign(payload, process.env.SUPER_SECRET, options);
+
   // Cripta la password, salva l'utente nel db e invia la mail
   bcrypt.hash(req.body.password, 10, async (err, hash) => {
     if (err) {
@@ -97,7 +145,7 @@ router.post("", async (req, res) => {
     res.status(201).json("Registration success");
   });
 
-  send(req.body.email, req.body.nome)
+  send(req.body.email, req.body.nome, token)
 
 });
 
@@ -192,8 +240,9 @@ function checkIfEmailInString(text) {
 }
 
 function checkPassword(text) {
-  var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._])[A-Za-z\d@$!%*?&._]{8,}$/;
   return re.test(text);
 }
+
 
 module.exports = router;
