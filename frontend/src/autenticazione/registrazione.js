@@ -174,7 +174,12 @@ function Registrati() {
         </form >
 
         <br />
-        <p>Hai già un account? <a href="/">Accedi</a></p>
+        <p>Hai già un account?</p>
+        <a href="/">
+          <button className="btn btn-outline-success" type="button">
+            Accedi
+          </button>
+        </a>
       </div >
 
     </>
