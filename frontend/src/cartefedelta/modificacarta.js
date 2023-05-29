@@ -33,8 +33,28 @@ function ModificaCarta() {
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
-                    alert("Carta modificata correttamente.");
-                    window.location.href = '/carte'
+
+                    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+                    const appendAlert = (message, type) => {
+                        const wrapper = document.createElement('div')
+                        wrapper.innerHTML = [
+                            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                            `   <div>${message}</div>`,
+
+                            '</div>'
+                        ].join('')
+
+                        alertPlaceholder.append(wrapper)
+                    }
+
+                    const alertTrigger = document.getElementById('liveAlertBtn')
+                    if (alertTrigger) {
+                        alertTrigger.addEventListener('click', () => {
+                            appendAlert('Carta modificata correttamente', 'primary')
+                        })
+                    }
+
+                    //window.location.href = '/carte'
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -80,31 +100,38 @@ function ModificaCarta() {
     }, [nome]);
     return (
         <>
-            <h2>Modifica carta</h2>
-            {carta ? (
+            <div class="buttonContainer">
+                <div id="liveAlertPlaceholder"></div>
+                <h2>Modifica carta</h2>
+                {carta ? (
+                    <div>
+                        <form onSubmit={handleSubmit}>
+                            <div class="mb-3">
+                                <label> Nome</label>
+                                <input id="nome" type="text" name="nome" value={formData.nome} onChange={handleInputChange} class="form-control" placeholder="Nome" />
+
+                            </div>
+                            <br></br>
+                            <div class="mb-3">
+                                <label> Numero</label>
+                                <input id="numerocarta" type="text" name="numerocarta" value={formData.numerocarta} onChange={handleInputChange} class="form-control" placeholder="Numero della carta" />
+                            </div>
+                            <br></br>
+                            <div>
+                                <button type="submit" class="btn btn-primary" id="liveAlertBtn">Modifica</button>
+                            </div>
+                            <br></br>
+                        </form>
+                    </div>
+                ) : (
+                    <p>Nessuna carta selezionata</p>
+                )}
                 <div>
-                    <form onSubmit={handleSubmit}>
-
-                        <label> Nomee:
-                            <input id="nome" type="text" name="nome" value={formData.nome} onChange={handleInputChange} />
-                        </label>
-                        <br></br>
-                        <label> Numero:
-                            <input id="numerocarta" type="text" name="numerocarta" value={formData.numerocarta} onChange={handleInputChange} />
-                        </label>
-
-                        <br></br>
-                        <button type="submit">Modifica</button>
-
-                    </form>
+                    <Link to="/carte">
+                        <button type="button" class="btn btn-outline-secondary">Torna a Carte Fedeltà</button>
+                    </Link>
                 </div>
-            ) : (
-                <p>Nessuna carta selezionata</p>
-            )}
-
-            <Link to="/carte">
-                <button>Torna a Carte Fedeltà</button>
-            </Link>
+            </div>
         </>
     );
 }

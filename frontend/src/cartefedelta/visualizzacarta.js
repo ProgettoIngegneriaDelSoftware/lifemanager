@@ -41,27 +41,36 @@ function VisualizzaCarta() {
 
     return (
         <>
-            <h2>Carta fedeltà</h2>
-            {carta ? (
-                <div>
-                    <p>{carta.nome}</p>
-                    <Barcode value={carta.numerocarta} />
+            <div class="buttonContainer">
+                {carta ? (
+                    <div>
+                        <center>
+                            <h4>{carta.nome}</h4>
+                            <Barcode value={carta.numerocarta} />
+                        </center>
+                    </div>
+                ) : (
+                    <p>Nessuna carta selezionata</p>
+                )}
+                <div class="row g-3">
+                    <div>
+                        <Link to={{ pathname: `/eliminacarta/${nome}` }} >
+                            <button type="button" class="btn btn-outline-danger">Elimina carta</button>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to={{ pathname: `/modificacarta/${nome}` }}>
+                            <button type="button" class="btn btn-outline-primary">Modifica carta</button>
+                        </Link>
+                    </div>
                 </div>
-            ) : (
-                <p>Nessuna carta selezionata</p>
-            )}
-            <Link to={{ pathname: `/eliminacarta/${nome}` }} >
-                <button>Elimina carta</button>
-            </Link>
-            <Link to={{ pathname: `/modificacarta/${nome}` }}>
-                <button>Modifica carta</button>
-            </Link>
 
 
-            <li />
-            <Link to="/carte">
-                <button>Torna a Carte Fedeltà</button>
-            </Link>
+                <br></br>
+                <Link to="/carte">
+                    <button type="button" class="btn btn-outline-secondary">Torna a Carte Fedeltà</button>
+                </Link>
+            </div>
         </>
     );
 }

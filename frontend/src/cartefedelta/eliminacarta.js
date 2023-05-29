@@ -23,8 +23,25 @@ function EliminaCarta() {
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
-                    alert("Carta eliminata correttamente.");
-                    window.location.href = '/carte'
+                    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+                    const appendAlert = (message, type) => {
+                        const wrapper = document.createElement('div')
+                        wrapper.innerHTML = [
+                            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                            `   <div>${message}</div>`,
+
+                            '</div>'
+                        ].join('')
+
+                        alertPlaceholder.append(wrapper)
+                    }
+
+                    const alertTrigger = document.getElementById('liveAlertBtn')
+                    if (alertTrigger) {
+                        alertTrigger.addEventListener('click', () => {
+                            appendAlert('Carta eliminata correttamente', 'danger')
+                        })
+                    }
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -67,21 +84,31 @@ function EliminaCarta() {
 
     return (
         <>
-            <h2>Conferma eliminazione</h2>
-            {carta ? (
-                <div>
-                    <p>{carta.nome}</p>
+            <div class="buttonContainer">
+                <div id="liveAlertPlaceholder"></div>
+                <center>
+                    <h2>Conferma eliminazione</h2>
+                    {carta ? (
+                        <div>
+                            <h4>{carta.nome}</h4>
 
-                    <Barcode value={carta.numerocarta} />
+                            <Barcode value={carta.numerocarta} />
 
-                </div>
-            ) : (
-                <p>Nessuna carta selezionata</p>
-            )}
-            <button onClick={handleDelete}>Elimina</button>
-            <Link to="/carte">
-                <button>Torna a Carte Fedeltà</button>
-            </Link>
+                        </div>
+                    ) : (
+                        <p>Nessuna carta selezionata</p>
+                    )}
+                    <div>
+                        <button type="button" class="btn btn-danger" onClick={handleDelete} id="liveAlertBtn">Elimina</button>
+                    </div>
+                    <br></br>
+                    <div>
+                        <Link to="/carte">
+                            <button type="button" class="btn btn-outline-secondary">Torna a Carte Fedeltà</button>
+                        </Link>
+                    </div>
+                </center>
+            </div>
         </>
     );
 }
