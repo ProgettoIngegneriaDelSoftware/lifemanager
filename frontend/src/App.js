@@ -28,6 +28,15 @@ import VisualizzaCarta from "./cartefedelta/visualizzacarta";
 import ModificaCarta from "./cartefedelta/modificacarta";
 import EliminaCarta from "./cartefedelta/eliminacarta";
 
+import Movimenti from './movimenti/movimenti';
+import NuovoMovimento from './movimenti/nuovomovimento';
+import VisualizzaMovimento from './movimenti/visualizzamovimento';
+import EliminaMovimento from './movimenti/eliminamovimento';
+import ModificaMovimento from './movimenti/modificamovimento';
+import VisualizzaPerCategorie from './movimenti/visualizzapercategorie';
+import Entrate from './movimenti/Entrate';
+import Uscite from './movimenti/Uscite';
+
 function App() {
   const Layout = () => {
     return (
@@ -90,7 +99,14 @@ function App() {
               path="/conferma-email"
               element={<ConfermaEmail />}
             />
-
+            <Route exact path="/movimenti" element={<Movimenti />} />
+            <Route exact path="/NuovoMovimento" element={<NuovoMovimento />} />
+            <Route path="/eliminamovimento/:id" element={<EliminaMovimento />} />
+            <Route path="/visualizzamovimento/:id" element={<VisualizzaMovimento />} />
+            <Route path="/modificamovimento/:id" element={<ModificaMovimento />} />
+            <Route path="/visualizzapercategorie/:nome" element={<VisualizzaPerCategorie />} />
+            <Route path="/Entrate" element={<Entrate />} />
+            <Route path="/Uscite" element={<Uscite />} />
           </Route>
         </Routes>
       </Router>
