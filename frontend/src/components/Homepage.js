@@ -99,7 +99,7 @@ function Homepage() {
           <div class="intestazioneHomePage">
             <p style={{ color: 'red' }}>Accesso negato, autenticati!</p>
             <a href="/">
-              <button>Autenticati</button>
+              <button className="btn btn-outline-success">Autenticati</button>
             </a>
           </div>
         </>
