@@ -229,8 +229,9 @@ router.put("/:nome/elementi/:idElemento", async (req, res) => {
     return;
   }
 
-  if (req.body.nome) elemento.nome = req.body.nome;
-  if (req.body.contrassegno) elemento.contrassegno = req.body.contrassegno;
+  elemento.nome = req.body.nome || elemento.nome;
+  elemento.contrassegno = req.body.contrassegno !== undefined ? req.body.contrassegno : elemento.contrassegno;
+
 
   await list.save();
 
