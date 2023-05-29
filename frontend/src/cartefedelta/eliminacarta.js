@@ -24,7 +24,7 @@ function EliminaCarta() {
             .then((response) => {
                 if (response.ok) {
                     alert("Carta eliminata correttamente.");
-                    window.location.href = '/listacarte'
+                    window.location.href = '/carte'
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -79,7 +79,7 @@ function EliminaCarta() {
                 <p>Nessuna carta selezionata</p>
             )}
             <button onClick={handleDelete}>Elimina</button>
-            <Link to="/listacarte">
+            <Link to="/carte">
                 <button>Torna a Carte Fedeltà</button>
             </Link>
         </>

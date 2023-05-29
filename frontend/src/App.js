@@ -64,7 +64,7 @@ function App() {
 
             <Route
               exact
-              path="/listacarte"
+              path="/carte"
               element={<ListaCarte />}
             />
             <Route

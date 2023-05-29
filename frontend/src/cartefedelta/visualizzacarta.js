@@ -59,7 +59,7 @@ function VisualizzaCarta() {
 
 
             <li />
-            <Link to="/listacarte">
+            <Link to="/carte">
                 <button>Torna a Carte Fedeltà</button>
             </Link>
         </>

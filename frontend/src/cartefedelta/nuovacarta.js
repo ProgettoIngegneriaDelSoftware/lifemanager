@@ -52,7 +52,7 @@ function NuovaCarta() {
             .catch((error) => {
                 console.error(error); // Gestisci gli errori
             });
-        navigate('/listacarte');
+        navigate('/carte');
     };
 
     return (

@@ -34,7 +34,7 @@ function ModificaCarta() {
             .then((response) => {
                 if (response.ok) {
                     alert("Carta modificata correttamente.");
-                    window.location.href = '/listacarte'
+                    window.location.href = '/carte'
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -102,7 +102,7 @@ function ModificaCarta() {
                 <p>Nessuna carta selezionata</p>
             )}
 
-            <Link to="/listacarte">
+            <Link to="/carte">
                 <button>Torna a Carte Fedeltà</button>
             </Link>
         </>
