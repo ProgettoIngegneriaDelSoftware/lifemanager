@@ -11,9 +11,9 @@ function Lista() {
 
     let contrassegnoValue;
     if (checked) {
-        contrassegnoValue = true; // Imposta a true se checked è true
+      contrassegnoValue = true; // Imposta a true se checked è true
     } else {
-        contrassegnoValue = false; // Imposta a false se checked è false
+      contrassegnoValue = false; // Imposta a false se checked è false
     }
 
     const requestOptions = {
@@ -26,7 +26,7 @@ function Lista() {
         contrassegno: contrassegnoValue
       })
     };
-  
+
     fetch(url, requestOptions)
       .then((response) => {
         if (response.ok) {
@@ -66,7 +66,7 @@ function Lista() {
       .catch((error) => {
         console.error(error); // Gestisci gli errori
       });
-  }, [nomelista], items);
+  }, [nomelista]);
 
   const handleCheckboxChangeItem = (itemId, checked) => {
     const updatedItems = items.map((item) => {
@@ -75,11 +75,11 @@ function Lista() {
       }
       return item;
     });
-  
+
     setItems(updatedItems);
     handleCheckboxChange(itemId, checked); // Chiamata alla funzione handleCheckboxChange per salvare nel database
   };
-  
+
   const renderedItems = items.map((item) => {
     return (
       <div key={item._id}>
@@ -93,7 +93,7 @@ function Lista() {
         <hr />
       </div>
     );
-  });  
+  });
 
   return (
     <>
