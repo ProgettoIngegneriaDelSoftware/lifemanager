@@ -85,6 +85,11 @@ function App() {
               path="/eliminacarta/:nome"
               element={<EliminaCarta />}
             />
+            <Route
+              exact
+              path="/conferma-email"
+              element={<ConfermaEmail />}
+            />
 
           </Route>
         </Routes>
