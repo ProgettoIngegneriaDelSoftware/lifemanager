@@ -158,7 +158,7 @@ function SingolaRicetta() {
               value={element.quantita}
               onChange={(event) => handleIngredienteChange(index, event)}
             />
-            {index > 0 && (
+            {index >= 0 && (
               <button
                 type="button"
                 onClick={() => handleRimuoviIngrediente(index)}

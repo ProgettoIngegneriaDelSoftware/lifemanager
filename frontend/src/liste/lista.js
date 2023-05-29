@@ -1,13 +1,13 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function Lista() {
   const { nomelista } = useParams();
   const [items, setItems] = useState([]);
 
-  const handleCheckboxChange = useCallback((itemId, checked) => {
-    const url = '/api/v1/liste/' + nomelista + '/elementi/' + itemId;
-    const token = localStorage.getItem('token');
+  const handleCheckboxChange = (itemId, checked) => {
+    const url = "/api/v1/liste/" + nomelista + "/elementi/" + itemId;
+    const token = localStorage.getItem("token");
 
     let contrassegnoValue;
     if (checked) {
@@ -17,39 +17,69 @@ function Lista() {
     }
 
     const requestOptions = {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
-        'x-access-token': `${token}`
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
       },
       body: JSON.stringify({
-        contrassegno: contrassegnoValue
-      })
+        contrassegno: contrassegnoValue,
+      }),
     };
 
     fetch(url, requestOptions)
       .then((response) => {
         if (response.ok) {
           // Aggiornamento del campo "contrassegno" nel database avvenuto con successo
+          console.log("check modificato");
         } else {
-          throw new Error('Error: ' + response.status);
+          throw new Error("Error: " + response.status);
         }
       })
       .catch((error) => {
         console.error(error); // Gestisci gli errori
       });
-  }, [nomelista]);
+  };
 
-  useEffect(() => {
-    const url = '/api/v1/liste/' + nomelista + '/elementi';
-    const token = localStorage.getItem('token');
+  const handleElimina = (item) => {
+    const url = "/api/v1/liste/" + nomelista + "/elementi/" + item._id;
+    const token = localStorage.getItem("token");
 
     const requestOptions = {
-      method: 'GET',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
-        'x-access-token': `${token}`
-      }
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
+      },
+    };
+    fetch(url, requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          console.log("Elemento eliminato");
+          setItems((prevItems) =>
+            prevItems.filter((elem) => elem.nome !== item.nome)
+          );
+          return;
+        } else {
+          throw new Error("Error: " + response.status);
+        }
+      })
+      .then(() => {})
+      .catch((error) => {
+        console.error(error); // Gestisci gli errori
+      });
+  };
+
+  useEffect(() => {
+    const url = "/api/v1/liste/" + nomelista + "/elementi";
+    const token = localStorage.getItem("token");
+
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
+      },
     };
 
     fetch(url, requestOptions)
@@ -57,7 +87,7 @@ function Lista() {
         if (response.ok) {
           return response.json();
         } else {
-          throw new Error('Error: ' + response.status);
+          throw new Error("Error: " + response.status);
         }
       })
       .then((data) => {
@@ -77,7 +107,10 @@ function Lista() {
     });
 
     setItems(updatedItems);
-    handleCheckboxChange(itemId, checked); // Chiamata alla funzione handleCheckboxChange per salvare nel database
+
+    const contrassegnoValue = checked ? true : false;
+
+    handleCheckboxChange(itemId, contrassegnoValue); // Chiamata alla funzione handleCheckboxChange per salvare nel database
   };
 
   const renderedItems = items.map((item) => {
@@ -89,6 +122,11 @@ function Lista() {
           onChange={(e) => handleCheckboxChangeItem(item._id, e.target.checked)}
         />
         <span>Nome: {item.nome}</span>
+        <span>
+          <button value={item.nome} onClick={() => handleElimina(item)}>
+            Elimina
+          </button>
+        </span>
         <br />
         <hr />
       </div>
@@ -99,7 +137,9 @@ function Lista() {
     <>
       <h2>{nomelista}</h2>
       <div id="result">{renderedItems}</div>
-      <a href={`/${nomelista}/nuovoelemento`}><button>Nuovo Elemento</button></a>
+      <a href={`/${nomelista}/nuovoelemento`}>
+        <button>Nuovo Elemento</button>
+      </a>
     </>
   );
 }
