@@ -8,6 +8,26 @@ function EliminaCarta() {
     console.log(nome);
     const [carta, setCarta] = useState(null);
 
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    const appendAlert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
+    const alertTrigger = document.getElementById('liveAlertBtn')
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', () => {
+            appendAlert('Carta eliminata correttamente', 'danger')
+        })
+    }
+
     const handleDelete = () => {
         const url = `/api/v1/carte/${nome}`;
         const token = localStorage.getItem('token');
@@ -23,25 +43,7 @@ function EliminaCarta() {
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
-                    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-                    const appendAlert = (message, type) => {
-                        const wrapper = document.createElement('div')
-                        wrapper.innerHTML = [
-                            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-                            `   <div>${message}</div>`,
 
-                            '</div>'
-                        ].join('')
-
-                        alertPlaceholder.append(wrapper)
-                    }
-
-                    const alertTrigger = document.getElementById('liveAlertBtn')
-                    if (alertTrigger) {
-                        alertTrigger.addEventListener('click', () => {
-                            appendAlert('Carta eliminata correttamente', 'danger')
-                        })
-                    }
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -84,7 +86,7 @@ function EliminaCarta() {
 
     return (
         <>
-            <div class="buttonContainer">
+            <div class="buttonContainer"><div class="cartefed">
                 <div id="liveAlertPlaceholder"></div>
                 <center>
                     <h2>Conferma eliminazione</h2>
@@ -101,14 +103,14 @@ function EliminaCarta() {
                     <div>
                         <button type="button" class="btn btn-danger" onClick={handleDelete} id="liveAlertBtn">Elimina</button>
                     </div>
-                    <br></br>
+                    <br></br><hr></hr>
                     <div>
                         <Link to="/carte">
                             <button type="button" class="btn btn-outline-secondary">Torna a Carte Fedeltà</button>
                         </Link>
                     </div>
                 </center>
-            </div>
+            </div></div>
         </>
     );
 }

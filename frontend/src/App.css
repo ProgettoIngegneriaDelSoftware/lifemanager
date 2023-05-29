@@ -97,6 +97,12 @@
   border: 2px solid black;
 }
 
+.cartefed {
+  margin: 20px;
+  position: relative;
+  align-items: center;
+}
+
 .bottoniHomePage {
   border-radius: 7%;
   width: 200px;

@@ -10,6 +10,26 @@ function NuovaCarta() {
         numerocarta: '',
     });
 
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    const appendAlert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
+    const alertTrigger = document.getElementById('liveAlertBtn')
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', () => {
+            appendAlert('Carta inserita correttamente', 'success')
+        })
+    }
+
 
 
     const handleInputChange = (event) => {
@@ -35,30 +55,13 @@ function NuovaCarta() {
             })
         };
 
+
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
 
-                    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-                    const appendAlert = (message, type) => {
-                        const wrapper = document.createElement('div')
-                        wrapper.innerHTML = [
-                            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-                            `   <div>${message}</div>`,
 
-                            '</div>'
-                        ].join('')
-
-                        alertPlaceholder.append(wrapper)
-                    }
-
-                    const alertTrigger = document.getElementById('liveAlertBtn')
-                    if (alertTrigger) {
-                        alertTrigger.addEventListener('click', () => {
-                            appendAlert('Carta inserita correttamente', 'success')
-                        })
-                    }
-
+                    return response.json();
 
                     //return response.json();
                 } else {
@@ -76,9 +79,12 @@ function NuovaCarta() {
         navigate('/carte');
     };
 
+    useEffect(() => {
+    }, []);
+
     return (
         <>
-            <div class="buttonContainer">
+            <div class="buttonContainer"><div class="cartefed"><center>
                 <div id="liveAlertPlaceholder"></div>
                 <h2>Nuova Carta</h2>
 
@@ -99,8 +105,8 @@ function NuovaCarta() {
                         <br></br>
                         <button type="submit" class="btn btn-success" id="liveAlertBtn">Aggiungi</button>
                     </form>
-                </div>
-            </div>
+                </div></center>
+            </div></div>
         </>
     );
 }

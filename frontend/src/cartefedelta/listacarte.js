@@ -54,24 +54,31 @@ function ListaCarte() {
     return (
         <>
             <div class="buttonContainer">
-                <h2>Carte fedeltà</h2>
+                <center>
+                    <div class="cartefed">
+                        <h2>Carte fedeltà</h2>
 
-                <br />
+                        <br />
 
-                <h3>Tutte le carte</h3>
+                        <h3>Tutte le carte</h3>
 
-                <div><a href="/NuovaCarta">
-                    <button type="button" className="btn btn-outline-success">Nuova carta</button>
-                </a></div>
-                <br />
-                <div className="col-8">
-                    {carte.map((carta) => (
-                        <div key={carta.nome}>
-                            <CartaLink nome={carta.nome} />
-                            <br />
+
+                        <br />
+                        <div className="col-8">
+                            {carte.map((carta) => (
+                                <div key={carta.nome}>
+                                    <CartaLink nome={carta.nome} />
+                                    <br />
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+
+                        <br /><hr></hr>
+                        <div><a href="/NuovaCarta">
+                            <button type="button" className="btn btn-outline-success">Nuova carta</button>
+                        </a></div>
+                    </div>
+                </center>
             </div>
         </>
     );
