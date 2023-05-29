@@ -38,8 +38,29 @@ function NuovaCarta() {
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
-                    alert("Carta inserita correttamente.");
-                    return response.json();
+
+                    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+                    const appendAlert = (message, type) => {
+                        const wrapper = document.createElement('div')
+                        wrapper.innerHTML = [
+                            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                            `   <div>${message}</div>`,
+
+                            '</div>'
+                        ].join('')
+
+                        alertPlaceholder.append(wrapper)
+                    }
+
+                    const alertTrigger = document.getElementById('liveAlertBtn')
+                    if (alertTrigger) {
+                        alertTrigger.addEventListener('click', () => {
+                            appendAlert('Carta inserita correttamente', 'success')
+                        })
+                    }
+
+
+                    //return response.json();
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -57,21 +78,28 @@ function NuovaCarta() {
 
     return (
         <>
-            <h2>Nuova Carta</h2>
+            <div class="buttonContainer">
+                <div id="liveAlertPlaceholder"></div>
+                <h2>Nuova Carta</h2>
 
-            <div>
-                <form onSubmit={handleSubmit}>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <div class="mb-3">
 
-                    <label> Nome:
-                        <input id="nome" type="text" name="nome" value={formData.nome} onChange={handleInputChange} />
-                    </label>
-                    <br></br>
-                    <label> Numero:
-                        <input id="numerocarta" type="text" name="numerocarta" value={formData.numerocarta} onChange={handleInputChange} />
-                    </label>
-                    <br></br>
-                    <button type="submit">Aggiungi</button>
-                </form>
+                            <label class="form-label"> Nome</label>
+                            <input id="nome" type="text" name="nome" value={formData.nome} onChange={handleInputChange} class="form-control" placeholder="Nome" />
+
+                        </div>
+                        <br></br>
+                        <div class="mb-3">
+                            <label class="form-label"> Numero</label>
+                            <input id="numerocarta" type="text" name="numerocarta" value={formData.numerocarta} onChange={handleInputChange} class="form-control" placeholder="Numero della carta" />
+
+                        </div>
+                        <br></br>
+                        <button type="submit" class="btn btn-success" id="liveAlertBtn">Aggiungi</button>
+                    </form>
+                </div>
             </div>
         </>
     );
