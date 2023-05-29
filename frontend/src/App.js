@@ -4,6 +4,7 @@ import Registrati from "./autenticazione/registrazione";
 import Login from "./autenticazione/login";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ConfermaEmail from "./autenticazione/confermaEmail";
 
 import Liste from "./liste/liste";
 import NuovaLista from "./liste/nuovalista";
@@ -21,6 +22,11 @@ import {
 } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import SingolaRicetta from "./ricette/singolaricetta";
+import ListaCarte from "./cartefedelta/listacarte";
+import NuovaCarta from "./cartefedelta/nuovacarta";
+import VisualizzaCarta from "./cartefedelta/visualizzacarta";
+import ModificaCarta from "./cartefedelta/modificacarta";
+import EliminaCarta from "./cartefedelta/eliminacarta";
 
 function App() {
   const Layout = () => {
@@ -44,11 +50,7 @@ function App() {
             <Route exact path="/liste" element={<Liste />} />
             <Route exact path="/nuovalista" element={<NuovaLista />} />
             <Route exact path="/liste/:nomelista" element={<Lista />} />
-            <Route
-              exact
-              path="/:nomelista/nuovoelemento"
-              element={<NuovoElemento />}
-            />
+            <Route exact path="/:nomelista/nuovoelemento" element={<NuovoElemento />} />
             <Route exact path="/ricette" element={<Ricette />} />
             <Route exact path="/nuovaricetta" element={<NuovaRicetta />} />
             <Route
@@ -56,6 +58,39 @@ function App() {
               path="/ricette/:nomericetta"
               element={<SingolaRicetta />}
             />
+
+            <Route
+              exact
+              path="/carte"
+              element={<ListaCarte />}
+            />
+            <Route
+              exact
+              path="/nuovacarta"
+              element={<NuovaCarta />}
+            />
+
+            <Route
+              exact
+              path="/visualizzacarta/:nome"
+              element={<VisualizzaCarta />}
+            />
+            <Route
+              exact
+              path="/modificacarta/:nome"
+              element={<ModificaCarta />}
+            />
+            <Route
+              exact
+              path="/eliminacarta/:nome"
+              element={<EliminaCarta />}
+            />
+            <Route
+              exact
+              path="/conferma-email"
+              element={<ConfermaEmail />}
+            />
+
           </Route>
         </Routes>
       </Router>

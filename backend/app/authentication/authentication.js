@@ -8,13 +8,13 @@ const bcrypt = require('bcrypt');
 // ---------------------------------------------------------
 // route to authenticate and get a new token
 // ---------------------------------------------------------
-router.post('', async function(req, res) {
-	
+router.post('', async function (req, res) {
+
 	// find the user
 	let user = await utente.findOne({
 		email: req.body.email
 	}).exec();
-	
+
 	// user not found
 	if (!user) {
 		let userByUsername = await utente.findOne({
@@ -26,10 +26,14 @@ router.post('', async function(req, res) {
 		}
 		user = userByUsername;
 	}
-	
+
+	if (!user.verifiedEmail) {
+		return res.json({ success: false, message: 'Verify your mail' });
+	}
+
 	// check if password matches
 	bcrypt.compare(req.body.password, user.password, (err, result) => {
-		if(!result) return res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+		if (!result) return res.json({ success: false, message: 'Authentication failed. Wrong password.' });
 
 		// if user is found and password is right create a token
 		var payload = {

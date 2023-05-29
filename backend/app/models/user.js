@@ -23,4 +23,8 @@ module.exports = mongoose.model('users', new Schema({
         type: String,
         required: true
     },
+    verifiedEmail: {
+        type: Boolean,
+        default: false
+    }
 }));
