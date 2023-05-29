@@ -64,7 +64,7 @@ function SingolaRicetta() {
   };
 
   const handleAggiungiaSpesa = (index, event) => {
-    const url = "/api/v1/liste/Lista della spesa/elementi";
+    const url = "/api/v1/liste/Lista della Spesa/elementi";
     const token = localStorage.getItem("token");
 
     const requestOptions = {

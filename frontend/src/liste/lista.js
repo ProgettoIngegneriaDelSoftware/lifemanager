@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 function Lista() {
   const { nomelista } = useParams();
   const [items, setItems] = useState([]);
+  const [editingItem, setEditingItem] = useState("");
+  const [newItemName, setNewItemName] = useState("");
 
   const handleCheckboxChange = (itemId, checked) => {
     const url = "/api/v1/liste/" + nomelista + "/elementi/" + itemId;
@@ -70,6 +72,53 @@ function Lista() {
       });
   };
 
+  const handleSaveModifica = (itemId) => {
+    console.log(editingItem);
+
+    const url = "/api/v1/liste/" + nomelista + "/elementi/" + itemId;
+    const token = localStorage.getItem("token");
+
+    const requestOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
+      },
+      body: JSON.stringify({
+        nome: newItemName,
+      }),
+    };
+
+    fetch(url, requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          console.log("Ing modificato");
+          // Puoi eseguire un'azione aggiuntiva dopo la modifica, come il reindirizzamento a un'altra pagina
+        } else {
+          throw new Error("Error: " + response.status);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    // Aggiorna lo stato delle liste con il nuovo nome modificato
+    setItems((prevItems) =>
+      prevItems.map((elem) =>
+        elem.nome === editingItem ? { ...elem, nome: newItemName } : elem
+      )
+    );
+
+    // Resetta le variabili di editing
+    setEditingItem("");
+    setNewItemName("");
+  };
+
+  const handleModifica = (item) => {
+    setEditingItem(item);
+    setNewItemName(item);
+  };
+
   useEffect(() => {
     const url = "/api/v1/liste/" + nomelista + "/elementi";
     const token = localStorage.getItem("token");
@@ -116,17 +165,38 @@ function Lista() {
   const renderedItems = items.map((item) => {
     return (
       <div key={item._id}>
-        <input
-          type="checkbox"
-          checked={item.contrassegno}
-          onChange={(e) => handleCheckboxChangeItem(item._id, e.target.checked)}
-        />
-        <span>Nome: {item.nome}</span>
-        <span>
-          <button value={item.nome} onClick={() => handleElimina(item)}>
-            Elimina
-          </button>
-        </span>
+        {editingItem === item.nome ? (
+          <>
+            <input
+              type="text"
+              value={newItemName}
+              onChange={(e) => setNewItemName(e.target.value)}
+            />
+            <button onClick={() => handleSaveModifica(item._id)}>Salva</button>
+          </>
+        ) : (
+          <>
+            <input
+              type="checkbox"
+              checked={item.contrassegno}
+              onChange={(e) =>
+                handleCheckboxChangeItem(item._id, e.target.checked)
+              }
+            />
+            <span>Nome: {item.nome}</span>
+            <span>
+              <button
+                value={item.nome}
+                onClick={() => handleModifica(item.nome)}
+              >
+                Modifica
+              </button>
+              <button value={item.nome} onClick={() => handleElimina(item)}>
+                Elimina
+              </button>
+            </span>
+          </>
+        )}
         <br />
         <hr />
       </div>
