@@ -170,3 +170,14 @@
 .meseCorrente {
   text-align: left;
 }
+
+.linkNormale {
+  display: inline;
+  text-decoration: none;
+  color: #000000;
+}
+
+.linkNormale:hover {
+  color: #000000;
+  text-decoration: none;
+}

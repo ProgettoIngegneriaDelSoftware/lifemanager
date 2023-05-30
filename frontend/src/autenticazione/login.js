@@ -116,6 +116,7 @@ function Login() {
         </form >
 
         <br />
+        <p>Non hai un account?</p>
         <a href="/registrati">
           <button className="btn btn-outline-success" type="button">
             Registrati
