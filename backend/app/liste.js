@@ -183,6 +183,28 @@ router.delete("/:nome/elementi/:idElemento", async (req, res) => {
   res.status(204).send();
 });
 
+router.delete("/:nome/elementi", async (req, res) => {
+  let list = await lista
+    .findOne({ nome: req.params.nome, user: req.loggedUser.id })
+    .exec();
+  if (!list) {
+    res.status(404).json({ error: "lista not found" });
+    console.log("lista not found");
+    return;
+  }
+  list.items.forEach((element) => {
+    console.log(element.contrassegno);
+    if (element.contrassegno) {
+      list.items.pull(element._id);
+      console.log("elemento removed");
+    }
+  });
+
+  await list.save();
+
+  res.status(204).send();
+});
+
 router.put("/:nome", async (req, res) => {
   let list = await lista.findOne({
     nome: req.params.nome,
@@ -230,8 +252,10 @@ router.put("/:nome/elementi/:idElemento", async (req, res) => {
   }
 
   elemento.nome = req.body.nome || elemento.nome;
-  elemento.contrassegno = req.body.contrassegno !== undefined ? req.body.contrassegno : elemento.contrassegno;
-
+  elemento.contrassegno =
+    req.body.contrassegno !== undefined
+      ? req.body.contrassegno
+      : elemento.contrassegno;
 
   await list.save();
 

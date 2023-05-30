@@ -119,6 +119,34 @@ function Lista() {
     setNewItemName(item);
   };
 
+  const handleSvuota = () => {
+    const url = "/api/v1/liste/" + nomelista + "/elementi";
+    const token = localStorage.getItem("token");
+
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": `${token}`,
+      },
+    };
+    fetch(url, requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          console.log("Elemento/i eliminato/i");
+          const updatedItems = items.filter((item) => !item.contrassegno);
+          setItems(updatedItems); // Aggiorna l'array items con gli elementi rimanenti
+          return;
+        } else {
+          throw new Error("Error: " + response.status);
+        }
+      })
+      .then(() => {})
+      .catch((error) => {
+        console.error(error); // Gestisci gli errori
+      });
+  };
+
   useEffect(() => {
     const url = "/api/v1/liste/" + nomelista + "/elementi";
     const token = localStorage.getItem("token");
@@ -210,6 +238,7 @@ function Lista() {
       <a href={`/${nomelista}/nuovoelemento`}>
         <button>Nuovo Elemento</button>
       </a>
+      <button onClick={handleSvuota}>Svuota lista</button>
     </>
   );
 }
