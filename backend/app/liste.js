@@ -192,18 +192,21 @@ router.delete("/:nome/elementi", async (req, res) => {
     console.log("lista not found");
     return;
   }
-  list.items.forEach((element) => {
+
+  for (let i = list.items.length - 1; i >= 0; i--) {
+    const element = list.items[i];
     console.log(element.contrassegno);
     if (element.contrassegno) {
       list.items.pull(element._id);
       console.log("elemento removed");
     }
-  });
+  }
 
   await list.save();
 
   res.status(204).send();
 });
+
 
 router.put("/:nome", async (req, res) => {
   let list = await lista.findOne({
