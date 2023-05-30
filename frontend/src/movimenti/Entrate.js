@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function MovimentoLink({ id }) {
+function MovimentoLink({ id, nome }) {
     return (
-        id,
+        id, nome,
         < Link to={{ pathname: `/visualizzamovimento/${id}` }}>
-            <button type="button">Visualizza</button>
+            <button type="button" className="btn btn-outline-dark">{nome}</button>
         </Link >
     );
 }
@@ -13,6 +13,7 @@ function MovimentoLink({ id }) {
 function Entrate() {
 
     const [movimenti, setMovimenti] = useState([]);
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         const url = `/api/v1/movimenti/tipologia/entrata`;
@@ -45,23 +46,23 @@ function Entrate() {
     }, []);
 
     return (
-        <>
-            <h2>Visualizza Entrate</h2>
-            <h3>Tutti i movimenti</h3>
+        <><div class="buttonContainer"><div class="movimenti"><center>
+            <h2>Entrate</h2>
+            <hr />
             <div>
                 {movimenti.map((movimento) => (
                     <div key={movimento.id}>
-                        {movimento.titolo}
-                        <MovimentoLink id={movimento.id} />
-                        <br />
+                        <MovimentoLink id={movimento.id} nome={movimento.titolo} />
+                        <br /> <br></br>
                     </div>
                 ))}
             </div>
 
-            <li />
+            <hr />
             <Link to="/Movimenti">
-                <button>Torna a Movimenti</button>
+                <button type="button" class="btn btn-outline-secondary">Torna a Movimenti</button>
             </Link>
+        </center></div></div>
         </>
     );
 }

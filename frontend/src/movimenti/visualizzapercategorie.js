@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-function MovimentoLink({ id }) {
+function MovimentoLink({ id, nome }) {
     return (
-        id,
+        id, nome,
         < Link to={{ pathname: `/visualizzamovimento/${id}` }}>
-            <button type="button">Visualizza</button>
+            <button type="button" className="btn btn-outline-dark">{nome}</button>
         </Link >
     );
 }
@@ -48,22 +48,22 @@ function VisualizzaPerCategorie() {
 
     return (
         <>
-            <h2>Visualizza per categoria: {nome}</h2>
-            <h3>Tutti i movimenti</h3>
-            <div>
-                {movimenti.map((movimento) => (
-                    <div key={movimento.id}>
-                        {movimento.titolo}
-                        <MovimentoLink id={movimento.id} />
-                        <br />
-                    </div>
-                ))}
-            </div>
+            <div class="buttonContainer"><div class="movimenti"><center>
+                <h2>{nome}</h2><hr></hr>
+                <div>
+                    {movimenti.map((movimento) => (
+                        <div key={movimento.id}>
+                            <MovimentoLink id={movimento.id} nome={movimento.titolo} />
+                            <br /> <br></br>
+                        </div>
+                    ))}
+                </div>
 
-            <li />
-            <Link to="/Movimenti">
-                <button>Torna a Movimenti</button>
-            </Link>
+                <hr />
+                <Link to="/Movimenti">
+                    <button type="button" className="btn btn-outline-secondary">Torna a Movimenti</button>
+                </Link>
+            </center></div></div>
         </>
     );
 }

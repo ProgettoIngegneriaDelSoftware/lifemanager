@@ -6,6 +6,34 @@ function EliminaMovimento() {
     console.log(id);
     const [movimento, setMovimento] = useState(null);
 
+    const [formData, setFormData] = useState({
+        titolo: '',
+        importo: '',
+        tipologia: 'entrata',
+        categoria: '',
+        note: '',
+    });
+
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    const appendAlert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
+    const alertTrigger = document.getElementById('liveAlertBtn')
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', () => {
+            appendAlert('Movimento eliminato correttamente', 'danger')
+        })
+    }
+
     const handleDelete = () => {
         const url = `/api/v1/movimenti/${id}`;
         const token = localStorage.getItem('token');
@@ -21,8 +49,6 @@ function EliminaMovimento() {
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
-                    alert("Movimento eliminato correttamente.");
-                    window.location.href = '/Movimenti'
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -56,6 +82,13 @@ function EliminaMovimento() {
                 })
                 .then((data) => {
                     setMovimento(data);
+                    setFormData({
+                        titolo: data.titolo,
+                        importo: data.importo,
+                        tipologia: data.tipologia,
+                        categoria: data.categoria,
+                        note: data.note,
+                    });
                 })
                 .catch((error) => {
                     console.error(error); // Handle errors
@@ -64,23 +97,60 @@ function EliminaMovimento() {
     }, [id]);
 
     return (
-        <>
+        <><div class="buttonContainer"><div class="movimenti"><center>
+            <div id="liveAlertPlaceholder"></div>
+
             <h2>Conferma eliminazione</h2>
             {movimento ? (
                 <div>
-                    <p>Titolo: {movimento.titolo}</p>
-                    <p>Importo: {movimento.importo}</p>
-                    <p>Tipologia: {movimento.tipologia}</p>
-                    <p>Categoria: {movimento.categoria}</p>
-                    <p>Note: {movimento.note}</p>
+                    <form>
+                        <div class="form-floating">
+
+                            <input id="titolo" type="text" name="titolo" value={formData.titolo} class="form-control" placeholder="Titolo del movimento" readonly />
+                            <label for="titolo"> Titolo</label>
+
+                        </div>
+                        <br></br>
+
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">€</span>
+                            <div class="form-floating">
+                                <input id="importo" type="number" name="importo" value={formData.importo} class="form-control" placeholder="Importo" readonly />
+                                <label for="importo"> Importo</label></div>
+                        </div>
+                        <br></br>
+                        <div class="form-floating">
+                            <select id="tipologia" name="tipologia" value={formData.tipologia} class="form-select" aria-label="Default select example" readonly>
+                                <option value="entrata">entrata</option>
+                                <option value="uscita">uscita</option>
+                            </select>
+                            <label for="tipologia">Tipologia</label>
+                        </div>
+                        <br></br>
+                        <div class="form-floating">
+
+                            <input id="categoria" type="text" name="categoria" value={formData.categoria} class="form-control" placeholder="Categoria" readonly />
+                            <label for="categoria"> Categoria</label>
+                        </div>
+                        <br></br>
+                        <div class="form-floating">
+
+                            <input id="note" type="text" name="note" value={formData.note} class="form-control" placeholder="Note" readonly />
+                            <label for="note">Note</label></div>
+
+
+                    </form>
                 </div>
             ) : (
                 <p>Nessun movimento selezionato</p>
             )}
-            <button onClick={handleDelete}>Elimina</button>
+            <button type="button" class="btn btn-danger" onClick={handleDelete} id="liveAlertBtn">Elimina</button>
+            <hr></hr>
             <Link to="/Movimenti">
-                <button>Torna a Movimenti</button>
+                <button type="button" class="btn btn-outline-secondary">Torna a Movimenti</button>
             </Link>
+        </center></div></div>
         </>
     );
 }

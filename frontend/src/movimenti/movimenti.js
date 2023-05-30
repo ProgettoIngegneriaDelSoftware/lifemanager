@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function MovimentoLink({ id }) {
+function MovimentoLink({ id, nome }) {
     return (
-        id,
+        id, nome,
         < Link to={{ pathname: `/visualizzamovimento/${id}` }}>
-            <button type="button">Visualizza</button>
+            <button type="button" className="btn btn-outline-dark">{nome}</button>
         </Link >
     );
 }
@@ -14,7 +14,7 @@ function CategoriaLink({ id, nome }) {
     return (
         id, nome,
         < Link to={{ pathname: `/visualizzapercategorie/${nome}` }}>
-            <button type="button">{nome}</button>
+            <button type="button" className="btn btn-outline-dark">{nome}</button>
         </Link >
     );
 }
@@ -87,48 +87,53 @@ function Movimenti() {
 
     return (
         <>
-            <h2>Movimenti</h2>
+            <div class="buttonContainer"><div class="movimenti"><center>
+                <h2>Movimenti</h2>
 
-            <br />
+                <br></br>
+                <h4>Categorie</h4>
 
-            <h3>Categorie</h3>
+                <div class="col-8">
+                    {categorie.map((categoria) => (
+                        <div key={categoria.id}>
+                            <CategoriaLink id={categoria.id} nome={categoria.nome} />
+                            <br /> <br></br>
+                        </div>
+                    ))}
+                </div>
 
-            <div>
-                {categorie.map((categoria) => (
-                    <div key={categoria.id}>
-                        <CategoriaLink id={categoria.id} nome={categoria.nome} />
-                        <br />
+                <br />
+                <hr></hr>
+                <div class="row justify-content-evenly">
+                    <div class="col-5">
+                        <a href="/Entrate">
+                            <button type="button" className="btn btn-outline-success">Entrate</button>
+                        </a>
+                    </div><div class="col-5">
+                        <a href="/Uscite">
+                            <button type="button" className="btn btn-outline-danger">Uscite</button>
+                        </a>
                     </div>
-                ))}
-            </div>
-
-            <br />
-            <div>
-                <a href="/Entrate">
-                    <button>Entrate</button>
-                </a>
-                <a href="/Uscite">
-                    <button>Uscite</button>
-                </a>
-            </div>
+                </div>
 
 
-            <br />
-            <h3>Tutti i movimenti</h3>
+                <hr></hr>
+                <h4>Tutti i movimenti</h4>
 
-            <div><a href="/NuovoMovimento">
-                <button>Nuovo movimento</button>
-            </a></div>
-            <br />
-            <div>
-                {movimenti.map((movimento) => (
-                    <div key={movimento.id}>
-                        {movimento.titolo}
-                        <MovimentoLink id={movimento.id} />
-                        <br />
-                    </div>
-                ))}
-            </div>
+                <div><a href="/NuovoMovimento">
+                    <button type="button" className="btn btn-outline-primary">Nuovo movimento</button>
+                </a></div>
+                <br />
+                <div class="col-8">
+                    {movimenti.map((movimento) => (
+                        <div key={movimento.id}>
+                            <MovimentoLink id={movimento.id} nome={movimento.titolo} />
+                            <br /> <br>
+                            </br>
+                        </div>
+                    ))}
+                </div>
+            </center></div></div>
 
         </>
     );

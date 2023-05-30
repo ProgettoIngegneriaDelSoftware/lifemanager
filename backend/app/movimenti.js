@@ -13,6 +13,7 @@ router.get("", async (req, res) => {
   mov = mov.map((movi) => {
     return {
       self: "/api/v1/movimenti/" + movi.id,
+      id: movi.id,
       titolo: movi.titolo,
     };
   });
@@ -34,6 +35,7 @@ router.get("/tipologia/:tipologia", async (req, res) => {
   mov = mov.map((movi) => {
     return {
       self: "/api/v1/movimenti/" + movi.id,
+      id: movi.id,
       titolo: movi.titolo,
     };
   });
@@ -63,6 +65,7 @@ router.get("/categorie/:nome", async (req, res) => {
   mov = mov.map((movi) => {
     return {
       self: "/api/v1/movimenti/" + movi.id,
+      id: movi.id,
       titolo: movi.titolo,
     };
   });
@@ -181,6 +184,7 @@ router.get("/categorie", async (req, res) => {
   cat = cat.map((categ) => {
     return {
       self: "/api/v1/movimenti/categorie/" + categ.id,
+      id: categ.id,
       nome: categ.nome,
     };
   });
@@ -238,12 +242,24 @@ router.get("/:id", async (req, res) => {
     res.status(404).json({ error: "movimento not found" });
     return;
   }
+
+  let cat = await CategoriaMovimento.findOne({
+    _id: mov.categoria,
+    user: req.loggedUser.id,
+  });
+
+  if (!cat) {
+    res.status(404).json({ error: "category not found" });
+    return;
+  }
+  console.log(cat.nome)
   res.status(200).json({
     self: "/api/v1/movimenti/" + mov.id,
+    id: mov._id,
     titolo: mov.titolo,
     importo: mov.importo,
     tipologia: mov.tipologia,
-    categoria: mov.categoria,
+    categoria: cat.nome,
     note: mov.note,
   });
 });

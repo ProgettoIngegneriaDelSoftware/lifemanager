@@ -5,6 +5,26 @@ import { Link, useNavigate } from 'react-router-dom';
 function NuovoMovimento() {
     const navigate = useNavigate();
 
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    const appendAlert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
+    const alertTrigger = document.getElementById('liveAlertBtn')
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', () => {
+            appendAlert('Movimento inserito correttamente', 'success')
+        })
+    }
+
     const [formData, setFormData] = useState({
         titolo: '',
         importo: '',
@@ -44,8 +64,6 @@ function NuovoMovimento() {
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
-                    alert("Movimento inserito correttamente.");
-                    return response.json();
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -62,39 +80,53 @@ function NuovoMovimento() {
     };
 
     return (
-        <>
+        <><div class="buttonContainer"><div class="movimenti"><center>
+            <div id="liveAlertPlaceholder"></div>
             <h2>Nuovo Movimento</h2>
 
             <div>
                 <form onSubmit={handleSubmit}>
+                    <div class="form-floating">
 
-                    <label> Titolo movimento:
-                        <input id="titolo" type="text" name="titolo" value={formData.titolo} onChange={handleInputChange} />
-                    </label>
+                        <input id="titolo" type="text" name="titolo" value={formData.titolo} onChange={handleInputChange} class="form-control" placeholder="Titolo" />
+                        <label for="titolo"> Titolo</label>
+                    </div>
                     <br></br>
-                    <label> Importo:
-                        <input id="importo" type="number" name="importo" value={formData.importo} onChange={handleInputChange} />
-                    </label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">€</span>
+                        <div class="form-floating">
+                            <input id="importo" type="number" name="importo" value={formData.importo} onChange={handleInputChange} class="form-control" placeholder="Importo" pattern="\d{1,2}(\.\d{2})?" />
+                            <label for="importo"> Importo</label></div>
+                    </div>
                     <br></br>
-                    <label> Tipologia:
-                        <select id="tipologia" name="tipologia" value={formData.tipologia} onChange={handleInputChange}>
+                    <div class="form-floating">
+
+                        <select id="tipologia" name="tipologia" value={formData.tipologia} onChange={handleInputChange} class="form-select" aria-label="Default select example">
                             <option value="entrata">entrata</option>
                             <option value="uscita">uscita</option>
                         </select>
-                    </label>
+                        <label for="tipologia"> Tipologia</label>
+                    </div>
                     <br></br>
-                    <label> Categoria:
-                        <input id="categoria" type="text" name="categoria" value={formData.categoria} onChange={handleInputChange} />
-                    </label>
+                    <div class="form-floating">
+
+
+                        <input id="categoria" type="text" name="categoria" value={formData.categoria} onChange={handleInputChange} class="form-control" placeholder="categoria" />
+                        <label for="categoria"> Categoria</label>
+                    </div>
                     <br></br>
-                    <label>Note:
-                        <input id="note" type="text" name="note" value={formData.note} onChange={handleInputChange} />
-                    </label>
+                    <div class="form-floating">
+
+
+                        <input id="note" type="text" name="note" value={formData.note} onChange={handleInputChange} class="form-control" placeholder="categoria" />
+                        <label for="note">Note</label>
+                    </div>
                     <br></br>
-                    <button type="submit">Aggiungi</button>
+                    <button type="submit" class="btn btn-success" id="liveAlertBtn">Aggiungi</button>
 
                 </form>
             </div>
+        </center></div></div>
         </>
     );
 }

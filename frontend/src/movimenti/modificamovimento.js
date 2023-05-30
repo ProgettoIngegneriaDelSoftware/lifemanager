@@ -6,6 +6,26 @@ function ModificaMovimento() {
     console.log(id);
     const [movimento, setMovimento] = useState(null);
 
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    const appendAlert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
+    const alertTrigger = document.getElementById('liveAlertBtn')
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', () => {
+            appendAlert('Movimento modificato correttamente', 'primary')
+        })
+    }
+
     const [formData, setFormData] = useState({
         titolo: '',
         importo: '',
@@ -36,8 +56,6 @@ function ModificaMovimento() {
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
-                    alert("Movimento modificato correttamente.");
-                    window.location.href = '/Movimenti'
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
@@ -85,46 +103,62 @@ function ModificaMovimento() {
         }
     }, [id]);
     return (
-        <>
+        <><div class="buttonContainer"><div class="movimenti"><center>
+            <div id="liveAlertPlaceholder"></div>
+
             <h2>Modifica movimento</h2>
             {movimento ? (
                 <div>
                     <form onSubmit={handleSubmit}>
+                        <div class="form-floating">
 
-                        <label> Titolo movimento:
-                            <input id="titolo" type="text" name="titolo" value={formData.titolo} onChange={handleInputChange} />
-                        </label>
+                            <input id="titolo" type="text" name="titolo" value={formData.titolo} onChange={handleInputChange} class="form-control" placeholder="Titolo del movimento" />
+                            <label for="titolo"> Titolo</label>
+
+                        </div>
                         <br></br>
-                        <label> Importo:
-                            <input id="importo" type="number" name="importo" value={formData.importo} onChange={handleInputChange} />
-                        </label>
-                        <br></br>
-                        <label> Tipologia:
-                            <select id="tipologia" name="tipologia" value={formData.tipologia} onChange={handleInputChange}>
+
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">€</span>
+                            <div class="form-floating">
+                                <input id="importo" type="number" name="importo" value={formData.importo} onChange={handleInputChange} class="form-control" placeholder="Importo" />
+                                <label for="importo"> Importo</label></div>
+                        </div>
+                        <br></br><br></br>
+                        <div class="form-floating">
+                            <select id="tipologia" name="tipologia" value={formData.tipologia} onChange={handleInputChange} class="form-select" aria-label="Default select example">
                                 <option value="entrata">entrata</option>
                                 <option value="uscita">uscita</option>
                             </select>
-                        </label>
+                            <label for="tipologia">Tipologia</label>
+                        </div>
+                        <br></br><br></br>
+                        <div class="form-floating">
+
+                            <input id="categoria" type="text" name="categoria" value={formData.categoria} onChange={handleInputChange} class="form-control" placeholder="Categoria" />
+                            <label for="categoria"> Categoria</label>
+                        </div>
                         <br></br>
-                        <label> Categoria:
-                            <input id="categoria" type="text" name="categoria" value={formData.categoria} onChange={handleInputChange} />
-                        </label>
+                        <div class="form-floating">
+
+                            <input id="note" type="text" name="note" value={formData.note} onChange={handleInputChange} class="form-control" placeholder="Note" />
+                            <label for="note">Note</label></div>
                         <br></br>
-                        <label>Note:
-                            <input id="note" type="text" name="note" value={formData.note} onChange={handleInputChange} />
-                        </label>
-                        <br></br>
-                        <button type="submit">Modifica</button>
+                        <br>
+                        </br>
+                        <button type="submit" class="btn btn-primary" id="liveAlertBtn">Modifica</button>
 
                     </form>
                 </div>
             ) : (
                 <p>Nessun movimento selezionato</p>
             )}
-
+            <hr></hr>
             <Link to="/Movimenti">
-                <button>Torna a Movimenti</button>
+                <button type="button" class="btn btn-outline-secondary">Torna a Movimenti</button>
             </Link>
+        </center></div></div>
         </>
     );
 }
