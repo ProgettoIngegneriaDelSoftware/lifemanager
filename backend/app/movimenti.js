@@ -53,7 +53,6 @@ router.get("/categorie/:nome", async (req, res) => {
 
     return;
   }
-  console.log(catID._id);
   let mov = await Movimento.find({
     categoria: catID._id,
     user: req.loggedUser.id,
@@ -252,7 +251,6 @@ router.get("/:id", async (req, res) => {
     res.status(404).json({ error: "category not found" });
     return;
   }
-  console.log(cat.nome)
   res.status(200).json({
     self: "/api/v1/movimenti/" + mov.id,
     id: mov._id,

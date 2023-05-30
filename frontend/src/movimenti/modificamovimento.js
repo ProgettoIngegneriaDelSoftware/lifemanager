@@ -1,4 +1,4 @@
-import React, { useEffect, useState, } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 function ModificaMovimento() {
@@ -6,33 +6,17 @@ function ModificaMovimento() {
     console.log(id);
     const [movimento, setMovimento] = useState(null);
 
-    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
     const appendAlert = (message, type) => {
-        const wrapper = document.createElement('div')
-        wrapper.innerHTML = [
-            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-            `   <div>${message}</div>`,
-
-            '</div>'
-        ].join('')
-
-        alertPlaceholder.append(wrapper)
-    }
-
-    const alertTrigger = document.getElementById('liveAlertBtn')
-    if (alertTrigger) {
-        alertTrigger.addEventListener('click', () => {
-            appendAlert('Movimento modificato correttamente', 'primary')
-        })
-    }
-
-    const [formData, setFormData] = useState({
-        titolo: '',
-        importo: '',
-        tipologia: 'entrata',
-        categoria: '',
-        note: '',
-    });
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = `
+            <div class="alert alert-${type} alert-dismissible" role="alert">
+                <div>${message}</div>
+            </div>
+        `;
+        alertPlaceholder.innerHTML = ''; // Rimuovi gli alert precedenti
+        alertPlaceholder.appendChild(wrapper);
+    };
 
     const handleInputChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -56,15 +40,23 @@ function ModificaMovimento() {
         fetch(url, requestOptions)
             .then((response) => {
                 if (response.ok) {
+                    appendAlert('Movimento modificato correttamente', 'primary');
                 } else {
                     throw new Error('Error: ' + response.status);
                 }
             })
             .catch((error) => {
-                console.error(error); // Handle errors
+                console.error(error); // Gestisci gli errori
             });
     };
 
+    const [formData, setFormData] = useState({
+        titolo: '',
+        importo: '',
+        tipologia: 'entrata',
+        categoria: '',
+        note: '',
+    });
 
     useEffect(() => {
         if (id) {
@@ -98,68 +90,108 @@ function ModificaMovimento() {
                     });
                 })
                 .catch((error) => {
-                    console.error(error); // Handle errors
+                    console.error(error); // Gestisci gli errori
                 });
         }
     }, [id]);
+
     return (
-        <><div class="buttonContainer"><div class="movimenti"><center>
-            <div id="liveAlertPlaceholder"></div>
+        <div className="buttonContainer">
+            <div className="movimenti">
+                <center>
+                    <div id="liveAlertPlaceholder"></div>
 
-            <h2>Modifica movimento</h2>
-            {movimento ? (
-                <div>
-                    <form onSubmit={handleSubmit}>
-                        <div class="form-floating">
-
-                            <input id="titolo" type="text" name="titolo" value={formData.titolo} onChange={handleInputChange} class="form-control" placeholder="Titolo del movimento" />
-                            <label for="titolo"> Titolo</label>
-
+                    <h2>Modifica movimento</h2>
+                    {movimento ? (
+                        <div>
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-floating">
+                                    <input
+                                        id="titolo"
+                                        type="text"
+                                        name="titolo"
+                                        value={formData.titolo}
+                                        onChange={handleInputChange}
+                                        className="form-control"
+                                        placeholder="Titolo del movimento"
+                                    />
+                                    <label htmlFor="titolo"> Titolo</label>
+                                </div>
+                                <br />
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text">€</span>
+                                    <div className="form-floating">
+                                        <input
+                                            id="importo"
+                                            type="number"
+                                            name="importo"
+                                            value={formData.importo}
+                                            onChange={handleInputChange}
+                                            className="form-control"
+                                            placeholder="Importo"
+                                        />
+                                        <label htmlFor="importo"> Importo</label>
+                                    </div>
+                                </div>
+                                <br />
+                                <div className="form-floating">
+                                    <select
+                                        id="tipologia"
+                                        name="tipologia"
+                                        value={formData.tipologia}
+                                        onChange={handleInputChange}
+                                        className="form-select"
+                                        aria-label="Default select example"
+                                    >
+                                        <option value="entrata">entrata</option>
+                                        <option value="uscita">uscita</option>
+                                    </select>
+                                    <label htmlFor="tipologia">Tipologia</label>
+                                </div>
+                                <br />
+                                <div className="form-floating">
+                                    <input
+                                        id="categoria"
+                                        type="text"
+                                        name="categoria"
+                                        value={formData.categoria}
+                                        onChange={handleInputChange}
+                                        className="form-control"
+                                        placeholder="Categoria"
+                                    />
+                                    <label htmlFor="categoria"> Categoria</label>
+                                </div>
+                                <br />
+                                <div className="form-floating">
+                                    <input
+                                        id="note"
+                                        type="text"
+                                        name="note"
+                                        value={formData.note}
+                                        onChange={handleInputChange}
+                                        className="form-control"
+                                        placeholder="Note"
+                                    />
+                                    <label htmlFor="note">Note</label>
+                                </div>
+                                <br />
+                                <button type="submit" className="btn btn-primary" id="liveAlertBtn">
+                                    Modifica
+                                </button>
+                            </form>
                         </div>
-                        <br></br>
-
-
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">€</span>
-                            <div class="form-floating">
-                                <input id="importo" type="number" name="importo" value={formData.importo} onChange={handleInputChange} class="form-control" placeholder="Importo" />
-                                <label for="importo"> Importo</label></div>
-                        </div>
-                        <br></br><br></br>
-                        <div class="form-floating">
-                            <select id="tipologia" name="tipologia" value={formData.tipologia} onChange={handleInputChange} class="form-select" aria-label="Default select example">
-                                <option value="entrata">entrata</option>
-                                <option value="uscita">uscita</option>
-                            </select>
-                            <label for="tipologia">Tipologia</label>
-                        </div>
-                        <br></br><br></br>
-                        <div class="form-floating">
-
-                            <input id="categoria" type="text" name="categoria" value={formData.categoria} onChange={handleInputChange} class="form-control" placeholder="Categoria" />
-                            <label for="categoria"> Categoria</label>
-                        </div>
-                        <br></br>
-                        <div class="form-floating">
-
-                            <input id="note" type="text" name="note" value={formData.note} onChange={handleInputChange} class="form-control" placeholder="Note" />
-                            <label for="note">Note</label></div>
-                        <br></br>
-                        <br>
-                        </br>
-                        <button type="submit" class="btn btn-primary" id="liveAlertBtn">Modifica</button>
-
-                    </form>
-                </div>
-            ) : (
-                <p>Nessun movimento selezionato</p>
-            )}
-            <hr></hr>
-            <Link to="/Movimenti">
-                <button type="button" class="btn btn-outline-secondary">Torna a Movimenti</button>
-            </Link>
-        </center></div></div>
-        </>
+                    ) : (
+                        <p>Nessun movimento selezionato</p>
+                    )}
+                    <hr />
+                    <Link to="/Movimenti">
+                        <button type="button" className="btn btn-outline-secondary">
+                            Torna a Movimenti
+                        </button>
+                    </Link>
+                </center>
+            </div>
+        </div>
     );
 }
 

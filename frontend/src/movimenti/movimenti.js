@@ -20,10 +20,20 @@ function CategoriaLink({ id, nome }) {
 }
 
 
-
 function Movimenti() {
     const [movimenti, setMovimenti] = useState([]);
     const [categorie, setCategorie] = useState([]);
+
+
+
+    var dataCorrente = new Date();
+    var meseCorrente = dataCorrente.getMonth();
+    var nomiMesi = [
+        "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
+        "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
+    ];
+    var annoCorrente = dataCorrente.getFullYear();
+    var nomeMeseCorrente = nomiMesi[meseCorrente];
 
     useEffect(() => {
         const url = '/api/v1/movimenti';
@@ -87,53 +97,63 @@ function Movimenti() {
 
     return (
         <>
-            <div class="buttonContainer"><div class="movimenti"><center>
-                <h2>Movimenti</h2>
 
-                <br></br>
-                <h4>Categorie</h4>
-
-                <div class="col-8">
-                    {categorie.map((categoria) => (
-                        <div key={categoria.id}>
-                            <CategoriaLink id={categoria.id} nome={categoria.nome} />
-                            <br /> <br></br>
-                        </div>
-                    ))}
+            <div className="divheader">
+                <div className="intestazione">
+                    <h2>Budget</h2>
                 </div>
+            </div>
 
-                <br />
-                <hr></hr>
-                <div class="row justify-content-evenly">
-                    <div class="col-5">
-                        <a href="/Entrate">
-                            <button type="button" className="btn btn-outline-success">Entrate</button>
-                        </a>
-                    </div><div class="col-5">
-                        <a href="/Uscite">
-                            <button type="button" className="btn btn-outline-danger">Uscite</button>
-                        </a>
+            <div class="buttonContainer">
+                <div class="movimenti"><center>
+
+                    <h5>Categorie</h5><br />
+
+                    <div class="col-8">
+                        {categorie.map((categoria) => (
+                            <div key={categoria.id}>
+                                <CategoriaLink id={categoria.id} nome={categoria.nome} />
+                                <br /> <br></br>
+                            </div>
+                        ))}
                     </div>
-                </div>
 
-
-                <hr></hr>
-                <h4>Tutti i movimenti</h4>
-
-                <div><a href="/NuovoMovimento">
-                    <button type="button" className="btn btn-outline-primary">Nuovo movimento</button>
-                </a></div>
-                <br />
-                <div class="col-8">
-                    {movimenti.map((movimento) => (
-                        <div key={movimento.id}>
-                            <MovimentoLink id={movimento.id} nome={movimento.titolo} />
-                            <br /> <br>
-                            </br>
+                    <br />
+                    <hr></hr>
+                    <div className='meseCorrente'><p style={{ color: 'grey' }}>{nomeMeseCorrente} {annoCorrente}</p></div>
+                    <div class="row justify-content-evenly">
+                        <div class="col-5">
+                            <a href="/Entrate">
+                                <button type="button" className="btn btn-outline-success">Entrate</button>
+                            </a>
+                        </div><div class="col-5">
+                            <a href="/Uscite">
+                                <button type="button" className="btn btn-outline-danger">Uscite</button>
+                            </a>
                         </div>
-                    ))}
+                    </div>
+
+
+                    <hr></hr>
+                    <h5>Tutti i movimenti</h5>
+
+
+                    <br />
+                    <div class="col-8">
+                        {movimenti.map((movimento) => (
+                            <div key={movimento.id}>
+                                <MovimentoLink id={movimento.id} nome={movimento.titolo} />
+                                <br /> <br>
+                                </br>
+                            </div>
+                        ))}
+                    </div> <br />
+                    <div><a href="/NuovoMovimento">
+                        <button type="button" className="btn btn-outline-primary">Nuovo movimento</button>
+                    </a></div>
+                </center>
                 </div>
-            </center></div></div>
+            </div>
 
         </>
     );

@@ -46,23 +46,29 @@ function Entrate() {
     }, []);
 
     return (
-        <><div class="buttonContainer"><div class="movimenti"><center>
-            <h2>Entrate</h2>
-            <hr />
-            <div>
-                {movimenti.map((movimento) => (
-                    <div key={movimento.id}>
-                        <MovimentoLink id={movimento.id} nome={movimento.titolo} />
-                        <br /> <br></br>
-                    </div>
-                ))}
+        <>
+            <div className="divheader">
+                <div className="intestazione">
+                    <h2>Budget</h2>
+                </div>
             </div>
+            <div class="buttonContainer"><div class="movimenti"><center>
+                <h5>Entrate</h5>
+                <hr />
+                <div> <br />
+                    {movimenti.map((movimento) => (
+                        <div key={movimento.id}>
+                            <MovimentoLink id={movimento.id} nome={movimento.titolo} />
+                            <br /> <br />
+                        </div>
+                    ))}
+                </div>
 
-            <hr />
-            <Link to="/Movimenti">
-                <button type="button" class="btn btn-outline-secondary">Torna a Movimenti</button>
-            </Link>
-        </center></div></div>
+                <hr />
+                <Link to="/Movimenti">
+                    <button type="button" class="btn btn-outline-secondary">Torna a Movimenti</button>
+                </Link>
+            </center></div></div>
         </>
     );
 }

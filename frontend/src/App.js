@@ -100,13 +100,13 @@ function App() {
               element={<ConfermaEmail />}
             />
             <Route exact path="/movimenti" element={<Movimenti />} />
-            <Route exact path="/NuovoMovimento" element={<NuovoMovimento />} />
+            <Route exact path="/nuovoMovimento" element={<NuovoMovimento />} />
             <Route path="/eliminamovimento/:id" element={<EliminaMovimento />} />
             <Route path="/visualizzamovimento/:id" element={<VisualizzaMovimento />} />
             <Route path="/modificamovimento/:id" element={<ModificaMovimento />} />
             <Route path="/visualizzapercategorie/:nome" element={<VisualizzaPerCategorie />} />
-            <Route path="/Entrate" element={<Entrate />} />
-            <Route path="/Uscite" element={<Uscite />} />
+            <Route path="/entrate" element={<Entrate />} />
+            <Route path="/uscite" element={<Uscite />} />
           </Route>
         </Routes>
       </Router>

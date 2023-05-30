@@ -48,6 +48,11 @@ function VisualizzaPerCategorie() {
 
     return (
         <>
+            <div className="divheader">
+                <div className="intestazione">
+                    <h2>Budget</h2>
+                </div>
+            </div>
             <div class="buttonContainer"><div class="movimenti"><center>
                 <h2>{nome}</h2><hr></hr>
                 <div>
@@ -60,7 +65,7 @@ function VisualizzaPerCategorie() {
                 </div>
 
                 <hr />
-                <Link to="/Movimenti">
+                <Link to="/movimenti">
                     <button type="button" className="btn btn-outline-secondary">Torna a Movimenti</button>
                 </Link>
             </center></div></div>

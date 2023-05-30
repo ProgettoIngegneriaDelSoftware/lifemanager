@@ -79,7 +79,7 @@
   text-align: center;
 }
 
-.intestazioneHomePage {
+.intestazione {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
@@ -108,6 +108,7 @@
   width: 500px;
   position: relative;
   align-items: center;
+  text-align: center;
 }
 
 .bottoniHomePage {
@@ -164,4 +165,8 @@
   left: 50%;
   transform: translate(-50%);
   text-align: center;
+}
+
+.meseCorrente {
+  text-align: left;
 }

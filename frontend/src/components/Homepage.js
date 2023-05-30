@@ -48,7 +48,7 @@ function Homepage() {
     <>
       {nome.access && (
         <>
-          <div class="intestazioneHomePage">
+          <div class="intestazione">
             <h5>Benvenuto {nome.value}</h5>
             <p>Organizza la tua vita, inizia qui!</p>
           </div>
@@ -96,7 +96,7 @@ function Homepage() {
       )}
       {!nome.access && (
         <>
-          <div class="intestazioneHomePage">
+          <div class="intestazione">
             <p style={{ color: 'red' }}>Accesso negato, autenticati!</p>
             <a href="/">
               <button className="btn btn-outline-success">Autenticati</button>

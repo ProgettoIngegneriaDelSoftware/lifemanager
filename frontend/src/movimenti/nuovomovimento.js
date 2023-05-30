@@ -80,53 +80,59 @@ function NuovoMovimento() {
     };
 
     return (
-        <><div class="buttonContainer"><div class="movimenti"><center>
-            <div id="liveAlertPlaceholder"></div>
-            <h2>Nuovo Movimento</h2>
-
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <div class="form-floating">
-
-                        <input id="titolo" type="text" name="titolo" value={formData.titolo} onChange={handleInputChange} class="form-control" placeholder="Titolo" />
-                        <label for="titolo"> Titolo</label>
-                    </div>
-                    <br></br>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">€</span>
-                        <div class="form-floating">
-                            <input id="importo" type="number" name="importo" value={formData.importo} onChange={handleInputChange} class="form-control" placeholder="Importo" pattern="\d{1,2}(\.\d{2})?" />
-                            <label for="importo"> Importo</label></div>
-                    </div>
-                    <br></br>
-                    <div class="form-floating">
-
-                        <select id="tipologia" name="tipologia" value={formData.tipologia} onChange={handleInputChange} class="form-select" aria-label="Default select example">
-                            <option value="entrata">entrata</option>
-                            <option value="uscita">uscita</option>
-                        </select>
-                        <label for="tipologia"> Tipologia</label>
-                    </div>
-                    <br></br>
-                    <div class="form-floating">
-
-
-                        <input id="categoria" type="text" name="categoria" value={formData.categoria} onChange={handleInputChange} class="form-control" placeholder="categoria" />
-                        <label for="categoria"> Categoria</label>
-                    </div>
-                    <br></br>
-                    <div class="form-floating">
-
-
-                        <input id="note" type="text" name="note" value={formData.note} onChange={handleInputChange} class="form-control" placeholder="categoria" />
-                        <label for="note">Note</label>
-                    </div>
-                    <br></br>
-                    <button type="submit" class="btn btn-success" id="liveAlertBtn">Aggiungi</button>
-
-                </form>
+        <>
+            <div className="divheader">
+                <div className="intestazione">
+                    <h2>Budget</h2>
+                </div>
             </div>
-        </center></div></div>
+            <div class="buttonContainer"><div class="movimenti"><center>
+                <div id="liveAlertPlaceholder"></div>
+                <h5>Nuovo Movimento</h5> <br />
+
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <div class="form-floating">
+
+                            <input id="titolo" type="text" name="titolo" value={formData.titolo} onChange={handleInputChange} class="form-control" placeholder="Titolo" />
+                            <label for="titolo"> Titolo</label>
+                        </div>
+                        <br></br>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">€</span>
+                            <div class="form-floating">
+                                <input id="importo" type="number" name="importo" value={formData.importo} onChange={handleInputChange} class="form-control" placeholder="Importo" pattern="\d{1,2}(\.\d{2})?" />
+                                <label for="importo"> Importo</label></div>
+                        </div>
+                        <br></br>
+                        <div class="form-floating">
+
+                            <select id="tipologia" name="tipologia" value={formData.tipologia} onChange={handleInputChange} class="form-select" aria-label="Default select example">
+                                <option value="entrata">entrata</option>
+                                <option value="uscita">uscita</option>
+                            </select>
+                            <label for="tipologia"> Tipologia</label>
+                        </div>
+                        <br></br>
+                        <div class="form-floating">
+
+
+                            <input id="categoria" type="text" name="categoria" value={formData.categoria} onChange={handleInputChange} class="form-control" placeholder="categoria" />
+                            <label for="categoria"> Categoria</label>
+                        </div>
+                        <br></br>
+                        <div class="form-floating">
+
+
+                            <input id="note" type="text" name="note" value={formData.note} onChange={handleInputChange} class="form-control" placeholder="categoria" />
+                            <label for="note">Note</label>
+                        </div>
+                        <br></br>
+                        <button type="submit" class="btn btn-success" id="liveAlertBtn">Aggiungi</button>
+
+                    </form>
+                </div>
+            </center></div></div>
         </>
     );
 }

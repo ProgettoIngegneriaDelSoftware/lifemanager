@@ -49,12 +49,13 @@ function Uscite() {
         <><div class="buttonContainer"><div class="movimenti"><center>
             <h2> Uscite</h2>
             <hr></hr>
-            <div>
+            <div> <br />
                 {movimenti.map((movimento) => (
                     <div key={movimento.id}>
 
 
-                        <MovimentoLink id={movimento.id} nome={movimento.titolo} />                      <br></br>  <br />
+                        <MovimentoLink id={movimento.id} nome={movimento.titolo} />
+                        <br /><br />
                     </div>
                 ))}
             </div>
