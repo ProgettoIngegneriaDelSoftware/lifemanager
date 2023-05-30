@@ -5,6 +5,25 @@ function ModificaCarta() {
     const { nome } = useParams();
     console.log(nome);
     const [carta, setCarta] = useState(null);
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    const appendAlert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
+    const alertTrigger = document.getElementById('liveAlertBtn')
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', () => {
+            appendAlert('Carta modificata correttamente', 'primary')
+        })
+    }
 
     const [formData, setFormData] = useState({
         nome: '',
@@ -34,25 +53,7 @@ function ModificaCarta() {
             .then((response) => {
                 if (response.ok) {
 
-                    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-                    const appendAlert = (message, type) => {
-                        const wrapper = document.createElement('div')
-                        wrapper.innerHTML = [
-                            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-                            `   <div>${message}</div>`,
 
-                            '</div>'
-                        ].join('')
-
-                        alertPlaceholder.append(wrapper)
-                    }
-
-                    const alertTrigger = document.getElementById('liveAlertBtn')
-                    if (alertTrigger) {
-                        alertTrigger.addEventListener('click', () => {
-                            appendAlert('Carta modificata correttamente', 'primary')
-                        })
-                    }
 
                     //window.location.href = '/carte'
                 } else {
@@ -100,7 +101,7 @@ function ModificaCarta() {
     }, [nome]);
     return (
         <>
-            <div class="buttonContainer">
+            <div class="buttonContainer"><div class="cartefed"><center>
                 <div id="liveAlertPlaceholder"></div>
                 <h2>Modifica carta</h2>
                 {carta ? (
@@ -126,12 +127,13 @@ function ModificaCarta() {
                 ) : (
                     <p>Nessuna carta selezionata</p>
                 )}
+                <hr></hr>
                 <div>
                     <Link to="/carte">
                         <button type="button" class="btn btn-outline-secondary">Torna a Carte Fedeltà</button>
                     </Link>
                 </div>
-            </div>
+            </center> </div></div>
         </>
     );
 }

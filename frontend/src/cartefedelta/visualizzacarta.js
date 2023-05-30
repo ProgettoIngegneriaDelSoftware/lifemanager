@@ -41,7 +41,7 @@ function VisualizzaCarta() {
 
     return (
         <>
-            <div class="buttonContainer">
+            <div class="buttonContainer"><div class="cartefed"><center>
                 {carta ? (
                     <div>
                         <center>
@@ -52,13 +52,13 @@ function VisualizzaCarta() {
                 ) : (
                     <p>Nessuna carta selezionata</p>
                 )}
-                <div class="row g-3">
-                    <div>
+                <hr></hr>
+                <div class="row justify-content-evenly">
+                    <div class="col-5">
                         <Link to={{ pathname: `/eliminacarta/${nome}` }} >
                             <button type="button" class="btn btn-outline-danger">Elimina carta</button>
                         </Link>
-                    </div>
-                    <div>
+                    </div><div class="col-5">
                         <Link to={{ pathname: `/modificacarta/${nome}` }}>
                             <button type="button" class="btn btn-outline-primary">Modifica carta</button>
                         </Link>
@@ -70,7 +70,7 @@ function VisualizzaCarta() {
                 <Link to="/carte">
                     <button type="button" class="btn btn-outline-secondary">Torna a Carte Fedeltà</button>
                 </Link>
-            </div>
+            </center></div></div>
         </>
     );
 }
