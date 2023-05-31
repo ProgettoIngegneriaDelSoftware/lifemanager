@@ -90,7 +90,7 @@ function Homepage() {
                 Eventi<br /> <br />
                 <img src={process.env.PUBLIC_URL + '/calendario.png'} alt="" class="iconeHomePage" />
               </button>
-            </a>
+            </a><br /> <br />
           </div>
         </>
       )}

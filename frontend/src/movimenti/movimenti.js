@@ -1,11 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function MovimentoLink({ id, nome }) {
+function MovimentoLink({ id, nome, importo, tipologia }) {
     return (
-        id, nome,
+        id, nome, importo,
         < Link to={{ pathname: `/visualizzamovimento/${id}` }}>
-            <button type="button" className="btn btn-outline-dark">{nome}</button>
+            <button type="button" className="btn btn-outline-dark">
+                <div class="row align-items-center">
+                    <div class="col">
+                        {nome}
+                    </div>
+                    <div class="col">
+                        € {tipologia === "entrata" ? (
+                            < span >{importo}</span>
+                        ) : (
+                            <span>-{importo}</span>
+                        )}
+                    </div>
+                </div>
+            </button>
         </Link >
     );
 }
@@ -62,9 +75,6 @@ function Movimenti() {
                 console.error(error); // Handle errors
             });
 
-
-
-
         //--
 
         const url_cat = '/api/v1/movimenti/categorie';
@@ -109,14 +119,12 @@ function Movimenti() {
 
                     <h5>Categorie</h5><br />
 
-                    <div class="col-8">
-                        {categorie.map((categoria) => (
-                            <div key={categoria.id}>
-                                <CategoriaLink id={categoria.id} nome={categoria.nome} />
-                                <br /> <br></br>
-                            </div>
-                        ))}
-                    </div>
+                    {categorie.map((categoria) => (
+                        <div key={categoria.id}>
+                            <CategoriaLink id={categoria.id} nome={categoria.nome} />
+                            <br /> <br></br>
+                        </div>
+                    ))}
 
                     <br />
                     <hr></hr>
@@ -133,24 +141,41 @@ function Movimenti() {
                         </div>
                     </div>
 
-
                     <hr></hr>
-                    <h5>Tutti i movimenti</h5>
 
-
-                    <br />
-                    <div class="col-8">
-                        {movimenti.map((movimento) => (
-                            <div key={movimento.id}>
-                                <MovimentoLink id={movimento.id} nome={movimento.titolo} />
-                                <br /> <br>
-                                </br>
+                    <div className="movimentiContainer">
+                        <br />
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5>Tutti i movimenti</h5>
                             </div>
-                        ))}
-                    </div> <br />
-                    <div><a href="/NuovoMovimento">
-                        <button type="button" className="btn btn-outline-primary">Nuovo movimento</button>
-                    </a></div>
+                            <div class="col">
+                                <a href="/NuovoMovimento">
+                                    <button type="button" class="btn btn-outline-primary">Nuovo movimento</button>
+                                </a>
+                            </div>
+                        </div>
+                        <br />
+
+
+                        <br />
+                        <div style={{ height: '250px', overflowY: 'auto', marginBottom: '-20px' }}>
+                            {[...movimenti].reverse().map((movimento) => (
+                                <div key={movimento.id}>
+                                    <MovimentoLink
+                                        id={movimento.id}
+                                        nome={movimento.titolo}
+                                        importo={movimento.importo}
+                                        tipologia={movimento.tipologia}
+                                    />
+                                    <br /><br />
+                                </div>
+                            ))}
+                        </div>
+
+                        <br />
+                    </div>
+
                 </center>
                 </div>
             </div>

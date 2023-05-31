@@ -15,6 +15,8 @@ router.get("", async (req, res) => {
       self: "/api/v1/movimenti/" + movi.id,
       id: movi.id,
       titolo: movi.titolo,
+      importo: movi.importo,
+      tipologia: movi.tipologia,
     };
   });
   res.status(200).json(mov);

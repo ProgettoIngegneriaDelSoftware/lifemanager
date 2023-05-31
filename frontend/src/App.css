@@ -121,7 +121,7 @@
 }
 
 .btn-outline-dark {
-  width: 350px;
+  width: 450px;
 }
 
 .bottoniHomePage:hover {
@@ -180,4 +180,12 @@
 .linkNormale:hover {
   color: #000000;
   text-decoration: none;
+}
+
+.movimentiContainer {
+  border: 1px solid black;
+  border-top-left-radius: 3%;
+  border-top-right-radius: 3%;
+  border-bottom: none;
+  margin-bottom: -20px;
 }
