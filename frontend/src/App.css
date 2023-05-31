@@ -94,6 +94,7 @@
   left: 50%;
   transform: translate(-50%);
   align-items: center;
+  text-align: center;
   border: 2px solid black;
 }
 
@@ -134,10 +135,13 @@
 }
 
 .listeContainer {
+  margin-top: 100px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
+  padding: 10px;
+  border: 2px solid black;
 }
 
 
@@ -188,4 +192,12 @@
   border-top-right-radius: 3%;
   border-bottom: none;
   margin-bottom: -20px;
+}
+
+.liste {
+  margin: 20px;
+  width: 500px;
+  position: relative;
+  align-items: center;
+  text-align: center;
 }

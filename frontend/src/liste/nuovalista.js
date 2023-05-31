@@ -21,7 +21,7 @@ function NuovaLista() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-access-token' : `${token}`
+        'x-access-token': `${token}`
       },
       body: JSON.stringify({
         nome: formData.nome,
@@ -45,16 +45,29 @@ function NuovaLista() {
 
   return (
     <>
-      <h2>Nuova Lista</h2>
-      
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label> Nome:
-            <input id="nome" type="text" name="nome" value={formData.nome} onChange={handleInputChange}/>
-          </label>
-          <br></br>
-          <button type="submit">Aggiungi Lista</button>
-        </form>
+
+      <div className="intestazione">
+        <h2>Liste</h2>
+      </div>
+
+
+
+      <div className='listeContainer'>
+        <h5>Nuova Lista</h5> <br /><br />
+
+        <div className="liste">
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div class="form-floating">
+
+                <input id="nome" type="text" name="nome" value={formData.nome} onChange={handleInputChange} class="form-control" placeholder="Nome" />
+                <label for="nome"> Nome</label>
+              </div>
+              <br></br><br />
+              <button type="submit" class="btn btn-success">Aggiungi Lista</button>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );

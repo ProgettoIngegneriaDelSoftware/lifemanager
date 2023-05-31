@@ -66,7 +66,7 @@ function Lista() {
           throw new Error("Error: " + response.status);
         }
       })
-      .then(() => {})
+      .then(() => { })
       .catch((error) => {
         console.error(error); // Gestisci gli errori
       });
@@ -141,7 +141,7 @@ function Lista() {
           throw new Error("Error: " + response.status);
         }
       })
-      .then(() => {})
+      .then(() => { })
       .catch((error) => {
         console.error(error); // Gestisci gli errori
       });
@@ -213,13 +213,8 @@ function Lista() {
             />
             <span>Nome: {item.nome}</span>
             <span>
-              <button
-                value={item.nome}
-                onClick={() => handleModifica(item.nome)}
-              >
-                Modifica
-              </button>
-              <button value={item.nome} onClick={() => handleElimina(item)}>
+              <button value={item.nome} onClick={() => handleModifica(item.nome)} className="btn btn-outline-primary">Modifica</button>
+              <button value={item.nome} onClick={() => handleElimina(item)} className="btn btn-outline-danger">
                 Elimina
               </button>
             </span>
@@ -233,12 +228,33 @@ function Lista() {
 
   return (
     <>
-      <h2>{nomelista}</h2>
-      <div id="result">{renderedItems}</div>
-      <a href={`/${nomelista}/nuovoelemento`}>
-        <button>Nuovo Elemento</button>
-      </a>
-      <button onClick={handleSvuota}>Svuota lista</button>
+      <div className="intestazione">
+        <h2>Liste</h2>
+      </div>
+
+      <div className='listeContainer'>
+
+        <div className="liste">
+          <h5>{nomelista}</h5> <br />
+          <div id="result">{renderedItems}</div>
+          <br />
+
+          <div class="row justify-content-evenly">
+            <div class="col-5">
+              <a href={`/${nomelista}/nuovoelemento`}>
+                <button className="btn btn-outline-success">Nuovo Elemento</button>
+              </a>
+            </div><div class="col-5">
+              <button onClick={handleSvuota} class="btn btn-outline-danger">Svuota lista</button>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
     </>
   );
 }

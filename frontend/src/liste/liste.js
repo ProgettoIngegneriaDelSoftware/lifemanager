@@ -108,8 +108,38 @@ function Liste() {
 
   return (
     <>
-      <div className="listeContainer">
-        <h2>Liste</h2> <br />
+
+
+      <div className="intestazione">
+        <h2>Liste</h2>
+      </div>
+
+
+      <div class="listeContainer">
+        <div className="liste">
+          {liste.map((element, index) => (
+            <p key={index}>
+              <a
+                href={`/liste/${element.nome}`}
+                style={{ textDecoration: "none" }}
+              >
+                <button type="button" className="btn btn-outline-dark">
+                  {element.nome}
+                </button>{" "}
+              </a>
+            </p>
+          ))}
+        </div>
+        <br /> <br />
+        <a href="/nuovalista">
+          <button type="button" class="btn btn-outline-primary">Nuova lista</button>
+        </a> <br /><br />
+
+
+
+      </div>
+
+      {/* <div className="listeContainer">
         {liste.map((element, index) => (
           <p key={index}>
             <div className="input-group" style={{ display: "flex" }}>
@@ -130,7 +160,7 @@ function Liste() {
                 </a>
               )}
               <OverlayTrigger
-                trigger="click"
+                trigger="focus"
                 placement="top"
                 overlay={
                   <Popover id="popover-menu">
@@ -177,7 +207,9 @@ function Liste() {
         <a href="/nuovalista">
           <button>Nuova Lista</button>
         </a>
-      </div>
+      </div> */}
+
+
     </>
   );
 }

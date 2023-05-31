@@ -150,7 +150,7 @@ function Movimenti() {
                                 <h5>Tutti i movimenti</h5>
                             </div>
                             <div class="col">
-                                <a href="/NuovoMovimento">
+                                <a href="/nuovoMovimento">
                                     <button type="button" class="btn btn-outline-primary">Nuovo movimento</button>
                                 </a>
                             </div>
