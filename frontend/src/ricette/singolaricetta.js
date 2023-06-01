@@ -139,53 +139,79 @@ function SingolaRicetta() {
 
   return (
     <>
-      <div id="result">
-        <textarea
-          name="nome"
-          value={formValues.nome}
-          onChange={handleInputChange}
-        ></textarea>
-        <h4>Ingredienti:</h4>
-        {ingredienti.map((element, index) => (
-          <div key={index}>
-            <input
-              name="nome"
-              value={element.nome}
-              onChange={(event) => handleIngredienteChange(index, event)}
-            />
-            <input
-              name="quantita"
-              value={element.quantita}
-              onChange={(event) => handleIngredienteChange(index, event)}
-            />
-            {index >= 0 && (
-              <button
-                type="button"
-                onClick={() => handleRimuoviIngrediente(index)}
-              >
-                Rimuovi
+      <div class="buttonContainer">
+        <div class="ricette"><center>
+          <form class="form-floating">
+            <div id="result" class="form-floating">
+
+              <input
+                name="nome"
+                value={formValues.nome}
+                onChange={handleInputChange} class="form-control form-control-lg" id="floatingInput"
+              ></input>
+              <label for="floatingInput">
+                Titolo
+              </label>
+              <hr></hr>
+              <h4>Ingredienti</h4>
+              {ingredienti.map((element, index) => (
+                <div key={index} class="input-group">
+                  <div class="form-floating col-5"><input
+                    name="nome"
+                    value={element.nome}
+                    onChange={(event) => handleIngredienteChange(index, event)}
+                    class="form-control" id="floatingInput1"
+                  />
+                    <label for="floatingInput1">Ingrediente</label>
+                  </div>
+                  <div class="form-floating col-5">
+                    <input
+                      name="quantita"
+                      value={element.quantita}
+                      onChange={(event) => handleIngredienteChange(index, event)}
+                      class="form-control" id="floatingInput2"
+                    />
+                    <label for="floatingInput2">Quantità</label>
+                  </div>
+                  {index >= 0 && (
+                    <button
+                      type="button"
+                      onClick={() => handleRimuoviIngrediente(index)}
+                      class="btn btn-outline-danger"
+                    >
+                      Rimuovi
+                    </button>
+                  )}
+                </div>
+              ))}
+              <br></br>
+              <button type="button" onClick={handleAggiungiIngrediente} class="btn btn-outline-success">
+
+                Aggiungi Ingrediente
               </button>
-            )}
-          </div>
-        ))}
-        <button type="button" onClick={handleAggiungiIngrediente}>
-          Aggiungi Ingrediente
-        </button>
-        <br />
-        <button type="button" onClick={handleAggiungiaSpesa}>
-          Aggiungi ingredienti a lista della spesa
-        </button>
-        <hr></hr>
-        <h4>Procedimento:</h4>
-        <textarea
-          name="procedimento"
-          rows="11"
-          cols="50"
-          value={formValues.procedimento}
-          onChange={handleInputChange}
-        ></textarea>
-      </div>
-      <button onClick={handleModifica}>Modifica</button>
+              <br />
+              <br></br>
+              <button type="button" onClick={handleAggiungiaSpesa} class="btn btn-outline-dark">
+                Aggiungi ingredienti a lista della spesa
+              </button>
+              <hr></hr>
+              <h4>Procedimento</h4>
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  name="procedimento"
+                  rows="11"
+                  cols="50"
+                  value={formValues.procedimento}
+                  onChange={handleInputChange}
+
+                ></textarea>
+              </div>
+            </div>
+            <br></br>
+            <button onClick={handleModifica} class="btn btn-outline-primary">Modifica</button>
+          </form>
+        </center></div></div>
     </>
   );
 }

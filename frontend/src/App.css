@@ -111,6 +111,14 @@
   text-align: center;
 }
 
+.ricette {
+  margin: 20px;
+  width: 500px;
+  position: relative;
+  align-items: center;
+  text-align: center;
+}
+
 .bottoniHomePage {
   border-radius: 7%;
   width: 200px;

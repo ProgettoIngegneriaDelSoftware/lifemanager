@@ -68,70 +68,93 @@ function NuovaRicetta() {
 
   return (
     <>
-      <h2>Nuova Ricetta</h2>
+      <div class="buttonContainer">
+        <div class="ricette"><center>
+          <h2>Nuova Ricetta</h2>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="nome">Nome:</label>
-          <input
-            id="nome"
-            type="text"
-            value={nome}
-            onChange={handleNomeChange}
-            required
-          />
-        </div>
+          <form onSubmit={handleSubmit} class="form-floating">
+            <div class="form-floating">
 
-        <div>
-          <label htmlFor="procedimento">Procedimento:</label>
-          <br></br>
-          <textarea
-            id="procedimento"
-            rows="11"
-            cols="50"
-            value={procedimento}
-            onChange={handleProcedimentoChange}
-            required
-          ></textarea>
-        </div>
-
-        <div>
-          <h4>Ingredienti:</h4>
-          {ingredienti.map((ingrediente, index) => (
-            <div key={index}>
               <input
+                id="nome"
                 type="text"
-                name="nome"
-                placeholder="Nome Ingrediente"
-                value={ingrediente.nome}
-                onChange={(event) => handleIngredienteChange(index, event)}
+                value={nome}
+                onChange={handleNomeChange}
+
+                class="form-control form-control-lg"
                 required
+
               />
-              <input
-                type="text"
-                name="quantita"
-                placeholder="Quantità"
-                value={ingrediente.quantita}
-                onChange={(event) => handleIngredienteChange(index, event)}
-                required
-              />
-              {index > 0 && (
-                <button
-                  type="button"
-                  onClick={() => handleRimuoviIngrediente(index)}
-                >
-                  Rimuovi
-                </button>
-              )}
+              <label htmlFor="nome" for="nome">Nome</label>
             </div>
-          ))}
-          <button type="button" onClick={handleAggiungiIngrediente}>
-            Aggiungi Ingrediente
-          </button>
-        </div>
+            <br></br>
+            <hr></hr>
+            <div class="form-group">
+              <h4 htmlFor="procedimento" for="procedimento">Procedimento</h4>
+              <textarea
+                id="procedimento"
+                rows="11"
+                cols="50"
+                value={procedimento}
+                onChange={handleProcedimentoChange}
+                class="form-control"
+                required
+              ></textarea>
 
-        <button type="submit">Aggiungi Ricetta</button>
-      </form>
+            </div>
+            <br></br>
+            <hr></hr>
+            <div>
+              <h4>Ingredienti</h4>
+              {ingredienti.map((ingrediente, index) => (
+                <div key={index} class="input-group">
+                  <div class="form-floating col-5">
+                    <input
+                      type="text"
+                      name="nome"
+                      placeholder="Ingrediente"
+                      value={ingrediente.nome}
+                      onChange={(event) => handleIngredienteChange(index, event)}
+                      class="form-control" id="floatingInput1"
+                      required
+                    />
+                    <label for="floatingInput1">Ingrediente</label>
+                  </div>
+                  <div class="form-floating col-5">
+                    <input
+                      type="text"
+                      name="quantita"
+                      placeholder="Quantità"
+                      value={ingrediente.quantita}
+                      onChange={(event) => handleIngredienteChange(index, event)}
+                      class="form-control" id="floatingInput1"
+                      required
+                    />
+                    <label for="floatingInput1">Quantità</label>
+                  </div>
+                  {index > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => handleRimuoviIngrediente(index)}
+                      class="btn btn-outline-danger"
+                    >
+                      Rimuovi
+                    </button>
+                  )}
+                </div>
+              ))}
+              <br></br>
+              <button type="button" onClick={handleAggiungiIngrediente}
+                class="btn btn-outline-dark"
+              >
+                Aggiungi Ingrediente
+              </button>
+            </div>
+            <br></br>
+
+            <button type="submit" class="btn btn-outline-success">Aggiungi Ricetta</button>
+          </form>
+        </center></div></div>
     </>
   );
 }
