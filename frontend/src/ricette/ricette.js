@@ -26,7 +26,7 @@ function Ricette() {
           throw new Error("Error: " + response.status);
         }
       })
-      .then(() => {})
+      .then(() => { })
       .catch((error) => {
         console.error(error); // Gestisci gli errori
       });
@@ -59,22 +59,32 @@ function Ricette() {
 
   return (
     <>
-      <h2>Ricette</h2>
-      <div>
-        {ricette.map((element, index) => (
-          <p>
-            <a href={`/ricette/${element.nome}`} key={index}>
-              {element.nome}
-            </a>
-            <button value={element.nome} onClick={handleElimina}>
-              Elimina
-            </button>
-          </p>
-        ))}
+      <div className="divheader">
+        <div className="intestazione">
+          <h2>Ricette</h2>
+        </div>
       </div>
-      <a href="/nuovaricetta">
-        <button>Nuova Ricetta</button>
-      </a>
+
+      <div class="buttonContainer">
+        <div class="ricette"><center>
+          <div class="btn-group" role="group">
+            {ricette.map((element, index) => (
+              <p>
+                <a href={`/ricette/${element.nome}`} key={index}>
+                  <button class="btn btn-outline-dark">{element.nome}</button>
+                </a>
+                <button value={element.nome} onClick={handleElimina} class="btn btn-outline-danger">
+                  Elimina
+                </button>
+              </p>
+            ))}
+          </div>
+          <hr></hr>
+          <a href="/nuovaricetta">
+            <button class="btn btn-outline-success">Nuova Ricetta</button>
+          </a>
+
+        </center></div></div>
     </>
   );
 }
