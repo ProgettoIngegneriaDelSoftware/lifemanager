@@ -132,7 +132,7 @@ function NuovaRicetta() {
                     />
                     <label for="floatingInput1">Quantità</label>
                   </div>
-                  {index > 0 && (
+                  {index >= 0 && (
                     <button
                       type="button"
                       onClick={() => handleRimuoviIngrediente(index)}
