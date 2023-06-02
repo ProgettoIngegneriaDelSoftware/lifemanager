@@ -3,30 +3,29 @@ const router = express.Router();
 const user = require("./models/user"); // get our mongoose model
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
-const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
-const config = require('./../config')
+const jwt = require("jsonwebtoken"); // used to create, sign, and verify tokens
+const config = require("./../config");
 const lista = require("./models/lista"); // get our mongoose model
-
 
 // Configurazione del transporter di nodemailer per l'invio delle email
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
     user: config.email,
     pass: config.password,
-  }
+  },
 });
 
 async function send(email, nome, token) {
   const confirmationLink = config.frontendUrl + `/conferma-email?data=${token}`;
   const result = await transporter.sendMail({
-    from: 'LifeManagerStaff',
+    from: "LifeManagerStaff",
     to: email,
-    subject: 'Benvenuto in LifeManager',
+    subject: "Benvenuto in LifeManager",
     html: `
       <p>Ciao ${nome},</p>
       <p>Ti diamo il benvenuto in LifeManager. Per confermare il tuo indirizzo email, fai clic sul seguente link:</p>
-      <a href="${confirmationLink}">Conferma Email</a>`
+      <a href="${confirmationLink}">Conferma Email</a>`,
   });
 
   console.log(JSON.stringify(result, null, 4));
@@ -41,7 +40,7 @@ router.post("/email", async (req, res) => {
   if (!token) {
     return res.status(401).send({
       success: false,
-      message: 'No token provided.'
+      message: "No token provided.",
     });
   }
 
@@ -50,7 +49,7 @@ router.post("/email", async (req, res) => {
     if (err) {
       return res.status(403).send({
         success: false,
-        message: 'Failed to confirm email.'
+        message: "Failed to confirm email.",
       });
     } else {
       email = decoded.email;
@@ -84,9 +83,7 @@ router.post("/email", async (req, res) => {
   } catch (error) {
     console.error("Error updating user:", error);
   }
-
 });
-
 
 //Gestione richiesta POST a users
 router.post("", async (req, res) => {
@@ -129,7 +126,7 @@ router.post("", async (req, res) => {
         "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
     });
   }
-  var token
+  var token;
   // Cripta la password, salva l'utente nel db e invia la mail
   bcrypt.hash(req.body.password, 10, async (err, hash) => {
     if (err) {
@@ -150,7 +147,7 @@ router.post("", async (req, res) => {
       !checkIfEmailInString(utente.email)
     ) {
       res.status(400).json({
-        error: 'The field "email" must be in email format',
+        error: "The field email must be in email format",
       });
       return;
     }
@@ -159,18 +156,17 @@ router.post("", async (req, res) => {
     // if user is found and password is right create a token
     var payload = {
       email: email,
-      username: username
-      // other data encrypted in the token	
-    }
+      username: username,
+      // other data encrypted in the token
+    };
     var options = {
-      expiresIn: 86400 // expires in 24 hours
-    }
+      expiresIn: 86400, // expires in 24 hours
+    };
     token = jwt.sign(payload, process.env.SUPER_SECRET, options);
-    send(req.body.email, req.body.nome, token)
+    send(req.body.email, req.body.nome, token);
 
     res.status(201).json("Registration success");
   });
-
 });
 
 router.get("/me", async (req, res) => {
@@ -187,7 +183,7 @@ router.get("/me", async (req, res) => {
   res.status(200).json({
     self: "/api/v1/users/" + utente.id,
     email: utente.email,
-    nome: utente.nome
+    nome: utente.nome,
   });
 });
 
@@ -264,9 +260,9 @@ function checkIfEmailInString(text) {
 }
 
 function checkPassword(text) {
-  var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._])[A-Za-z\d@$!%*?&._]{8,}$/;
+  var re =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._])[A-Za-z\d@$!%*?&._]{8,}$/;
   return re.test(text);
 }
-
 
 module.exports = router;
