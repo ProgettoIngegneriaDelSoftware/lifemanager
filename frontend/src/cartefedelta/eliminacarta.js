@@ -86,6 +86,10 @@ function EliminaCarta() {
 
     return (
         <>
+
+            <div className="intestazione">
+                <h2>Carte Fedeltà</h2>
+            </div>
             <div class="buttonContainer"><div class="cartefed">
                 <div id="liveAlertPlaceholder"></div>
                 <center>

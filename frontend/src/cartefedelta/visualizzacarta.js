@@ -41,6 +41,10 @@ function VisualizzaCarta() {
 
     return (
         <>
+
+            <div className="intestazione">
+                <h2>Carte Fedeltà</h2>
+            </div>
             <div class="buttonContainer"><div class="cartefed"><center>
                 {carta ? (
                     <div>

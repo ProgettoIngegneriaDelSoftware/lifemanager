@@ -1,5 +1,5 @@
 import "./App.css";
-// import ProtectedRoute from './ProtectedRoute';
+//import ProtectedRoute from './ProtectedRoute';
 import Registrati from "./autenticazione/registrazione";
 import Login from "./autenticazione/login";
 import Header from "./components/Header";

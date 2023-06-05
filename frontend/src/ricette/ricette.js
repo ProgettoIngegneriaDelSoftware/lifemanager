@@ -6,7 +6,6 @@ function Ricette() {
   const [ricette, setRicette] = useState([]);
 
   const handleElimina = (event) => {
-    console.log(url + event.target.value);
     const requestOptions = {
       method: "DELETE",
       headers: {
@@ -71,7 +70,7 @@ function Ricette() {
             {ricette.map((element, index) => (
               <p>
                 <a href={`/ricette/${element.nome}`} key={index}>
-                  <button class="btn btn-outline-dark">{element.nome}</button>
+                  <button class="btn btn-outline-dark" style={{ width: '400px' }}>{element.nome}</button>
                 </a>
                 <button value={element.nome} onClick={handleElimina} class="btn btn-outline-danger">
                   Elimina

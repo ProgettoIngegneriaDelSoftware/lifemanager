@@ -84,6 +84,10 @@ function NuovaCarta() {
 
     return (
         <>
+
+            <div className="intestazione">
+                <h2>Carte Fedeltà</h2>
+            </div>
             <div class="buttonContainer"><div class="cartefed"><center>
                 <div id="liveAlertPlaceholder"></div>
                 <h2>Nuova Carta</h2>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { OverlayTrigger, Popover, Button } from "react-bootstrap";
 
 function Liste() {
   const url = "/api/v1/liste/";
@@ -119,97 +118,53 @@ function Liste() {
         <div className="liste">
           {liste.map((element, index) => (
             <p key={index}>
-              <a
-                href={`/liste/${element.nome}`}
-                style={{ textDecoration: "none" }}
-              >
-                <button type="button" className="btn btn-outline-dark">
-                  {element.nome}
-                </button>{" "}
-              </a>
+              {element.nome === "Lista della Spesa" || element.nome === "To-Do-List" ? (
+                <a href={`/liste/${element.nome}`} style={{ textDecoration: "none" }}>
+                  <button type="button" className="btn btn-outline-dark">
+                    {element.nome}
+                  </button>
+                </a>
+              ) : (
+
+                editingList === element.nome ? (
+                  <>
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        value={newListName}
+                        onChange={(e) => setNewListName(e.target.value)}
+                        class="form-control" placeholder="Nome"
+                      /> <br />
+                      <button onClick={() => handleSaveModifica(element.nome)} className="btn btn-outline-primary">Salva</button>
+                    </div>
+
+                  </>
+                ) : (
+                  <p>
+
+                    <a href={`/liste/${element.nome}`} style={{ textDecoration: "none" }}>
+                      <button type="button" className="btn btn-outline-dark" style={{ width: '285px' }}>
+                        {element.nome}
+                      </button>
+                    </a>
+                    <button value={element.nome} onClick={() => handleModifica(element.nome)} class="btn btn-outline-primary">
+                      Modifica
+                    </button>
+                    <button value={element.nome} onClick={() => handleElimina(element.nome)} class="btn btn-outline-danger">
+                      Elimina
+                    </button>
+                  </p>
+                )
+              )}
             </p>
           ))}
+
         </div>
-        <br /> <br />
+        <br /><hr />
         <a href="/nuovalista">
           <button type="button" class="btn btn-outline-primary">Nuova lista</button>
         </a> <br /><br />
-
-
-
-      </div>
-
-      {/* <div className="listeContainer">
-        {liste.map((element, index) => (
-          <p key={index}>
-            <div className="input-group" style={{ display: "flex" }}>
-              {editingList === element.nome ? (
-                <input
-                  type="text"
-                  value={newListName}
-                  onChange={(e) => setNewListName(e.target.value)}
-                />
-              ) : (
-                <a
-                  href={`/liste/${element.nome}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <button className="form-control" style={{ width: "500px" }}>
-                    {element.nome}
-                  </button>{" "}
-                </a>
-              )}
-              <OverlayTrigger
-                trigger="focus"
-                placement="top"
-                overlay={
-                  <Popover id="popover-menu">
-                    <Popover.Body>
-                      <Button
-                        variant="danger"
-                        onClick={() => handleElimina(element.nome)}
-                      >
-                        Elimina
-                      </Button>{" "}
-                      {editingList === element.nome ? (
-                        <Button variant="primary" onClick={handleSaveModifica}>
-                          Salva
-                        </Button>
-                      ) : (
-                        <Button
-                          variant="primary"
-                          onClick={() => handleModifica(element.nome)}
-                        >
-                          Modifica
-                        </Button>
-                      )}
-                    </Popover.Body>
-                  </Popover>
-                }
-              >
-                <span className="input-group-text">
-                  <img
-                    src={process.env.PUBLIC_URL + "/trepunti.png"}
-                    alt=""
-                    className="trePunti"
-                  />
-                </span>
-              </OverlayTrigger>
-
-              <div id="menu" className="menu">
-                <button>Modifica</button>
-                <button>Elimina</button>
-              </div>
-            </div>
-          </p>
-        ))}
-        <br />
-        <a href="/nuovalista">
-          <button>Nuova Lista</button>
-        </a>
-      </div> */}
-
-
+      </div >
     </>
   );
 }

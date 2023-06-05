@@ -57,34 +57,58 @@ function NuovoElemento() {
 
   return (
     <>
-      <h2>Nuovo Elemento</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h4>Nome:</h4>
-          {formData.map((elem, index) => (
-            <div key={index}>
-              <input
-                type="text"
-                name="nome"
-                placeholder="Nome elemento"
-                onChange={(event) => handleInputChange(event, index)}
-                required
-              />
-              {index > 0 && (
-                <button type="button" onClick={() => handleRimuoviElem(index)}>
-                  Rimuovi
-                </button>
-              )}
-            </div>
-          ))}
-          <button type="button" onClick={handleAggiungiElem}>
-            Aggiungi elemento da aggiungere
-          </button>
+      <div className="intestazione">
+        <h2>Liste</h2>
+      </div>
+
+      <div className='listeContainer'>
+        <h5>Nuovo Elemento</h5> <br />
+
+        <div className="liste">
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div className="form-floating">
+                {formData.map((elem, index) => (
+                  <div key={index}>
+                    <br />
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        name="nome"
+                        placeholder="Nome"
+                        onChange={(event) => handleInputChange(event, index)}
+                        required
+                        className="form-control"
+                      />
+                      {index > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => handleRimuoviElem(index)}
+                          className="btn btn-outline-danger"
+                        >
+                          Rimuovi
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <br />
+              <button
+                type="button"
+                onClick={handleAggiungiElem}
+                className="btn btn-outline-success"
+              >
+                Aggiungi un altro elemento
+              </button>
+              <br /><br /><hr />
+              <button type="submit" className="btn btn-success">Aggiungi Elemento</button>
+            </form>
+          </div>
         </div>
-        <br></br>
-        <button type="submit">Aggiungi Elemento</button>
-      </form>
+      </div>
     </>
+
   );
 }
 

@@ -68,6 +68,13 @@ function NuovaRicetta() {
 
   return (
     <>
+
+      <div className="divheader">
+        <div className="intestazione">
+          <h2>Ricette</h2>
+        </div>
+      </div>
+
       <div class="buttonContainer">
         <div class="ricette"><center>
           <h2>Nuova Ricetta</h2>

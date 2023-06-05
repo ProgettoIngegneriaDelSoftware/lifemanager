@@ -5,7 +5,7 @@ function CartaLink({ nome }) {
     return (
         nome,
         < Link to={{ pathname: `/visualizzacarta/${nome}` }}>
-            <button type="button" className="btn btn-outline-secondary">{nome}</button>
+            <button type="button" className="btn btn-outline-dark">{nome}</button>
         </Link >
     );
 }
@@ -53,25 +53,22 @@ function ListaCarte() {
 
     return (
         <>
+
+            <div className="intestazione">
+                <h2>Carte Fedeltà</h2>
+            </div>
+
             <div class="buttonContainer">
                 <center>
                     <div class="cartefed">
-                        <h2>Carte fedeltà</h2>
 
                         <br />
-
-                        <h3>Tutte le carte</h3>
-
-
-                        <br />
-                        <div className="col-8">
-                            {carte.map((carta) => (
-                                <div key={carta.nome}>
-                                    <CartaLink nome={carta.nome} />
-                                    <br />
-                                </div>
-                            ))}
-                        </div>
+                        {carte.map((carta) => (
+                            <div key={carta.nome}>
+                                <CartaLink nome={carta.nome} />
+                                <br />
+                            </div>
+                        ))}
 
                         <br /><hr></hr>
                         <div><a href="/NuovaCarta">

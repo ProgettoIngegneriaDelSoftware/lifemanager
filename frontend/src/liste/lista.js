@@ -199,8 +199,9 @@ function Lista() {
               type="text"
               value={newItemName}
               onChange={(e) => setNewItemName(e.target.value)}
-            />
-            <button onClick={() => handleSaveModifica(item._id)}>Salva</button>
+              class="form-control" placeholder="Nome"
+            /> <br />
+            <button onClick={() => handleSaveModifica(item._id)} className="btn btn-outline-primary">Salva</button>
           </>
         ) : (
           <>

@@ -100,8 +100,10 @@
 
 .cartefed {
   margin: 20px;
+  width: 500px;
   position: relative;
   align-items: center;
+  text-align: center;
 }
 
 .movimenti {

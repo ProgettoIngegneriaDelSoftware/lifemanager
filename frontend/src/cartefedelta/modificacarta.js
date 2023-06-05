@@ -101,9 +101,13 @@ function ModificaCarta() {
     }, [nome]);
     return (
         <>
+
+            <div className="intestazione">
+                <h2>Carte Fedeltà</h2>
+            </div>
             <div class="buttonContainer"><div class="cartefed"><center>
                 <div id="liveAlertPlaceholder"></div>
-                <h2>Modifica carta</h2>
+                <h5>Modifica carta</h5><br />
                 {carta ? (
                     <div>
                         <form onSubmit={handleSubmit}>
