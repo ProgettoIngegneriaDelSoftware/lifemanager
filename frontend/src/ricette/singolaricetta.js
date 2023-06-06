@@ -160,7 +160,7 @@ function SingolaRicetta() {
                 Titolo
               </label>
               <hr></hr>
-              <h4>Ingredienti</h4>
+              <h5>Ingredienti</h5>
               {ingredienti.map((element, index) => (
                 <div key={index} class="input-group">
                   <div class="form-floating col-5"><input
