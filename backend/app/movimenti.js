@@ -85,6 +85,12 @@ router.post("", async (req, res) => {
     return res.status(400).json({ error: "Invalid value for 'tipologia'" });
   }
 
+  if (isNaN(req.body.importo)) {
+    return res
+      .status(400)
+      .json({ error: "The field importo must be a number" });
+  }
+
   let categoria = await CategoriaMovimento.findOneAndUpdate(
     //se nell'inserire un movimento l'utente specifica una categoria non presente nel db, viene aggiunta anche tale categoria
     { nome: req.body.categoria, user: req.loggedUser.id },
