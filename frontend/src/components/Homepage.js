@@ -5,7 +5,7 @@ function Homepage() {
   let [nome, setResult] = useState("");
 
   useEffect(() => {
-    const url = "/api/v1/users/me";
+    const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/users/me";
     const token = localStorage.getItem("token");
 
     const requestOptions = {
