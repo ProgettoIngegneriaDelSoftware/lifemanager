@@ -119,6 +119,11 @@ router.post("/:nome/elementi", async (req, res) => {
       .status(400)
       .json({ error: "Name of the element must be inserted." });
   }
+  if (!Array.isArray(req.body.items)) {
+    return res
+      .status(400)
+      .json({ error: "The field items must be an array of string" });
+  }
   let list = await lista.findOne({
     nome: req.params.nome,
     user: req.loggedUser.id,
@@ -206,7 +211,6 @@ router.delete("/:nome/elementi", async (req, res) => {
 
   res.status(204).send();
 });
-
 
 router.put("/:nome", async (req, res) => {
   let list = await lista.findOne({
