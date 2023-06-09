@@ -84,31 +84,34 @@ router.get("/:nome/elementi/:idElemento", async (req, res) => {
   });
 });
 
-router.post("", async (req, res) => {
-  if (!req.body.nome) {
+router.post("/:nome/elementi", async (req, res) => {
+  if (!req.body.items) {
     return res
       .status(400)
-      .json({ error: "Name of the list must be inserted." });
+      .json({ error: "Name of the element must be inserted." });
   }
-
-  const existingLista = await lista.findOne({
-    nome: req.body.nome,
+  if (!Array.isArray(req.body.items)) {
+    return res
+      .status(400)
+      .json({ error: "The field items must be an array of string" });
+  }
+  let list = await lista.findOne({
+    nome: req.params.nome,
     user: req.loggedUser.id,
   });
-  if (existingLista) {
-    res.status(400).json({ error: "List already exists" });
+  if (!list) {
+    res.status(404).json({ error: "lista not found" });
+    console.log("lista not found");
     return;
   }
+  for (var i = 0; i < req.body.items.length; i++) {
+    list.items.push({ nome: req.body.items[i], constrassegno: false });
 
-  let list = new lista({
-    user: req.loggedUser.id,
-    nome: req.body.nome,
-  });
+    await list.save();
+  }
 
-  list = await list.save();
-  let listId = list.id;
   res
-    .location("/api/v1/liste/" + listId)
+    .location("/api/v1/liste/" + req.params.nome)
     .status(201)
     .send();
 });
