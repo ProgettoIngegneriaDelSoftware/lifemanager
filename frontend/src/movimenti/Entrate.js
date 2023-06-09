@@ -16,7 +16,7 @@ function Entrate() {
     const token = localStorage.getItem('token');
 
     useEffect(() => {
-        const url = `/api/v1/movimenti/tipologia/entrata`;
+        const url = `https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/tipologia/entrata`;
         const token = localStorage.getItem('token');
 
         const requestOptions = {

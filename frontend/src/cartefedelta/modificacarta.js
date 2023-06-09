@@ -37,7 +37,7 @@ function ModificaCarta() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const url = `/api/v1/carte/${nome}`;
+        const url = `https://lifemanagersprint2-backend.onrender.com/api/v1/carte/${nome}`;
         const token = localStorage.getItem('token');
 
         const requestOptions = {
@@ -68,7 +68,7 @@ function ModificaCarta() {
 
     useEffect(() => {
         if (nome) {
-            const url = `/api/v1/carte/${nome}`;
+            const url = `https://lifemanagersprint2-backend.onrender.com/api/v1/carte/${nome}`;
             const token = localStorage.getItem('token');
 
             const requestOptions = {

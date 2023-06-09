@@ -25,7 +25,7 @@ function ModificaMovimento() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const url = `/api/v1/movimenti/${id}`;
+        const urlModifica = `https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/${id}`;
         const token = localStorage.getItem('token');
 
         const requestOptions = {
@@ -37,7 +37,7 @@ function ModificaMovimento() {
             body: JSON.stringify(formData),
         };
 
-        fetch(url, requestOptions)
+        fetch(urlModifica, requestOptions)
             .then((response) => {
                 if (response.ok) {
                     appendAlert('Movimento modificato correttamente', 'primary');
@@ -60,7 +60,7 @@ function ModificaMovimento() {
 
     useEffect(() => {
         if (id) {
-            const url = `/api/v1/movimenti/${id}`;
+            const url = `https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/${id}`;
             const token = localStorage.getItem('token');
 
             const requestOptions = {

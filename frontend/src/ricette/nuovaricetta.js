@@ -36,7 +36,7 @@ function NuovaRicetta() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    const url = "/api/v1/ricette/";
+    const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/ricette/";
 
     const requestOptions = {
       method: "POST",

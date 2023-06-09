@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 function Liste() {
-  const url = "/api/v1/liste/";
+  const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/liste/";
   const token = localStorage.getItem("token");
   const [liste, setListe] = useState([]);
   const [editingList, setEditingList] = useState("");
   const [newListName, setNewListName] = useState("");
 
   const handleElimina = (item) => {
-    const deleteUrl = "/api/v1/liste/" + item;
+    const deleteUrl = url + item;
     const requestOptions = {
       method: "DELETE",
       headers: {
@@ -40,7 +40,7 @@ function Liste() {
   const handleSaveModifica = () => {
     // Implementa la logica per salvare la modifica del nome della lista
     // Puoi utilizzare la variabile "newListName" per ottenere il nuovo nome
-    const url = "/api/v1/liste/" + editingList;
+    const urlModifica = url + editingList;
     const token = localStorage.getItem("token");
 
     const requestOptions = {
@@ -54,7 +54,7 @@ function Liste() {
       }),
     };
 
-    fetch(url, requestOptions)
+    fetch(urlModifica, requestOptions)
       .then((response) => {
         if (response.ok) {
           console.log("Lista modificata");

@@ -6,9 +6,10 @@ function Lista() {
   const [items, setItems] = useState([]);
   const [editingItem, setEditingItem] = useState("");
   const [newItemName, setNewItemName] = useState("");
+  const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/liste/";
 
   const handleCheckboxChange = (itemId, checked) => {
-    const url = "/api/v1/liste/" + nomelista + "/elementi/" + itemId;
+    const urlContrassegno = url + nomelista + "/elementi/" + itemId;
     const token = localStorage.getItem("token");
 
     let contrassegnoValue;
@@ -29,7 +30,7 @@ function Lista() {
       }),
     };
 
-    fetch(url, requestOptions)
+    fetch(urlContrassegno, requestOptions)
       .then((response) => {
         if (response.ok) {
           // Aggiornamento del campo "contrassegno" nel database avvenuto con successo
@@ -44,7 +45,7 @@ function Lista() {
   };
 
   const handleElimina = (item) => {
-    const url = "/api/v1/liste/" + nomelista + "/elementi/" + item._id;
+    const urlElimina = url + nomelista + "/elementi/" + item._id;
     const token = localStorage.getItem("token");
 
     const requestOptions = {
@@ -54,7 +55,7 @@ function Lista() {
         "x-access-token": `${token}`,
       },
     };
-    fetch(url, requestOptions)
+    fetch(urlElimina, requestOptions)
       .then((response) => {
         if (response.ok) {
           console.log("Elemento eliminato");
@@ -75,7 +76,7 @@ function Lista() {
   const handleSaveModifica = (itemId) => {
     console.log(editingItem);
 
-    const url = "/api/v1/liste/" + nomelista + "/elementi/" + itemId;
+    const urlModifica = url + nomelista + "/elementi/" + itemId;
     const token = localStorage.getItem("token");
 
     const requestOptions = {
@@ -89,7 +90,7 @@ function Lista() {
       }),
     };
 
-    fetch(url, requestOptions)
+    fetch(urlModifica, requestOptions)
       .then((response) => {
         if (response.ok) {
           console.log("Ing modificato");
@@ -120,7 +121,7 @@ function Lista() {
   };
 
   const handleSvuota = () => {
-    const url = "/api/v1/liste/" + nomelista + "/elementi";
+    const urlSvuota = url + nomelista + "/elementi";
     const token = localStorage.getItem("token");
 
     const requestOptions = {
@@ -130,7 +131,7 @@ function Lista() {
         "x-access-token": `${token}`,
       },
     };
-    fetch(url, requestOptions)
+    fetch(urlSvuota, requestOptions)
       .then((response) => {
         if (response.ok) {
           console.log("Elemento/i eliminato/i");
@@ -148,7 +149,7 @@ function Lista() {
   };
 
   useEffect(() => {
-    const url = "/api/v1/liste/" + nomelista + "/elementi";
+    const urlElementi = url + nomelista + "/elementi";
     const token = localStorage.getItem("token");
 
     const requestOptions = {
@@ -159,7 +160,7 @@ function Lista() {
       },
     };
 
-    fetch(url, requestOptions)
+    fetch(urlElementi, requestOptions)
       .then((response) => {
         if (response.ok) {
           return response.json();

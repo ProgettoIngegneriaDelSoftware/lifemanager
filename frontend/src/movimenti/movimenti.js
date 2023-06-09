@@ -49,7 +49,7 @@ function Movimenti() {
     var nomeMeseCorrente = nomiMesi[meseCorrente];
 
     useEffect(() => {
-        const url = '/api/v1/movimenti';
+        const url = 'https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti';
         const token = localStorage.getItem('token');
 
         const requestOptions = {
@@ -77,7 +77,7 @@ function Movimenti() {
 
         //--
 
-        const url_cat = '/api/v1/movimenti/categorie';
+        const url_cat = 'https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/categorie';
 
         const requestOptions_cat = {
             method: 'GET',

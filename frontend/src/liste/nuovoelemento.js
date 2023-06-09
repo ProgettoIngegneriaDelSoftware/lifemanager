@@ -28,7 +28,7 @@ function NuovoElemento() {
     event.preventDefault();
     const token = localStorage.getItem("token");
 
-    const url = "/api/v1/liste/" + nomelista + "/elementi";
+    const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/liste/" + nomelista + "/elementi";
     const requestOptions = {
       method: "POST",
       headers: {

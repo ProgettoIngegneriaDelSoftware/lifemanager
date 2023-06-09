@@ -2,6 +2,8 @@ import React, { useEffect, useState, } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 function EliminaMovimento() {
+    const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/"
+
     const { id } = useParams();
     console.log(id);
     const [movimento, setMovimento] = useState(null);
@@ -35,7 +37,7 @@ function EliminaMovimento() {
     }
 
     const handleDelete = () => {
-        const url = `/api/v1/movimenti/${id}`;
+        const urlElimina = url + id;
         const token = localStorage.getItem('token');
 
         const requestOptions = {
@@ -46,7 +48,7 @@ function EliminaMovimento() {
             }
         };
 
-        fetch(url, requestOptions)
+        fetch(urlElimina, requestOptions)
             .then((response) => {
                 if (response.ok) {
                 } else {
@@ -60,8 +62,7 @@ function EliminaMovimento() {
 
     useEffect(() => {
         if (id) {
-            const url = `/api/v1/movimenti/${id}`;
-            console.log(url);
+            const urlMovimento = url + id;
             const token = localStorage.getItem('token');
 
             const requestOptions = {
@@ -72,7 +73,7 @@ function EliminaMovimento() {
                 }
             };
 
-            fetch(url, requestOptions)
+            fetch(urlMovimento, requestOptions)
                 .then((response) => {
                     if (response.ok) {
                         return response.json();

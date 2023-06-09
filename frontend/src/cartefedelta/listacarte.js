@@ -18,7 +18,7 @@ function ListaCarte() {
     const [carte, setCarte] = useState([]);
 
     useEffect(() => {
-        const url = '/api/v1/carte';
+        const url = 'https://lifemanagersprint2-backend.onrender.com/api/v1/carte';
         const token = localStorage.getItem('token');
 
         const requestOptions = {

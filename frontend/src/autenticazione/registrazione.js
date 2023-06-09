@@ -20,7 +20,7 @@ function Registrati() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const url = "/api/v1/users/";
+    const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/users/";
 
     const requestOptions = {
       method: "POST",

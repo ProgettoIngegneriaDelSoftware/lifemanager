@@ -16,7 +16,7 @@ function NuovaLista() {
     event.preventDefault();
     const token = localStorage.getItem('token');
 
-    const url = '/api/v1/liste/';
+    const url = 'https://lifemanagersprint2-backend.onrender.com/api/v1/liste/';
     const requestOptions = {
       method: 'POST',
       headers: {

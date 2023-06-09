@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function Ricette() {
-  const url = "/api/v1/ricette/";
+  const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/ricette/";
   const token = localStorage.getItem("token");
   const [ricette, setRicette] = useState([]);
 

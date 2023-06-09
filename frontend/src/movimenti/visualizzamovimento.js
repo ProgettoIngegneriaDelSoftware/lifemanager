@@ -20,8 +20,7 @@ function VisualizzaMovimento() {
 
     useEffect(() => {
         if (id) {
-            const url = `/api/v1/movimenti/${id}`;
-            console.log(url);
+            const url = `https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/${id}`;
             const token = localStorage.getItem('token');
 
             const requestOptions = {
@@ -56,7 +55,7 @@ function VisualizzaMovimento() {
 
             //--
 
-            const url_cat = '/api/v1/movimenti/categorie/';
+            const url_cat = 'https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/categorie/';
 
             const requestOptions_cat = {
                 method: 'GET',

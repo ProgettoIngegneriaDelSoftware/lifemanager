@@ -14,7 +14,7 @@ function SingolaRicetta() {
   useEffect(() => {
     // Funzione per ottenere i dettagli della ricetta esistente
     const getRicettaDetails = () => {
-      const url = "/api/v1/ricette/" + nomericetta;
+      const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/ricette/" + nomericetta;
       const token = localStorage.getItem("token");
 
       const requestOptions = {
@@ -64,7 +64,7 @@ function SingolaRicetta() {
   };
 
   const handleAggiungiaSpesa = (index, event) => {
-    const url = "/api/v1/liste/Lista della Spesa/elementi";
+    const urlListaSpesa = "https://lifemanagersprint2-backend.onrender.com/api/v1/liste/Lista della Spesa/elementi";
     const token = localStorage.getItem("token");
 
     const requestOptions = {
@@ -78,7 +78,7 @@ function SingolaRicetta() {
       }),
     };
 
-    fetch(url, requestOptions)
+    fetch(urlListaSpesa, requestOptions)
       .then((response) => {
         if (response.ok) {
           console.log("Ingredienti aggiunti correttamente");
@@ -103,7 +103,7 @@ function SingolaRicetta() {
   };
 
   const handleModifica = () => {
-    const url = "/api/v1/ricette/" + nomericetta;
+    const urlModifica = "https://lifemanagersprint2-backend.onrender.com/api/v1/ricette/" + nomericetta;
     const token = localStorage.getItem("token");
 
     const requestOptions = {
@@ -119,7 +119,7 @@ function SingolaRicetta() {
       }),
     };
 
-    fetch(url, requestOptions)
+    fetch(urlModifica, requestOptions)
       .then((response) => {
         if (response.ok) {
           console.log("Ricetta modificata");

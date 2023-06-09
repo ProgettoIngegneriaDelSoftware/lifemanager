@@ -42,7 +42,7 @@ function NuovoMovimento() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const url = '/api/v1/movimenti/';
+        const url = 'https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/';
         const token = localStorage.getItem('token');
 
         const requestOptions = {

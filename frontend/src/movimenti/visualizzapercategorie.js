@@ -17,7 +17,7 @@ function VisualizzaPerCategorie() {
 
     useEffect(() => {
         if (nome) {
-            const url = `/api/v1/movimenti/categorie/${nome}`;
+            const url = `https://lifemanagersprint2-backend.onrender.com/api/v1/movimenti/categorie/${nome}`;
             const token = localStorage.getItem('token');
 
             const requestOptions = {

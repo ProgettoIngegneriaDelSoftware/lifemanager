@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 function ConfermaEmail() {
-    const url = "/api/v1/users/email";
+    const url = "https://lifemanagersprint2-backend.onrender.com/api/v1/users/email";
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const token = queryParams.get("data");
