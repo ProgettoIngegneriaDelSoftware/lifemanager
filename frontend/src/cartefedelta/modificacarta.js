@@ -15,7 +15,8 @@ function ModificaCarta() {
             '</div>'
         ].join('')
 
-        alertPlaceholder.append(wrapper)
+        alertPlaceholder.innerHTML = ''; // Rimuovi gli alert precedenti
+        alertPlaceholder.appendChild(wrapper);
     }
 
     const alertTrigger = document.getElementById('liveAlertBtn')
