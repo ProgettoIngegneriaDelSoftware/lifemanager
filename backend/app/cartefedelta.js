@@ -60,8 +60,8 @@ router.post("", async (req, res) => {
   carta = await carta.save();
   let cardId = carta.id;
   res
-    .location("/api/v1/ricette/" + cardId)
-    .status(201)
+    .location("/api/v1/carte/" + cardId)
+    .status(201).json()
     .send();
 });
 

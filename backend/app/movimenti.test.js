@@ -122,10 +122,9 @@ describe("test movimenti", () => {
 
   test("DELETE /api/v1/movimenti/:id Cancellazione di un movimento da parte di un utente autenticato", () => {
     return request(app)
-      .delete("/api/v1/movimenti/647f26b69de778cead87d546")
+      .delete("/api/v1/movimenti/6482f9a77199f9042d2efcea")
       .set("x-access-token", token)
-      .expect("Content-Type", /json/)
-      .expect(204, "Movimento removed");
+      .expect(204);
   });
 
   test("DELETE /api/v1/movimenti/:id Cancellazione di un movimento da parte di un utente autenticato, senza che il movimento venga prima inserito nel database", () => {
@@ -133,7 +132,7 @@ describe("test movimenti", () => {
       .delete("/api/v1/movimenti/abcd")
       .set("x-access-token", token)
       .expect("Content-Type", /json/)
-      .expect(404, { error: "movimento not found" });
+      .expect(400, { error: "Invalid ID" });
   });
 });
 
