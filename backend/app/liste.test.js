@@ -97,12 +97,21 @@ describe("test liste", () => {
       .expect(404, { error: "lista not found" });
   });
 
-  test("DELETE /api/v1/liste/listanonesistente Cancellazione di una lista da parte di un utente autenticato, senza che la lista venga prima inserita nel database", () => {
+  test("DELETE /api/v1/liste/:nome Cancellazione di una lista da parte di un utente autenticato, senza che la lista venga prima inserita nel database", () => {
     // Esecuzione del test
     return request(app)
       .delete("/api/v1/liste/listanonesistente")
       .set("x-access-token", token)
       .set("Accept", "application/json")
       .expect(404, { error: "lista not found" });
+  });
+
+  test("DELETE /api/v1/liste/:nome Cancellazione di una lista da parte di un utente autenticato", () => {
+    // Esecuzione del test
+    return request(app)
+      .delete("/api/v1/liste/listatest")
+      .set("x-access-token", token)
+      .set("Accept", "application/json")
+      .expect(204);
   });
 });
